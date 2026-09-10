@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Collection | One Gram Gold, Bangles & Perfumes</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS STYLES */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #AA7C11;
+            --burgundy: #4A0E17;
+            --light-bg: #FAF9F6;
+            --dark-text: #222222;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--burgundy);
+            color: var(--gold);
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--burgundy);
+            font-size: 28px;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+            display: block;
+            margin-top: 3px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            align-items: center;
+        }
+
+        .header-icons a {
+            color: var(--dark-text);
+            position: relative;
+            text-decoration: none;
+        }
+
+        .cart-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--burgundy);
+            color: white;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: #ffffff;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h4 {
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #dddddd;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--gold);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Categories Section */
+        .categories, .products, .trust-section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: var(--burgundy);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            display: block;
+            margin: 8px auto 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .cat-card {
+            background: #fff;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+
+        .cat-card i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .cat-card h3 {
+            font-size: 18px;
+            color: var(--burgundy);
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Products Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            position: relative;
+            border: 1px solid #eeeeee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.08);
+        }
+
+        .product-img .tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--burgundy);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+
+        .price {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .new-price {
+            color: var(--burgundy);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 11px;
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #1eb954;
+        }
+
+        /* Trust Factors Section */
+        .trust-section {
+            background-color: #ffffff;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item i {
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .trust-item h4 {
+            font-size: 16px;
+            color: var(--burgundy);
+            margin-bottom: 5px;
+        }
+
+        .trust-item p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--burgundy);
+            color: #fff;
+            padding: 50px 8% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-content h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="top-bar">
+        ✨ ఉగాది ప్రత్యేక ఆఫర్: ఉచిత డెలివరీ & ప్రతి ఆర్డర్‌పై ప్రత్యేక బహుమతి! ✨
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Lucky Collection</h1>
+            <span>ROYAL ELEGANCE</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">హోమ్</a></li>
+                <li><a href="#gold">1 Gram Gold</a></li>
+                <li><a href="#bangles">Bangles</a></li>
+                <li><a href="#perfumes">Perfumes</a></li>
+                <li><a href="#beauty">Beauty Care</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" class="cart-icon"><i class="fa-solid fa-bag-shopping"></i><span class="badge" id="cart-count">0</span></a>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
+            <h2>వన్ గ్రామ్ గోల్డ్ & బ్యూటీ ప్రొడక్ట్స్</h2>
+            <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ మరియు మోడ్రన్ డిజైన్స్.</p>
+            <a href="#products" class="btn-gold">Shop Collection <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
+        <div class="category-grid">
+            <div class="cat-card">
+                <i class="fa-solid fa-gem"></i>
+                <h3>1 Gram Gold</h3>
+            </div>
+            <div class="cat-card">
+                <i class="fa-solid fa-ring"></i>
+                <h3>Designer Bangles</h3>
+            </div>
+            <div class="cat-card">
+                <i class="fa-solid fa-spray-can-sparkles"></i>
+                <h3>Luxury Perfumes</h3>
+            </div>
+            <div class="cat-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Beauty Care</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase -->
+    <section class="products" id="products">
+        <h2 class="section-title">హైలైట్ కలెక్షన్స్</h2>
+        <div class="product-grid">
+
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="tag">HOT</span>
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500" alt="Gold Necklace">
+                </div>
+                <div class="product-info">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
+                    <h3>రాయల్ వన్ గ్రామ్ గోల్డ్ నెక్లెస్</h3>
+                    <div class="price">
+                        <span class="old-price">₹2,999</span>
+                        <span class="new-price">₹1,499</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('రాయల్ వన్ గ్రామ్ గోల్డ్ నెక్లెస్', '1499')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="tag">POPULAR</span>
+                    <img src="https://images.unsplash.com/photo-1611591475155-4282fc289e78?w=500" alt="Bangles">
+                </div>
+                <div class="product-info">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.8)</div>
+                    <h3>గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు</h3>
+                    <div class="price">
+                        <span class="old-price">₹1,499</span>
+                        <span class="new-price">₹799</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు', '799')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <span class="tag">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
+                </div>
+                <div class="product-info">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5.0)</div>
+                    <h3>ప్రీమియం లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్</h3>
+                    <div class="price">
+                        <span class="old-price">₹1,999</span>
+                        <span class="new-price">₹999</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('ప్రీమియం లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', '999')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500" alt="Beauty Product">
+                </div>
+                <div class="product-info">
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.7)</div>
+                    <h3>ఆర్గానిక్ ఫేస్ గ్లో బ్యూటీ కిట్</h3>
+                    <div class="price">
+                        <span class="old-price">₹1,299</span>
+                        <span class="new-price">₹649</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('ఆర్గానిక్ ఫేస్ గ్లో బ్యూటీ కిట్', '649')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trust Factors -->
+    <section class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <i class="fa-solid fa-award"></i>
+                <h4>Real Gold Finish</h4>
+                <p>100% అసలైన బంగారపు మెరుపు</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>Long-Lasting Quality</h4>
+                <p>రంగు మారని గ్యారెంటీ</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Fast Delivery</h4>
+                <p>భద్రమైన వేగవంతమైన డెలివరీ</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-headset"></i>
+                <h4>24/7 Support</h4>
+                <p>వాట్సాప్ ద్వారా నిరంతర సేవలు</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Lucky Collection</h3>
+                <p>వన్ గ్రామ్ గోల్డ్, గాజులు, మరియు ప్రీమియం బ్యూటీ ప్రొడక్ట్స్ కోసం అత్యుత్తమ ఆన్‌లైన్ స్టోర్. రాయల్ లుక్... రీజనబుల్ ప్రైస్!</p>
+            </div>
+            <div class="footer-col">
+                <h3>క్విక్ లింక్స్</h3>
+                <ul>
+                    <li><a href="#">1 Gram Gold Jewellery</a></li>
+                    <li><a href="#">Designer Bangles</a></li>
+                    <li><a href="#">Luxury Perfumes</a></li>
+                    <li><a href="#">Beauty & Skincare</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>సంప్రదించండి</h3>
+                <p><i class="fa-solid fa-location-dot"></i> మెయిన్ రోడ్డు, హైదరాబాదు, తెలంగాణ.</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> info@luckycollection.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Lucky Collection. All Rights Reserved. Designed for Elegance.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // WhatsApp Direct Order Function
+        function orderOnWhatsApp(productName, price) {
+            // మీ ఫోన్ నెంబర్ ఇక్కడ మార్చుకోండి (With Country Code)
+            const phoneNumber = "919876543210"; 
+            
+            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీనిని ఆర్డర్ చేయాలనుకుంటున్నాను. వివరాలు తెలియజేయండి.`;
+            
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
