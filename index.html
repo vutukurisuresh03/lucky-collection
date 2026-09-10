@@ -65,6 +65,7 @@
             font-size: 28px;
             line-height: 1;
             font-weight: 700;
+            cursor: pointer;
         }
 
         .logo span {
@@ -88,6 +89,7 @@
             font-weight: 500;
             transition: 0.3s;
             font-size: 15px;
+            cursor: pointer;
         }
 
         nav ul li a:hover, nav ul li a.active {
@@ -101,10 +103,19 @@
             align-items: center;
         }
 
-        .header-icons a {
+        .header-icons i {
             color: var(--dark-text);
             position: relative;
-            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-icons i:hover {
+            color: var(--gold);
+        }
+
+        .cart-icon {
+            position: relative;
         }
 
         .cart-icon .badge {
@@ -126,7 +137,7 @@
         /* Hero Banner */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
-            height: 80vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             padding: 0 8%;
@@ -178,7 +189,7 @@
 
         /* Categories Section */
         .categories, .products, .trust-section {
-            padding: 70px 8%;
+            padding: 60px 8%;
         }
 
         .section-title {
@@ -201,13 +212,13 @@
 
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
         .cat-card {
             background: #fff;
-            padding: 35px 20px;
+            padding: 30px 20px;
             text-align: center;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
@@ -217,27 +228,28 @@
         }
 
         .cat-card i {
-            font-size: 40px;
+            font-size: 36px;
             color: var(--gold);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .cat-card h3 {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--burgundy);
         }
 
-        .cat-card:hover {
-            transform: translateY(-8px);
+        .cat-card:hover, .cat-card.active-cat {
+            transform: translateY(-5px);
             border-color: var(--gold);
+            background-color: #fffdf5;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
 
         /* Products Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
@@ -257,8 +269,9 @@
 
         .product-img {
             position: relative;
-            height: 260px;
+            height: 240px;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .product-img img {
@@ -285,23 +298,23 @@
         }
 
         .product-info {
-            padding: 20px;
+            padding: 18px;
         }
 
         .stars {
             color: var(--gold);
-            font-size: 13px;
+            font-size: 12px;
             margin-bottom: 5px;
         }
 
         .product-info h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
+            font-size: 15px;
+            margin-bottom: 8px;
             color: var(--dark-text);
         }
 
         .price {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -310,18 +323,38 @@
         .old-price {
             text-decoration: line-through;
             color: #888;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .new-price {
             color: var(--burgundy);
             font-weight: 700;
-            font-size: 18px;
+            font-size: 17px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .add-cart-icon-btn {
+            background: #f0f0f0;
+            color: var(--dark-text);
+            border: none;
+            padding: 10px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-cart-icon-btn:hover {
+            background: var(--gold);
+            color: #fff;
         }
 
         .add-to-cart-btn {
-            width: 100%;
-            padding: 11px;
+            flex: 1;
+            padding: 10px;
             background-color: var(--whatsapp-green);
             color: #fff;
             border: none;
@@ -331,8 +364,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 14px;
+            gap: 6px;
+            font-size: 13px;
             transition: 0.3s;
         }
 
@@ -355,90 +388,173 @@
         }
 
         .trust-item i {
-            font-size: 36px;
+            font-size: 32px;
             color: var(--gold);
             margin-bottom: 10px;
         }
 
         .trust-item h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--burgundy);
             margin-bottom: 5px;
         }
 
         .trust-item p {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
+        }
+
+        /* Modals & Cart Sidebar */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+            z-index: 2001;
+            transition: 0.4s;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            font-size: 13px;
+        }
+
+        .cart-item-details p {
+            font-size: 12px;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        .cart-footer {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         /* Footer */
         footer {
             background-color: var(--burgundy);
             color: #fff;
-            padding: 50px 8% 20px;
+            padding: 40px 8% 20px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .footer-col h3 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 22px;
-            margin-bottom: 15px;
+            font-size: 20px;
+            margin-bottom: 12px;
         }
 
-        .footer-col p {
-            font-size: 14px;
+        .footer-col p, .footer-col ul li a {
+            font-size: 13px;
             color: #ccc;
             line-height: 1.6;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #ccc;
             text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
         }
 
-        .footer-col ul li a:hover {
-            color: var(--gold);
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
 
         .copyright {
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            font-size: 13px;
+            padding-top: 15px;
+            font-size: 12px;
             color: #aaa;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero-content h2 {
-                font-size: 32px;
-            }
+            header { flex-direction: column; gap: 12px; }
+            nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; }
+            .hero-content h2 { font-size: 30px; }
+            .cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
@@ -451,23 +567,26 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="logo">
+        <div class="logo" onclick="filterProducts('all')">
             <h1>Lucky Collection</h1>
             <span>ROYAL ELEGANCE</span>
         </div>
         <nav>
             <ul>
-                <li><a href="#" class="active">హోమ్</a></li>
-                <li><a href="#gold">1 Gram Gold</a></li>
-                <li><a href="#bangles">Bangles</a></li>
-                <li><a href="#perfumes">Perfumes</a></li>
-                <li><a href="#beauty">Beauty Care</a></li>
+                <li><a onclick="filterProducts('all')" class="nav-link active">హోమ్</a></li>
+                <li><a onclick="filterProducts('gold')" class="nav-link">1 Gram Gold</a></li>
+                <li><a onclick="filterProducts('bangles')" class="nav-link">Bangles</a></li>
+                <li><a onclick="filterProducts('perfumes')" class="nav-link">Perfumes</a></li>
+                <li><a onclick="filterProducts('beauty')" class="nav-link">Beauty Care</a></li>
             </ul>
         </nav>
         <div class="header-icons">
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
-            <a href="#" class="cart-icon"><i class="fa-solid fa-bag-shopping"></i><span class="badge" id="cart-count">0</span></a>
+            <i class="fa-solid fa-magnifying-glass" onclick="toggleSearchModal()"></i>
+            <i class="fa-regular fa-heart" onclick="showNotification('విష్‌లిస్ట్ త్వరలో అందుబాటులోకి వస్తుంది!')"></i>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="badge" id="cart-count">0</span>
+            </div>
         </div>
     </header>
 
@@ -477,7 +596,7 @@
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
             <h2>వన్ గ్రామ్ గోల్డ్ & బ్యూటీ ప్రొడక్ట్స్</h2>
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ మరియు మోడ్రన్ డిజైన్స్.</p>
-            <a href="#products" class="btn-gold">Shop Collection <i class="fa-solid fa-arrow-right"></i></a>
+            <button onclick="scrollToProducts()" class="btn-gold">Shop Collection <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </section>
 
@@ -485,19 +604,23 @@
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
-            <div class="cat-card">
+            <div class="cat-card active-cat" onclick="filterProducts('all', this)">
+                <i class="fa-solid fa-border-all"></i>
+                <h3>అన్ని ప్రొడక్ట్స్</h3>
+            </div>
+            <div class="cat-card" onclick="filterProducts('gold', this)">
                 <i class="fa-solid fa-gem"></i>
                 <h3>1 Gram Gold</h3>
             </div>
-            <div class="cat-card">
+            <div class="cat-card" onclick="filterProducts('bangles', this)">
                 <i class="fa-solid fa-ring"></i>
                 <h3>Designer Bangles</h3>
             </div>
-            <div class="cat-card">
+            <div class="cat-card" onclick="filterProducts('perfumes', this)">
                 <i class="fa-solid fa-spray-can-sparkles"></i>
                 <h3>Luxury Perfumes</h3>
             </div>
-            <div class="cat-card">
+            <div class="cat-card" onclick="filterProducts('beauty', this)">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <h3>Beauty Care</h3>
             </div>
@@ -506,76 +629,9 @@
 
     <!-- Products Showcase -->
     <section class="products" id="products">
-        <h2 class="section-title">హైలైట్ కలెక్షన్స్</h2>
-        <div class="product-grid">
-
-            <!-- Product Card 1 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="tag">HOT</span>
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500" alt="Gold Necklace">
-                </div>
-                <div class="product-info">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
-                    <h3>రాయల్ వన్ గ్రామ్ గోల్డ్ నెక్లెస్</h3>
-                    <div class="price">
-                        <span class="old-price">₹2,999</span>
-                        <span class="new-price">₹1,499</span>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('రాయల్ వన్ గ్రామ్ గోల్డ్ నెక్లెస్', '1499')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
-                </div>
-            </div>
-
-            <!-- Product Card 2 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="tag">POPULAR</span>
-                    <img src="https://images.unsplash.com/photo-1611591475155-4282fc289e78?w=500" alt="Bangles">
-                </div>
-                <div class="product-info">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.8)</div>
-                    <h3>గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు</h3>
-                    <div class="price">
-                        <span class="old-price">₹1,499</span>
-                        <span class="new-price">₹799</span>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు', '799')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
-                </div>
-            </div>
-
-            <!-- Product Card 3 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <span class="tag">NEW</span>
-                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
-                </div>
-                <div class="product-info">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5.0)</div>
-                    <h3>ప్రీమియం లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్</h3>
-                    <div class="price">
-                        <span class="old-price">₹1,999</span>
-                        <span class="new-price">₹999</span>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('ప్రీమియం లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', '999')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
-                </div>
-            </div>
-
-            <!-- Product Card 4 -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500" alt="Beauty Product">
-                </div>
-                <div class="product-info">
-                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.7)</div>
-                    <h3>ఆర్గానిక్ ఫేస్ గ్లో బ్యూటీ కిట్</h3>
-                    <div class="price">
-                        <span class="old-price">₹1,299</span>
-                        <span class="new-price">₹649</span>
-                    </div>
-                    <button class="add-to-cart-btn" onclick="orderOnWhatsApp('ఆర్గానిక్ ఫేస్ గ్లో బ్యూటీ కిట్', '649')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
-                </div>
-            </div>
-
+        <h2 class="section-title" id="product-title">హైలైట్ కలెక్షన్స్</h2>
+        <div class="product-grid" id="product-list">
+            <!-- JavaScript నింపి చూపిస్తుంది -->
         </div>
     </section>
 
@@ -605,46 +661,251 @@
         </div>
     </section>
 
+    <!-- Cart Sidebar Popup -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>మీ షాపింగ్ కార్ట్</h3>
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>మొత్తం:</span>
+                <span id="cart-total-price">₹0</span>
+            </div>
+            <button class="add-to-cart-btn" style="width: 100%;" onclick="checkoutCart()"><i class="fa-brands fa-whatsapp"></i> అన్నిటినీ ఆర్డర్ చేయండి</button>
+        </div>
+    </div>
+
+    <!-- Search Modal Popup -->
+    <div class="modal" id="search-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleSearchModal()">&times;</span>
+            <h3 style="margin-bottom: 15px; color: var(--burgundy);">ప్రొడక్ట్ శోధించండి</h3>
+            <input type="text" id="search-input" placeholder="ఉదా: నెక్లెస్, గాజులు, పర్ఫ్యూమ్..." onkeyup="searchProducts()" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content" id="modal-product-details">
+            <!-- Dynamic Content -->
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>Lucky Collection</h3>
-                <p>వన్ గ్రామ్ గోల్డ్, గాజులు, మరియు ప్రీమియం బ్యూటీ ప్రొడక్ట్స్ కోసం అత్యుత్తమ ఆన్‌లైన్ స్టోర్. రాయల్ లుక్... రీజనబుల్ ప్రైస్!</p>
+                <p>వన్ గ్రామ్ గోల్డ్, గాజులు, మరియు ప్రీమియం బ్యూటీ ప్రొడక్ట్స్ కోసం అత్యుత్తమ ఆన్‌లైన్ స్టోర్.</p>
             </div>
             <div class="footer-col">
                 <h3>క్విక్ లింక్స్</h3>
                 <ul>
-                    <li><a href="#">1 Gram Gold Jewellery</a></li>
-                    <li><a href="#">Designer Bangles</a></li>
-                    <li><a href="#">Luxury Perfumes</a></li>
-                    <li><a href="#">Beauty & Skincare</a></li>
+                    <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
+                    <li><a onclick="filterProducts('bangles')">Designer Bangles</a></li>
+                    <li><a onclick="filterProducts('perfumes')">Luxury Perfumes</a></li>
+                    <li><a onclick="filterProducts('beauty')">Beauty Care</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>సంప్రదించండి</h3>
-                <p><i class="fa-solid fa-location-dot"></i> మెయిన్ రోడ్డు, హైదరాబాదు, తెలంగాణ.</p>
+                <p><i class="fa-solid fa-location-dot"></i> హైదరాబాదు, తెలంగాణ.</p>
                 <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fa-solid fa-envelope"></i> info@luckycollection.com</p>
             </div>
         </div>
         <div class="copyright">
-            © 2026 Lucky Collection. All Rights Reserved. Designed for Elegance.
+            © 2026 Lucky Collection. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // WhatsApp Direct Order Function
+        // Products Data List
+        const products = [
+            { id: 1, category: 'gold', name: 'రాయల్ వన్ గ్రామ్ గోల్డ్ నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500', tag: 'HOT' },
+            { id: 2, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు', oldPrice: 1499, newPrice: 799, img: 'https://images.unsplash.com/photo-1611591475155-4282fc289e78?w=500', tag: 'POPULAR' },
+            { id: 3, category: 'perfumes', name: 'ప్రీమియం లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=500', tag: 'NEW' },
+            { id: 4, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో బ్యూటీ కిట్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500', tag: 'SALE' },
+            { id: 5, category: 'gold', name: 'లక్ష్మీ దేవి గోల్డ్ ప్లాటెడ్ హారం', oldPrice: 3499, newPrice: 1899, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500', tag: 'ROYAL' },
+            { id: 6, category: 'bangles', name: 'ట్రెడిషనల్ బ్రైడల్ గాజుల సెట్', oldPrice: 2199, newPrice: 1199, img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500', tag: 'NEW' }
+        ];
+
+        let cart = [];
+
+        // Load Products On Page Load
+        window.onload = () => {
+            renderProducts(products);
+        };
+
+        // Render Products to HTML
+        function renderProducts(items) {
+            const container = document.getElementById('product-list');
+            container.innerHTML = '';
+
+            if (items.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #888;">ఏ ప్రొడక్ట్స్ దొరకలేదు.</p>`;
+                return;
+            }
+
+            items.forEach(prod => {
+                container.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-img" onclick="showProductDetails(${prod.id})">
+                            <span class="tag">${prod.tag}</span>
+                            <img src="${prod.img}" alt="${prod.name}">
+                        </div>
+                        <div class="product-info">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
+                            <h3>${prod.name}</h3>
+                            <div class="price">
+                                <span class="old-price">₹${prod.oldPrice}</span>
+                                <span class="new-price">₹${prod.newPrice}</span>
+                            </div>
+                            <div class="btn-group">
+                                <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
+                                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${prod.name}', '${prod.newPrice}')"><i class="fa-brands fa-whatsapp"></i> బై నౌ</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Products by Category
+        function filterProducts(cat, element = null) {
+            let filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            renderProducts(filtered);
+
+            // Active category tab styling
+            if(element) {
+                document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
+                element.classList.add('active-cat');
+            }
+
+            scrollToProducts();
+        }
+
+        // Add Product to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCartUI();
+            showNotification(`'${product.name}' కార్ట్‌లో యాడ్ అయింది!`);
+        }
+
+        // Update Cart UI
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total-price');
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
+                totalEl.innerText = '₹0';
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.newPrice;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>₹${item.newPrice}</p>
+                        </div>
+                        <i class="fa-solid fa-trash" style="color: red; cursor: pointer;" onclick="removeFromCart(${index})"></i>
+                    </div>
+                `;
+            });
+
+            totalEl.innerText = `₹${total}`;
+        }
+
+        // Remove from Cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Toggle Cart Sidebar
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('open');
+        }
+
+        // Search Modal Toggle
+        function toggleSearchModal() {
+            const modal = document.getElementById('search-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Real-time Search Logic
+        function searchProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const results = products.filter(p => p.name.toLowerCase().includes(query));
+            renderProducts(results);
+        }
+
+        // Show Product Details Modal
+        function showProductDetails(id) {
+            const product = products.find(p => p.id === id);
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('modal-product-details');
+
+            content.innerHTML = `
+                <span class="close-btn" onclick="closeProductModal()">&times;</span>
+                <img src="${product.img}" style="width:100%; height:200px; object-fit:cover; border-radius:6px; margin-bottom:15px;">
+                <h3 style="color:var(--burgundy); margin-bottom:10px;">${product.name}</h3>
+                <p style="font-size:13px; color:#666; margin-bottom:15px;">ఈ ప్రొడక్ట్ అత్యుత్తమ క్వాలిటీతో తయారు చేయబడింది. రంగు మారదు, ప్రీమియం లుక్ ఇస్తుంది.</p>
+                <div class="price" style="margin-bottom:15px;">
+                    <span class="old-price">₹${product.oldPrice}</span>
+                    <span class="new-price">₹${product.newPrice}</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${product.name}', '${product.newPrice}')"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
+            `;
+            modal.style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').style.display = 'none';
+        }
+
+        // Direct WhatsApp Order Function
         function orderOnWhatsApp(productName, price) {
-            // మీ ఫోన్ నెంబర్ ఇక్కడ మార్చుకోండి (With Country Code)
             const phoneNumber = "919876543210"; 
-            
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీనిని ఆర్డర్ చేయాలనుకుంటున్నాను. వివరాలు తెలియజేయండి.`;
-            
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-            
-            window.open(whatsappUrl, '_blank');
+            const message = `నమస్కారం! నేను Lucky Collection లో ఇది చూడడం జరిగింది:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీనిని ఆర్డర్ చేయాలనుకుంటున్నాను.`;
+            window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+        }
+
+        // Checkout Entire Cart via WhatsApp
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
+                return;
+            }
+            const phoneNumber = "919876543210";
+            let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
+            let total = cart.reduce((sum, item) => sum + item.newPrice, 0);
+
+            const message = `నమస్కారం! నేను Lucky Collection లో ఈ క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*మొత్తం ధర:* ₹${total}`;
+            window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+        }
+
+        // Scroll to Products
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Custom Notification Alert
+        function showNotification(msg) {
+            alert(msg);
         }
     </script>
 </body>
