@@ -121,7 +121,7 @@
 
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
             min-height: 65vh;
             display: flex;
             align-items: center;
@@ -164,10 +164,10 @@
 
         .btn-gold:hover { background-color: var(--dark-gold); }
 
-        /* MAGICAL OFFER BOX STYLES */
-        .magic-offer-box {
+        /* MAGICAL OFFER TRIGGER BOX */
+        .magic-offer-card {
             background: rgba(255, 255, 255, 0.95);
-            border: 3px solid var(--gold);
+            border: 2px solid var(--gold);
             border-radius: 15px;
             padding: 25px;
             max-width: 380px;
@@ -176,35 +176,24 @@
             color: var(--dark-text);
             text-align: center;
             position: relative;
-            animation: pulseGlow 2s infinite alternate;
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
-            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9); }
-        }
-
-        .magic-offer-box h3 {
+        .magic-offer-card h3 {
             color: var(--burgundy);
             font-size: 18px;
             margin-bottom: 10px;
             font-weight: 700;
         }
 
-        .magic-offer-box p {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
         .offer-input-group {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 15px;
         }
 
         .offer-input-group input {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 14px;
@@ -213,58 +202,127 @@
         }
 
         .offer-btn {
-            background: var(--burgundy);
+            background: linear-gradient(135deg, var(--burgundy), #2b080d);
             color: var(--gold);
-            border: none;
-            padding: 10px;
+            border: 1px solid var(--gold);
+            padding: 12px;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
+            font-size: 14px;
         }
 
         .offer-btn:hover {
-            background: #33080e;
+            transform: scale(1.02);
         }
 
-        .coupon-result {
+        /* POPUP MODAL FOR MAGIC OFFER */
+        .magic-modal {
             display: none;
-            margin-top: 15px;
-            background: #fdf8e7;
-            padding: 12px;
-            border: 1px dashed var(--gold);
-            border-radius: 8px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .magic-modal-content {
+            background: #ffffff;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+            animation: modalOpen 0.5s ease-out;
+        }
+
+        @keyframes modalOpen {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .coupon-box-animated {
+            background: #fffdf2;
+            border: 2px dashed var(--gold);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
         }
 
         .coupon-code {
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--burgundy);
-            letter-spacing: 2px;
-            margin: 5px 0;
+            letter-spacing: 3px;
+            margin: 8px 0;
         }
 
         .copy-btn {
             background: var(--gold);
             color: #fff;
             border: none;
-            padding: 5px 15px;
-            font-size: 12px;
+            padding: 8px 20px;
+            font-size: 13px;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 5px;
+            font-weight: 600;
         }
 
-        .rental-notice {
-            display: none;
+        /* FADING RENTAL NOTICE BANNER */
+        .rental-popup-notice {
+            opacity: 0;
+            visibility: hidden;
+            background: linear-gradient(135deg, #fff3cd, #ffecb5);
+            border: 2px solid var(--gold);
+            padding: 15px;
+            border-radius: 10px;
             margin-top: 15px;
-            background: #eef9f2;
-            border: 1px solid var(--whatsapp-green);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #1b5e20;
+            color: var(--burgundy);
+            font-size: 13px;
             font-weight: 600;
+            line-height: 1.5;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        .rental-popup-notice.show-notice {
+            opacity: 1;
+            visibility: visible;
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.8); }
+        }
+
+        .call-now-modal-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: var(--call-blue);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
         }
 
         /* ABOUT FOUNDER SECTION */
@@ -317,7 +375,7 @@
         }
 
         /* Categories Section */
-        .categories, .products, .trust-section { padding: 50px 8%; }
+        .categories, .products { padding: 50px 8%; }
 
         .section-title {
             text-align: center;
@@ -588,7 +646,7 @@
         </div>
     </header>
 
-    <!-- Hero Banner with Magical Offer Box -->
+    <!-- Hero Banner with Magical Offer Trigger Box -->
     <section class="hero">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
@@ -597,29 +655,41 @@
             <button onclick="scrollToProducts()" class="btn-gold" style="margin-top: 15px;">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <!-- MAGICAL OFFER BOX -->
-        <div class="magic-offer-box">
+        <!-- MAGICAL OFFER CARD -->
+        <div class="magic-offer-card">
             <h3><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--gold);"></i> మ్యాజికల్ ఆఫర్ బాక్స్</h3>
-            <p>ఈరోజు మీ మొబైల్ పై ప్రత్యేక ఆఫర్ తెలుసుకోవడానికి మీ నంబర్ ఎంటర్ చేయండి!</p>
+            <p style="font-size: 13px; color: #555;">ఈరోజు మీ మొబైల్ నంబర్ పై ఉన్న ప్రత్యేక ఆఫర్ కోడ్ అన్‌లాక్ చేయండి!</p>
             
-            <div class="offer-input-group" id="offer-form">
-                <input type="tel" id="user-mobile" placeholder="మొబైల్ నంబర్ ఎంటర్ చేయండి" maxlength="10">
-                <button class="offer-btn" onclick="generateDiscountOffer()"><i class="fa-solid fa-gift"></i> ఆఫర్ చూడండి</button>
-            </div>
-
-            <!-- Coupon Display Result -->
-            <div class="coupon-result" id="coupon-result">
-                <p style="margin: 0; font-weight: bold; color: green;" id="discount-msg"></p>
-                <div class="coupon-code" id="coupon-code-text"></div>
-                <button class="copy-btn" onclick="copyCouponCode()"><i class="fa-solid fa-copy"></i> Copy Code</button>
-            </div>
-
-            <!-- Rental Notice Message -->
-            <div class="rental-notice" id="rental-notice">
-                ✨ <strong>లక్కీ కలెక్షన్ స్పెషల్:</strong> వివాహాది శుభకార్యాలకు, మీ ఇంట్లో ఉన్న ఫంక్షన్లకు అద్దెకు నగలు ఇవ్వబడును!
+            <div class="offer-input-group">
+                <input type="tel" id="user-mobile" placeholder="10 అంకెల మొబైల్ నంబర్" maxlength="10">
+                <button class="offer-btn" onclick="openMagicOfferModal()"><i class="fa-solid fa-gift"></i> ఆఫర్ అన్‌లాక్ చేయండి</button>
             </div>
         </div>
     </section>
+
+    <!-- POPUP MODAL FOR MAGIC OFFER -->
+    <div class="magic-modal" id="magicModal">
+        <div class="magic-modal-content">
+            <span class="close-modal" onclick="closeMagicModal()">&times;</span>
+            <i class="fa-solid fa-box-open" style="font-size: 45px; color: var(--gold); margin-bottom: 10px;"></i>
+            <h3 style="color: var(--burgundy); font-size: 20px;">🎉 అభినందనలు!</h3>
+            
+            <div class="coupon-box-animated">
+                <p style="margin: 0; font-weight: 600; color: #2e7d32;" id="discount-msg">మీ ఆర్డర్ పై ప్రత్యేక డిస్కౌంట్ లభించింది!</p>
+                <div class="coupon-code" id="coupon-code-text">LUCKY10</div>
+                <button class="copy-btn" onclick="copyCouponCode()"><i class="fa-solid fa-copy"></i> Copy Code</button>
+            </div>
+
+            <!-- FADING RENTAL NOTICE BANNER -->
+            <div class="rental-popup-notice" id="rentalNotice">
+                👑 <strong>వివాహాది శుభకార్యాలకు, మీ ఇంట్లో ఉన్న ఫంక్షన్‌కి అయినా నగలు అద్దెకి ఇవ్వబడును!</strong><br>
+                ఇప్పుడే వీటిపై ఉన్న ఆఫర్లు తెలుసుకోవడానికి కాల్ చేయండి.
+                <div>
+                    <a href="tel:919876543210" class="call-now-modal-btn"><i class="fa-solid fa-phone"></i> Direct Call</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
@@ -784,7 +854,8 @@
 
         let cart = [];
         let appliedDiscountPercent = 0;
-        let generatedCouponCode = "";
+        let activeCouponCode = "";
+        let fadeInterval = null;
 
         window.onload = () => { renderProducts(products); };
 
@@ -837,42 +908,64 @@
             scrollToProducts();
         }
 
-        /* MAGICAL OFFER LOGIC */
-        function generateDiscountOffer() {
-            const mobile = document.getElementById('user-mobile').value;
+        /* DETERMINISTIC DISCOUNT & MAGICAL POPUP LOGIC */
+        function openMagicOfferModal() {
+            const mobile = document.getElementById('user-mobile').value.trim();
             if (mobile.length !== 10 || isNaN(mobile)) {
                 alert('దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ ఎంటర్ చేయండి!');
                 return;
             }
 
-            // నంబర్ చివరి డిజిట్ ఆధారంగా డిస్కౌంట్ కేటాయించడం
-            const lastDigit = parseInt(mobile.slice(-1));
-            let discount = 10;
-            if (lastDigit >= 4 && lastDigit <= 7) {
-                discount = 15;
-            } else if (lastDigit > 7) {
-                discount = 20;
+            // ఒకే మొబైల్ నంబర్‌కు ఎల్లప్పుడూ ఒకే డిస్కౌంట్ వచ్చేలా హ్యాష్ లాజిక్
+            let sum = 0;
+            for (let i = 0; i < mobile.length; i++) {
+                sum += parseInt(mobile[i]);
             }
 
-            generatedCouponCode = `LUCKY${discount}`;
+            let discount = 10;
+            if (sum % 3 === 0) {
+                discount = 20;
+            } else if (sum % 2 === 0) {
+                discount = 15;
+            } else {
+                discount = 10;
+            }
 
-            document.getElementById('offer-form').style.display = 'none';
-            document.getElementById('discount-msg').innerText = `🎉 మీ ఆర్డర్ పై ${discount}% డిస్కౌంట్ లభించింది!`;
-            document.getElementById('coupon-code-text').innerText = generatedCouponCode;
-            document.getElementById('coupon-result').style.display = 'block';
+            activeCouponCode = `LUCKY${discount}`;
 
-            // డిస్కౌంట్ కోడ్ కాపీ చేయగానే ఫంక్షన్ల నగల నోటీసు వస్తుంది
+            document.getElementById('discount-msg').innerText = `మీ మొబైల్ నంబర్ పై ${discount}% డిస్కౌంట్ లభించింది!`;
+            document.getElementById('coupon-code-text').innerText = activeCouponCode;
+
+            // మోడల్ ఓపెన్ చేయడం
+            document.getElementById('magicModal').style.display = 'flex';
+
+            // 1.5 సెకన్ల తర్వాత రెంటల్ నోటీసు ఫేడ్ ఇన్-అవుట్ అవ్వడం ప్రారంభమవుతుంది
+            if (fadeInterval) clearInterval(fadeInterval);
+            
+            setTimeout(() => {
+                triggerRentalNoticeAnimation();
+            }, 1000);
+        }
+
+        function triggerRentalNoticeAnimation() {
+            const rentalNotice = document.getElementById('rentalNotice');
+            rentalNotice.classList.add('show-notice');
+
+            // మళ్లీ మళ్లీ మాయమై ప్రత్యక్షమవడం (Looping Smooth Fade Effect)
+            fadeInterval = setInterval(() => {
+                rentalNotice.classList.toggle('show-notice');
+            }, 4000);
+        }
+
+        function closeMagicModal() {
+            document.getElementById('magicModal').style.display = 'none';
+            if (fadeInterval) clearInterval(fadeInterval);
         }
 
         function copyCouponCode() {
-            navigator.clipboard.writeText(generatedCouponCode);
-            alert(`కూపన్ కోడ్ '${generatedCouponCode}' కాపీ అయింది! కార్ట్‌లో అప్లై చేసుకోండి.`);
-            
-            // వివాహాది శుభకార్యాల మెసేజ్ డిస్ప్లే
-            document.getElementById('rental-notice').style.display = 'block';
-            
-            // ఆటోమాటిక్‌గా కార్ట్ ఇన్‌పుట్ బాక్స్‌లో కూపన్ కోడ్ ఫిల్ చేయడం
-            document.getElementById('cart-coupon-input').value = generatedCouponCode;
+            navigator.clipboard.writeText(activeCouponCode);
+            alert(`కూపన్ కోడ్ '${activeCouponCode}' కాపీ అయింది! షాపింగ్ కార్ట్‌లో అప్లై చేసుకోండి.`);
+            document.getElementById('cart-coupon-input').value = activeCouponCode;
         }
 
         /* CART LOGIC */
