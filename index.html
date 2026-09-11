@@ -501,7 +501,7 @@
         </div>
     </section>
 
-    <!-- Categories Section (Updated Fixed Image URLs) -->
+    <!-- CATEGORIES SECTION (సరిచేసిన ఇమేజ్ URL లు) -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
@@ -509,15 +509,15 @@
             <!-- 1 Gram Gold Card -->
             <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="1 Gram Gold" onerror="this.src='https://via.placeholder.com/100?text=Gold';">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400" alt="1 Gram Gold" onerror="this.src='https://via.placeholder.com/100?text=Gold';">
                 </div>
                 <h3>1 Gram Gold (10)</h3>
             </div>
 
-            <!-- Designer Bangles Card (Fixed URL) -->
+            <!-- Designer Bangles Card -->
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" alt="Designer Bangles" onerror="this.src='https://via.placeholder.com/100?text=Bangles';">
+                    <img src="https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400" alt="Designer Bangles" onerror="this.src='https://via.placeholder.com/100?text=Bangles';">
                 </div>
                 <h3>Designer Bangles (10)</h3>
             </div>
@@ -533,7 +533,7 @@
             <!-- Beauty Care Card -->
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/100?text=Beauty';">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/100?text=Beauty';">
                 </div>
                 <h3>Beauty Care (10)</h3>
             </div>
@@ -588,56 +588,56 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const phoneNo = "919876543210"; // మీ నంబర్ ఇక్కడ మార్చండి
+        const phoneNo = "919876543210"; // మీ ఫోన్ నంబర్
 
         const products = [
             // 1 GRAM GOLD (10)
-            { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'images/gold1.jpg', tag: 'HOT' },
-            { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'images/gold2.jpg', tag: 'ROYAL' },
-            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'images/gold3.jpg', tag: 'POPULAR' },
-            { id: 4, category: 'gold', name: 'గోల్డ్ ప్లేటెడ్ చౌకర్ సెట్', oldPrice: 1999, newPrice: 999, img: 'images/gold4.jpg', tag: 'BEST' },
-            { id: 5, category: 'gold', name: 'ప్రీమియం మ్యాట్ ఫినిష్ హారం', oldPrice: 3999, newPrice: 2199, img: 'images/gold5.jpg', tag: 'NEW' },
-            { id: 6, category: 'gold', name: 'జూకీ టైప్ గోల్డ్ జుంకీలు', oldPrice: 1199, newPrice: 599, img: 'images/gold6.jpg', tag: 'HOT' },
-            { id: 7, category: 'gold', name: 'సీజెడ్ స్టోన్ వర్క్ పత్తల హారం', oldPrice: 2799, newPrice: 1399, img: 'images/gold7.jpg', tag: 'SALE' },
-            { id: 8, category: 'gold', name: 'రాయల్ గుండ్లమాల చెయిన్', oldPrice: 2299, newPrice: 1099, img: 'images/gold8.jpg', tag: 'POPULAR' },
-            { id: 9, category: 'gold', name: 'సింపుల్ డైలీవేర్ గోల్డ్ చెయిన్', oldPrice: 999, newPrice: 499, img: 'images/gold9.jpg', tag: 'BEST' },
-            { id: 10, category: 'gold', name: 'బ్రైడల్ కంప్లీట్ జ్యువెలరీ సెట్', oldPrice: 5999, newPrice: 2999, img: 'images/gold10.jpg', tag: 'ROYAL' },
+            { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400', tag: 'HOT' },
+            { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400', tag: 'ROYAL' },
+            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'POPULAR' },
+            { id: 4, category: 'gold', name: 'గోల్డ్ ప్లేటెడ్ చౌకర్ సెట్', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400', tag: 'BEST' },
+            { id: 5, category: 'gold', name: 'ప్రీమియం మ్యాట్ ఫినిష్ హారం', oldPrice: 3999, newPrice: 2199, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400', tag: 'NEW' },
+            { id: 6, category: 'gold', name: 'జూకీ టైప్ గోల్డ్ జుంకీలు', oldPrice: 1199, newPrice: 599, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400', tag: 'HOT' },
+            { id: 7, category: 'gold', name: 'సీజెడ్ స్టోన్ వర్క్ పత్తల హారం', oldPrice: 2799, newPrice: 1399, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'SALE' },
+            { id: 8, category: 'gold', name: 'రాయల్ గుండ్లమాల చెయిన్', oldPrice: 2299, newPrice: 1099, img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400', tag: 'POPULAR' },
+            { id: 9, category: 'gold', name: 'సింపుల్ డైలీవేర్ గోల్డ్ చెయిన్', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400', tag: 'BEST' },
+            { id: 10, category: 'gold', name: 'బ్రైడల్ కంప్లీట్ జ్యువెలరీ సెట్', oldPrice: 5999, newPrice: 2999, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400', tag: 'ROYAL' },
 
             // BANGLES (10)
-            { id: 11, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు (4 సెట్)', oldPrice: 1499, newPrice: 799, img: 'images/bangle1.jpg', tag: 'HOT' },
-            { id: 12, category: 'bangles', name: 'బ్రైడల్ రెడ్ & గోల్డ్ మ్యాచింగ్ గాజులు', oldPrice: 1999, newPrice: 999, img: 'images/bangle2.jpg', tag: 'ROYAL' },
-            { id: 13, category: 'bangles', name: 'లక్ష్మీ కాసుల డిజైన్ గోల్డ్ కడాలు', oldPrice: 1299, newPrice: 649, img: 'images/bangle3.jpg', tag: 'POPULAR' },
-            { id: 14, category: 'bangles', name: 'మ్యాట్ ఫినిషింగ్ రాతి గాజులు', oldPrice: 1699, newPrice: 849, img: 'images/bangle4.jpg', tag: 'NEW' },
-            { id: 15, category: 'bangles', name: 'సింపుల్ గోల్డ్ కటింగ్ డేలీవేర్ గాజులు', oldPrice: 899, newPrice: 449, img: 'images/bangle5.jpg', tag: 'BEST' },
-            { id: 16, category: 'bangles', name: 'వెల్వెట్ & గోల్డ్ మిక్సింగ్ గాజుల సెట్', oldPrice: 1199, newPrice: 599, img: 'images/bangle6.jpg', tag: 'HOT' },
-            { id: 17, category: 'bangles', name: 'ట్రెడిషనల్ కెంపుల రాతి కడాలు', oldPrice: 1799, newPrice: 899, img: 'images/bangle7.jpg', tag: 'SALE' },
-            { id: 18, category: 'bangles', name: 'రాయల్ పీకాక్ డిజైన్ గాజులు', oldPrice: 2199, newPrice: 1099, img: 'images/bangle8.jpg', tag: 'ROYAL' },
-            { id: 19, category: 'bangles', name: 'గ్లాస్ & గోల్డ్ కాంబినేషన్ సెట్', oldPrice: 799, newPrice: 399, img: 'images/bangle9.jpg', tag: 'BEST' },
-            { id: 20, category: 'bangles', name: 'హెవీ ఫంక్షన్ వేర్ గాజుల బాక్స్', oldPrice: 2499, newPrice: 1249, img: 'images/bangle10.jpg', tag: 'NEW' },
+            { id: 11, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు (4 సెట్)', oldPrice: 1499, newPrice: 799, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'HOT' },
+            { id: 12, category: 'bangles', name: 'బ్రైడల్ రెడ్ & గోల్డ్ మ్యాచింగ్ గాజులు', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'ROYAL' },
+            { id: 13, category: 'bangles', name: 'లక్ష్మీ కాసుల డిజైన్ గోల్డ్ కడాలు', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'POPULAR' },
+            { id: 14, category: 'bangles', name: 'మ్యాట్ ఫినిషింగ్ రాతి గాజులు', oldPrice: 1699, newPrice: 849, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'NEW' },
+            { id: 15, category: 'bangles', name: 'సింపుల్ గోల్డ్ కటింగ్ డేలీవేర్ గాజులు', oldPrice: 899, newPrice: 449, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'BEST' },
+            { id: 16, category: 'bangles', name: 'వెల్వెట్ & గోల్డ్ మిక్సింగ్ గాజుల సెట్', oldPrice: 1199, newPrice: 599, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'HOT' },
+            { id: 17, category: 'bangles', name: 'ట్రెడిషనల్ కెంపుల రాతి కడాలు', oldPrice: 1799, newPrice: 899, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'SALE' },
+            { id: 18, category: 'bangles', name: 'రాయల్ పీకాక్ డిజైన్ గాజులు', oldPrice: 2199, newPrice: 1099, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'ROYAL' },
+            { id: 19, category: 'bangles', name: 'గ్లాస్ & గోల్డ్ కాంబినేషన్ సెట్', oldPrice: 799, newPrice: 399, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'BEST' },
+            { id: 20, category: 'bangles', name: 'హెవీ ఫంక్షన్ వేర్ గాజుల బాక్స్', oldPrice: 2499, newPrice: 1249, img: 'https://images.unsplash.com/photo-1611591475140-4388cf14dd55?w=400', tag: 'NEW' },
 
             // PERFUMES (10)
-            { id: 21, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'images/perfume1.jpg', tag: 'ROYAL' },
-            { id: 22, category: 'perfumes', name: 'లాంగ్ లాస్టింగ్ రోజ్ ఫ్రాగ్రెన్స్', oldPrice: 1499, newPrice: 699, img: 'images/perfume2.jpg', tag: 'HOT' },
-            { id: 23, category: 'perfumes', name: 'ఫ్రెంచ్ జాస్మిన్ లగ్జరీ స్ప్రే', oldPrice: 1799, newPrice: 899, img: 'images/perfume3.jpg', tag: 'POPULAR' },
-            { id: 24, category: 'perfumes', name: 'పాకెట్ అత్తర్ నాన్-ఆల్కహాలిక్', oldPrice: 599, newPrice: 299, img: 'images/perfume4.jpg', tag: 'BEST' },
-            { id: 25, category: 'perfumes', name: 'సమ్మర్ ఫ్రెష్ సిట్రస్ పర్ఫ్యూమ్', oldPrice: 1299, newPrice: 599, img: 'images/perfume5.jpg', tag: 'NEW' },
-            { id: 26, category: 'perfumes', name: 'రాయల్ చందనం ప్రీమియం బాడీ మిస్ట్', oldPrice: 1599, newPrice: 799, img: 'images/perfume6.jpg', tag: 'HOT' },
-            { id: 27, category: 'perfumes', name: 'నైట్ పార్టీ డిజైనర్ పర్ఫ్యూమ్', oldPrice: 2199, newPrice: 1099, img: 'images/perfume7.jpg', tag: 'ROYAL' },
-            { id: 28, category: 'perfumes', name: 'ఫ్లోరల్ క్లాసిక్ ఉమెన్స్ పర్ఫ్యూమ్', oldPrice: 1399, newPrice: 649, img: 'images/perfume8.jpg', tag: 'SALE' },
-            { id: 29, category: 'perfumes', name: 'వెనిల్లా స్వీట్ ఫ్రాగ్రెన్స్ స్ప్రే', oldPrice: 1199, newPrice: 549, img: 'images/perfume9.jpg', tag: 'BEST' },
-            { id: 30, category: 'perfumes', name: 'లగ్జరీ పర్ఫ్యూమ్ కాంబో ప్యాక్ (3 సెట్)', oldPrice: 2999, newPrice: 1499, img: 'images/perfume10.jpg', tag: 'NEW' },
+            { id: 21, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
+            { id: 22, category: 'perfumes', name: 'లాంగ్ లాస్టింగ్ రోజ్ ఫ్రాగ్రెన్స్', oldPrice: 1499, newPrice: 699, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'HOT' },
+            { id: 23, category: 'perfumes', name: 'ఫ్రెంచ్ జాస్మిన్ లగ్జరీ స్ప్రే', oldPrice: 1799, newPrice: 899, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'POPULAR' },
+            { id: 24, category: 'perfumes', name: 'పాకెట్ అత్తర్ నాన్-ఆల్కహాలిక్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
+            { id: 25, category: 'perfumes', name: 'సమ్మర్ ఫ్రెష్ సిట్రస్ పర్ఫ్యూమ్', oldPrice: 1299, newPrice: 599, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'NEW' },
+            { id: 26, category: 'perfumes', name: 'రాయల్ చందనం ప్రీమియం బాడీ మిస్ట్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'HOT' },
+            { id: 27, category: 'perfumes', name: 'నైట్ పార్టీ డిజైనర్ పర్ఫ్యూమ్', oldPrice: 2199, newPrice: 1099, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
+            { id: 28, category: 'perfumes', name: 'ఫ్లోరల్ క్లాసిక్ ఉమెన్స్ పర్ఫ్యూమ్', oldPrice: 1399, newPrice: 649, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'SALE' },
+            { id: 29, category: 'perfumes', name: 'వెనిల్లా స్వీట్ ఫ్రాగ్రెన్స్ స్ప్రే', oldPrice: 1199, newPrice: 549, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
+            { id: 30, category: 'perfumes', name: 'లగ్జరీ పర్ఫ్యూమ్ కాంబో ప్యాక్ (3 సెట్)', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'NEW' },
 
             // BEAUTY CARE (10)
-            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'images/beauty1.jpg', tag: 'HOT' },
-            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం ఫేస్ సీరమ్', oldPrice: 1599, newPrice: 799, img: 'images/beauty2.jpg', tag: 'BEST' },
-            { id: 33, category: 'beauty', name: 'హెర్బల్ హెయిర్ గ్రోత్ ఆయిల్ (200ml)', oldPrice: 999, newPrice: 499, img: 'images/beauty3.jpg', tag: 'POPULAR' },
-            { id: 34, category: 'beauty', name: 'ఎలోవెరా ప్యూర్ స్కిన్ జెల్', oldPrice: 499, newPrice: 249, img: 'images/beauty4.jpg', tag: 'SALE' },
-            { id: 35, category: 'beauty', name: 'నేచురల్ లిప్ బాల్మ్ & స్క్రబ్ కిట్', oldPrice: 699, newPrice: 349, img: 'images/beauty5.jpg', tag: 'NEW' },
-            { id: 36, category: 'beauty', name: 'రోజ్ వాటర్ టోనర్ స్ప్రే', oldPrice: 399, newPrice: 199, img: 'images/beauty6.jpg', tag: 'BEST' },
-            { id: 37, category: 'beauty', name: 'చందనం ఫేస్ ప్యాక్ పౌడర్', oldPrice: 599, newPrice: 299, img: 'images/beauty7.jpg', tag: 'HOT' },
-            { id: 38, category: 'beauty', name: 'విటమిన్ C బ్రైటెనింగ్ ఫేస్ వాష్', oldPrice: 799, newPrice: 399, img: 'images/beauty8.jpg', tag: 'POPULAR' },
-            { id: 39, category: 'beauty', name: 'సన్ స్క్రీన్ లోషన్ SPF 50', oldPrice: 899, newPrice: 449, img: 'images/beauty9.jpg', tag: 'BEST' },
-            { id: 40, category: 'beauty', name: 'కంప్యూటర్ ఐ-కేర్ అండర్ ఐ క్రీమ్', oldPrice: 999, newPrice: 499, img: 'images/beauty10.jpg', tag: 'NEW' }
+            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' },
+            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం ఫేస్ సీరమ్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
+            { id: 33, category: 'beauty', name: 'హెర్బల్ హెయిర్ గ్రోత్ ఆయిల్ (200ml)', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
+            { id: 34, category: 'beauty', name: 'ఎలోవెరా ప్యూర్ స్కిన్ జెల్', oldPrice: 499, newPrice: 249, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'SALE' },
+            { id: 35, category: 'beauty', name: 'నేచురల్ లిప్ బాల్మ్ & స్క్రబ్ కిట్', oldPrice: 699, newPrice: 349, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'NEW' },
+            { id: 36, category: 'beauty', name: 'రోజ్ వాటర్ టోనర్ స్ప్రే', oldPrice: 399, newPrice: 199, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
+            { id: 37, category: 'beauty', name: 'చందనం ఫేస్ ప్యాక్ పౌడర్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' },
+            { id: 38, category: 'beauty', name: 'విటమిన్ C బ్రైటెనింగ్ ఫేస్ వాష్', oldPrice: 799, newPrice: 399, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
+            { id: 39, category: 'beauty', name: 'సన్ స్క్రీన్ లోషన్ SPF 50', oldPrice: 899, newPrice: 449, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
+            { id: 40, category: 'beauty', name: 'కంప్యూటర్ ఐ-కేర్ అండర్ ఐ క్రీమ్', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'NEW' }
         ];
 
         let cart = [];
