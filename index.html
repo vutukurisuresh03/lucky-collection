@@ -210,8 +210,8 @@
             margin-bottom: 20px;
         }
 
-        /* Categories Section */
-        .categories, .products, .trust-section { padding: 50px 8%; }
+        /* CATEGORIES SECTION (Image Cards Design) */
+        .categories, .products { padding: 50px 8%; }
 
         .section-title {
             text-align: center;
@@ -234,30 +234,52 @@
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
         .cat-card {
             background: #fff;
-            padding: 25px 15px;
+            padding: 20px 15px;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            transition: 0.3s;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
             cursor: pointer;
-            border: 1px solid #f0f0f0;
-        }
-
-        .cat-card i {
-            font-size: 32px;
-            color: var(--gold);
-            margin-bottom: 10px;
+            border: 1px solid #eee;
         }
 
         .cat-card:hover, .cat-card.active-cat {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--gold);
-            background-color: #fffdf5;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+            background-color: #fffdf8;
+        }
+
+        .cat-img-box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .cat-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cat-card:hover .cat-img-box img {
+            transform: scale(1.15);
+        }
+
+        .cat-card h3 {
+            font-size: 15px;
+            color: var(--burgundy);
+            font-weight: 600;
         }
 
         /* Products Grid */
@@ -411,8 +433,6 @@
 
         .footer-col h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; margin-bottom: 12px; }
         .footer-col p, .footer-col ul li a { font-size: 13px; color: #ccc; line-height: 1.6; text-decoration: none; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 8px; }
 
         .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 12px; color: #aaa; }
 
@@ -433,13 +453,12 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="logo" onclick="filterProducts('all')">
+        <div class="logo" onclick="filterProducts('gold')">
             <h1>Lucky Collection</h1>
             <span>ROYAL ELEGANCE</span>
         </div>
         <nav>
             <ul>
-                <li><a onclick="filterProducts('all')">హోమ్</a></li>
                 <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
                 <li><a onclick="filterProducts('bangles')">Bangles</a></li>
                 <li><a onclick="filterProducts('perfumes')">Perfumes</a></li>
@@ -467,7 +486,6 @@
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- Desktop/images/founder.png కోసం సరిచేసిన ఇమేజ్ ట్యాగ్ -->
             <img src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='founder.png';">
         </div>
         <div class="founder-info">
@@ -482,36 +500,49 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- Categories Section (With Real Images & No All Products) -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
-            <div class="cat-card active-cat" onclick="filterProducts('all', this)">
-                <i class="fa-solid fa-border-all"></i>
-                <h3>అన్ని ప్రొడక్ట్స్ (40)</h3>
-            </div>
-            <div class="cat-card" onclick="filterProducts('gold', this)">
-                <i class="fa-solid fa-gem"></i>
+            
+            <!-- 1 Gram Gold Card -->
+            <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
+                <div class="cat-img-box">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="1 Gram Gold">
+                </div>
                 <h3>1 Gram Gold (10)</h3>
             </div>
-            <div class="cat-card" onclick="filterProducts('bangles', this)">
-                <i class="fa-solid fa-ring"></i>
+
+            <!-- Designer Bangles Card -->
+            <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
+                <div class="cat-img-box">
+                    <img src="https://images.unsplash.com/photo-1611591475140-438856db0cd1?w=400" alt="Designer Bangles">
+                </div>
                 <h3>Designer Bangles (10)</h3>
             </div>
-            <div class="cat-card" onclick="filterProducts('perfumes', this)">
-                <i class="fa-solid fa-spray-can-sparkles"></i>
+
+            <!-- Perfumes Card -->
+            <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
+                <div class="cat-img-box">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Perfumes">
+                </div>
                 <h3>Perfumes (10)</h3>
             </div>
-            <div class="cat-card" onclick="filterProducts('beauty', this)">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            <!-- Beauty Care Card -->
+            <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
+                <div class="cat-img-box">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Beauty Care">
+                </div>
                 <h3>Beauty Care (10)</h3>
             </div>
+
         </div>
     </section>
 
     <!-- Products Showcase -->
     <section class="products" id="products">
-        <h2 class="section-title" id="product-title">అన్ని ప్రొడక్ట్స్</h2>
+        <h2 class="section-title" id="product-title">1 Gram Gold కలెక్షన్</h2>
         <div class="product-grid" id="product-list">
             <!-- JavaScript ద్వారా లోడ్ అవుతుంది -->
         </div>
@@ -556,7 +587,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const phoneNo = "919876543210"; // ఇక్కడ మీ నంబర్ ఇవ్వండి
+        const phoneNo = "919876543210"; // మీ నంబర్ ఇక్కడ మార్చండి
 
         const products = [
             // 1 GRAM GOLD (10)
@@ -610,7 +641,8 @@
 
         let cart = [];
 
-        window.onload = () => { renderProducts(products); };
+        // ప్రారంభంలోనే 1 Gram Gold ప్రొడక్ట్స్ లోడ్ అవుతాయి
+        window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
 
         function renderProducts(items) {
             const container = document.getElementById('product-list');
@@ -642,23 +674,25 @@
         }
 
         function filterProducts(cat, element = null) {
-            let filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            let filtered = products.filter(p => p.category === cat);
             renderProducts(filtered);
 
+            document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
+            
             if(element) {
-                document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
                 element.classList.add('active-cat');
+            } else {
+                const targetCard = document.getElementById('cat-' + cat);
+                if(targetCard) targetCard.classList.add('active-cat');
             }
 
             const titleMap = {
-                'all': 'అన్ని ప్రొడక్ట్స్ (40)',
                 'gold': '1 Gram Gold కలెక్షన్ (10)',
                 'bangles': 'డిజైనర్ గాజులు (10)',
                 'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్ (10)',
                 'beauty': 'బ్యూటీ కేర్ ప్రొడక్ట్స్ (10)'
             };
             document.getElementById('product-title').innerText = titleMap[cat];
-            scrollToProducts();
         }
 
         function addToCart(productId) {
