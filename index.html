@@ -566,6 +566,19 @@
         .cart-items { flex: 1; overflow-y: auto; }
         .close-btn { font-size: 20px; cursor: pointer; color: #666; }
 
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .cart-item-title { font-size: 12px; font-weight: 600; width: 160px; }
+        .cart-item-price { font-size: 12px; color: var(--burgundy); font-weight: bold; }
+        .remove-item-btn { color: red; cursor: pointer; font-size: 14px; margin-left: 5px; }
+
         /* Footer */
         footer {
             background-color: var(--burgundy);
@@ -635,7 +648,7 @@
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <img src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='founder.png';">
+            <img src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400';">
         </div>
         <div class="founder-info">
             <h3>QUALITY & TRUST</h3>
@@ -794,7 +807,6 @@
             document.getElementById('couponCode').innerText = `PROMO: ${currentOffer.code}`;
             resultBox.style.display = "block";
 
-            // Next time another number is entered, show next offer in cycle (10% -> 15% -> 20% -> 10%)
             offerIndex = (offerIndex + 1) % offerDiscounts.length;
 
             // MAGICAL TRANSITION TO RENTAL BOX AFTER 3.5 SECONDS
@@ -813,6 +825,7 @@
             }, 3500);
         }
 
+        // PRODUCTS DATABASE (40 ITEMS: 10 per category)
         const products = [
             // 1 GRAM GOLD (10)
             { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400', tag: 'HOT' },
@@ -842,97 +855,107 @@
             { id: 21, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
             { id: 22, category: 'perfumes', name: 'లాంగ్ లాస్టింగ్ రోజ్ ఫ్రాగ్రెన్స్', oldPrice: 1499, newPrice: 699, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'HOT' },
             { id: 23, category: 'perfumes', name: 'ఫ్రెంచ్ జాస్మిన్ లగ్జరీ స్ప్రే', oldPrice: 1799, newPrice: 899, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'POPULAR' },
-            { id: 24, category: 'perfumes', name: 'పాకెట్ అత్తర్ నాన్-ఆల్కహాలిక్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
-            { id: 25, category: 'perfumes', name: 'సమ్మర్ ఫ్రెష్ సిట్రస్ పర్ఫ్యూమ్', oldPrice: 1299, newPrice: 599, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'NEW' },
-            { id: 26, category: 'perfumes', name: 'రాయల్ చందనం ప్రీమియం బాడీ మిస్ట్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'HOT' },
-            { id: 27, category: 'perfumes', name: 'నైట్ పార్టీ డిజైనర్ పర్ఫ్యూమ్', oldPrice: 2199, newPrice: 1099, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
-            { id: 28, category: 'perfumes', name: 'ఫ్లోరల్ క్లాసిక్ ఉమెన్స్ పర్ఫ్యూమ్', oldPrice: 1399, newPrice: 649, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'SALE' },
-            { id: 29, category: 'perfumes', name: 'వెనిల్లా స్వీట్ ఫ్రాగ్రెన్స్ స్ప్రే', oldPrice: 1199, newPrice: 549, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
-            { id: 30, category: 'perfumes', name: 'లగ్జరీ పర్ఫ్యూమ్ కాంబో ప్యాక్ (3 సెట్)', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'NEW' },
+            { id: 24, category: 'perfumes', name: 'పాకెట్ అత్తర్ నాన్-ఆల్కహాలిక్ సెట్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
+            { id: 25, category: 'perfumes', name: 'లైట్ ఫ్లోరల్ బాడీ మిస్ట్', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'NEW' },
+            { id: 26, category: 'perfumes', name: 'రాయల్ శాండల్ వుడ్ సెెంట్', oldPrice: 1899, newPrice: 949, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
+            { id: 27, category: 'perfumes', name: 'జెంటల్ ప్యూర్ మస్క్ పర్ఫ్యూమ్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'POPULAR' },
+            { id: 28, category: 'perfumes', name: 'గోల్డెన్ నైట్ రోమాంటిక్ పర్ఫ్యూమ్', oldPrice: 2199, newPrice: 1099, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'HOT' },
+            { id: 29, category: 'perfumes', name: 'లగ్జరీ ఆరబిక్ ఊద్ బాటిల్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'ROYAL' },
+            { id: 30, category: 'perfumes', name: 'డైలీ ఆఫీస్ వేర్ ఫ్రెష్ స్ప్రే', oldPrice: 899, newPrice: 449, img: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', tag: 'BEST' },
 
             // BEAUTY CARE (10)
-            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' },
-            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం ఫేస్ సీరమ్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
-            { id: 33, category: 'beauty', name: 'హెర్బల్ హెయిర్ గ్రోత్ ఆయిల్ (200ml)', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
-            { id: 34, category: 'beauty', name: 'ఎలోవెరా ప్యూర్ స్కిన్ జెల్', oldPrice: 499, newPrice: 249, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'SALE' },
-            { id: 35, category: 'beauty', name: 'నేచురల్ లిప్ బాల్మ్ & స్క్రబ్ కిట్', oldPrice: 699, newPrice: 349, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'NEW' },
-            { id: 36, category: 'beauty', name: 'రోజ్ వాటర్ టోనర్ స్ప్రే', oldPrice: 399, newPrice: 199, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
-            { id: 37, category: 'beauty', name: 'చందనం ఫేస్ ప్యాక్ పౌడర్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' },
-            { id: 38, category: 'beauty', name: 'విటమిన్ C బ్రైటెనింగ్ ఫేస్ వాష్', oldPrice: 799, newPrice: 399, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
-            { id: 39, category: 'beauty', name: 'సన్ స్క్రీన్ లోషన్ SPF 50', oldPrice: 899, newPrice: 449, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
-            { id: 40, category: 'beauty', name: 'కంప్యూటర్ ఐ-కేర్ అండర్ ఐ క్రీమ్', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'NEW' }
+            { id: 31, category: 'beauty', name: 'హెర్బల్ గ్లోయింగ్ ఫేస్ సీరమ్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' },
+            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం స్కిన్ బ్రైట్నింగ్', oldPrice: 1599, newPrice: 799, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'ROYAL' },
+            { id: 33, category: 'beauty', name: 'ఆర్గానిక్ ఆలోవెరా బాడీ లోషన్', oldPrice: 799, newPrice: 399, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
+            { id: 34, category: 'beauty', name: 'న్యాచురల్ లిప్ కేర్ కిట్', oldPrice: 499, newPrice: 249, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
+            { id: 35, category: 'beauty', name: 'ఆయుర్వేదిక్ హెయిర్ గ్రోత్ ఆయిల్', oldPrice: 999, newPrice: 499, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'NEW' },
+            { id: 36, category: 'beauty', name: 'గోల్డ్ ఫేషియల్ విత్ విటమిన్ సి కిట్', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'ROYAL' },
+            { id: 37, category: 'beauty', name: 'చందనం & పసుపు ఫేస్ ప్యాక్', oldPrice: 599, newPrice: 299, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'BEST' },
+            { id: 38, category: 'beauty', name: 'రోజ్ వాటర్ టోనర్ అండ్ మిస్ట్', oldPrice: 399, newPrice: 199, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'SALE' },
+            { id: 39, category: 'beauty', name: 'ప్రీమియం మేకప్ బ్రష్ సెట్', oldPrice: 1199, newPrice: 599, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'POPULAR' },
+            { id: 40, category: 'beauty', name: 'యాంటీ-ఏజింగ్ నైట్ క్రీమ్', oldPrice: 1499, newPrice: 749, img: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400', tag: 'HOT' }
         ];
 
         let cart = [];
 
-        window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
+        function renderProducts(categoryFilter = 'gold') {
+            const grid = document.getElementById('product-list');
+            grid.innerHTML = '';
 
-        function renderProducts(items) {
-            const container = document.getElementById('product-list');
-            container.innerHTML = '';
+            const categoryTitles = {
+                'gold': '1 Gram Gold కలెక్షన్',
+                'bangles': 'డిజైనర్ బ్యాంగిల్స్ కలెక్షన్',
+                'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్ కలెక్షన్',
+                'beauty': 'బ్యూటీ కేర్ కలెక్షన్'
+            };
 
-            items.forEach(prod => {
-                container.innerHTML += `
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="tag">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/250x230?text=Lucky+Collection'">
+            document.getElementById('product-title').innerText = categoryTitles[categoryFilter] || 'మా కలెక్షన్';
+
+            const filtered = products.filter(p => p.category === categoryFilter);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img">
+                        <span class="tag">${p.tag}</span>
+                        <img src="${p.img}" alt="${p.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="stars">★★★★★</div>
+                        <h3>${p.name}</h3>
+                        <div class="price">
+                            <span class="old-price">₹${p.oldPrice}</span>
+                            <span class="new-price">₹${p.newPrice}</span>
                         </div>
-                        <div class="product-info">
-                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
-                            <h3>${prod.name}</h3>
-                            <div class="price">
-                                <span class="old-price">₹${prod.oldPrice}</span>
-                                <span class="new-price">₹${prod.newPrice}</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
-                                <a href="tel:${phoneNo}" class="call-now-btn"><i class="fa-solid fa-phone"></i> కాల్</a>
-                                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${prod.name}', '${prod.newPrice}')"><i class="fa-brands fa-whatsapp"></i> Chat</button>
-                            </div>
+                        <div class="btn-group">
+                            <button class="add-cart-icon-btn" onclick="addToCart(${p.id})"><i class="fa-solid fa-cart-plus"></i></button>
+                            <a class="add-to-cart-btn" onclick="orderOnWhatsApp('${p.name}', ${p.newPrice})"><i class="fa-brands fa-whatsapp"></i> Buy Now</a>
                         </div>
                     </div>
                 `;
+                grid.appendChild(card);
             });
         }
 
         function filterProducts(cat, element = null) {
-            let filtered = products.filter(p => p.category === cat);
-            renderProducts(filtered);
-
-            document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
-            
             if(element) {
+                document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active-cat'));
                 element.classList.add('active-cat');
             } else {
-                const targetCard = document.getElementById('cat-' + cat);
-                if(targetCard) targetCard.classList.add('active-cat');
+                document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active-cat'));
+                const active = document.getElementById(`cat-${cat}`);
+                if(active) active.classList.add('active-cat');
             }
+            renderProducts(cat);
+            scrollToProducts();
+        }
 
-            const titleMap = {
-                'gold': '1 Gram Gold కలెక్షన్ (10)',
-                'bangles': 'డిజైనర్ గాజులు (10)',
-                'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్ (10)',
-                'beauty': 'బ్యూటీ కేర్ ప్రొడక్ట్స్ (10)'
-            };
-            document.getElementById('product-title').innerText = titleMap[cat];
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         }
 
         function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            cart.push(product);
+            const item = products.find(p => p.id === productId);
+            if(item) {
+                cart.push(item);
+                updateCartUI();
+                toggleCart(true);
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
             updateCartUI();
-            alert(`'${product.name}' కార్ట్‌లో యాడ్ అయింది!`);
         }
 
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items-container');
-            const totalEl = document.getElementById('cart-total-price');
-
-            if (cart.length === 0) {
-                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
-                totalEl.innerText = '₹0';
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>';
+                document.getElementById('cart-total-price').innerText = '₹0';
                 return;
             }
 
@@ -941,50 +964,58 @@
 
             cart.forEach((item, index) => {
                 total += item.newPrice;
-                container.innerHTML += `
-                    <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/50'">
-                        <div style="flex:1;">
-                            <h4 style="font-size:12px;">${item.name}</h4>
-                            <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
-                        </div>
-                        <i class="fa-solid fa-trash" style="color: red; cursor: pointer;" onclick="removeFromCart(${index})"></i>
-                    </div>
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <span class="cart-item-title">${item.name}</span>
+                    <span class="cart-item-price">₹${item.newPrice}</span>
+                    <i class="fa-solid fa-trash remove-item-btn" onclick="removeFromCart(${index})"></i>
                 `;
+                container.appendChild(div);
             });
 
-            totalEl.innerText = `₹${total}`;
+            document.getElementById('cart-total-price').innerText = `₹${total}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
+        function toggleCart(forceOpen = false) {
+            const sidebar = document.getElementById('cart-sidebar');
+            if(forceOpen) {
+                sidebar.classList.add('open');
+            } else {
+                sidebar.classList.toggle('open');
+            }
         }
 
-        function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('open');
-        }
-
-        function orderOnWhatsApp(productName, price) {
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
-            window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
+        function orderOnWhatsApp(itemName, price) {
+            let message = "";
+            if(price === 'RENTAL') {
+                message = `నమస్కారం Lucky Collection, నేను వివాహ నగల అద్దె (Bridal Jewellery Rental) గురించి తెలుసుకోవాలనుకుంటున్నాను.`;
+            } else {
+                message = `నమస్కారం Lucky Collection, నేను ఈ క్రింది ప్రొడక్ట్ ఆర్డర్ చేయాలనుకుంటున్నాను:\n\n*ప్రొడక్ట్:* ${itemName}\n*ధర:* ₹${price}\n\nదయచేసి డెలివరీ వివరాలు తెలియజేయండి.`;
+            }
+            window.open(`https://wa.me/${phoneNo}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         function checkoutCart() {
-            if (cart.length === 0) {
-                alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
+            if(cart.length === 0) {
+                alert("మీ కార్ట్ ఖాళీగా ఉంది!");
                 return;
             }
-            let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
-            let total = cart.reduce((sum, item) => sum + item.newPrice, 0);
 
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*మొత్తం ధర:* ₹${total}`;
-            window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
+            let message = "నమస్కారం Lucky Collection, నేను క్రింది ఐటమ్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:\n\n";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                message += `${i + 1}. ${item.name} - ₹${item.newPrice}\n`;
+                total += item.newPrice;
+            });
+
+            message += `\n*మొత్తం బిల్లు:* ₹${total}\n\nదయచేసి ఆర్డర్ ప్రాసెస్ చేయండి.`;
+            window.open(`https://wa.me/${phoneNo}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        }
+        // INITIAL LOAD
+        renderProducts('gold');
     </script>
 </body>
 </html>
