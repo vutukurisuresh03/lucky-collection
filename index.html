@@ -3,1165 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Collection | Royal Elegance</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Jewelry Store</title>
     <style>
-        :root {
-            --gold: #D4AF37;
-            --dark-gold: #AA7C11;
-            --burgundy: #4A0E17;
-            --light-bg: #FAF9F6;
-            --dark-text: #222222;
-            --whatsapp-green: #25D366;
-            --call-blue: #007bff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
         body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #faf9f6;
+            margin: 0;
+            padding: 20px;
         }
 
-        /* Top Bar */
-        .top-bar {
-            background-color: var(--burgundy);
-            color: var(--gold);
-            text-align: center;
-            padding: 8px;
-            font-size: 13px;
-            letter-spacing: 1px;
-            font-weight: 500;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        /* Header Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo h1 {
-            font-family: 'Playfair Display', serif;
-            color: var(--burgundy);
-            font-size: 28px;
-            line-height: 1;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .logo span {
-            font-size: 9px;
-            letter-spacing: 3px;
-            color: var(--gold);
-            font-weight: 600;
-            display: block;
-            margin-top: 3px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 500;
-            transition: 0.3s;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        nav ul li a:hover { color: var(--gold); }
-
-        .header-icons {
-            display: flex;
-            gap: 20px;
-            font-size: 18px;
-            align-items: center;
-        }
-
-        .cart-icon { position: relative; cursor: pointer; }
-
-        .cart-icon .badge {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background: var(--burgundy);
-            color: white;
-            font-size: 11px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/hero-bg.jpg') center/cover no-repeat;
-            height: 55vh;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-            color: #ffffff;
-            background-color: #333;
-        }
-
-        .hero-content { max-width: 600px; }
-
-        .hero-content h4 {
-            color: var(--gold);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .hero-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .btn-gold {
-            display: inline-block;
-            padding: 12px 32px;
-            background-color: var(--gold);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-gold:hover { background-color: var(--dark-gold); }
-
-        /* ABOUT FOUNDER SECTION */
-        .about-founder {
-            padding: 50px 8%;
-            background: #fff;
-            display: flex;
-            align-items: flex-start;
-            gap: 40px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .founder-img-box {
-            flex: 1;
-            position: relative;
-            text-align: center;
-        }
-
-        .founder-img-box img {
-            width: 100%;
-            max-width: 380px;
-            height: 380px;
+        /* --- Offer Section Styles --- */
+        #offer-section {
+            border: 2px dashed #cca043;
+            background-color: #fffdf5;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 4px solid var(--gold);
-            object-fit: cover;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .upload-btn-wrapper { margin-top: 12px; }
-        .upload-btn-wrapper input[type=file] { display: none; }
-
-        .custom-file-upload {
-            display: inline-block;
-            padding: 8px 16px;
-            cursor: pointer;
-            background: var(--burgundy);
-            color: var(--gold);
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            transition: 0.3s;
+        .offer-title {
+            color: #5c0612;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .custom-file-upload:hover { background: #2d080e; }
-        .founder-info { flex: 1.2; position: relative; }
-
-        .founder-info h3 {
-            color: var(--gold);
-            letter-spacing: 1px;
+        .offer-subtitle {
+            color: #666;
             font-size: 14px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .founder-info h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--burgundy);
-            font-size: 32px;
             margin-bottom: 15px;
         }
 
-        .founder-info p {
-            color: #555;
-            font-size: 15px;
-            line-height: 1.8;
+        .phone-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
-        /* GIFT BOX & OFFER ANIMATION STYLES */
-        .interactive-box-wrapper {
-            margin-top: 25px;
-            position: relative;
-        }
-
-        .gift-box-closed {
-            background: linear-gradient(135deg, #fffdfa 0%, #fff0d4 100%);
-            border: 2px dashed var(--gold);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .gift-box-closed:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .gift-box-icon {
-            font-size: 45px;
-            color: var(--burgundy);
-            margin-bottom: 10px;
-            animation: bounce 1.5s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .offer-card {
-            background: linear-gradient(135deg, #fffdfa 0%, #fff6e6 100%);
-            border: 2px dashed var(--gold);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-            position: relative;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .offer-card h4 {
-            color: var(--burgundy);
-            font-size: 18px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .offer-card p { font-size: 13px; color: #666; margin-bottom: 15px; }
-
-        .offer-input-group { display: flex; gap: 10px; }
-
-        .offer-input-group input {
-            flex: 1;
-            padding: 10px 14px;
+        .phone-input-group input {
+            padding: 10px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 6px;
-            outline: none;
-            font-size: 14px;
+            width: 250px;
         }
 
-        .offer-input-group input:focus { border-color: var(--gold); }
+        .phone-input-group button {
+            background-color: #4a0d0d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-        .offer-btn {
-            background: var(--burgundy);
-            color: var(--gold);
+        .discount-box {
+            border: 1px solid #e0e0e0;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .discount-title {
+            color: #27ae60;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .promo-code {
+            border: 2px dashed #e67e22;
+            background-color: #fef9e7;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        .copy-btn {
+            background-color: #27ae60;
+            color: white;
             border: none;
             padding: 10px 18px;
+            font-size: 14px;
             border-radius: 6px;
-            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .offer-btn:hover { background: #33080e; }
-
-        .offer-result {
-            margin-top: 15px;
-            background: #ffffff;
-            border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            animation: popIn 0.4s ease forwards;
+        .alert-msg {
+            background-color: #fcf3cf;
+            color: #b7950b;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-top: 10px;
         }
 
-        .offer-result h5 { color: #28a745; font-size: 18px; margin-bottom: 4px; }
-
-        .timer-badge {
-            background: #fff3cd;
-            color: #856404;
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-top: 6px;
-            display: inline-block;
-            font-weight: 600;
+        .copied-msg {
+            color: #27ae60;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* MOVING MAGIC ANNOUNCEMENT BOX */
-        .magic-rental-bar {
-            background: linear-gradient(90deg, var(--burgundy), #7a1523, var(--burgundy));
-            color: #ffffff;
-            padding: 12px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-            border-top: 2px solid var(--gold);
-            border-bottom: 2px solid var(--gold);
-            margin: 20px 0;
-        }
-
-        .magic-rental-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 18s linear infinite;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .magic-rental-text i { color: var(--gold); margin: 0 8px; }
-
-        @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-
-        /* CATEGORIES SECTION */
-        .categories, .products { padding: 50px 8%; }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--burgundy);
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            display: block;
-            margin: 8px auto 0;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .cat-card {
-            background: #fff;
-            padding: 20px 15px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid #eee;
-        }
-
-        .cat-card:hover, .cat-card.active-cat {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
-            background-color: #fffdf8;
-        }
-
-        .cat-img-box {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background: #fdfdfd;
-        }
-
-        .cat-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .cat-card:hover .cat-img-box img { transform: scale(1.15); }
-
-        .cat-card h3 { font-size: 15px; color: var(--burgundy); font-weight: 600; }
-
-        /* Products Grid */
+        /* --- Products Grid Styles --- */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
         .product-card {
-            background: #fff;
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #7b0000;
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            font-weight: bold;
+            border-radius: 3px;
+            z-index: 2;
+        }
+
+        /* Upload Container for local file selection */
+        .image-upload-wrapper {
+            width: 100%;
+            height: 200px;
+            border: 2px dashed #ddd;
             border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fafafa;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
             position: relative;
-            border: 1px solid #eeeeee;
+            margin-bottom: 12px;
         }
 
-        .product-card:hover { transform: translateY(-5px); }
-
-        .product-img {
-            position: relative;
-            height: 230px;
-            overflow: hidden;
-            background-color: #f9f9f9;
-        }
-
-        .product-img img {
+        .image-upload-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s;
+            display: none;
         }
 
-        .product-card:hover .product-img img { transform: scale(1.08); }
-
-        .product-img .tag {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--burgundy);
-            color: #fff;
-            padding: 3px 8px;
-            font-size: 10px;
-            font-weight: 600;
-            border-radius: 3px;
-        }
-
-        .product-info { padding: 15px; }
-        .stars { color: var(--gold); font-size: 12px; margin-bottom: 5px; }
-
-        .product-info h3 {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--dark-text);
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .price {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .old-price { text-decoration: line-through; color: #888; font-size: 12px; }
-        .new-price { color: var(--burgundy); font-weight: 700; font-size: 16px; }
-
-        .btn-group { display: flex; gap: 6px; }
-
-        .add-cart-icon-btn {
-            background: #f0f0f0;
-            color: var(--dark-text);
-            border: none;
-            padding: 8px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .add-to-cart-btn {
-            flex: 1;
-            padding: 8px 5px;
-            background-color: var(--whatsapp-green);
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            font-size: 11px;
-            text-decoration: none;
-        }
-
-        .call-now-btn {
-            flex: 1;
-            padding: 8px 5px;
-            background-color: var(--call-blue);
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            font-size: 11px;
-            text-decoration: none;
-        }
-
-        /* Cart Sidebar */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 340px;
-            height: 100%;
-            background: #fff;
-            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
-            z-index: 2001;
-            transition: 0.4s;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-sidebar.open { right: 0; }
-        .cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px; }
-        .cart-items { flex: 1; overflow-y: auto; }
-        .close-btn { font-size: 20px; cursor: pointer; color: #666; }
-        .cart-footer { border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
-
-        /* Cart Coupon Box */
-        .cart-coupon-section {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 15px;
-        }
-
-        .cart-coupon-section input {
-            flex: 1;
-            padding: 6px 10px;
+        .upload-btn-label {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 8px 12px;
             font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            text-transform: uppercase;
         }
 
-        .cart-coupon-section button {
-            background: var(--burgundy);
-            color: var(--gold);
-            border: none;
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 4px;
+        .upload-btn-label:hover {
+            background-color: #d0d0d0;
+        }
+
+        .image-upload-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .rating {
+            color: #f39c12;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .rating span {
+            color: #888;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .price-container {
+            margin: 8px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 13px;
+            margin-right: 8px;
+        }
+
+        .current-price {
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        .btn-cart {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: 600;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--burgundy);
-            color: #fff;
-            padding: 40px 8% 20px;
+        .btn-call {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            flex: 1;
+            font-size: 13px;
+            cursor: pointer;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-col h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; margin-bottom: 12px; }
-        .footer-col p, .footer-col ul li a { font-size: 13px; color: #ccc; line-height: 1.6; text-decoration: none; }
-
-        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 12px; color: #aaa; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 12px; }
-            nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; }
-            .about-founder { flex-direction: column; text-align: center; }
-            .cart-sidebar { width: 100%; right: -100%; }
+        .btn-chat {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            flex: 1;
+            font-size: 13px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
-    <div class="top-bar">
-        ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
-    </div>
+<div class="container">
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="logo" onclick="filterProducts('gold')">
-            <h1>Lucky Collection</h1>
-            <span>ROYAL ELEGANCE</span>
+    <!-- Offer Section -->
+    <div id="offer-section">
+        <div class="offer-title">🎁 ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</div>
+        <div class="offer-subtitle">మీ ఫోన్ నెంబర్ ఎంటర్ చేసి మీ కోసం ఉన్న ప్రత్యేక డిస్కౌంట్ ఆఫర్ ను పొందండి.</div>
+        
+        <div class="phone-input-group">
+            <input type="text" placeholder="ఫోన్ నెంబర్ ఎంటర్ చేయండి" value="9573175587">
+            <button>ఆఫర్ చూడండి</button>
         </div>
-        <nav>
-            <ul>
-                <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
-                <li><a onclick="filterProducts('bangles')">Bangles</a></li>
-                <li><a onclick="filterProducts('perfumes')">Perfumes</a></li>
-                <li><a onclick="filterProducts('beauty')">Beauty Care</a></li>
-            </ul>
-        </nav>
-        <div class="header-icons">
-            <div class="cart-icon" onclick="toggleCart()">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span class="badge" id="cart-count">0</span>
+
+        <div class="discount-box">
+            <div class="discount-title">🎉 మీకు 10% డిస్కౌంట్ లభించింది!</div>
+            <div class="offer-subtitle">ఈ కోడ్‌ను కాపీ చేసి కార్ట్‌లో (Cart) పేస్ట్ చేసి ఆఫర్ పొందండి.</div>
+
+            <div class="code-container">
+                <span class="promo-code" id="promo-code-text">LUCKY10</span>
+                <button class="copy-btn" id="copy-btn" onclick="copyAndHideOffer()">✓ Copy Code</button>
             </div>
-        </div>
-    </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div class="hero-content">
-            <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
-            <h2>1 Gram Gold & బ్యూటీ ప్రొడక్ట్స్</h2>
-            <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్.</p>
-            <button onclick="scrollToProducts()" class="btn-gold">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-    </section>
-
-    <!-- MOVING MAGIC ANNOUNCEMENT BOX -->
-    <div class="magic-rental-bar">
-        <div class="magic-rental-text">
-            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి నగలను అద్దెకు ఇవ్వబడును. పూర్తి వివరాల కోసం ఈ నంబర్‌కు కాల్ చేయండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
+            <div class="alert-msg">⌛ ఆఫర్ సమయం ముగుసింది! దయచేసి కోడ్ త్వరగా ఉపయోగించండి.</div>
+            <div class="copied-msg" id="copied-status" style="display: none;">✓ కోడ్ కాపీ చేయబడింది! కార్ట్‌లో ఉపయోగించండి.</div>
         </div>
     </div>
 
-    <!-- ABOUT FOUNDER SECTION -->
-    <section class="about-founder">
-        <div class="founder-img-box">
-            <!-- Local Founder Photo Path -->
-            <img id="founderPreview" src="images/my-photo.jpg" alt="Lucky Collection Owner" onerror="this.onerror=null; this.src='https://via.placeholder.com/380x380?text=Owner+Photo';">
-            
-            <div class="upload-btn-wrapper">
-                <label for="imageUploader" class="custom-file-upload">
-                    <i class="fa-solid fa-camera"></i> ఫోటో అప్‌లోడ్ చేయండి
-                </label>
-                <input type="file" id="imageUploader" accept="image/*" onchange="previewImage(event)">
+    <!-- Product Grid Section -->
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <span class="badge">HOT</span>
+            <div class="image-upload-wrapper">
+                <img id="img-preview-1" alt="Product Image">
+                <label for="upload-1" class="upload-btn-label" id="label-1">📁 Upload Image</label>
+                <input type="file" id="upload-1" accept="image/*" onchange="previewLocalImage(event, 'img-preview-1', 'label-1')">
+            </div>
+            <div class="rating">★★★★★ <span>(4.9)</span></div>
+            <div class="product-title">రాయల్ లక్ష్మి దేవి నెక్లెస్</div>
+            <div class="price-container">
+                <span class="original-price">₹2999</span>
+                <span class="current-price">₹1499</span>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-cart">🛒</button>
+                <button class="btn-call">📞 కాల్</button>
+                <button class="btn-chat">💬 Chat</button>
             </div>
         </div>
-        <div class="founder-info">
-            <h3>QUALITY & TRUST</h3>
-            <h2>లక్కీ కలెక్షన్ గురించి...</h2>
-            <p>మా లక్కీ కలెక్షన్ లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
-            
-            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-                <button onclick="scrollToProducts()" class="btn-gold">కలెక్షన్స్ చూడండి</button>
-                <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <span class="badge">ROYAL</span>
+            <div class="image-upload-wrapper">
+                <img id="img-preview-2" alt="Product Image">
+                <label for="upload-2" class="upload-btn-label" id="label-2">📁 Upload Image</label>
+                <input type="file" id="upload-2" accept="image/*" onchange="previewLocalImage(event, 'img-preview-2', 'label-2')">
             </div>
-
-            <!-- INTERACTIVE GIFT BOX SECTION -->
-            <div class="interactive-box-wrapper">
-                <div class="gift-box-closed" id="giftBoxClosed" onclick="openGiftBox()">
-                    <div class="gift-box-icon"><i class="fa-solid fa-box-open"></i></div>
-                    <h4 style="color:var(--burgundy); font-weight:700;">🎁 ప్రత్యేక ఆఫర్ పొందడానికి ఇక్కడ క్లిక్ చేయండి!</h4>
-                    <p style="font-size:12px; color:#666; margin-top:4px;">మీ కోసం ఎదురుచూస్తున్న లక్కీ డిస్కౌంట్ బహుమతిని ఓపెన్ చేయండి.</p>
-                </div>
-
-                <div class="offer-card" id="offerBox" style="display: none;">
-                    <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</h4>
-                    <p>మీ ఫోన్ నెంబర్ ఎంటర్ చేసి మీ కోసం ఉన్న ప్రత్యేక డిస్కౌంట్ ఆఫర్‌ను పొందండి.</p>
-                    <div class="offer-input-group">
-                        <input type="tel" id="userPhone" placeholder="మీ ఫోన్ నంబర్ ఇవ్వండి (e.g. 9876543210)" maxlength="10">
-                        <button class="offer-btn" onclick="checkDiscountOffer()">ఆఫర్ చూడండి</button>
-                    </div>
-                    
-                    <div class="offer-result" id="offerResult" style="display: none;">
-                        <h5 id="discountText">🎉 మీకు డిస్కౌంట్ లభించింది!</h5>
-                        <p style="font-size:12px; color:#555; margin: 4px 0 8px 0;">ఈ కోడ్ ఆటోమాటిక్‌గా మీ కార్ట్‌లో అప్లై అయింది!</p>
-                        
-                        <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
-                            <span id="couponCode" style="font-weight: bold; background: #fff3cd; padding: 4px 10px; border: 1px dashed var(--gold); border-radius: 4px;">LUCKY10</span>
-                            <button onclick="copyCouponCode()" id="copyBtn" style="background: var(--gold); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fa-regular fa-copy"></i> Copy</button>
-                        </div>
-
-                        <div id="timerContainer" class="timer-badge">
-                            ⏱️ కాపీ చేయడానికి సమయం: <span id="timerSeconds">30</span> సెకన్లు
-                        </div>
-
-                        <p id="copySuccessMsg" style="color:#28a745; font-weight:600; font-size:12px; margin-top:8px; display:none;">
-                            ✓ కోడ్ కాపీ చేయబడింది & కార్ట్‌లో డైరెక్ట్ ఆఫర్ అప్లై అయింది!
-                        </p>
-                    </div>
-                </div>
+            <div class="rating">★★★★★ <span>(4.9)</span></div>
+            <div class="product-title">ట్రెడిషనల్ మామిడిపిందెల హారం</div>
+            <div class="price-container">
+                <span class="original-price">₹3499</span>
+                <span class="current-price">₹1899</span>
             </div>
-
+            <div class="action-buttons">
+                <button class="btn-cart">🛒</button>
+                <button class="btn-call">📞 కాల్</button>
+                <button class="btn-chat">💬 Chat</button>
+            </div>
         </div>
-    </section>
 
-    <!-- CATEGORIES SECTION -->
-    <section class="categories">
-        <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
-        <div class="category-grid">
-            
-            <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
-                <div class="cat-img-box">
-                    <img src="images/gold-1.jpg" alt="1 Gram Gold" onerror="this.src='https://via.placeholder.com/100?text=Gold'">
-                </div>
-                <h3>1 Gram Gold (10)</h3>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <span class="badge">POPULAR</span>
+            <div class="image-upload-wrapper">
+                <img id="img-preview-3" alt="Product Image">
+                <label for="upload-3" class="upload-btn-label" id="label-3">📁 Upload Image</label>
+                <input type="file" id="upload-3" accept="image/*" onchange="previewLocalImage(event, 'img-preview-3', 'label-3')">
             </div>
-
-            <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
-                <div class="cat-img-box">
-                    <img src="images/bangles-1.jpg" alt="Designer Bangles" onerror="this.src='https://via.placeholder.com/100?text=Bangles'">
-                </div>
-                <h3>Designer Bangles (10)</h3>
+            <div class="rating">★★★★★ <span>(4.9)</span></div>
+            <div class="product-title">రాంపరివార్ లాంగ్ నల్లపూసల గొలుసు</div>
+            <div class="price-container">
+                <span class="original-price">₹2499</span>
+                <span class="current-price">₹1299</span>
             </div>
-
-            <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
-                <div class="cat-img-box">
-                    <img src="images/perfume-1.jpg" alt="Perfumes" onerror="this.src='https://via.placeholder.com/100?text=Perfumes'">
-                </div>
-                <h3>Perfumes (10)</h3>
+            <div class="action-buttons">
+                <button class="btn-cart">🛒</button>
+                <button class="btn-call">📞 కాల్</button>
+                <button class="btn-chat">💬 Chat</button>
             </div>
-
-            <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
-                <div class="cat-img-box">
-                    <img src="images/beauty-1.jpg" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/100?text=Beauty'">
-                </div>
-                <h3>Beauty Care (10)</h3>
-            </div>
-
         </div>
-    </section>
 
-    <!-- PRODUCTS SECTION -->
-    <section class="products" id="products">
-        <h2 class="section-title" id="product-title">1 Gram Gold కలెక్షన్ (10)</h2>
-        <div class="product-grid" id="product-list">
-            <!-- JavaScript ద్వారా ప్రొడక్ట్స్ వస్తాయి -->
+        <!-- Product 4 -->
+        <div class="product-card">
+            <span class="badge">BEST</span>
+            <div class="image-upload-wrapper">
+                <img id="img-preview-4" alt="Product Image">
+                <label for="upload-4" class="upload-btn-label" id="label-4">📁 Upload Image</label>
+                <input type="file" id="upload-4" accept="image/*" onchange="previewLocalImage(event, 'img-preview-4', 'label-4')">
+            </div>
+            <div class="rating">★★★★★ <span>(4.9)</span></div>
+            <div class="product-title">గోల్డ్ ప్లేటెడ్ చౌకర్ సెట్</div>
+            <div class="price-container">
+                <span class="original-price">₹1999</span>
+                <span class="current-price">₹999</span>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-cart">🛒</button>
+                <button class="btn-call">📞 కాల్</button>
+                <button class="btn-chat">💬 Chat</button>
+            </div>
         </div>
-    </section>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3>మీ షాపింగ్ కార్ట్</h3>
-            <span class="close-btn" onclick="toggleCart()">&times;</span>
-        </div>
-        <div class="cart-items" id="cart-items-container">
-            <p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>
-        </div>
-        <div class="cart-footer">
-            
-            <!-- COUPON CODE SECTION IN CART -->
-            <div class="cart-coupon-section">
-                <input type="text" id="cartCouponInput" placeholder="కూపన్ కోడ్ ఎంటర్ చేయండి">
-                <button onclick="applyCartCoupon()">Apply</button>
-            </div>
-            <p id="couponApplyMsg" style="font-size:11px; margin-bottom:8px; display:none;"></p>
-
-            <div style="display:flex; justify-content:space-between; font-size:13px; color:#555; margin-bottom:4px;">
-                <span>సబ్ టోటల్:</span>
-                <span id="cart-subtotal-price">₹0</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; color:#28a745; margin-bottom:8px;">
-                <span>డిస్కౌంట్:</span>
-                <span id="cart-discount-price">-₹0</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:16px; border-top:1px dashed #ccc; padding-top:6px; margin-bottom:15px;">
-                <span>మొత్తం చెల్లించాల్సింది:</span>
-                <span id="cart-total-price" style="color:var(--burgundy);">₹0</span>
-            </div>
-            <button onclick="checkoutCart()" class="add-to-cart-btn" style="width:100%; padding:12px; font-size:14px;"><i class="fa-brands fa-whatsapp"></i> వాట్సాప్‌లో ఆర్డర్ చేయండి</button>
-        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Lucky Collection</h3>
-                <p>అత్యుత్తమ నాణ్యత కలిగిన 1 Gram Gold ఆభరణాలు మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు నమ్మకమైన వేదిక.</p>
-            </div>
-            <div class="footer-col">
-                <h3>త్వరిత లింకులు</h3>
-                <ul>
-                    <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
-                    <li><a onclick="filterProducts('bangles')">మ్యాచింగ్ గాజులు</a></li>
-                    <li><a onclick="filterProducts('perfumes')">సుగంధ పరిమళాలు</a></li>
-                    <li><a onclick="filterProducts('beauty')">బ్యూటీ ప్రొడక్ట్స్</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>సంప్రదించండి</h3>
-                <p><i class="fa-solid fa-location-dot"></i> చీరాల, ఆంధ్రప్రదేశ్</p>
-                <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
-                <p><i class="fa-solid fa-envelope"></i> contact@luckycollection.com</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Lucky Collection. All Rights Reserved.
-        </div>
-    </footer>
+</div>
 
-    <!-- JavaScript Logic -->
-    <script>
-        const phoneNo = "919876543210";
+<script>
+    // Function 1: Copy code and hide the offer section after 3 seconds
+    function copyAndHideOffer() {
+        const codeText = document.getElementById('promo-code-text').innerText;
+        navigator.clipboard.writeText(codeText);
 
-        // Local Image paths for GitHub upload compatibility
-        const products = [
-            // 1 GRAM GOLD (10)
-            { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'images/gold-1.jpg', tag: 'HOT' },
-            { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'images/gold-2.jpg', tag: 'ROYAL' },
-            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'images/gold-3.jpg', tag: 'POPULAR' },
-            { id: 4, category: 'gold', name: 'గోల్డ్ ప్లేటెడ్ చౌకర్ సెట్', oldPrice: 1999, newPrice: 999, img: 'images/gold-4.jpg', tag: 'BEST' },
-            { id: 5, category: 'gold', name: 'ప్రీమియం మ్యాట్ ఫినిష్ హారం', oldPrice: 3999, newPrice: 2199, img: 'images/gold-5.jpg', tag: 'NEW' },
-            { id: 6, category: 'gold', name: 'జూకీ టైప్ గోల్డ్ జుంకీలు', oldPrice: 1199, newPrice: 599, img: 'images/gold-6.jpg', tag: 'HOT' },
-            { id: 7, category: 'gold', name: 'సీజెడ్ స్టోన్ వర్క్ పత్తల హారం', oldPrice: 2799, newPrice: 1399, img: 'images/gold-7.jpg', tag: 'SALE' },
-            { id: 8, category: 'gold', name: 'రాయల్ గుండ్లమాల చెయిన్', oldPrice: 2299, newPrice: 1099, img: 'images/gold-8.jpg', tag: 'POPULAR' },
-            { id: 9, category: 'gold', name: 'సింపుల్ డైలీవేర్ గోల్డ్ చెయిన్', oldPrice: 999, newPrice: 499, img: 'images/gold-9.jpg', tag: 'BEST' },
-            { id: 10, category: 'gold', name: 'బ్రైడల్ కంప్లీట్ జ్యువెలరీ సెట్', oldPrice: 5999, newPrice: 2999, img: 'images/gold-10.jpg', tag: 'ROYAL' },
+        const copyBtn = document.getElementById('copy-btn');
+        const copiedStatus = document.getElementById('copied-status');
+        
+        copyBtn.innerText = "✓ Copied!";
+        copyBtn.style.backgroundColor = "#1e8449";
+        copiedStatus.style.display = "block";
 
-            // BANGLES (10)
-            { id: 11, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు (4 సెట్)', oldPrice: 1499, newPrice: 799, img: 'images/bangles-1.jpg', tag: 'HOT' },
-            { id: 12, category: 'bangles', name: 'బ్రైడల్ రెడ్ & గోల్డ్ మ్యాచింగ్ గాజులు', oldPrice: 1999, newPrice: 999, img: 'images/bangles-2.jpg', tag: 'ROYAL' },
-            { id: 13, category: 'bangles', name: 'లక్ష్మీ కాసుల డిజైన్ గోల్డ్ కడాలు', oldPrice: 1299, newPrice: 649, img: 'images/bangles-3.jpg', tag: 'POPULAR' },
-            { id: 14, category: 'bangles', name: 'మ్యాట్ ఫినిషింగ్ రాతి గాజులు', oldPrice: 1699, newPrice: 849, img: 'images/bangles-4.jpg', tag: 'NEW' },
-            { id: 15, category: 'bangles', name: 'సింపుల్ గోల్డ్ కటింగ్ డేలీవేర్ గాజులు', oldPrice: 899, newPrice: 449, img: 'images/bangles-5.jpg', tag: 'BEST' },
-            { id: 16, category: 'bangles', name: 'వెల్వెట్ & గోల్డ్ మిక్సింగ్ గాజుల సెట్', oldPrice: 1199, newPrice: 599, img: 'images/bangles-6.jpg', tag: 'HOT' },
-            { id: 17, category: 'bangles', name: 'ట్రెడిషనల్ కెంపుల రాతి కడాలు', oldPrice: 1799, newPrice: 899, img: 'images/bangles-7.jpg', tag: 'SALE' },
-            { id: 18, category: 'bangles', name: 'రాయల్ పీకాక్ డిజైన్ గాజులు', oldPrice: 2199, newPrice: 1099, img: 'images/bangles-8.jpg', tag: 'ROYAL' },
-            { id: 19, category: 'bangles', name: 'గ్లాస్ & గోల్డ్ కాంబినేషన్ సెట్', oldPrice: 799, newPrice: 399, img: 'images/bangles-9.jpg', tag: 'BEST' },
-            { id: 20, category: 'bangles', name: 'హెవీ ఫంక్షన్ వేర్ గాజుల బాక్స్', oldPrice: 2499, newPrice: 1249, img: 'images/bangles-10.jpg', tag: 'NEW' },
-
-            // PERFUMES (10)
-            { id: 21, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'images/perfume-1.jpg', tag: 'ROYAL' },
-            { id: 22, category: 'perfumes', name: 'లాంగ్ లాస్టింగ్ రోజ్ ఫ్రాగ్రెన్స్', oldPrice: 1499, newPrice: 699, img: 'images/perfume-2.jpg', tag: 'HOT' },
-            { id: 23, category: 'perfumes', name: 'ఫ్రెంచ్ జాస్మిన్ లగ్జరీ స్ప్రే', oldPrice: 1799, newPrice: 899, img: 'images/perfume-3.jpg', tag: 'POPULAR' },
-            { id: 24, category: 'perfumes', name: 'పాకెట్ అత్తర్ నాన్-ఆల్కహాలిక్', oldPrice: 599, newPrice: 299, img: 'images/perfume-4.jpg', tag: 'BEST' },
-            { id: 25, category: 'perfumes', name: 'సమ్మర్ ఫ్రెష్ సిట్రస్ పర్ఫ్యూమ్', oldPrice: 1299, newPrice: 599, img: 'images/perfume-5.jpg', tag: 'NEW' },
-            { id: 26, category: 'perfumes', name: 'రాయల్ చందనం ప్రీమియం బాడీ మిస్ట్', oldPrice: 1599, newPrice: 799, img: 'images/perfume-6.jpg', tag: 'HOT' },
-            { id: 27, category: 'perfumes', name: 'నైట్ పార్టీ డిజైనర్ పర్ఫ్యూమ్', oldPrice: 2199, newPrice: 1099, img: 'images/perfume-7.jpg', tag: 'ROYAL' },
-            { id: 28, category: 'perfumes', name: 'ఫ్లోరల్ క్లాసిక్ ఉమెన్స్ పర్ఫ్యూమ్', oldPrice: 1399, newPrice: 649, img: 'images/perfume-8.jpg', tag: 'SALE' },
-            { id: 29, category: 'perfumes', name: 'వెనిల్లా స్వీట్ ఫ్రాగ్రెన్స్ స్ప్రే', oldPrice: 1199, newPrice: 549, img: 'images/perfume-9.jpg', tag: 'BEST' },
-            { id: 30, category: 'perfumes', name: 'లగ్జరీ పర్ఫ్యూమ్ కాంబో ప్యాక్ (3 సెట్)', oldPrice: 2999, newPrice: 1499, img: 'images/perfume-10.jpg', tag: 'NEW' },
-
-            // BEAUTY CARE (10)
-            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'images/beauty-1.jpg', tag: 'HOT' },
-            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం ఫేస్ సీరమ్', oldPrice: 1599, newPrice: 799, img: 'images/beauty-2.jpg', tag: 'BEST' },
-            { id: 33, category: 'beauty', name: 'హెర్బల్ హెయిర్ గ్రోత్ ఆయిల్ (200ml)', oldPrice: 999, newPrice: 499, img: 'images/beauty-3.jpg', tag: 'POPULAR' },
-            { id: 34, category: 'beauty', name: 'ఎలోవెరా ప్యూర్ స్కిన్ జెల్', oldPrice: 499, newPrice: 249, img: 'images/beauty-4.jpg', tag: 'SALE' },
-            { id: 35, category: 'beauty', name: 'నేచురల్ లిప్ బాల్మ్ & స్క్రబ్ కిట్', oldPrice: 699, newPrice: 349, img: 'images/beauty-5.jpg', tag: 'NEW' },
-            { id: 36, category: 'beauty', name: 'రోజ్ వాటర్ టోనర్ స్ప్రే', oldPrice: 399, newPrice: 199, img: 'images/beauty-6.jpg', tag: 'BEST' },
-            { id: 37, category: 'beauty', name: 'చందనం ఫేస్ ప్యాక్ పౌడర్', oldPrice: 599, newPrice: 299, img: 'images/beauty-7.jpg', tag: 'HOT' },
-            { id: 38, category: 'beauty', name: 'విటమిన్ C బ్రైటెనింగ్ ఫేస్ వాష్', oldPrice: 799, newPrice: 399, img: 'images/beauty-8.jpg', tag: 'POPULAR' },
-            { id: 39, category: 'beauty', name: 'సన్ స్క్రీన్ లోషన్ SPF 50', oldPrice: 899, newPrice: 449, img: 'images/beauty-9.jpg', tag: 'BEST' },
-            { id: 40, category: 'beauty', name: 'కంప్యూటర్ ఐ-కేర్ అండర్ ఐ క్రీమ్', oldPrice: 999, newPrice: 499, img: 'images/beauty-10.jpg', tag: 'NEW' }
-        ];
-
-        let cart = [];
-        let countdownTimer = null;
-        let activeDiscountPercent = 0;
-        let appliedCouponCode = "";
-
-        window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
-
-        function previewImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('founderPreview').src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function renderProducts(items) {
-            const container = document.getElementById('product-list');
-            container.innerHTML = '';
-
-            items.forEach(prod => {
-                container.innerHTML += `
-                    <div class="product-card">
-                        <div class="product-img">
-                            <span class="tag">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/250x230?text=Product+Image'">
-                        </div>
-                        <div class="product-info">
-                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
-                            <h3>${prod.name}</h3>
-                            <div class="price">
-                                <span class="old-price">₹${prod.oldPrice}</span>
-                                <span class="new-price">₹${prod.newPrice}</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
-                                <a href="tel:${phoneNo}" class="call-now-btn"><i class="fa-solid fa-phone"></i> కాల్</a>
-                                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${prod.name}', ${prod.newPrice})"><i class="fa-brands fa-whatsapp"></i> Chat</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        function filterProducts(cat, element = null) {
-            let filtered = products.filter(p => p.category === cat);
-            renderProducts(filtered);
-
-            document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
+        // Hide the whole offer box after 3 seconds (3000ms)
+        setTimeout(function() {
+            const offerSection = document.getElementById('offer-section');
+            offerSection.style.opacity = '0';
+            offerSection.style.transform = 'scale(0.95)';
             
-            if(element) {
-                element.classList.add('active-cat');
-            } else {
-                const targetCard = document.getElementById('cat-' + cat);
-                if(targetCard) targetCard.classList.add('active-cat');
-            }
+            setTimeout(function() {
+                offerSection.style.display = 'none';
+            }, 500); // smooth animation transition
+        }, 3000);
+    }
 
-            const titleMap = {
-                'gold': '1 Gram Gold కలెక్షన్ (10)',
-                'bangles': 'డిజైనర్ గాజులు (10)',
-                'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్ (10)',
-                'beauty': 'బ్యూటీ కేర్ ప్రొడక్ట్స్ (10)'
-            };
-            document.getElementById('product-title').innerText = titleMap[cat];
-        }
-
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            cart.push(product);
-            updateCartUI();
-            toggleCart(true);
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
-            const container = document.getElementById('cart-items-container');
-            const subtotalEl = document.getElementById('cart-subtotal-price');
-            const discountEl = document.getElementById('cart-discount-price');
-            const totalEl = document.getElementById('cart-total-price');
-
-            if (cart.length === 0) {
-                container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
-                subtotalEl.innerText = '₹0';
-                discountEl.innerText = '-₹0';
-                totalEl.innerText = '₹0';
-                return;
-            }
-
-            container.innerHTML = '';
-            let subtotal = 0;
-
-            cart.forEach((item, index) => {
-                subtotal += item.newPrice;
-                container.innerHTML += `
-                    <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/50'">
-                        <div style="flex:1;">
-                            <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
-                            <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
-                        </div>
-                        <i class="fa-solid fa-trash" style="color: red; cursor: pointer; font-size:14px;" onclick="removeFromCart(${index})"></i>
-                    </div>
-                `;
-            });
-
-            let discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
-            let finalTotal = subtotal - discountAmount;
-
-            subtotalEl.innerText = `₹${subtotal}`;
-            discountEl.innerText = `-₹${discountAmount} (${activeDiscountPercent}%)`;
-            totalEl.innerText = `₹${finalTotal}`;
-        }
-
-        function applyCartCoupon(codeOverride = null) {
-            const inputVal = codeOverride || document.getElementById('cartCouponInput').value.trim().toUpperCase();
-            const msgEl = document.getElementById('couponApplyMsg');
-            document.getElementById('cartCouponInput').value = inputVal;
-
-            if (inputVal === "LUCKY10") {
-                activeDiscountPercent = 10;
-                appliedCouponCode = "LUCKY10";
-                msgEl.style.display = "block";
-                msgEl.style.color = "#28a745";
-                msgEl.innerText = "✓ LUCKY10 (10% డిస్కౌంట్) అప్లై అయ్యింది!";
-            } else if (inputVal === "LUCKY15") {
-                activeDiscountPercent = 15;
-                appliedCouponCode = "LUCKY15";
-                msgEl.style.display = "block";
-                msgEl.style.color = "#28a745";
-                msgEl.innerText = "✓ LUCKY15 (15% డిస్కౌంట్) అప్లై అయ్యింది!";
-            } else if (inputVal === "LUCKY20") {
-                activeDiscountPercent = 20;
-                appliedCouponCode = "LUCKY20";
-                msgEl.style.display = "block";
-                msgEl.style.color = "#28a745";
-                msgEl.innerText = "✓ LUCKY20 (20% డిస్కౌంట్) అప్లై అయ్యింది!";
-            } else {
-                msgEl.style.display = "block";
-                msgEl.style.color = "red";
-                msgEl.innerText = "❌ సరైన కూపన్ కోడ్ ఎంటర్ చేయండి!";
-                return;
-            }
-
-            updateCartUI();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCart(forceOpen = false) {
-            const sidebar = document.getElementById('cart-sidebar');
-            if (forceOpen) {
-                sidebar.classList.add('open');
-            } else {
-                sidebar.classList.toggle('open');
-            }
-        }
-
-        // DIRECT SINGLE PRODUCT WHATSAPP ORDER WITH AUTO DISCOUNT
-        function orderOnWhatsApp(productName, price) {
-            let discountAmount = Math.round((price * activeDiscountPercent) / 100);
-            let finalPrice = price - discountAmount;
-
-            let discountText = activeDiscountPercent > 0 ? `%0A*అసలు ధర:* ₹${price}%0A*ఆఫర్ డిస్కౌంట్ (${appliedCouponCode}):* -₹${discountAmount} (${activeDiscountPercent}% OFF)%0A*చెల్లించాల్సిన నికర ధర:* ₹${finalPrice}` : `%0A*ధర:* ₹${price}`;
-
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}${discountText}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
-            window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
-        }
-
-        function checkoutCart() {
-            if (cart.length === 0) {
-                alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
-                return;
-            }
-            let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
-            let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
-            let discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
-            let total = subtotal - discountAmount;
-
-            let couponText = activeDiscountPercent > 0 ? `%0A*అప్లై చేసిన కూపన్:* ${appliedCouponCode} (${activeDiscountPercent}% OFF)%0A*తగ్గిన డిస్కౌంట్:* -₹${discountAmount}` : "";
-
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*మొత్తం చెల్లించాల్సింది:* ₹${total}`;
-            window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
-        }
-
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function openGiftBox() {
-            document.getElementById('giftBoxClosed').style.display = 'none';
-            document.getElementById('offerBox').style.display = 'block';
-        }
-
-        function checkDiscountOffer() {
-            const userPhone = document.getElementById('userPhone').value.trim();
+    // Function 2: Preview uploaded images directly from local computer/phone
+    function previewLocalImage(event, imgId, labelId) {
+        const input = event.target;
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
             
-            if (userPhone.length !== 10 || isNaN(userPhone)) {
-                alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
-                return;
+            reader.onload = function(e) {
+                const imgElement = document.getElementById(imgId);
+                const labelElement = document.getElementById(labelId);
+                
+                imgElement.src = e.target.result;
+                imgElement.style.display = 'block';
+                labelElement.style.display = 'none'; // hide the upload button once image is set
             }
-
-            let sum = 0;
-            for (let i = 0; i < userPhone.length; i++) {
-                sum += parseInt(userPhone.charAt(i));
-            }
-
-            const offerDiscounts = [
-                { percent: "10%", code: "LUCKY10" },
-                { percent: "15%", code: "LUCKY15" },
-                { percent: "20%", code: "LUCKY20" }
-            ];
-
-            const selectedOffer = offerDiscounts[sum % offerDiscounts.length];
             
-            const resultBox = document.getElementById('offerResult');
-            document.getElementById('discountText').innerText = `🎉 మీకు ${selectedOffer.percent} డిస్కౌంట్ లభించింది!`;
-            document.getElementById('couponCode').innerText = selectedOffer.code;
-            document.getElementById('copySuccessMsg').style.display = 'none';
-            resultBox.style.display = "block";
-            
-            // AUTO APPLY COUPON CODE TO CART DIRECTLY
-            applyCartCoupon(selectedOffer.code);
-
-            const copyBtn = document.getElementById('copyBtn');
-            if (copyBtn) {
-                copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
-                copyBtn.style.background = 'var(--gold)';
-                copyBtn.disabled = false;
-            }
-
-            let timeLeft = 30;
-            const timerEl = document.getElementById('timerSeconds');
-            timerEl.innerText = timeLeft;
-
-            if (countdownTimer) clearInterval(countdownTimer);
-
-            countdownTimer = setInterval(() => {
-                timeLeft--;
-                timerEl.innerText = timeLeft;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownTimer);
-                    document.getElementById('timerContainer').innerHTML = "⏳ ఆఫర్ కోడ్ కార్ట్‌లో ఇప్పటికే అప్లై అయి ఉంది!";
-                }
-            }, 1000);
+            reader.readAsDataURL(input.files[0]);
         }
+    }
+</script>
 
-        function copyCouponCode() {
-            const codeText = document.getElementById('couponCode').innerText;
-            navigator.clipboard.writeText(codeText);
-            
-            applyCartCoupon(codeText);
-
-            const copyBtn = document.getElementById('copyBtn');
-            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-            copyBtn.style.background = '#28a745';
-
-            document.getElementById('copySuccessMsg').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
