@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Collection | Magical Offers & Jewellery</title>
+    <title>Lucky Collection | Jewellery, Beauty & Perfumes</title>
     
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
             --call-blue: #007bff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; }
 
         /* Announcement Bar */
@@ -46,18 +46,19 @@
         .logo h1 { font-family: 'Playfair Display', serif; color: var(--burgundy); font-size: 26px; cursor: pointer; }
         .logo span { font-size: 9px; letter-spacing: 3px; color: var(--gold); font-weight: 600; display: block; }
         
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: var(--dark-text); font-weight: 500; font-size: 14px; }
+        nav ul { display: flex; list-style: none; gap: 20px; flex-wrap: wrap; }
+        nav ul li a { text-decoration: none; color: var(--dark-text); font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav ul li a:hover { color: var(--gold); }
 
         /* Hero Banner Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
-            min-height: 70vh; display: flex; align-items: center; justify-content: center;
+            min-height: 65vh; display: flex; align-items: center; justify-content: center;
             padding: 40px 8%; color: #ffffff; text-align: center; position: relative;
         }
         .hero-content { max-width: 650px; }
         .hero-content h4 { color: var(--gold); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
-        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; line-height: 1.2; }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 15px; line-height: 1.2; }
         .hero-content p { font-size: 16px; margin-bottom: 25px; color: #e0e0e0; }
 
         .btn-gold {
@@ -92,7 +93,6 @@
             transition: all 0.5s ease-in-out;
         }
 
-        /* Float & Magic Entry Animation */
         .magic-box-anim {
             animation: floatMagic 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -101,7 +101,6 @@
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
 
-        /* Smooth Fade In and Fade Out Classes */
         .fade-out {
             opacity: 0 !important;
             transform: scale(0.8) translateY(-20px) !important;
@@ -147,15 +146,19 @@
             color: var(--burgundy); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: bold;
         }
 
-        /* Products Grid */
-        .products { padding: 50px 8%; }
-        .section-title { text-align: center; color: var(--burgundy); margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 30px; }
+        /* Products Section Styling */
+        .products-section { padding: 50px 8%; border-bottom: 1px solid #eee; }
+        .section-title { text-align: center; color: var(--burgundy); margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 28px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card { background: #fff; border-radius: 8px; border: 1px solid #eee; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .card { background: #fff; border-radius: 8px; border: 1px solid #eee; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
         .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; }
-        .card h4 { font-size: 15px; margin: 10px 0 5px; }
+        .card h4 { font-size: 15px; margin: 10px 0 5px; color: var(--dark-text); }
         .price { color: var(--burgundy); font-weight: bold; margin-bottom: 12px; font-size: 16px; }
         .buy-btn { background: var(--whatsapp-green); color: white; border: none; padding: 9px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; width: 100%; font-weight: 600; }
+        
+        /* Footer */
+        footer { background: var(--burgundy); color: #fff; text-align: center; padding: 20px; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -165,16 +168,16 @@
     </div>
 
     <header>
-        <div class="logo">
+        <div class="logo" onclick="window.scrollTo(0,0)">
             <h1>Lucky Collection</h1>
             <span>ROYAL ELEGANCE</span>
         </div>
         <nav>
             <ul>
-                <li><a href="#">హోమ్</a></li>
-                <li><a href="#">1 Gram Gold</a></li>
-                <li><a href="#">Bangles</a></li>
-                <li><a href="#">Perfumes</a></li>
+                <li><a href="#gold">1 Gram Gold</a></li>
+                <li><a href="#beauty">Beauty Products</a></li>
+                <li><a href="#perfumes">Perfumes</a></li>
+                <li><a href="#rent">Rental Jewellery</a></li>
             </ul>
         </nav>
     </header>
@@ -187,7 +190,7 @@
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్.</p>
             <div>
                 <button class="btn-magic-trigger" onclick="openMagicModal()"><i class="fa-solid fa-wand-magic-sparkles"></i> ✨ మ్యాజికల్ ఆఫర్ పొందండి</button>
-                <button class="btn-gold" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button class="btn-gold" onclick="document.getElementById('gold').scrollIntoView({behavior: 'smooth'})">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
     </section>
@@ -227,30 +230,102 @@
         </div>
     </div>
 
-    <!-- Products Showcase -->
-    <section class="products" id="products">
-        <h2 class="section-title">మా ప్రత్యేక కలెక్షన్స్</h2>
+    <!-- SECTION 1: 1 GRAM GOLD -->
+    <section class="products-section" id="gold">
+        <h2 class="section-title">✨ 1 Gram Gold Collection</h2>
         <div class="grid">
             <div class="card">
-                <img src="images/gold1.jpg" alt="Necklace" onerror="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400'">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500" alt="Necklace">
                 <h4>లక్ష్మీ దేవి నెక్లెస్</h4>
                 <div class="price">₹1,499</div>
                 <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Necklace')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
             <div class="card">
-                <img src="images/bangle1.jpg" alt="Bangles" onerror="this.src='https://images.unsplash.com/photo-1611591475193-4a182f25d97f?w=400'">
+                <img src="https://images.unsplash.com/photo-1611591475193-4a182f25d97f?w=500" alt="Bangles">
                 <h4>గోల్డ్ డిజైనర్ గాజులు</h4>
                 <div class="price">₹799</div>
                 <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Bangles')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500" alt="Earrings">
+                <h4>ట్రెడిషనల్ బుట్టలు (Earrings)</h4>
+                <div class="price">₹599</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Earrings')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
         </div>
     </section>
 
+    <!-- SECTION 2: BEAUTY PRODUCTS -->
+    <section class="products-section" id="beauty">
+        <h2 class="section-title">💄 Beauty Products</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="Lipstick">
+                <h4>మ్యాట్ లిప్‌స్టిక్ సెట్</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Lipstick')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Makeup Kit">
+                <h4>కంప్యూట్ మేకప్ కిట్</h4>
+                <div class="price">₹1,299</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Makeup%20Kit')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500" alt="Skincare">
+                <h4>గ్లోయింగ్ స్కిన్‌కేర్ కాంబో</h4>
+                <div class="price">₹899</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Skincare')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PERFUMES -->
+    <section class="products-section" id="perfumes">
+        <h2 class="section-title">🌸 Premium Perfumes</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
+                <h4>రాయల్ లగ్జరీ పర్ఫ్యూమ్</h4>
+                <div class="price">₹999</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Perfume')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500" alt="Attar">
+                <h4>నేచురల్ రోజ్ అత్తర్</h4>
+                <div class="price">₹399</div>
+                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Attar')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: RENTAL JEWELLERY -->
+    <section class="products-section" id="rent" style="background: #fff8f8;">
+        <h2 class="section-title">👑 Rental Jewellery (అద్దె నగలు)</h2>
+        <p style="text-align: center; color: #555; margin-bottom: 25px;">వివాహాది శుభకార్యాలకు మీ ఫంక్షన్ల కోసం హెవీ డిజైనర్ నగలు అద్దెకు ఇవ్వబడును.</p>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=500" alt="Bridal Set">
+                <h4>బ్రైడల్ హెవీ నెక్లెస్ సెట్</h4>
+                <div class="price">అద్దె: ₹999/రోజుకి</div>
+                <button class="buy-btn" style="background: var(--call-blue);" onclick="window.open('tel:919876543210')"><i class="fa-solid fa-phone"></i> అద్దె వివరాలకు కాల్ చేయండి</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=500" alt="Full Set">
+                <h4>సంపూర్ణ కళ్యాణ నగల సెట్</h4>
+                <div class="price">అద్దె: ₹2,499/రోజుకి</div>
+                <button class="buy-btn" style="background: var(--call-blue);" onclick="window.open('tel:919876543210')"><i class="fa-solid fa-phone"></i> అద్దె వివరాలకు కాల్ చేయండి</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© Lucky Collection. All Rights Reserved.</p>
+    </footer>
+
     <script>
-        // స్టోరేజ్: ఒక్కసారి ఎంటర్ చేసిన నంబర్‌కి అదే ఆఫర్ గుర్తుంచుకోవడానికి
         const phoneOfferDatabase = {};
 
-        // కేవలం 10%, 15%, 20% వరకు మాత్రమే ఉన్న ఆఫర్ పూల్
         const offerPool = [
             { code: "LUCKY10", percent: "10% డిస్కౌంట్" },
             { code: "LUCKY15", percent: "15% రాయితీ" },
@@ -263,7 +338,6 @@
             const modal = document.getElementById('offerModal');
             const card = document.getElementById('modalCard');
             
-            // రీసెట్ వ్యూ
             document.getElementById('inputSection').style.display = 'block';
             document.getElementById('couponSection').style.display = 'none';
             document.getElementById('rentalSection').style.display = 'none';
@@ -286,7 +360,6 @@
                 return;
             }
 
-            // Confetti / Cracker Blast ఎఫెక్ట్
             confetti({
                 particleCount: 120,
                 spread: 80,
@@ -295,26 +368,22 @@
 
             let selectedOffer;
 
-            // నంబర్ చెకింగ్: పాత నంబర్ అయితే సేమ్ ఆఫర్, కొత్తదైతే 10%, 15%, 20% లలో ఒక ఆఫర్
             if (phoneOfferDatabase[phone]) {
                 selectedOffer = phoneOfferDatabase[phone];
             } else {
                 let sum = 0;
                 for (let char of phone) sum += parseInt(char);
-                let offerIndex = sum % offerPool.length; // 10%, 15%, 20% ఎంపిక లాజిక్
+                let offerIndex = sum % offerPool.length;
                 selectedOffer = offerPool[offerIndex];
-                phoneOfferDatabase[phone] = selectedOffer; // సేవ్ చేయడం
+                phoneOfferDatabase[phone] = selectedOffer;
             }
 
-            // ఆఫర్ డిస్ప్లే
             document.getElementById('discountText').innerText = selectedOffer.percent;
             document.getElementById('couponCode').innerText = selectedOffer.code;
 
-            // ఇన్పుట్ దాచి ఆఫర్ చూపించడం
             document.getElementById('inputSection').style.display = 'none';
             document.getElementById('couponSection').style.display = 'block';
 
-            // ఆటో ఫేడ్ అవుట్ & రెంటల్ సైకిల్ (5 సెకన్లలో ఆఫర్ ఫేడ్ అవుట్ అయ్యి రెంటల్ మెసేజ్ వస్తుంది)
             autoCycleTimer = setTimeout(() => {
                 const card = document.getElementById('modalCard');
                 card.classList.add('fade-out');
@@ -325,7 +394,6 @@
                     card.classList.remove('fade-out');
                     card.classList.add('fade-in');
 
-                    // 6 సెకన్ల తర్వాత రెంటల్ దాచి మళ్లీ నంబర్ కొట్టే బాక్స్ తెరుచుకుంటుంది
                     autoCycleTimer = setTimeout(() => {
                         card.classList.add('fade-out');
                         setTimeout(() => {
