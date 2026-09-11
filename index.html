@@ -210,7 +210,7 @@
             margin-bottom: 20px;
         }
 
-        /* CATEGORIES SECTION (Image Cards Design) */
+        /* CATEGORIES SECTION */
         .categories, .products { padding: 50px 8%; }
 
         .section-title {
@@ -263,6 +263,7 @@
             overflow: hidden;
             border: 3px solid var(--gold);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #fdfdfd;
         }
 
         .cat-img-box img {
@@ -500,7 +501,7 @@
         </div>
     </section>
 
-    <!-- Categories Section (With Real Images & No All Products) -->
+    <!-- Categories Section (Updated Fixed Image URLs) -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
@@ -508,15 +509,15 @@
             <!-- 1 Gram Gold Card -->
             <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="1 Gram Gold">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="1 Gram Gold" onerror="this.src='https://via.placeholder.com/100?text=Gold';">
                 </div>
                 <h3>1 Gram Gold (10)</h3>
             </div>
 
-            <!-- Designer Bangles Card -->
+            <!-- Designer Bangles Card (Fixed URL) -->
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1611591475140-438856db0cd1?w=400" alt="Designer Bangles">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" alt="Designer Bangles" onerror="this.src='https://via.placeholder.com/100?text=Bangles';">
                 </div>
                 <h3>Designer Bangles (10)</h3>
             </div>
@@ -524,7 +525,7 @@
             <!-- Perfumes Card -->
             <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Perfumes">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Perfumes" onerror="this.src='https://via.placeholder.com/100?text=Perfume';">
                 </div>
                 <h3>Perfumes (10)</h3>
             </div>
@@ -532,7 +533,7 @@
             <!-- Beauty Care Card -->
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
                 <div class="cat-img-box">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Beauty Care">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/100?text=Beauty';">
                 </div>
                 <h3>Beauty Care (10)</h3>
             </div>
@@ -641,7 +642,6 @@
 
         let cart = [];
 
-        // ప్రారంభంలోనే 1 Gram Gold ప్రొడక్ట్స్ లోడ్ అవుతాయి
         window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
 
         function renderProducts(items) {
