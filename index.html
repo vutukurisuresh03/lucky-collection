@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magical Gift Box Offer</title>
+  <title>Magical Gift Offer Box</title>
   <style>
     body {
-      background-color: #1a0933;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,304 +18,228 @@
 
     .container {
       text-align: center;
-      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      width: 90%;
     }
 
-    /* 3D Magical Gift Box Area */
-    .gift-box-container {
+    /* Gift Box Styling & Magic Effects */
+    .gift-container {
       position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 30px;
+      margin: 20px auto;
+      width: 120px;
+      height: 120px;
       cursor: pointer;
-      perspective: 1000px;
     }
 
-    /* Gift Box Base */
     .gift-box {
       width: 100%;
       height: 100%;
+      background: #ff4757;
+      border-radius: 10px;
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
+      box-shadow: 0 10px 20px rgba(255, 71, 87, 0.4);
+      transition: transform 0.3s ease;
     }
 
-    .box-body {
-      width: 180px;
-      height: 140px;
-      background: linear-gradient(135deg, #ff0055, #ff5050);
-      position: absolute;
-      bottom: 0;
-      left: 10px;
-      border-radius: 10px;
-      box-shadow: 0 15px 30px rgba(255, 0, 85, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.3);
+    .gift-box:hover {
+      transform: scale(1.05);
     }
 
-    /* Vertical Ribbon */
-    .box-body::after {
+    /* Ribbon */
+    .gift-box::before {
       content: '';
       position: absolute;
-      width: 30px;
-      height: 100%;
-      background: #ffd700;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      width: 20px;
+      height: 100%;
+      background: #ffa502;
     }
 
-    /* Box Lid (Lid Opening Animation) */
-    .box-lid {
-      width: 200px;
-      height: 40px;
-      background: linear-gradient(135deg, #ff1a66, #ff6666);
+    .gift-box::after {
+      content: '';
       position: absolute;
-      top: 20px;
+      top: 50%;
       left: 0;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transform-origin: top;
-      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      z-index: 10;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 20px;
+      background: #ffa502;
     }
 
-    .box-lid::after {
-      content: '';
+    .gift-lid {
       position: absolute;
-      width: 30px;
-      height: 100%;
-      background: #ffd700;
-      left: 50%;
-      transform: translateX(-50%);
+      top: -15px;
+      left: -5px;
+      width: 130px;
+      height: 25px;
+      background: #ff6b81;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
 
-    /* Ribbon Bow on Top */
-    .bow {
-      width: 50px;
-      height: 30px;
-      background: #ffd700;
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50% 50% 0 0;
-      box-shadow: 0 0 15px #ffd700;
+    /* Open Animation */
+    .gift-container.open .gift-lid {
+      transform: translateY(-60px) rotate(-20deg);
     }
 
-    /* Open Box Animation State */
-    .gift-box-container.open .box-lid {
-      transform: rotateX(-110deg) translateY(-20px);
+    .gift-container.open .gift-box {
+      animation: pulse 1s infinite alternate;
     }
 
-    /* Magical Glow Effect */
-    .glow {
-      position: absolute;
-      top: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 50px 30px #ffd700, 0 0 100px 60px #ff0055;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      z-index: 1;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px #ffa502; }
+      100% { box-shadow: 0 0 35px #ff4757, 0 0 50px #ffa502; }
     }
 
-    .gift-box-container.open .glow {
-      opacity: 1;
-    }
-
-    /* Offer Display Card */
+    /* Offer Popup Content */
     .offer-card {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 215, 0, 0.5);
-      border-radius: 20px;
-      padding: 25px;
-      width: 320px;
-      margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      transform: scale(0.8);
-      opacity: 0;
-      transition: all 0.6s ease;
+      border: 2px stroke #ffa502;
+      border-radius: 15px;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    .offer-card.show {
-      transform: scale(1);
-      opacity: 1;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .offer-title {
-      font-size: 1.4rem;
-      color: #ffd700;
-      margin-bottom: 10px;
-    }
-
-    .coupon-box {
-      background: #fff;
-      color: #333;
+    .code-box {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #ffa502;
+      background: #111;
       padding: 10px 15px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      border-radius: 8px;
       margin: 15px 0;
-      border: 2px dashed #ff0055;
-    }
-
-    .code {
-      font-weight: bold;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      color: #ff0055;
-    }
-
-    .copy-btn {
-      background: #ff0055;
-      color: #fff;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .copy-btn:hover {
-      background: #d60047;
-    }
-
-    /* Timer Progress Bar */
-    .timer-bar-container {
-      width: 100%;
-      background: rgba(255,255,255,0.2);
-      height: 6px;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 15px;
-    }
-
-    .timer-bar {
-      width: 100%;
-      height: 100%;
-      background: #ffd700;
-      transition: width 10s linear;
+      display: inline-block;
+      border: 1px dashed #ffa502;
     }
 
     .timer-text {
-      font-size: 0.85rem;
-      color: #ddd;
-      margin-top: 8px;
+      font-size: 14px;
+      color: #ff6b81;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #2ed573;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #26af5f;
+    }
+
+    .btn:disabled {
+      background: #57606f;
+      cursor: not-allowed;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <h2>🎁 సర్ప్రైజ్ గిఫ్ట్ ఆఫర్!</h2>
+    <p>మీ స్పెషల్ ఆఫర్ చూడటానికి బాక్స్ పై క్లిక్ చేయండి</p>
+
     <!-- Magical Gift Box -->
-    <div class="gift-box-container" id="giftBox" onclick="openGift()">
-      <div class="glow"></div>
-      <div class="gift-box">
-        <div class="box-lid">
-          <div class="bow"></div>
-        </div>
-        <div class="box-body"></div>
-      </div>
+    <div class="gift-container" id="giftBox" onclick="openGift()">
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
     </div>
 
-    <!-- Offer Card -->
+    <!-- Offer Details (Hidden initially) -->
     <div class="offer-card" id="offerCard">
-      <div class="offer-title" id="offerTitle">Special Gift Offer!</div>
-      <p id="offerDesc" style="font-size: 0.95rem; margin: 5px 0;">ఈ ఆఫర్‌ను వెంటనే కాపీ చేసుకోండి!</p>
+      <h3>🎉 అభినందనలు!</h3>
+      <p>మీ ప్రమో కోడ్:</p>
       
-      <div class="coupon-box">
-        <span class="code" id="couponCode">MAGIC50</span>
-        <button class="copy-btn" id="copyBtn" onclick="copyCode()">Copy ID</button>
-      </div>
+      <div class="code-box" id="promoCode">OFFER10SEC</div>
 
-      <!-- 10 Seconds Progress Bar -->
-      <div class="timer-bar-container">
-        <div class="timer-bar" id="timerBar"></div>
-      </div>
-      <div class="timer-text" id="timerText">మరో ఆఫర్ రాకముందే 10 సెకన్లలో కాపీ చేసుకోండి!</div>
+      <div class="timer-text" id="timer">ఈ ఆఫర్ <b id="seconds">10</b> సెకన్లలో మారుతుంది...</div>
+
+      <button class="btn" id="copyBtn" onclick="copyCode()">📋 కాపీ చేసుకోండి (Copy ID)</button>
     </div>
   </div>
 
   <script>
-    // Sample Offers List
-    const offers = [
-      { code: "MAGIC50", title: "50% OFF Special Gift!", desc: "మీ తదుపరి షాపింగ్‌పై 50% తగ్గింపు పొందండి." },
-      { code: "FREEGIFT2026", title: "Free Surprise Box!", desc: "ఈ కోడ్‌తో ఉచిత సర్ ప్రైజ్ గిఫ్ట్ పొందండి." },
-      { code: "MEGA100", title: "₹100 Cashback Voucher", desc: "కనీసం ₹500 కొనుగోలుపై ₹100 క్యాష్‌బ్యాక్." }
-    ];
-
-    let currentOfferIndex = 0;
-    let timerTimeout;
+    let timeLeft = 10;
+    let timerInterval;
 
     function openGift() {
-      const box = document.getElementById('giftBox');
-      const card = document.getElementById('offerCard');
-      
-      // Open the Box Animation
-      box.classList.add('open');
+      const gift = document.getElementById('giftBox');
+      const offer = document.getElementById('offerCard');
 
-      // Show Card with animation
+      // Add Open Class for animation
+      gift.classList.add('open');
+
+      // Show Offer Box
       setTimeout(() => {
-        card.classList.add('show');
-        loadOffer(currentOfferIndex);
+        offer.style.display = 'block';
+        startTimer();
       }, 400);
     }
 
-    function loadOffer(index) {
-      const offer = offers[index];
-      document.getElementById('offerTitle').innerText = offer.title;
-      document.getElementById('offerDesc').innerText = offer.desc;
-      document.getElementById('couponCode').innerText = offer.code;
+    function startTimer() {
+      clearInterval(timerInterval);
+      timeLeft = 10;
+      document.getElementById('seconds').innerText = timeLeft;
 
-      const copyBtn = document.getElementById('copyBtn');
-      copyBtn.innerText = "Copy ID";
-      copyBtn.style.background = "#ff0055";
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById('seconds').innerText = timeLeft;
 
-      // Reset & Start 10-Second Timer Animation
-      const timerBar = document.getElementById('timerBar');
-      timerBar.style.transition = 'none';
-      timerBar.style.width = '100%';
-
-      setTimeout(() => {
-        timerBar.style.transition = 'width 10s linear';
-        timerBar.style.width = '0%';
-      }, 50);
-
-      // Clear previous timeout if any
-      clearTimeout(timerTimeout);
-
-      // Auto-slide to Next Offer after 10 Seconds
-      timerTimeout = setTimeout(() => {
-        nextOffer();
-      }, 10500);
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          // 10 సెకన్లు పూర్తయిన తర్వాత నెక్స్ట్ ఆఫర్‌కి లేదా రీసెట్‌కి వెళ్లే లాజిక్
+          document.getElementById('timer').innerText = "సమయం ముగిసింది! వేరే ఆఫర్ లోడ్ అవుతోంది...";
+          
+          setTimeout(() => {
+            // ఆఫర్ రీసెట్ లేదా నెక్స్ట్ డిస్ప్లే
+            resetOffer();
+          }, 2000);
+        }
+      }, 1000);
     }
 
     function copyCode() {
-      const codeText = document.getElementById('couponCode').innerText;
-      navigator.clipboard.writeText(codeText);
-
-      const copyBtn = document.getElementById('copyBtn');
-      copyBtn.innerText = "Copied! ✓";
-      copyBtn.style.background = "#28a745";
+      const codeText = document.getElementById('promoCode').innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerText = "✅ కాపీ అయింది!";
+        btn.style.background = "#1e90ff";
+        
+        // కొన్ని సెకన్ల తర్వాత మళ్లీ పాత టెక్స్ట్ రావడం
+        setTimeout(() => {
+          btn.innerText = "📋 కాపీ చేసుకోండి (Copy ID)";
+          btn.style.background = "#2ed573";
+        }, 3000);
+      });
     }
 
-    function nextOffer() {
-      currentOfferIndex = (currentOfferIndex + 1) % offers.length;
-      
-      // Slight smooth fade out and in effect
-      const card = document.getElementById('offerCard');
-      card.style.opacity = '0.3';
-      
-      setTimeout(() => {
-        loadOffer(currentOfferIndex);
-        card.style.opacity = '1';
-      }, 300);
+    function resetOffer() {
+      document.getElementById('offerCard').style.display = 'none';
+      document.getElementById('giftBox').classList.remove('open');
+      document.getElementById('timer').innerHTML = 'ఈ ఆఫర్ <b id="seconds">10</b> సెకన్లలో మారుతుంది...';
     }
   </script>
 
