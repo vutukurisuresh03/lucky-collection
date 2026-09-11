@@ -651,20 +651,68 @@
             <div class="interactive-box-wrapper">
                 
                 <!-- 1. TODAY'S OFFER BOX -->
-                <div class="offer-card" id="offerBox">
-                    <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</h4>
-                    <p>మీ ఫోన్ నెంబర్ ఎంటర్ చేసి మీ కోసం ఉన్న ప్రత్యెక డిస్కౌంట్ ఆఫర్‌ను పొందండి.</p>
-                    <div class="offer-input-group">
-                        <input type="tel" id="userPhone" placeholder="మీ ఫోన్ నంబర్ ఇవ్వండి (e.g. 9876543210)" maxlength="10">
-                        <button class="offer-btn" onclick="checkDiscountOffer()">ఆఫర్ చూడండి</button>
-                    </div>
-                    
-                    <div class="offer-result" id="offerResult" style="display: none;">
-                        <h5 id="discountText">🎉 మీకు 10% డిస్కౌంట్ లభించింది!</h5>
-                        <p style="font-size:12px; color:#555; margin: 4px 0 0 0;">మీ ప్రతీ కొనుగోలుపై ఈ ఆఫర్ వర్తిస్తుంది.</p>
-                        <span id="couponCode">PROMO: LUCKY10</span>
-                    </div>
-                </div>
+                // UNIQUE OFFER PER PHONE NUMBER LOGIC
+function checkDiscountOffer() {
+    const userPhone = document.getElementById('userPhone').value.trim();
+    
+    // 10 అంకెల ఫోన్ నెంబర్ ఉందో లేదో చెక్ చేస్తుంది
+    if (userPhone.length !== 10 || isNaN(userPhone)) {
+        alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
+        return;
+    }
+
+    // ఫోన్ నంబర్ ఆధారంగా యూనీక్ ఆఫర్ ని లెక్కించే చిన్న లాజిక్ (Hash algorithm)
+    let sum = 0;
+    for (let i = 0; i < userPhone.length; i++) {
+        sum += parseInt(userPhone.charAt(i));
+    }
+
+    const offerDiscounts = [
+        { percent: "10%", code: "LUCKY10" },
+        { percent: "15%", code: "LUCKY15" },
+        { percent: "20%", code: "LUCKY20" }
+    ];
+
+    // ఒకే నంబర్‌కి ఎప్పుడూ ఒకే ఆఫర్ వచ్చేలా నిర్ణయిస్తుంది
+    const selectedOffer = offerDiscounts[sum % offerDiscounts.length];
+    
+    // రిజల్ట్ బాక్స్ చూపించడం
+    const resultBox = document.getElementById('offerResult');
+    document.getElementById('discountText').innerText = `🎉 మీకు ${selectedOffer.percent} డిస్కౌంట్ లభించింది!`;
+    document.getElementById('couponCode').innerText = selectedOffer.code;
+    resultBox.style.display = "block";
+    
+    // Copy బటన్ పాత స్థితికి రీసెట్ చేయడం
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+    copyBtn.style.background = 'var(--gold)';
+}
+
+// COPY COUPON CODE & MAGICAL BOX SWITCHING
+function copyCouponCode() {
+    const codeText = document.getElementById('couponCode').innerText;
+    navigator.clipboard.writeText(codeText);
+    
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    copyBtn.style.background = '#28a745';
+
+    // కాపీ క్లిక్ చేసిన 2.5 సెకన్ల తర్వాత మ్యాజికల్ గా జ్యువెలరీ రెంటల్ బాక్స్ కి మారుతుంది
+    setTimeout(() => {
+        const offerCard = document.getElementById('offerBox');
+        const rentalCard = document.getElementById('rentalBox');
+
+        offerCard.style.opacity = '0';
+        offerCard.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            offerCard.style.display = 'none';
+            rentalCard.classList.add('show');
+        }, 400);
+
+    }, 2500);
+}
+                
 
                 <!-- 2. MAGICAL RENTAL JEWELLERY BOX (Appears after Offer Box) -->
                 <div class="rental-card" id="rentalBox">
