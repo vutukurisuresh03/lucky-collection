@@ -21,7 +21,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--light-bg); color: var(--dark-text); }
+        body { background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; }
 
         .top-bar { background-color: var(--burgundy); color: var(--gold); text-align: center; padding: 8px; font-size: 13px; font-weight: 500; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
@@ -33,10 +33,19 @@
         .cart-icon { position: relative; cursor: pointer; font-size: 20px; color: var(--burgundy); }
         .cart-icon .badge { position: absolute; top: -8px; right: -10px; background: var(--burgundy); color: white; font-size: 11px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
 
-        .hero { background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/hero_banner.png') center/cover no-repeat; height: 50vh; display: flex; align-items: center; padding: 0 8%; color: #ffffff; }
+        /* HERO SECTION WITH GOLD NECKLACE BACKGROUND */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
+            height: 55vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 8%; 
+            color: #ffffff; 
+        }
         .hero-content h4 { color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; font-weight: 600; }
-        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 15px; }
-        .btn-gold { display: inline-block; padding: 12px 32px; background-color: var(--gold); color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .btn-gold { display: inline-block; padding: 12px 32px; background-color: var(--gold); color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-gold:hover { background-color: var(--dark-gold); transform: translateY(-2px); }
 
         .about-founder { padding: 50px 8%; background: #fff; display: flex; align-items: flex-start; gap: 40px; border-bottom: 1px solid #eee; }
         .founder-img-box { flex: 1; text-align: center; }
@@ -61,19 +70,25 @@
         .phone-input-group input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 14px; }
         .phone-input-group button { background: var(--burgundy); color: var(--gold); border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; }
 
-        .gift-box-anim { display: none; margin: 15px auto; width: 70px; height: 70px; position: relative; }
+        /* GIFT BOX ANIMATION */
+        .gift-box-anim { display: none; margin: 15px auto; width: 70px; height: 70px; position: relative; animation: pulse 1s infinite alternate; }
+        @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
+        
         .gift-body { width: 100%; height: 100%; background: #c0392b; border-radius: 8px; position: relative; }
         .gift-body::before { content: ''; position: absolute; top: 0; left: 30px; width: 10px; height: 100%; background: var(--gold); }
         .gift-body::after { content: ''; position: absolute; top: 30px; left: 0; width: 100%; height: 10px; background: var(--gold); }
         .gift-lid { position: absolute; top: -10px; left: -5px; width: 80px; height: 16px; background: #e74c3c; border-radius: 4px; transition: transform 0.6s ease; }
         .gift-box-anim.open .gift-lid { transform: translateY(-30px) rotate(-15deg); }
 
-        .offer-display-box { display: none; background: #fff; border: 2px solid var(--gold); border-radius: 10px; padding: 15px; margin-top: 15px; text-align: center; }
+        .offer-display-box { display: none; background: #fff; border: 2px solid var(--gold); border-radius: 10px; padding: 15px; margin-top: 15px; text-align: center; animation: fadeIn 0.8s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
         .offer-display-box h4 { color: #27ae60; font-size: 18px; margin-bottom: 5px; }
         .promo-tag { display: inline-flex; align-items: center; gap: 8px; background: #fff3cd; color: #856404; padding: 6px 14px; border-radius: 6px; font-size: 14px; font-weight: 700; margin: 8px 0; border: 1px dashed #856404; }
         .copy-btn { background: #27ae60; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
         .timer-msg { font-size: 12px; color: #e74c3c; margin-top: 5px; font-weight: 600; }
 
+        /* BRIDAL RENTAL CARD SLIDE ANIMATION */
         .rental-card {
             background: linear-gradient(135deg, #4a0e17 0%, #2b070e 100%);
             color: #ffffff;
@@ -85,7 +100,17 @@
             transform: translateY(20px);
             transition: all 0.8s ease;
         }
-        .rental-card.show { display: block; opacity: 1; transform: translateY(0); }
+        .rental-card.show { 
+            display: block; 
+            opacity: 1; 
+            transform: translateY(0); 
+            animation: slideUp 0.8s ease forwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .rental-card h4 { color: var(--gold); font-size: 20px; font-family: 'Playfair Display', serif; margin-bottom: 8px; }
         .rental-card p { color: #f0f0f0; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
         .rental-badge { display: inline-block; background: var(--gold); color: var(--burgundy); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
@@ -99,7 +124,8 @@
         .cat-img-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
-        .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .product-img { height: 220px; position: relative; }
         .product-img img { width: 100%; height: 100%; object-fit: cover; }
         .product-img .tag { position: absolute; top: 10px; left: 10px; background: var(--burgundy); color: #fff; padding: 3px 8px; font-size: 10px; font-weight: 600; border-radius: 3px; }
@@ -165,8 +191,8 @@
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- మీ లోకల్ / రిపోజిటరీలోని ఫోటో పాత్ -->
-            <img src="images/founder.png" id="founderImage" alt="Founder Photo">
+            <!-- GitHub లో images/founder.png అని సేవ్ చేయండి -->
+            <img src="images/founder.png" id="founderImage" alt="Founder Photo" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80';">
         </div>
         <div class="founder-info">
             <h3>QUALITY & TRUST</h3>
@@ -215,24 +241,24 @@
         </div>
     </section>
 
-    <!-- CATEGORIES SECTION (ఓన్ ఇమేజ్ పాత్‌లతో) -->
+    <!-- CATEGORIES SECTION -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
             <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
-                <div class="cat-img-box"><img src="images/cat_gold.png" alt="Gold Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=300&q=80" alt="Gold Category"></div>
                 <h3>1 Gram Gold</h3>
             </div>
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
-                <div class="cat-img-box"><img src="images/cat_bangles.png" alt="Bangles Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475193-49035a9f5d37?auto=format&fit=crop&w=300&q=80" alt="Bangles Category"></div>
                 <h3>Bangles</h3>
             </div>
             <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
-                <div class="cat-img-box"><img src="images/cat_perfumes.png" alt="Perfumes Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=300&q=80" alt="Perfumes Category"></div>
                 <h3>Perfumes</h3>
             </div>
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
-                <div class="cat-img-box"><img src="images/cat_beauty.png" alt="Beauty Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80" alt="Beauty Category"></div>
                 <h3>Beauty Care</h3>
             </div>
         </div>
@@ -378,24 +404,24 @@
         }
 
         /* 
-           మీ స్వంత ఫోటోల లిస్ట్ (Custom Images)
-           images ఫోల్డర్‌లో మీరు పెట్టిన ఫైల్ నేమ్స్‌ని ఇక్కడ జత చేయవచ్చు.
+           డిఫాల్ట్ ప్రొడక్ట్స్ (ఆన్‌లైన్ డెమో ఇమేజెస్‌తో)
+           మీరు మీ సిస్టమ్‌లోని ఫోటోలను వాడాలనుకుంటే, 'img' పాత్‌ని 'images/bangle1.png' లా మార్చుకోవచ్చు.
         */
         const products = [
             // Gold Section
-            { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'images/gold1.png', tag: 'HOT' },
-            { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'images/gold2.png', tag: 'ROYAL' },
-            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'images/gold3.png', tag: 'POPULAR' },
+            { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80', tag: 'HOT' },
+            { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80', tag: 'ROYAL' },
+            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80', tag: 'POPULAR' },
             
             // Bangles Section
-            { id: 4, category: 'bangles', name: 'గోల్డ్ ప్లేటెడ్ డిజైనర్ గాజులు', oldPrice: 1499, newPrice: 799, img: 'images/bangle1.png', tag: 'HOT' },
-            { id: 5, category: 'bangles', name: 'కందన్‌ వర్క్ బ్రైడల్ గాజుల సెట్', oldPrice: 1999, newPrice: 999, img: 'images/bangle2.png', tag: 'BEST' },
+            { id: 4, category: 'bangles', name: 'గోల్డ్ ప్లేటెడ్ డిజైనర్ గాజులు', oldPrice: 1499, newPrice: 799, img: 'https://images.unsplash.com/photo-1611591475193-49035a9f5d37?auto=format&fit=crop&w=500&q=80', tag: 'HOT' },
+            { id: 5, category: 'bangles', name: 'కందన్‌ వర్క్ బ్రైడల్ గాజుల సెట్', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80', tag: 'BEST' },
             
             // Perfumes Section
-            { id: 6, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్', oldPrice: 2499, newPrice: 1199, img: 'images/perfume1.png', tag: 'ROYAL' },
+            { id: 6, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్', oldPrice: 2499, newPrice: 1199, img: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=500&q=80', tag: 'ROYAL' },
             
             // Beauty Section
-            { id: 7, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'images/beauty1.png', tag: 'HOT' }
+            { id: 7, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80', tag: 'HOT' }
         ];
 
         let cart = [];
@@ -413,7 +439,7 @@
                     <div class="product-card">
                         <div class="product-img">
                             <span class="tag">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/300x220?text=Image+Not+Found';">
+                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/300x220?text=Lucky+Collection';">
                         </div>
                         <div class="product-info">
                             <h3>${prod.name}</h3>
