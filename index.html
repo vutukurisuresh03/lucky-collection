@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Collection | Jewellery, Beauty & Perfumes</title>
+    <title>Lucky Collection | Premium Jewellery & Beauty</title>
     
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Canvas Confetti for Blast Effect -->
+    <!-- Canvas Confetti for Magical Blast Effect -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
@@ -23,7 +23,7 @@
             --call-blue: #007bff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light-bg); color: var(--dark-text); overflow-x: hidden; }
 
         /* Announcement Bar */
@@ -46,37 +46,40 @@
         .logo h1 { font-family: 'Playfair Display', serif; color: var(--burgundy); font-size: 26px; cursor: pointer; }
         .logo span { font-size: 9px; letter-spacing: 3px; color: var(--gold); font-weight: 600; display: block; }
         
-        nav ul { display: flex; list-style: none; gap: 20px; flex-wrap: wrap; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
         nav ul li a { text-decoration: none; color: var(--dark-text); font-weight: 500; font-size: 14px; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
 
         /* Hero Banner Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
-            min-height: 65vh; display: flex; align-items: center; justify-content: center;
+            min-height: 70vh; display: flex; align-items: center; justify-content: center;
             padding: 40px 8%; color: #ffffff; text-align: center; position: relative;
         }
         .hero-content { max-width: 650px; }
         .hero-content h4 { color: var(--gold); letter-spacing: 2px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
-        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 15px; line-height: 1.2; }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; line-height: 1.2; }
         .hero-content p { font-size: 16px; margin-bottom: 25px; color: #e0e0e0; }
+
+        .hero-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
         .btn-gold {
             display: inline-block; padding: 12px 28px; background-color: var(--gold);
             color: #fff; text-decoration: none; border-radius: 4px; font-weight: 600;
-            transition: 0.3s; border: none; cursor: pointer; font-size: 15px; margin: 5px;
+            transition: 0.3s; border: none; cursor: pointer; font-size: 15px;
         }
+        .btn-gold:hover { background-color: var(--dark-gold); }
 
-        /* Magical Button Glow */
+        /* Floating Magic Button with Pulse Animation */
         .btn-magic-trigger {
             display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, var(--burgundy), #2b080d);
             color: var(--gold); border: 1.5px solid var(--gold); border-radius: 4px; font-weight: 600;
-            transition: 0.3s; cursor: pointer; font-size: 15px; margin: 5px;
+            transition: 0.3s; cursor: pointer; font-size: 15px;
             animation: pulseGlow 2s infinite alternate;
         }
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); transform: scale(1); }
-            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9); transform: scale(1.05); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9); transform: scale(1.03); }
         }
 
         /* MAGICAL POPUP MODAL & ANIMATIONS */
@@ -146,19 +149,22 @@
             color: var(--burgundy); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: bold;
         }
 
-        /* Products Section Styling */
-        .products-section { padding: 50px 8%; border-bottom: 1px solid #eee; }
-        .section-title { text-align: center; color: var(--burgundy); margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 28px; }
+        /* Category Sections & Products Grid */
+        .products-container { padding: 40px 8%; }
+        .category-title {
+            color: var(--burgundy); margin: 40px 0 20px; font-family: 'Playfair Display', serif;
+            font-size: 28px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px;
+        }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .card { background: #fff; border-radius: 8px; border: 1px solid #eee; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card img { width: 100%; height: 210px; object-fit: cover; border-radius: 6px; }
         .card h4 { font-size: 15px; margin: 10px 0 5px; color: var(--dark-text); }
         .price { color: var(--burgundy); font-weight: bold; margin-bottom: 12px; font-size: 16px; }
         .buy-btn { background: var(--whatsapp-green); color: white; border: none; padding: 9px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; width: 100%; font-weight: 600; }
-        
-        /* Footer */
-        footer { background: var(--burgundy); color: #fff; text-align: center; padding: 20px; font-size: 13px; }
+        .buy-btn i { margin-right: 5px; }
+
+        footer { background: var(--burgundy); color: #fff; text-align: center; padding: 20px; font-size: 13px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -168,27 +174,27 @@
     </div>
 
     <header>
-        <div class="logo" onclick="window.scrollTo(0,0)">
+        <div class="logo">
             <h1>Lucky Collection</h1>
             <span>ROYAL ELEGANCE</span>
         </div>
         <nav>
             <ul>
+                <li><a href="#home">హోమ్</a></li>
                 <li><a href="#gold">1 Gram Gold</a></li>
-                <li><a href="#beauty">Beauty Products</a></li>
+                <li><a href="#bangles">Bangles</a></li>
                 <li><a href="#perfumes">Perfumes</a></li>
-                <li><a href="#rent">Rental Jewellery</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Banner -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
             <h2>1 Gram Gold & బ్యూటీ ప్రొడక్ట్స్</h2>
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్.</p>
-            <div>
+            <div class="hero-buttons">
                 <button class="btn-magic-trigger" onclick="openMagicModal()"><i class="fa-solid fa-wand-magic-sparkles"></i> ✨ మ్యాజికల్ ఆఫర్ పొందండి</button>
                 <button class="btn-gold" onclick="document.getElementById('gold').scrollIntoView({behavior: 'smooth'})">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
             </div>
@@ -230,106 +236,286 @@
         </div>
     </div>
 
-    <!-- SECTION 1: 1 GRAM GOLD -->
-    <section class="products-section" id="gold">
-        <h2 class="section-title">✨ 1 Gram Gold Collection</h2>
+    <!-- PRODUCTS SHOWCASE -->
+    <div class="products-container">
+
+        <!-- CATEGORY 1: 1 GRAM GOLD JEWELLERY (10 Items) -->
+        <h2 class="category-title" id="gold">✨ 1 Gram Gold Jewellery</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500" alt="Necklace">
-                <h4>లక్ష్మీ దేవి నెక్లెస్</h4>
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="Necklace">
+                <h4>లక్ష్మీ దేవి హారం</h4>
                 <div class="price">₹1,499</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Necklace')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+                <button class="buy-btn" onclick="orderWhatsApp('లక్ష్మీ దేవి హారం')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1611591475193-4a182f25d97f?w=500" alt="Bangles">
-                <h4>గోల్డ్ డిజైనర్ గాజులు</h4>
-                <div class="price">₹799</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Bangles')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500" alt="Earrings">
-                <h4>ట్రెడిషనల్ బుట్టలు (Earrings)</h4>
-                <div class="price">₹599</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Earrings')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: BEAUTY PRODUCTS -->
-    <section class="products-section" id="beauty">
-        <h2 class="section-title">💄 Beauty Products</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="Lipstick">
-                <h4>మ్యాట్ లిప్‌స్టిక్ సెట్</h4>
-                <div class="price">₹499</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Lipstick')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Makeup Kit">
-                <h4>కంప్యూట్ మేకప్ కిట్</h4>
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400" alt="Necklace">
+                <h4>రాయల్ మ్యాట్ నెక్లెస్</h4>
                 <div class="price">₹1,299</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Makeup%20Kit')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ మ్యాట్ నెక్లెస్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500" alt="Skincare">
-                <h4>గ్లోయింగ్ స్కిన్‌కేర్ కాంబో</h4>
+                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400" alt="Earrings">
+                <h4>ట్రెడిషనల్ జుంకాలు</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('ట్రెడిషనల్ జుంకాలు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" alt="Earrings">
+                <h4>చంద్ బాలి ఇయర్ రింగ్స్</h4>
+                <div class="price">₹599</div>
+                <button class="buy-btn" onclick="orderWhatsApp('చంద్ బాలి ఇయర్ రింగ్స్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1611591475193-4a182f25d97f?w=400" alt="Choker">
+                <h4>యాంటిక్ పర్ల్ చోకర్</h4>
+                <div class="price">₹1,899</div>
+                <button class="buy-btn" onclick="orderWhatsApp('యాంటిక్ పర్ల్ చోకర్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400" alt="Pendant">
+                <h4>మ్యాట్ ఫినిష్ పెండెంట్ సెట్</h4>
                 <div class="price">₹899</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Skincare')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: PERFUMES -->
-    <section class="products-section" id="perfumes">
-        <h2 class="section-title">🌸 Premium Perfumes</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
-                <h4>రాయల్ లగ్జరీ పర్ఫ్యూమ్</h4>
-                <div class="price">₹999</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Perfume')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+                <button class="buy-btn" onclick="orderWhatsApp('మ్యాట్ ఫినిష్ పెండెంట్ సెట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500" alt="Attar">
-                <h4>నేచురల్ రోజ్ అత్తర్</h4>
+                <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400" alt="Gold Ring">
+                <h4>డిజైనర్ గోల్డ్ ఫింగర్ రింగ్</h4>
                 <div class="price">₹399</div>
-                <button class="buy-btn" onclick="window.open('https://api.whatsapp.com/send?phone=919876543210&text=I%20want%20to%20buy%20Attar')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+                <button class="buy-btn" onclick="orderWhatsApp('డిజైనర్ గోల్డ్ ఫింగర్ రింగ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1611591475173-0495d4f3b7d1?w=400" alt="Chain">
+                <h4>రాయల్ డైలీ వేర్ చైన్</h4>
+                <div class="price">₹699</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ డైలీ వేర్ చైన్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=400" alt="Kaddas">
+                <h4>రాయల్ రాయలసీమ కడియాలు</h4>
+                <div class="price">₹999</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ రాయలసీమ కడియాలు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400" alt="Bridal Set">
+                <h4>బ్రైడల్ గ్రాండ్ బ్రైడల్ సెట్</h4>
+                <div class="price">₹3,499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('బ్రైడల్ గ్రాండ్ బ్రైడల్ సెట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
         </div>
-    </section>
 
-    <!-- SECTION 4: RENTAL JEWELLERY -->
-    <section class="products-section" id="rent" style="background: #fff8f8;">
-        <h2 class="section-title">👑 Rental Jewellery (అద్దె నగలు)</h2>
-        <p style="text-align: center; color: #555; margin-bottom: 25px;">వివాహాది శుభకార్యాలకు మీ ఫంక్షన్ల కోసం హెవీ డిజైనర్ నగలు అద్దెకు ఇవ్వబడును.</p>
+        <!-- CATEGORY 2: BANGLES COLLECTION (10 Items) -->
+        <h2 class="category-title" id="bangles">✨ Bangles Collection</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=500" alt="Bridal Set">
-                <h4>బ్రైడల్ హెవీ నెక్లెస్ సెట్</h4>
-                <div class="price">అద్దె: ₹999/రోజుకి</div>
-                <button class="buy-btn" style="background: var(--call-blue);" onclick="window.open('tel:919876543210')"><i class="fa-solid fa-phone"></i> అద్దె వివరాలకు కాల్ చేయండి</button>
+                <img src="https://images.unsplash.com/photo-1611591475193-4a182f25d97f?w=400" alt="Bangles">
+                <h4>గోల్డ్ డిజైనర్ గాజులు (Set of 4)</h4>
+                <div class="price">₹799</div>
+                <button class="buy-btn" onclick="orderWhatsApp('గోల్డ్ డిజైనర్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=500" alt="Full Set">
-                <h4>సంపూర్ణ కళ్యాణ నగల సెట్</h4>
-                <div class="price">అద్దె: ₹2,499/రోజుకి</div>
-                <button class="buy-btn" style="background: var(--call-blue);" onclick="window.open('tel:919876543210')"><i class="fa-solid fa-phone"></i> అద్దె వివరాలకు కాల్ చేయండి</button>
+                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=400" alt="Stone Bangles">
+                <h4>రూబీ స్టోన్ మైక్రో ప్లేటెడ్ గాజులు</h4>
+                <div class="price">₹899</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రూబీ స్టోన్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" alt="Kangan">
+                <h4>ట్రెడిషనల్ కాపర్ కంకణాలు</h4>
+                <div class="price">₹649</div>
+                <button class="buy-btn" onclick="orderWhatsApp('కాపర్ కంకణాలు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=400" alt="Velvet Bangles">
+                <h4>ఫ్యాన్సీ మిక్స్డ్ కలర్ గాజులు</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('ఫ్యాన్సీ మిక్స్డ్ కలర్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400" alt="Cz Bangles">
+                <h4>CZ డైమండ్ కటింగ్ గాజులు</h4>
+                <div class="price">₹1,199</div>
+                <button class="buy-btn" onclick="orderWhatsApp('CZ డైమండ్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" alt="Bridal Bangles">
+                <h4>పెళ్లికూతురి స్పెషల్ గాజుల సెట్</h4>
+                <div class="price">₹1,499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('పెళ్లికూతురి గాజుల సెట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400" alt="Daily Bangles">
+                <h4>సింపుల్ రఫ్ వేర్ గాజులు</h4>
+                <div class="price">₹399</div>
+                <button class="buy-btn" onclick="orderWhatsApp('సింపుల్ రఫ్ వేర్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400" alt="Glass Bangles Mix">
+                <h4>గోల్డ్ కోటింగ్ విత్ గ్లాస్ గాజులు</h4>
+                <div class="price">₹549</div>
+                <button class="buy-btn" onclick="orderWhatsApp('గోల్డ్ కోటింగ్ గ్లాస్ గాజులు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1611591475173-0495d4f3b7d1?w=400" alt="Broad Bangles">
+                <h4>సింగిల్ బ్రాడ్ సైడ్ కంకణం</h4>
+                <div class="price">₹599</div>
+                <button class="buy-btn" onclick="orderWhatsApp('సైడ్ కంకణం')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400" alt="Antique Kadas">
+                <h4>రాయల్ లక్ష్మీ వర్క్ కడియాలు</h4>
+                <div class="price">₹999</div>
+                <button class="buy-btn" onclick="orderWhatsApp('లక్ష్మీ వర్క్ కడియాలు')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
             </div>
         </div>
-    </section>
+
+        <!-- CATEGORY 3: PERFUMES & FRAGRANCES (10 Items) -->
+        <h2 class="category-title" id="perfumes">✨ Luxury Perfumes</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400" alt="Perfume">
+                <h4>రాయల్ ఔద్ అరేబియన్ పెర్ఫ్యూమ్</h4>
+                <div class="price">₹899</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ ఔద్ పెర్ఫ్యూమ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Rose Perfume">
+                <h4>రోజ్ మస్క్ రాయల్ అత్తర్</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రోజ్ మస్క్ అత్తర్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" alt="Perfume">
+                <h4>లగ్జరీ రోజ్ ఫ్రెగ్రెన్స్ Spray</h4>
+                <div class="price">₹699</div>
+                <button class="buy-btn" onclick="orderWhatsApp('లగ్జరీ రోజ్ Spray')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400" alt="Jasmine Perfume">
+                <h4>న్యాచురల్ జాస్మిన్ నైట్ పెర్ఫ్యూమ్</h4>
+                <div class="price">₹599</div>
+                <button class="buy-btn" onclick="orderWhatsApp('జాస్మిన్ పెర్ఫ్యూమ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400" alt="French Perfume">
+                <h4>ఫ్రెంచ్ వెనిల్లా రోమన్ మిస్ట్</h4>
+                <div class="price">₹999</div>
+                <button class="buy-btn" onclick="orderWhatsApp('ఫ్రెంచ్ వెనిల్లా మిస్ట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?w=400" alt="Men Perfume">
+                <h4>రాయల్ రాయల్ మెన్ బాడీ స్ప్రే</h4>
+                <div class="price">₹399</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ మెన్ బాడీ స్ప్రే')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?w=400" alt="Attar">
+                <h4>సందల్ వుడ్ ప్యూర్ ఆయిల్ అత్తర్</h4>
+                <div class="price">₹549</div>
+                <button class="buy-btn" onclick="orderWhatsApp('సందల్ వుడ్ అత్తర్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400" alt="Pocket Perfume">
+                <h4>పాకెట్ మినీ పెర్ఫ్యూమ్ Combo (Set of 3)</h4>
+                <div class="price">₹349</div>
+                <button class="buy-btn" onclick="orderWhatsApp('పాకెట్ మినీ పెర్ఫ్యూమ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Party Spray">
+                <h4>గోల్డ్ నైట్ పార్టీ క్లబ్ స్ప్రే</h4>
+                <div class="price">₹799</div>
+                <button class="buy-btn" onclick="orderWhatsApp('పార్టీ క్లబ్ స్ప్రే')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400" alt="Luxury Attar">
+                <h4>రాయల్ కేసర్ అత్తర్</h4>
+                <div class="price">₹649</div>
+                <button class="buy-btn" onclick="orderWhatsApp('రాయల్ కేసర్ అత్తర్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4: BEAUTY & COSMETICS (10 Items) -->
+        <h2 class="category-title" id="beauty">✨ Beauty & Cosmetics</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" alt="Lipstick">
+                <h4>మ్యాట్ లిప్‌స్టిక్ సెట్ (Set of 4)</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('మ్యాట్ లిప్‌స్టిక్ సెట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400" alt="Makeup Kit">
+                <h4>ఆల్-ఇన్-వన్ ఫేస్ మేకప్ కిట్</h4>
+                <div class="price">₹1,299</div>
+                <button class="buy-btn" onclick="orderWhatsApp('ఫేస్ మేకప్ కిట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Skin Care">
+                <h4>గ్లోయింగ్ స్కిన్ ఫేస్ సిరమ్</h4>
+                <div class="price">₹599</div>
+                <button class="buy-btn" onclick="orderWhatsApp('గ్లోయింగ్ స్కిన్ సిరమ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400" alt="Eyeshadow">
+                <h4>12 కలర్ ఐషాడో ప్యాలెట్</h4>
+                <div class="price">₹699</div>
+                <button class="buy-btn" onclick="orderWhatsApp('12 కలర్ ఐషాడో')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?w=400" alt="Nail Polish">
+                <h4>వాటర్‌ప్రూఫ్ కాటుక & ఐలైనర్</h4>
+                <div class="price">₹299</div>
+                <button class="buy-btn" onclick="orderWhatsApp('కాటుక & ఐలైనర్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503236823255-94609f598e71?w=400" alt="Nail Polish">
+                <h4>లాంగ్ లాస్టింగ్ నెయిల్ పాలిష్ కాంబో</h4>
+                <div class="price">₹349</div>
+                <button class="buy-btn" onclick="orderWhatsApp('నెయిల్ పాలిష్ కాంబో')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400" alt="Foundation">
+                <h4>హైడ్రేటింగ్ ప్రైమర్ & ఫౌండేషన్</h4>
+                <div class="price">₹799</div>
+                <button class="buy-btn" onclick="orderWhatsApp('ప్రైమర్ & ఫౌండేషన్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400" alt="Brushes">
+                <h4>ప్రొఫెషనల్ మేకప్ బ్రష్‌లు (12 Pcs)</h4>
+                <div class="price">₹499</div>
+                <button class="buy-btn" onclick="orderWhatsApp('మేకప్ బ్రష్‌ సెట్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Face Cream">
+                <h4>గోల్డ్ గ్లో డే అండ్ నైట్ క్రీమ్</h4>
+                <div class="price">₹649</div>
+                <button class="buy-btn" onclick="orderWhatsApp('డే అండ్ నైట్ క్రీమ్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" alt="Lip Gloss">
+                <h4>షిమ్మర్ లిప్ గ్లోస్ Combo</h4>
+                <div class="price">₹399</div>
+                <button class="buy-btn" onclick="orderWhatsApp('షిమ్మర్ లిప్ గ్లోస్')"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
-        <p>© Lucky Collection. All Rights Reserved.</p>
+        © 2026 Lucky Collection. All Rights Reserved. | Chirala & Online Orders
     </footer>
 
     <script>
         const phoneOfferDatabase = {};
 
         const offerPool = [
-            { code: "LUCKY10", percent: "10% డిస్కౌంట్" },
-            { code: "LUCKY15", percent: "15% రాయితీ" },
-            { code: "LUCKY20", percent: "20% బంపర్ ఆఫర్" }
+            { code: "LUCKY12", percent: "12% డిస్కౌంట్" },
+            { code: "LUCKY18", percent: "18% డిస్కౌంట్" },
+            { code: "LUCKY25", percent: "25% డిస్కౌంట్" },
+            { code: "LUCKY30", percent: "30% రాయితీ" },
+            { code: "LUCKY35", percent: "35% భారీ ఆఫర్" },
+            { code: "LUCKY40", percent: "40% రాయితీ" },
+            { code: "LUCKY50", percent: "50% బంపర్ ఆఫర్" }
         ];
 
         let autoCycleTimer = null;
@@ -338,6 +524,7 @@
             const modal = document.getElementById('offerModal');
             const card = document.getElementById('modalCard');
             
+            // రీసెట్ వ్యూ
             document.getElementById('inputSection').style.display = 'block';
             document.getElementById('couponSection').style.display = 'none';
             document.getElementById('rentalSection').style.display = 'none';
@@ -360,6 +547,7 @@
                 return;
             }
 
+            // 1. Confetti / Cracker Blast ఎఫెక్ట్
             confetti({
                 particleCount: 120,
                 spread: 80,
@@ -368,6 +556,7 @@
 
             let selectedOffer;
 
+            // నంబర్ చెకింగ్ లాజిక్
             if (phoneOfferDatabase[phone]) {
                 selectedOffer = phoneOfferDatabase[phone];
             } else {
@@ -378,12 +567,15 @@
                 phoneOfferDatabase[phone] = selectedOffer;
             }
 
+            // ఆఫర్ కోడ్ అమర్చడం
             document.getElementById('discountText').innerText = selectedOffer.percent;
             document.getElementById('couponCode').innerText = selectedOffer.code;
 
+            // ఇన్పుట్ బాక్స్ దాచి ఆఫర్ చూపించడం
             document.getElementById('inputSection').style.display = 'none';
             document.getElementById('couponSection').style.display = 'block';
 
+            // 2. ఆటోమాటిక్ ఫేడ్ అవుట్ & రెంటల్ సెక్షన్ లూపింగ్
             autoCycleTimer = setTimeout(() => {
                 const card = document.getElementById('modalCard');
                 card.classList.add('fade-out');
@@ -394,6 +586,7 @@
                     card.classList.remove('fade-out');
                     card.classList.add('fade-in');
 
+                    // 6 సెకన్ల తర్వాత మళ్ళీ రీ-ఓపెన్ మోడ్‌కి ఫేడ్ అవ్వడం
                     autoCycleTimer = setTimeout(() => {
                         card.classList.add('fade-out');
                         setTimeout(() => {
@@ -414,6 +607,11 @@
             const codeText = document.getElementById('couponCode').innerText;
             navigator.clipboard.writeText(codeText);
             alert("కూపన్ కోడ్ కాపీ చేయబడింది: " + codeText);
+        }
+
+        function orderWhatsApp(productName) {
+            const url = `https://api.whatsapp.com/send?phone=919876543210&text=హలో,%20నేను%20Lucky%20Collection%20లో%20"${encodeURIComponent(productName)}"%20ఆర్డర్%20చేయాలనుకుంటున్నాను.`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
