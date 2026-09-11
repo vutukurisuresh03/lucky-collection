@@ -122,14 +122,17 @@
         /* Hero Banner */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
-            height: 65vh;
+            min-height: 65vh;
             display: flex;
             align-items: center;
-            padding: 0 8%;
+            justify-content: space-between;
+            padding: 40px 8%;
             color: #ffffff;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        .hero-content { max-width: 600px; }
+        .hero-content { max-width: 550px; }
 
         .hero-content h4 {
             color: var(--gold);
@@ -160,6 +163,109 @@
         }
 
         .btn-gold:hover { background-color: var(--dark-gold); }
+
+        /* MAGICAL OFFER BOX STYLES */
+        .magic-offer-box {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 380px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: var(--dark-text);
+            text-align: center;
+            position: relative;
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+            100% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.9); }
+        }
+
+        .magic-offer-box h3 {
+            color: var(--burgundy);
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .magic-offer-box p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .offer-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .offer-input-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+        }
+
+        .offer-btn {
+            background: var(--burgundy);
+            color: var(--gold);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .offer-btn:hover {
+            background: #33080e;
+        }
+
+        .coupon-result {
+            display: none;
+            margin-top: 15px;
+            background: #fdf8e7;
+            padding: 12px;
+            border: 1px dashed var(--gold);
+            border-radius: 8px;
+        }
+
+        .coupon-code {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--burgundy);
+            letter-spacing: 2px;
+            margin: 5px 0;
+        }
+
+        .copy-btn {
+            background: var(--gold);
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .rental-notice {
+            display: none;
+            margin-top: 15px;
+            background: #eef9f2;
+            border: 1px solid var(--whatsapp-green);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #1b5e20;
+            font-weight: 600;
+        }
 
         /* ABOUT FOUNDER SECTION */
         .about-founder {
@@ -395,6 +501,33 @@
         .cart-items { flex: 1; overflow-y: auto; }
         .close-btn { font-size: 20px; cursor: pointer; color: #666; }
 
+        /* Cart Coupon Box */
+        .cart-coupon-section {
+            margin: 10px 0;
+            padding: 10px 0;
+            border-top: 1px dashed #ccc;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .cart-coupon-section input {
+            width: 65%;
+            padding: 6px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .cart-coupon-section button {
+            width: 30%;
+            padding: 6px;
+            background: var(--burgundy);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
         /* Footer */
         footer {
             background-color: var(--burgundy);
@@ -419,6 +552,7 @@
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 12px; }
             nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; }
+            .hero { flex-direction: column; text-align: center; }
             .about-founder { flex-direction: column; text-align: center; }
             .cart-sidebar { width: 100%; right: -100%; }
         }
@@ -454,20 +588,42 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
+    <!-- Hero Banner with Magical Offer Box -->
     <section class="hero">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
             <h2>1 Gram Gold & బ్యూటీ ప్రొడక్ట్స్</h2>
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్.</p>
-            <button onclick="scrollToProducts()" class="btn-gold">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+            <button onclick="scrollToProducts()" class="btn-gold" style="margin-top: 15px;">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+        <!-- MAGICAL OFFER BOX -->
+        <div class="magic-offer-box">
+            <h3><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--gold);"></i> మ్యాజికల్ ఆఫర్ బాక్స్</h3>
+            <p>ఈరోజు మీ మొబైల్ పై ప్రత్యేక ఆఫర్ తెలుసుకోవడానికి మీ నంబర్ ఎంటర్ చేయండి!</p>
+            
+            <div class="offer-input-group" id="offer-form">
+                <input type="tel" id="user-mobile" placeholder="మొబైల్ నంబర్ ఎంటర్ చేయండి" maxlength="10">
+                <button class="offer-btn" onclick="generateDiscountOffer()"><i class="fa-solid fa-gift"></i> ఆఫర్ చూడండి</button>
+            </div>
+
+            <!-- Coupon Display Result -->
+            <div class="coupon-result" id="coupon-result">
+                <p style="margin: 0; font-weight: bold; color: green;" id="discount-msg"></p>
+                <div class="coupon-code" id="coupon-code-text"></div>
+                <button class="copy-btn" onclick="copyCouponCode()"><i class="fa-solid fa-copy"></i> Copy Code</button>
+            </div>
+
+            <!-- Rental Notice Message -->
+            <div class="rental-notice" id="rental-notice">
+                ✨ <strong>లక్కీ కలెక్షన్ స్పెషల్:</strong> వివాహాది శుభకార్యాలకు, మీ ఇంట్లో ఉన్న ఫంక్షన్లకు అద్దెకు నగలు ఇవ్వబడును!
+            </div>
         </div>
     </section>
 
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- Desktop/images/founder.png కోసం సరిచేసిన ఇమేజ్ ట్యాగ్ -->
             <img src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='founder.png';">
         </div>
         <div class="founder-info">
@@ -526,9 +682,27 @@
         <div class="cart-items" id="cart-items-container">
             <p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>
         </div>
+
+        <!-- Coupon Apply Section in Cart -->
+        <div class="cart-coupon-section">
+            <div style="display: flex; justify-content: space-between;">
+                <input type="text" id="cart-coupon-input" placeholder="కూపన్ కోడ్ ఎంటర్ చేయండి">
+                <button onclick="applyCartCoupon()">Apply</button>
+            </div>
+            <p id="cart-coupon-msg" style="font-size: 11px; margin-top: 4px;"></p>
+        </div>
+
         <div class="cart-footer">
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-weight:bold;">
-                <span>మొత్తం:</span>
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
+                <span>మొత్తం ధర:</span>
+                <span id="cart-subtotal-price">₹0</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; font-size:14px; color:green;">
+                <span>డిస్కౌంట్:</span>
+                <span id="cart-discount-price">-₹0</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:bold; font-size:16px;">
+                <span>ఫైనల్ బిల్:</span>
                 <span id="cart-total-price">₹0</span>
             </div>
             <button class="add-to-cart-btn" style="width: 100%; font-size:14px; padding:10px;" onclick="checkoutCart()"><i class="fa-brands fa-whatsapp"></i> WhatsApp లో ఆర్డర్ చేయండి</button>
@@ -556,7 +730,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const phoneNo = "919876543210"; // ఇక్కడ మీ నంబర్ ఇవ్వండి
+        const phoneNo = "919876543210";
 
         const products = [
             // 1 GRAM GOLD (10)
@@ -609,6 +783,8 @@
         ];
 
         let cart = [];
+        let appliedDiscountPercent = 0;
+        let generatedCouponCode = "";
 
         window.onload = () => { renderProducts(products); };
 
@@ -661,6 +837,45 @@
             scrollToProducts();
         }
 
+        /* MAGICAL OFFER LOGIC */
+        function generateDiscountOffer() {
+            const mobile = document.getElementById('user-mobile').value;
+            if (mobile.length !== 10 || isNaN(mobile)) {
+                alert('దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ ఎంటర్ చేయండి!');
+                return;
+            }
+
+            // నంబర్ చివరి డిజిట్ ఆధారంగా డిస్కౌంట్ కేటాయించడం
+            const lastDigit = parseInt(mobile.slice(-1));
+            let discount = 10;
+            if (lastDigit >= 4 && lastDigit <= 7) {
+                discount = 15;
+            } else if (lastDigit > 7) {
+                discount = 20;
+            }
+
+            generatedCouponCode = `LUCKY${discount}`;
+
+            document.getElementById('offer-form').style.display = 'none';
+            document.getElementById('discount-msg').innerText = `🎉 మీ ఆర్డర్ పై ${discount}% డిస్కౌంట్ లభించింది!`;
+            document.getElementById('coupon-code-text').innerText = generatedCouponCode;
+            document.getElementById('coupon-result').style.display = 'block';
+
+            // డిస్కౌంట్ కోడ్ కాపీ చేయగానే ఫంక్షన్ల నగల నోటీసు వస్తుంది
+        }
+
+        function copyCouponCode() {
+            navigator.clipboard.writeText(generatedCouponCode);
+            alert(`కూపన్ కోడ్ '${generatedCouponCode}' కాపీ అయింది! కార్ట్‌లో అప్లై చేసుకోండి.`);
+            
+            // వివాహాది శుభకార్యాల మెసేజ్ డిస్ప్లే
+            document.getElementById('rental-notice').style.display = 'block';
+            
+            // ఆటోమాటిక్‌గా కార్ట్ ఇన్‌పుట్ బాక్స్‌లో కూపన్ కోడ్ ఫిల్ చేయడం
+            document.getElementById('cart-coupon-input').value = generatedCouponCode;
+        }
+
+        /* CART LOGIC */
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             cart.push(product);
@@ -671,19 +886,18 @@
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items-container');
-            const totalEl = document.getElementById('cart-total-price');
-
+            
             if (cart.length === 0) {
                 container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
-                totalEl.innerText = '₹0';
+                calculateCartTotals(0);
                 return;
             }
 
             container.innerHTML = '';
-            let total = 0;
+            let subtotal = 0;
 
             cart.forEach((item, index) => {
-                total += item.newPrice;
+                subtotal += item.newPrice;
                 container.innerHTML += `
                     <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
                         <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/50'">
@@ -696,7 +910,41 @@
                 `;
             });
 
-            totalEl.innerText = `₹${total}`;
+            calculateCartTotals(subtotal);
+        }
+
+        function applyCartCoupon() {
+            const code = document.getElementById('cart-coupon-input').value.trim().toUpperCase();
+            const msgEl = document.getElementById('cart-coupon-msg');
+
+            if (code === "LUCKY10") {
+                appliedDiscountPercent = 10;
+                msgEl.style.color = "green";
+                msgEl.innerText = "10% డిస్కౌంట్ వర్తించింది!";
+            } else if (code === "LUCKY15") {
+                appliedDiscountPercent = 15;
+                msgEl.style.color = "green";
+                msgEl.innerText = "15% డిస్కౌంట్ వర్తించింది!";
+            } else if (code === "LUCKY20") {
+                appliedDiscountPercent = 20;
+                msgEl.style.color = "green";
+                msgEl.innerText = "20% డిస్కౌంట్ వర్తించింది!";
+            } else {
+                appliedDiscountPercent = 0;
+                msgEl.style.color = "red";
+                msgEl.innerText = "చెల్లని కూపన్ కోడ్!";
+            }
+
+            updateCartUI();
+        }
+
+        function calculateCartTotals(subtotal) {
+            let discountAmount = Math.round((subtotal * appliedDiscountPercent) / 100);
+            let finalTotal = subtotal - discountAmount;
+
+            document.getElementById('cart-subtotal-price').innerText = `₹${subtotal}`;
+            document.getElementById('cart-discount-price').innerText = `-₹${discountAmount} (${appliedDiscountPercent}%)`;
+            document.getElementById('cart-total-price').innerText = `₹${finalTotal}`;
         }
 
         function removeFromCart(index) {
@@ -719,9 +967,13 @@
                 return;
             }
             let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
-            let total = cart.reduce((sum, item) => sum + item.newPrice, 0);
+            let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
+            let discountAmount = Math.round((subtotal * appliedDiscountPercent) / 100);
+            let finalTotal = subtotal - discountAmount;
 
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*మొత్తం ధర:* ₹${total}`;
+            let discountDetails = appliedDiscountPercent > 0 ? `%0A*డిస్కౌంట్ (${appliedDiscountPercent}%):* -₹${discountAmount}` : '';
+
+            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*మొత్తం వెల:* ₹${subtotal}${discountDetails}%0A*ఫైనల్ చెల్లించాల్సిన మొత్తం:* ₹${finalTotal}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
