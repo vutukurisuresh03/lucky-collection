@@ -649,7 +649,97 @@
 
             <!-- INTERACTIVE OFFER & RENTAL SECTION -->
             <div class="interactive-box-wrapper">
-                
+                <!-- 1. HTML DESIGN SECTION -->
+<div class="interactive-box-wrapper">
+    
+    <!-- TODAY'S OFFER BOX -->
+    <div class="offer-card" id="offerBox">
+        <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</h4>
+        <p>మీ ఫోన్ నెంబర్ ఎంటర్ చేసి మీ కోసం ఉన్న ప్రత్యేక డిస్కౌంట్ ఆఫర్‌ను పొందండి.</p>
+        <div class="offer-input-group">
+            <input type="tel" id="userPhone" placeholder="మీ ఫోన్ నంబర్ ఇవ్వండి (e.g. 9876543210)" maxlength="10">
+            <button class="offer-btn" onclick="checkDiscountOffer()">ఆఫర్ చూడండి</button>
+        </div>
+        
+        <!-- Result with Copy Button -->
+        <div class="offer-result" id="offerResult" style="display: none; margin-top: 15px;">
+            <h5 id="discountText">🎉 మీకు డిస్కౌంట్ లభించింది!</h5>
+            <p style="font-size:12px; color:#555; margin: 4px 0 8px 0;">ఈ కోడ్‌ను కాపీ చేసి ఆర్డర్ చేసేటప్పుడు ఉపయోగించండి.</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+                <span id="couponCode" style="font-weight: bold; background: #fff3cd; padding: 4px 10px; border: 1px dashed var(--gold); border-radius: 4px;">LUCKY10</span>
+                <button onclick="copyCouponCode()" id="copyBtn" style="background: var(--gold); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fa-regular fa-copy"></i> Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAGICAL RENTAL JEWELLERY BOX -->
+    <div class="rental-card" id="rentalBox" style="display: none;">
+        <span class="rental-badge">✨ BRIDAL SPECIAL SERVICES</span>
+        <h4><i class="fa-solid fa-crown"></i> వివాహాలకు కావలసిన నగలు అద్దెకి ఇవ్వబడును</h4>
+        <p>పెళ్లిళ్లు, శ్రీమంతాలు మరియు పండుగల విశేష సందర్భాల కోసం ప్రీమియం బ్రైడల్ నగల సెట్స్ (Bridal Jewellery Sets) రీజనబుల్ రెంట్ (అద్దె) కి లభించును.</p>
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <button onclick="orderOnWhatsApp('వివాహ నగల అద్దె వివరాలు (Rental Enquiry)', 'RENTAL')" class="add-to-cart-btn" style="padding:10px 15px; font-size:13px; background:#25d366; color:#fff; border:none; border-radius:5px; cursor:pointer;"><i class="fa-brands fa-whatsapp"></i> రెంట్ కొరకు వాట్సాప్ చేయండి</button>
+            <a href="tel:919876543210" class="call-now-btn" style="padding:10px 15px; font-size:13px; text-decoration:none; background:#007bff; color:#fff; border-radius:5px; display:inline-block;"><i class="fa-solid fa-phone"></i> నేరుగా కాల్ చేయండి</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- 2. JAVASCRIPT LOGIC SECTION (script ట్యాగ్ లోపల) -->
+<script>
+function checkDiscountOffer() {
+    const userPhone = document.getElementById('userPhone').value.trim();
+    
+    if (userPhone.length !== 10 || isNaN(userPhone)) {
+        alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
+        return;
+    }
+
+    let sum = 0;
+    for (let i = 0; i < userPhone.length; i++) {
+        sum += parseInt(userPhone.charAt(i));
+    }
+
+    const offerDiscounts = [
+        { percent: "10%", code: "LUCKY10" },
+        { percent: "15%", code: "LUCKY15" },
+        { percent: "20%", code: "LUCKY20" }
+    ];
+
+    const selectedOffer = offerDiscounts[sum % offerDiscounts.length];
+    
+    const resultBox = document.getElementById('offerResult');
+    document.getElementById('discountText').innerText = `🎉 మీకు ${selectedOffer.percent} డిస్కౌంట్ లభించింది!`;
+    document.getElementById('couponCode').innerText = selectedOffer.code;
+    resultBox.style.display = "block";
+    
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) {
+        copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+        copyBtn.style.background = 'var(--gold)';
+    }
+}
+
+function copyCouponCode() {
+    const codeText = document.getElementById('couponCode').innerText;
+    navigator.clipboard.writeText(codeText);
+    
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+    copyBtn.style.background = '#28a745';
+
+    // 2.5 సెకన్లలో మ్యాజికల్ గా రెంట్ బాక్స్ కి మారుతుంది
+    setTimeout(() => {
+        const offerCard = document.getElementById('offerBox');
+        const rentalCard = document.getElementById('rentalBox');
+
+        if (offerCard && rentalCard) {
+            offerCard.style.display = 'none';
+            rentalCard.style.display = 'block';
+        }
+    }, 2500);
+}
+</script>
                 <!-- 1. TODAY'S OFFER BOX -->
                 <div class="offer-card" id="offerBox">
                     <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</h4>
