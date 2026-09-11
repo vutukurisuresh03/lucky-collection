@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Collection | Premium Jewellery & Beauty</title>
     
-    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -33,10 +32,10 @@
         .cart-icon { position: relative; cursor: pointer; font-size: 20px; color: var(--burgundy); }
         .cart-icon .badge { position: absolute; top: -8px; right: -10px; background: var(--burgundy); color: white; font-size: 11px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
 
-        /* HERO SECTION WITH GOLD NECKLACE BACKGROUND */
+        /* అందమైన పాత రాయల్ గోల్డ్ నెక్లెస్ బ్యాక్‌గ్రౌండ్ HERO SECTION */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
-            height: 55vh; 
+            height: 60vh; 
             display: flex; 
             align-items: center; 
             padding: 0 8%; 
@@ -49,7 +48,18 @@
 
         .about-founder { padding: 50px 8%; background: #fff; display: flex; align-items: flex-start; gap: 40px; border-bottom: 1px solid #eee; }
         .founder-img-box { flex: 1; text-align: center; }
-        .founder-img-box img { width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 4px solid var(--gold); object-fit: cover; }
+        
+        /* FOUNDER IMAGE FIX */
+        .founder-img-box img { 
+            width: 100%; 
+            max-width: 350px; 
+            height: 400px;
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            border: 4px solid var(--gold); 
+            object-fit: cover; 
+        }
+
         .founder-info { flex: 1.2; }
         .founder-info h3 { color: var(--gold); letter-spacing: 1px; font-size: 14px; margin-bottom: 8px; }
         .founder-info h2 { font-family: 'Playfair Display', serif; color: var(--burgundy); font-size: 32px; margin-bottom: 15px; }
@@ -70,7 +80,6 @@
         .phone-input-group input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 14px; }
         .phone-input-group button { background: var(--burgundy); color: var(--gold); border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; }
 
-        /* GIFT BOX ANIMATION */
         .gift-box-anim { display: none; margin: 15px auto; width: 70px; height: 70px; position: relative; animation: pulse 1s infinite alternate; }
         @keyframes pulse { 0% { transform: scale(0.95); } 100% { transform: scale(1.05); } }
         
@@ -83,12 +92,9 @@
         .offer-display-box { display: none; background: #fff; border: 2px solid var(--gold); border-radius: 10px; padding: 15px; margin-top: 15px; text-align: center; animation: fadeIn 0.8s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .offer-display-box h4 { color: #27ae60; font-size: 18px; margin-bottom: 5px; }
         .promo-tag { display: inline-flex; align-items: center; gap: 8px; background: #fff3cd; color: #856404; padding: 6px 14px; border-radius: 6px; font-size: 14px; font-weight: 700; margin: 8px 0; border: 1px dashed #856404; }
         .copy-btn { background: #27ae60; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; font-weight: 600; }
-        .timer-msg { font-size: 12px; color: #e74c3c; margin-top: 5px; font-weight: 600; }
 
-        /* BRIDAL RENTAL CARD SLIDE ANIMATION */
         .rental-card {
             background: linear-gradient(135deg, #4a0e17 0%, #2b070e 100%);
             color: #ffffff;
@@ -191,7 +197,7 @@
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- GitHub లో images/founder.png అని సేవ్ చేయండి -->
+            <!-- మీ ఫోటో ఇక్కడ లోడ్ అవుతుంది. ఫోటో లేకపోతే డెఫాల్ట్ మోడల్ ఇమేజ్ వస్తుంది -->
             <img src="images/founder.png" id="founderImage" alt="Founder Photo" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80';">
         </div>
         <div class="founder-info">
@@ -223,7 +229,7 @@
                             <button class="copy-btn" id="copyBtn" onclick="copyPromoID()"><i class="fa-regular fa-copy"></i> Copy ID</button>
                         </div>
 
-                        <div class="timer-msg">
+                        <div style="font-size: 12px; color: #e74c3c; margin-top: 5px; font-weight: 600;">
                             ⏳ కాపీ చేసుకోండి! <span id="countdown">10</span> సెకన్లలో ఆఫర్ ముగుస్తుంది...
                         </div>
                     </div>
@@ -241,24 +247,24 @@
         </div>
     </section>
 
-    <!-- CATEGORIES SECTION -->
+    <!-- CATEGORIES SECTION WITH DEFAULT IMAGES -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
             <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=300&q=80" alt="Gold Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=300&q=80" alt="Gold"></div>
                 <h3>1 Gram Gold</h3>
             </div>
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475193-49035a9f5d37?auto=format&fit=crop&w=300&q=80" alt="Bangles Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475193-49035a9f5d37?auto=format&fit=crop&w=300&q=80" alt="Bangles"></div>
                 <h3>Bangles</h3>
             </div>
             <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=300&q=80" alt="Perfumes Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=300&q=80" alt="Perfumes"></div>
                 <h3>Perfumes</h3>
             </div>
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80" alt="Beauty Category"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80" alt="Beauty"></div>
                 <h3>Beauty Care</h3>
             </div>
         </div>
@@ -403,24 +409,17 @@
             }, 2500);
         }
 
-        /* 
-           డిఫాల్ట్ ప్రొడక్ట్స్ (ఆన్‌లైన్ డెమో ఇమేజెస్‌తో)
-           మీరు మీ సిస్టమ్‌లోని ఫోటోలను వాడాలనుకుంటే, 'img' పాత్‌ని 'images/bangle1.png' లా మార్చుకోవచ్చు.
-        */
+        /* DEFAULT PRODUCTS DATA WITH HD ONLINE IMAGES */
         const products = [
-            // Gold Section
             { id: 1, category: 'gold', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80', tag: 'HOT' },
             { id: 2, category: 'gold', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80', tag: 'ROYAL' },
             { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80', tag: 'POPULAR' },
             
-            // Bangles Section
             { id: 4, category: 'bangles', name: 'గోల్డ్ ప్లేటెడ్ డిజైనర్ గాజులు', oldPrice: 1499, newPrice: 799, img: 'https://images.unsplash.com/photo-1611591475193-49035a9f5d37?auto=format&fit=crop&w=500&q=80', tag: 'HOT' },
             { id: 5, category: 'bangles', name: 'కందన్‌ వర్క్ బ్రైడల్ గాజుల సెట్', oldPrice: 1999, newPrice: 999, img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80', tag: 'BEST' },
             
-            // Perfumes Section
             { id: 6, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్', oldPrice: 2499, newPrice: 1199, img: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=500&q=80', tag: 'ROYAL' },
             
-            // Beauty Section
             { id: 7, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=500&q=80', tag: 'HOT' }
         ];
 
@@ -460,15 +459,8 @@
 
         function filterProducts(cat, element = null) {
             let filtered = products.filter(p => p.category === cat);
-            
-            const titles = {
-                'gold': '1 Gram Gold కలెక్షన్',
-                'bangles': 'డిజైనర్ గాజుల కలెక్షన్',
-                'perfumes': 'రాయల్ పర్ఫ్యూమ్స్',
-                'beauty': 'బ్యూటీ & స్కిన్ కేర్'
-            };
+            const titles = { 'gold': '1 Gram Gold కలెక్షన్', 'bangles': 'డిజైనర్ గాజుల కలెక్షన్', 'perfumes': 'రాయల్ పర్ఫ్యూమ్స్', 'beauty': 'బ్యూటీ & స్కిన్ కేర్' };
             document.getElementById('product-title').innerText = titles[cat] || 'కలెక్షన్';
-
             renderProducts(filtered);
             document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
             if(element) element.classList.add('active-cat');
@@ -484,7 +476,6 @@
         function applyPromoCode() {
             const inputVal = document.getElementById('promoInput').value.trim().toUpperCase();
             const msg = document.getElementById('promoMessage');
-
             const matched = offerDiscounts.find(o => o.code === inputVal);
             if (matched) {
                 activeDiscountPercent = matched.percent;
@@ -492,14 +483,9 @@
                 msg.style.color = "#27ae60";
                 msg.innerText = `✅ ${matched.code} అప్లై అయ్యింది! (${matched.percent}% డిస్కౌంట్)`;
             } else if(inputVal === "") {
-                activeDiscountPercent = 0;
-                appliedCodeName = "";
-                msg.innerText = "";
+                activeDiscountPercent = 0; appliedCodeName = ""; msg.innerText = "";
             } else {
-                activeDiscountPercent = 0;
-                appliedCodeName = "";
-                msg.style.color = "#e74c3c";
-                msg.innerText = "❌ చెల్లుబాటు కాని ప్రమో కోడ్!";
+                activeDiscountPercent = 0; appliedCodeName = ""; msg.style.color = "#e74c3c"; msg.innerText = "❌ చెల్లుబాటు కాని ప్రమో కోడ్!";
             }
             updateCartUI();
         }
@@ -537,52 +523,32 @@
             });
 
             subtotalEl.innerText = `₹${subtotal}`;
-
             let discountAmount = 0;
             if (activeDiscountPercent > 0) {
                 discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
                 discountRow.style.display = 'flex';
                 discountEl.innerText = `-₹${discountAmount}`;
-            } else {
-                discountRow.style.display = 'none';
-            }
+            } else { discountRow.style.display = 'none'; }
 
             let finalTotal = subtotal - discountAmount;
             finalTotalEl.innerText = `₹${finalTotal}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
+        function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
         function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('open'); }
 
         function checkoutCart() {
-            if (cart.length === 0) {
-                alert("మీ కార్ట్ ఖాళీగా ఉంది!");
-                return;
-            }
-
+            if (cart.length === 0) { alert("మీ కార్ట్ ఖాళీగా ఉంది!"); return; }
             let message = "नमस्ते! నేను Lucky Collection లో ఈ క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:\n\n";
             let subtotal = 0;
-
-            cart.forEach((item, i) => {
-                message += `${i+1}. ${item.name} - ₹${item.newPrice}\n`;
-                subtotal += item.newPrice;
-            });
-
+            cart.forEach((item, i) => { message += `${i+1}. ${item.name} - ₹${item.newPrice}\n`; subtotal += item.newPrice; });
             message += `\nమొత్తం ధర: ₹${subtotal}`;
-
             if (activeDiscountPercent > 0) {
                 let discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
-                let finalPrice = subtotal - discountAmount;
-                message += `\nఆఫర్ కోడ్ (${appliedCodeName}): -₹${discountAmount} (${activeDiscountPercent}% OFF)`;
-                message += `\n*ఫైనల్ పేమెంట్ మొత్తం: ₹${finalPrice}*`;
+                message += `\nఆఫర్ కోడ్ (${appliedCodeName}): -₹${discountAmount}`;
+                message += `\n*ఫైనల్ పేమెంట్ మొత్తం: ₹${subtotal - discountAmount}*`;
             }
-
             message += "\n\nదయచేసి నా ఆర్డర్‌ని కన్ఫర్మ్ చేయండి.";
-
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${encodeURIComponent(message)}`, '_blank');
         }
 
