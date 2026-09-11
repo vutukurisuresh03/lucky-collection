@@ -122,7 +122,7 @@
         /* Hero Banner */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200') center/cover no-repeat;
-            height: 60vh;
+            height: 55vh;
             display: flex;
             align-items: center;
             padding: 0 8%;
@@ -163,7 +163,7 @@
 
         /* ABOUT FOUNDER SECTION */
         .about-founder {
-            padding: 60px 8%;
+            padding: 50px 8%;
             background: #fff;
             display: flex;
             align-items: flex-start;
@@ -210,10 +210,38 @@
             margin-bottom: 20px;
         }
 
-        /* OFFER BOX STYLES */
+        /* GIFT BOX & OFFER ANIMATION STYLES */
         .interactive-box-wrapper {
             margin-top: 25px;
             position: relative;
+        }
+
+        .gift-box-closed {
+            background: linear-gradient(135deg, #fffdfa 0%, #fff0d4 100%);
+            border: 2px dashed var(--gold);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .gift-box-closed:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+        }
+
+        .gift-box-icon {
+            font-size: 45px;
+            color: var(--burgundy);
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .offer-card {
@@ -223,6 +251,12 @@
             padding: 20px;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
             position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .offer-card h4 {
@@ -281,9 +315,53 @@
 
         .offer-result h5 { color: #28a745; font-size: 18px; margin-bottom: 4px; }
 
+        .timer-badge {
+            background: #fff3cd;
+            color: #856404;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-top: 6px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* MOVING MAGIC ANNOUNCEMENT BOX */
+        .magic-rental-bar {
+            background: linear-gradient(90deg, var(--burgundy), #7a1523, var(--burgundy));
+            color: #ffffff;
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            margin: 20px 0;
+        }
+
+        .magic-rental-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 18s linear infinite;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .magic-rental-text i {
+            color: var(--gold);
+            margin: 0 8px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
         /* CATEGORIES SECTION */
@@ -518,7 +596,7 @@
 </head>
 <body>
 
-    <!-- Announcement Bar -->
+    <!-- Top Announcement Bar -->
     <div class="top-bar">
         ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
     </div>
@@ -555,10 +633,18 @@
         </div>
     </section>
 
+    <!-- MOVING MAGIC ANNOUNCEMENT BOX -->
+    <div class="magic-rental-bar">
+        <div class="magic-rental-text">
+            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి నగలను అద్దెకు ఇవ్వబడును. పూర్తి వివరాల కోసం ఈ నంబర్‌కు కాల్ చేయండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
+        </div>
+    </div>
+
     <!-- ABOUT FOUNDER SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <img src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500';">
+            <!-- ఇక్కడ మీ ఫోటో పాత్ ఇచ్చాము -->
+            <img src="images/my-photo.jpg" alt="Lucky Collection Owner" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500';">
         </div>
         <div class="founder-info">
             <h3>QUALITY & TRUST</h3>
@@ -570,9 +656,17 @@
                 <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
             </div>
 
-            <!-- SINGLE OFFER BOX -->
+            <!-- INTERACTIVE GIFT BOX SECTION -->
             <div class="interactive-box-wrapper">
-                <div class="offer-card" id="offerBox">
+                <!-- 🎁 Closed Gift Box -->
+                <div class="gift-box-closed" id="giftBoxClosed" onclick="openGiftBox()">
+                    <div class="gift-box-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <h4 style="color:var(--burgundy); font-weight:700;">🎁 ప్రత్యేక ఆఫర్ పొందడానికి ఇక్కడ క్లిక్ చేయండి!</h4>
+                    <p style="font-size:12px; color:#666; margin-top:4px;">మీ కోసం ఎదురుచూస్తున్న లక్కీ డిస్కౌంట్ బహుమతిని ఓపెన్ చేయండి.</p>
+                </div>
+
+                <!-- 🎁 Open Box Offer Form -->
+                <div class="offer-card" id="offerBox" style="display: none;">
                     <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు ఆఫర్ చెక్ చేసుకోండి!</h4>
                     <p>మీ ఫోన్ నెంబర్ ఎంటర్ చేసి మీ కోసం ఉన్న ప్రత్యేక డిస్కౌంట్ ఆఫర్‌ను పొందండి.</p>
                     <div class="offer-input-group">
@@ -580,14 +674,21 @@
                         <button class="offer-btn" onclick="checkDiscountOffer()">ఆఫర్ చూడండి</button>
                     </div>
                     
-                    <!-- Result Box -->
+                    <!-- Result Box with Timer -->
                     <div class="offer-result" id="offerResult" style="display: none;">
                         <h5 id="discountText">🎉 మీకు డిస్కౌంట్ లభించింది!</h5>
                         <p style="font-size:12px; color:#555; margin: 4px 0 8px 0;">ఈ కోడ్‌ను కాపీ చేసి ఆర్డర్ చేసేటప్పుడు ఉపయోగించండి.</p>
+                        
                         <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
                             <span id="couponCode" style="font-weight: bold; background: #fff3cd; padding: 4px 10px; border: 1px dashed var(--gold); border-radius: 4px;">LUCKY10</span>
                             <button onclick="copyCouponCode()" id="copyBtn" style="background: var(--gold); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fa-regular fa-copy"></i> Copy</button>
                         </div>
+
+                        <!-- Seconds Countdown Timer -->
+                        <div id="timerContainer" class="timer-badge">
+                            ⏱️ కాపీ చేయడానికి సమయం: <span id="timerSeconds">30</span> సెకన్లు
+                        </div>
+
                         <p id="copySuccessMsg" style="color:#28a745; font-weight:600; font-size:12px; margin-top:8px; display:none;">
                             ✓ కోడ్ కాపీ చేయబడింది! ఆర్డర్ చేసే ముందు దీనిని ఉపయోగించండి.
                         </p>
@@ -743,6 +844,7 @@
         ];
 
         let cart = [];
+        let countdownTimer = null;
 
         window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
 
@@ -870,7 +972,13 @@
             document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* Discount check & Copy Code logic */
+        /* GIFT BOX OPEN LOGIC */
+        function openGiftBox() {
+            document.getElementById('giftBoxClosed').style.display = 'none';
+            document.getElementById('offerBox').style.display = 'block';
+        }
+
+        /* Discount check & Countdown Copy Timer Logic */
         function checkDiscountOffer() {
             const userPhone = document.getElementById('userPhone').value.trim();
             
@@ -902,7 +1010,25 @@
             if (copyBtn) {
                 copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
                 copyBtn.style.background = 'var(--gold)';
+                copyBtn.disabled = false;
             }
+
+            // Start 30 Seconds Timer
+            let timeLeft = 30;
+            const timerEl = document.getElementById('timerSeconds');
+            timerEl.innerText = timeLeft;
+
+            if (countdownTimer) clearInterval(countdownTimer);
+
+            countdownTimer = setInterval(() => {
+                timeLeft--;
+                timerEl.innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownTimer);
+                    document.getElementById('timerContainer').innerHTML = "⏳ ఆఫర్ సమయం ముగిసింది! దయచేసి కోడ్ త్వరగా ఉపయోగించండి.";
+                }
+            }, 1000);
         }
 
         function copyCouponCode() {
