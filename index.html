@@ -76,32 +76,23 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
         
-        /* HEADER MENU BUTTONS */
+        /* GENERAL BLINKING BUTTON BASE STYLE */
         .nav-btn {
-            background: #f7f3eb;
-            color: var(--burgundy);
             padding: 8px 14px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
+            border: 1px solid #fff;
             white-space: nowrap;
-        }
-        .nav-btn:hover {
-            background: var(--burgundy);
-            color: var(--gold);
-            border-color: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(74, 14, 23, 0.2);
+            transition: all 0.3s ease;
         }
 
-        /* FAST BLINKING COMBO OFFER BUTTON (HEADER) */
+        /* 1. FAST BLINKING COMBO OFFER BUTTON (RED) */
         .combo-btn {
             background: linear-gradient(135deg, #ff0055, #ff5500);
             color: #ffffff !important;
@@ -115,18 +106,75 @@
             animation: fastBlink 0.7s infinite alternate;
             white-space: nowrap;
         }
-        
         @keyframes fastBlink {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 5px #ff0055, 0 0 10px #ff5500;
-                filter: brightness(1);
-            }
-            100% {
-                transform: scale(1.08);
-                box-shadow: 0 0 18px #ff0055, 0 0 28px #ffff00;
-                filter: brightness(1.3);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 5px #ff0055, 0 0 10px #ff5500; filter: brightness(1); }
+            100% { transform: scale(1.08); box-shadow: 0 0 18px #ff0055, 0 0 28px #ffff00; filter: brightness(1.3); }
+        }
+
+        /* 2. 1-GRAM GOLD BUTTON (GOLD/YELLOW GLOW) */
+        .btn-gold-blink {
+            background: linear-gradient(135deg, #d4af37, #ff8c00);
+            color: #ffffff !important;
+            animation: goldBlink 0.8s infinite alternate;
+        }
+        @keyframes goldBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #d4af37; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #ffea00; filter: brightness(1.3); }
+        }
+
+        /* 3. HAARAM BUTTON (ROYAL PURPLE GLOW) */
+        .btn-haaram-blink {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: #ffffff !important;
+            animation: haaramBlink 0.9s infinite alternate;
+        }
+        @keyframes haaramBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #8e44ad; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #e0aaff; filter: brightness(1.3); }
+        }
+
+        /* 4. BANGLES BUTTON (MAGENTA PINK GLOW) */
+        .btn-bangles-blink {
+            background: linear-gradient(135deg, #e91e63, #ff4081);
+            color: #ffffff !important;
+            animation: banglesBlink 0.75s infinite alternate;
+        }
+        @keyframes banglesBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #e91e63; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #ff80ab; filter: brightness(1.3); }
+        }
+
+        /* 5. EARRINGS BUTTON (SKY BLUE GLOW) */
+        .btn-earrings-blink {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #ffffff !important;
+            animation: earringsBlink 0.85s infinite alternate;
+        }
+        @keyframes earringsBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #00c6ff; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #80d4ff; filter: brightness(1.3); }
+        }
+
+        /* 6. MAGGAM WORKS BUTTON (EMERALD GREEN GLOW) */
+        .btn-maggam-blink {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: #ffffff !important;
+            animation: maggamBlink 0.7s infinite alternate;
+        }
+        @keyframes maggamBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #11998e; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #a8ff78; filter: brightness(1.3); }
+        }
+
+        /* 7. BEAUTY & PERFUMES BUTTON (ORANGE GLOW) */
+        .btn-beauty-blink {
+            background: linear-gradient(135deg, #ff512f, #f09819);
+            color: #ffffff !important;
+            animation: beautyBlink 0.8s infinite alternate;
+        }
+        @keyframes beautyBlink {
+            0% { transform: scale(1); box-shadow: 0 0 4px #ff512f; }
+            100% { transform: scale(1.06); box-shadow: 0 0 16px #ffd000; filter: brightness(1.3); }
         }
 
         .header-icons {
@@ -507,7 +555,6 @@
         }
         .product-card:hover { transform: translateY(-5px); }
         
-        /* UPDATED PRODUCT IMAGE CSS (FULL IMAGE - NO CUTTING) */
         .product-img {
             position: relative;
             height: 270px;
@@ -698,7 +745,7 @@
         ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
     </div>
 
-    <!-- MAIN HEADER WITH COMBOS FIRST -->
+    <!-- MAIN HEADER WITH MULTI-COLOR BLINKING BUTTONS -->
     <header>
         <div class="logo" onclick="filterAndScroll('combos')">
             <h1>Lucky Collections</h1>
@@ -707,12 +754,12 @@
         <nav>
             <ul>
                 <li><button class="combo-btn" onclick="filterAndScroll('combos')"><i class="fa-solid fa-fire"></i> కాంబో ఆఫర్స్</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('gold')">1 Gram Gold</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('haaram')">హారాలు</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('bangles')">గాజులు</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('earrings')">ఇయర్ రింగ్స్</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('maggam')">మగ్గం వర్క్స్</button></li>
-                <li><button class="nav-btn" onclick="filterAndScroll('beauty')">బ్యూటీ & పెర్ఫ్యూమ్స్</button></li>
+                <li><button class="nav-btn btn-gold-blink" onclick="filterAndScroll('gold')">1 Gram Gold</button></li>
+                <li><button class="nav-btn btn-haaram-blink" onclick="filterAndScroll('haaram')">హారాలు</button></li>
+                <li><button class="nav-btn btn-bangles-blink" onclick="filterAndScroll('bangles')">గాజులు</button></li>
+                <li><button class="nav-btn btn-earrings-blink" onclick="filterAndScroll('earrings')">ఇయర్ రింగ్స్</button></li>
+                <li><button class="nav-btn btn-maggam-blink" onclick="filterAndScroll('maggam')">మగ్గం వర్క్స్</button></li>
+                <li><button class="nav-btn btn-beauty-blink" onclick="filterAndScroll('beauty')">బ్యూటీ & పెర్ఫ్యూమ్స్</button></li>
             </ul>
         </nav>
         <div class="header-icons">
