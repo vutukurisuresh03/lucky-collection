@@ -49,7 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 8%;
+            padding: 12px 5%;
             background: #ffffff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
@@ -60,7 +60,7 @@
         .logo h1 {
             font-family: 'Playfair Display', serif;
             color: var(--burgundy);
-            font-size: 28px;
+            font-size: 26px;
             line-height: 1;
             font-weight: 700;
             cursor: pointer;
@@ -76,17 +76,59 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 10px;
+            align-items: center;
         }
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 500;
-            transition: 0.3s;
-            font-size: 14px;
+        
+        /* HEADER MENU BUTTONS */
+        .nav-btn {
+            background: #f7f3eb;
+            color: var(--burgundy);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
-        nav ul li a:hover { color: var(--gold); }
+        .nav-btn:hover {
+            background: var(--burgundy);
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(74, 14, 23, 0.2);
+        }
+
+        /* FAST BLINKING COMBO OFFER BUTTON */
+        .combo-btn {
+            background: linear-gradient(135deg, #ff0055, #ff5500);
+            color: #ffffff !important;
+            padding: 9px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 0 12px rgba(255, 85, 0, 0.8);
+            animation: fastBlink 0.7s infinite alternate;
+            white-space: nowrap;
+        }
+        
+        @keyframes fastBlink {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 5px #ff0055, 0 0 10px #ff5500;
+                filter: brightness(1);
+            }
+            100% {
+                transform: scale(1.08);
+                box-shadow: 0 0 18px #ff0055, 0 0 28px #ffff00;
+                filter: brightness(1.3);
+            }
+        }
+
         .header-icons {
             display: flex;
             gap: 20px;
@@ -110,7 +152,7 @@
             font-weight: 600;
         }
 
-        /* HERO BANNER WITH DIAMOND & PEARL NECKLACE */
+        /* HERO BANNER */
         .hero {
             background: linear-gradient(90deg, rgba(26, 5, 8, 0.85) 0%, rgba(26, 5, 8, 0.3) 100%), 
                         url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
@@ -156,7 +198,7 @@
         }
         .btn-gold:hover { background-color: var(--dark-gold); }
 
-        /* MOVING MAGIC ANNOUNCEMENT BAR */
+        /* MOVING ANNOUNCEMENT BAR */
         .magic-rental-bar {
             background: linear-gradient(90deg, var(--burgundy), #7a1523, var(--burgundy));
             color: #ffffff;
@@ -243,7 +285,6 @@
         }
         .services-grid-list i { color: var(--gold); margin-right: 6px; }
 
-        /* MAGICAL ANIMATED OFFER BUTTON */
         .magic-offer-btn {
             background: linear-gradient(135deg, var(--burgundy), #801827);
             color: var(--gold);
@@ -373,7 +414,7 @@
         }
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 15px;
         }
         .cat-card {
@@ -541,9 +582,10 @@
         .footer-col p, .footer-col ul li a { font-size: 13px; color: #ccc; line-height: 1.6; text-decoration: none; cursor: pointer; }
         .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 12px; color: #aaa; }
 
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 12px; }
-            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+        @media (max-width: 900px) {
+            header { flex-direction: column; gap: 12px; padding: 12px 3%; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 6px; }
+            .nav-btn { font-size: 11px; padding: 6px 10px; }
             .about-founder { flex-direction: column; text-align: center; }
             .cart-sidebar { width: 100%; right: -100%; }
         }
@@ -556,7 +598,7 @@
         ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
     </div>
 
-    <!-- MAIN HEADER -->
+    <!-- MAIN HEADER WITH BUTTONS AND FAST BLINKING COMBOS -->
     <header>
         <div class="logo" onclick="filterProducts('gold')">
             <h1>Lucky Collections</h1>
@@ -564,12 +606,13 @@
         </div>
         <nav>
             <ul>
-                <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
-                <li><a onclick="filterProducts('haaram')">హారాలు</a></li>
-                <li><a onclick="filterProducts('bangles')">గాజులు</a></li>
-                <li><a onclick="filterProducts('Ear Rings and Finger Rings')">ఇయర్ రింగ్స్ అండ్ ఫింగర్ రింగ్స్స్</a></li>
-                <li><a onclick="filterProducts('maggam')">మగ్గం వర్క్స్</a></li>
-                <li><a onclick="filterProducts('beauty')">బ్యూటీ & పెర్ఫ్యూమ్స్</a></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('gold')">1 Gram Gold</button></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('haaram')">హారాలు</button></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('bangles')">గాజులు</button></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('earrings')">ఇయర్ రింగ్స్</button></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('maggam')">మగ్గం వర్క్స్</button></li>
+                <li><button class="nav-btn" onclick="filterAndScroll('beauty')">బ్యూటీ & పెర్ఫ్యూమ్స్</button></li>
+                <li><button class="combo-btn" onclick="filterAndScroll('combos')"><i class="fa-solid fa-fire"></i> కాంబో ఆఫర్స్</button></li>
             </ul>
         </nav>
         <div class="header-icons">
@@ -584,7 +627,7 @@
     <section class="hero">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
-            <h2>వన్ గ్రామ్ గోల్డ్, ముత్యాల-వజ్రాల హారాలు & మగ్గం వర్క్స్</h2>
+            <h2>1 Gram Gold, ముత్యాల-వజ్రాల హారాలు & మగ్గం వర్క్స్</h2>
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్ మరియు రాయల్ ఆభరణాలు.</p>
             <button onclick="scrollToProducts()" class="btn-gold">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
         </div>
@@ -593,7 +636,7 @@
     <!-- MOVING MAGIC ANNOUNCEMENT BAR -->
     <div class="magic-rental-bar">
         <div class="magic-rental-text">
-            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <strong>+91 93817 10402</strong> <i class="fa-solid fa-gem"></i>
+            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
         </div>
     </div>
 
@@ -605,8 +648,8 @@
         
         <div class="founder-info">
             <h3>QUALITY & TRUST</h3>
-            <h2>లక్కీ కలెక్షన్స్ మేనేజ్‌మెంట్</h2>
-            <p>మా లక్కీ కలెక్షన్స్ లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
+            <h2>లక్కీ కలెక్షన్ ప్రొప్రైటర్ & మేనేజ్‌మెంట్</h2>
+            <p>మా లక్కీ కలెక్షన్ లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
             
             <div class="services-grid-list">
                 <div><i class="fa-solid fa-square-check"></i> 1 Gram Gold ఆభరణాలు</div>
@@ -677,21 +720,21 @@
                 <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=100&q=80" alt="Bangles"></div>
                 <h3>బ్యాంగిల్స్</h3>
             </div>
-            <div class="cat-card" id="cat-earrings & rings" onclick="filterProducts('earrings & rings', this)">
+            <div class="cat-card" id="cat-earrings" onclick="filterProducts('earrings', this)">
                 <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=100&q=80" alt="Earrings"></div>
-                <h3>ఇయర్ రింగ్స్ & రింగ్స్</h3>
+                <h3>ఇయర్ రింగ్స్</h3>
             </div>
             <div class="cat-card" id="cat-maggam" onclick="filterProducts('maggam', this)">
                 <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=100&q=80" alt="Maggam Work"></div>
                 <h3>మగ్గం వర్క్స్</h3>
             </div>
-            <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=100&q=80" alt="Perfumes"></div>
-                <h3>పర్ఫ్యూమ్స్</h3>
-            </div>
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
-                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=100&q=80" alt="Beauty Care"></div>
-                <h3>బ్యూటీ కేర్</h3>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=100&q=80" alt="Beauty"></div>
+                <h3>బ్యూటీ & పెర్ఫ్యూమ్స్</h3>
+            </div>
+            <div class="cat-card" id="cat-combos" onclick="filterProducts('combos', this)" style="border-color: #ff5500;">
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=100&q=80" alt="Combos"></div>
+                <h3 style="color:#ff0055; font-weight:bold;">🔥 కాంబో ఆఫర్స్</h3>
             </div>
         </div>
     </section>
@@ -738,28 +781,28 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3>Lucky Collection</h3>
+                <h3>Lucky Collections</h3>
                 <p>అత్యుత్తమ నాణ్యత కలిగిన 1 Gram Gold ఆభరణాలు, మగ్గం వర్క్స్ మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు నమ్మకమైన వేదిక.</p>
             </div>
             <div class="footer-col">
                 <h3>త్వరిత లింకులు</h3>
                 <ul>
-                    <li><a onclick="filterProducts('gold')">గోల్డ్ గొలుసులు</a></li>
-                    <li><a onclick="filterProducts('haaram')">హారాలు</a></li>
-                    <li><a onclick="filterProducts('bangles')">మ్యాచింగ్ గాజులు</a></li>
-                    <li><a onclick="filterProducts('maggam')">మగ్గం వర్క్స్</a></li>
-                    <li><a onclick="filterProducts('beauty')">బ్యూటీ ప్రొడక్ట్స్</a></li>
+                    <li><a onclick="filterAndScroll('gold')">గోల్డ్ గొలుసులు</a></li>
+                    <li><a onclick="filterAndScroll('haaram')">హారాలు</a></li>
+                    <li><a onclick="filterAndScroll('bangles')">మ్యాచింగ్ గాజులు</a></li>
+                    <li><a onclick="filterAndScroll('maggam')">మగ్గం వర్క్స్</a></li>
+                    <li><a onclick="filterAndScroll('combos')">కాంబో ఆఫర్స్</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>సంప్రదించండి</h3>
                 <p><i class="fa-solid fa-location-dot"></i> చీరాల, ఆంధ్రప్రదేశ్</p>
-                <p><i class="fa-solid fa-phone"></i> +91 9381710402 </p>
+                <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
                 <p><i class="fa-solid fa-envelope"></i> contact@luckycollection.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Lucky Collection. All Rights Reserved.
+            &copy; 2026 Lucky Collections. All Rights Reserved.
         </div>
     </footer>
 
@@ -774,8 +817,8 @@
             bangles: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
             earrings: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=400&q=80",
             maggam: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80",
-            perfumes: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80",
-            beauty: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80"
+            beauty: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80",
+            combos: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80"
         };
 
         const categoriesConfig = [
@@ -784,14 +827,14 @@
             { key: 'bangles', prefix: 'b', name: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799, img: defaultImages.bangles },
             { key: 'earrings', prefix: 'e', name: '1 Gram Gold ఇయర్ రింగ్స్', price: 599, img: defaultImages.earrings },
             { key: 'maggam', prefix: 'm', name: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999, img: defaultImages.maggam },
-            { key: 'perfumes', prefix: 'p', name: 'రాయల్ లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', price: 1199, img: defaultImages.perfumes },
-            { key: 'beauty', prefix: 'bc', name: 'ప్రీమియం బ్యూటీ ప్రొడక్ట్', price: 649, img: defaultImages.beauty }
+            { key: 'beauty', prefix: 'p', name: 'బ్యూటీ & పర్ఫ్యూమ్స్', price: 1199, img: defaultImages.beauty },
+            { key: 'combos', prefix: 'cb', name: 'రాయల్ జ్యూవెల్లరీ కాంబో సెట్', price: 2499, img: defaultImages.combos }
         ];
 
         let products = [];
         let idCounter = 1;
 
-        // Populate items with file pattern (g1.png to g10.png, e1.png to e10.png, etc.)
+        // Populate items
         categoriesConfig.forEach(cat => {
             for (let i = 1; i <= 10; i++) {
                 products.push({
@@ -802,12 +845,11 @@
                     newPrice: cat.price + (i * 20),
                     img: `${cat.prefix}${i}.png`,
                     defaultImg: cat.img,
-                    tag: i % 2 === 0 ? 'HOT' : 'BEST'
+                    tag: cat.key === 'combos' ? 'COMBO OFFER' : (i % 2 === 0 ? 'HOT' : 'BEST')
                 });
             }
         });
 
-        // Default Telugu Free Gifts Array
         const giftList = [
             "గోల్డ్ ప్లేటెడ్ లక్ష్మీదేవి కాయిన్ 🪙",
             "ముత్యాల ముక్కుపుడక & ఇయర్ రింగ్స్ 💎",
@@ -831,7 +873,7 @@
                 container.innerHTML += `
                     <div class="product-card">
                         <div class="product-img">
-                            <span class="tag">${prod.tag}</span>
+                            <span class="tag" style="${prod.category === 'combos' ? 'background:#ff0055;' : ''}">${prod.tag}</span>
                             <img src="${prod.img}" alt="${prod.name}" onerror="this.onerror=null; this.src='${prod.defaultImg}';">
                         </div>
                         <div class="product-info">
@@ -869,10 +911,16 @@
                 'bangles': 'డిజైనర్ గాజులు',
                 'earrings': 'ఇయర్ రింగ్స్ & జుంకీలు',
                 'maggam': 'డిజైనర్ మగ్గం వర్క్ బ్లౌజులు',
-                'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్',
-                'beauty': 'బ్యూటీ కేర్ ప్రొడక్ట్స్'
+                'beauty': 'బ్యూటీ & పర్ఫ్యూమ్స్',
+                'combos': '🔥 స్పెషల్ కాంబో ఆఫర్స్'
             };
             document.getElementById('product-title').innerText = titleMap[cat] || 'కలెక్షన్స్';
+        }
+
+        // Direct scroll to products page on button click
+        function filterAndScroll(cat) {
+            filterProducts(cat);
+            scrollToProducts();
         }
 
         function addToCart(productId) {
@@ -907,8 +955,8 @@
             cart.forEach((item, index) => {
                 subtotal += item.newPrice;
                 
-                // RESTRICTION: Discount ONLY for Gold & Bangles
-                if(['gold', 'haaram', 'earrings', 'bangles'].includes(item.category)) {
+                // Discount applies for Gold, Haaram, Earrings, Bangles, and Combos
+                if(['gold', 'haaram', 'earrings', 'bangles', 'combos'].includes(item.category)) {
                     discountableSubtotal += item.newPrice;
                 } else {
                     hasNonDiscountable = true;
@@ -954,13 +1002,11 @@
             }
         }
 
-        // CONSISTENT DISCOUNT & GIFT PER PHONE NUMBER GENERATOR
         function checkDiscountOffer() {
             const inputEl = document.getElementById('userPhone');
             const errorEl = document.getElementById('phoneError');
             const phoneVal = inputEl.value.trim();
 
-            // Strict 10-Digit Phone Validation Requirement
             const phoneRegex = /^[6-9]\d{9}$/;
             if (!phoneRegex.test(phoneVal)) {
                 errorEl.style.display = 'block';
@@ -971,7 +1017,6 @@
 
             activeUserPhone = phoneVal;
 
-            // Generate deterministic percent (5%, 15%, 20%) based on phone number digits
             let numSum = 0;
             for(let i = 0; i < phoneVal.length; i++) {
                 numSum += parseInt(phoneVal.charAt(i));
@@ -981,7 +1026,6 @@
             activeDiscountPercent = percents[numSum % percents.length];
             activeGiftName = giftList[numSum % giftList.length];
 
-            // Display Results
             document.getElementById('giftName').innerText = activeGiftName;
             document.getElementById('discountValueText').innerText = `${activeDiscountPercent}% OFF (ఆన్‌లైన్ డిస్కౌంట్)`;
             document.getElementById('offerResult').style.display = 'block';
@@ -990,7 +1034,7 @@
         }
 
         function orderOnWhatsApp(productName, price) {
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
+            const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
@@ -1010,13 +1054,13 @@
             let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
             let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
             
-            let discountableSubtotal = cart.filter(item => ['gold', 'haaram', 'earrings', 'bangles'].includes(item.category)).reduce((sum, item) => sum + item.newPrice, 0);
+            let discountableSubtotal = cart.filter(item => ['gold', 'haaram', 'earrings', 'bangles', 'combos'].includes(item.category)).reduce((sum, item) => sum + item.newPrice, 0);
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let total = subtotal - discountAmount;
             
-            let couponText = activeDiscountPercent > 0 ? `%0A*మొబైల్ నంబర్:* ${activeUserPhone}%0A*ఆఫర్ డిస్కౌంట్:* ${activeDiscountPercent}% OFF (1-Gram/Bangles కి మాత్రమే)%0A*ఉచిత గిఫ్ట్:* ${activeGiftName}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
+            let couponText = activeDiscountPercent > 0 ? `%0A*మొబైల్ నంబర్:* ${activeUserPhone}%0A*ఆఫర్ డిస్కౌంట్:* ${activeDiscountPercent}% OFF (1-Gram/Bangles/Combos కి మాత్రమే)%0A*ఉచిత గిఫ్ట్:* ${activeGiftName}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
             
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*నెట్ చెల్లించాల్సింది:* ₹${total}`;
+            const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్ నుంచి ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*నెట్ చెల్లించాల్సింది:* ₹${total}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
