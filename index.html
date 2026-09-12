@@ -3,320 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>లక్కీ కలెక్షన్స్ - Lucky Collections</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Lucky Collections | Royal Elegance & Luxury Fashion</title>
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-black: #0f0f0f;
-            --burgundy: #7a001e;
-            --gold: #d4af37;
-            --gold-hover: #b89628;
-            --light-gold: #fffdf5;
-            --white: #ffffff;
-            --gray-bg: #f8f9fa;
-            --dark-gray: #222222;
-            --border-color: #e2e8f0;
+            --gold: #D4AF37;
+            --dark-gold: #AA7C11;
+            --burgundy: #4A0E17;
+            --light-bg: #FAF9F6;
+            --dark-text: #222222;
+            --whatsapp-green: #25D366;
+            --call-blue: #007bff;
+            --light-gold-bg: #fffdf5;
         }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', 'Noto Sans Telugu', sans-serif;
+            scroll-behavior: smooth;
         }
-
         body {
-            background-color: var(--gray-bg);
-            color: var(--dark-gray);
-            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
         }
-
         /* Top Announcement Bar */
-        .scrolling-banner {
-            background: linear-gradient(90deg, #7a001e, #a30029);
-            color: #fff;
-            padding: 8px 0;
+        .top-bar {
+            background-color: var(--burgundy);
+            color: var(--gold);
+            text-align: center;
+            padding: 8px;
             font-size: 13px;
+            letter-spacing: 1px;
             font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
-
-        /* Main Header Navigation */
+        /* Header Navigation */
         header {
-            background-color: var(--primary-black);
-            color: var(--white);
-            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 8%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             border-bottom: 2px solid var(--gold);
         }
-
-        .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-logo img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            object-fit: cover;
-        }
-
-        .brand-logo div h1 {
-            font-size: 20px;
-            color: var(--gold);
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--burgundy);
+            font-size: 28px;
+            line-height: 1;
             font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .brand-logo div p {
-            font-size: 11px;
-            color: #ccc;
-            letter-spacing: 1px;
-        }
-
-        .cart-icon-btn {
-            position: relative;
-            background: transparent;
-            border: none;
-            color: var(--white);
-            font-size: 22px;
             cursor: pointer;
-            padding: 5px;
         }
-
-        .cart-badge {
+        .logo span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+            display: block;
+            margin-top: 3px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        nav ul li a:hover { color: var(--gold); }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            align-items: center;
+        }
+        .cart-icon { position: relative; cursor: pointer; }
+        .cart-icon .badge {
             position: absolute;
-            top: -2px;
-            right: -6px;
-            background-color: var(--gold);
-            color: var(--primary-black);
+            top: -8px;
+            right: -10px;
+            background: var(--burgundy);
+            color: white;
             font-size: 11px;
-            font-weight: bold;
             width: 18px;
             height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 600;
         }
-
-        /* PROFESSIONAL HERO & FOUNDER SECTION */
-        .hero-wrapper {
-            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
-            color: var(--white);
-            padding: 40px 5%;
-            border-bottom: 4px solid var(--gold);
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hero-left-content h2 {
-            font-size: 32px;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .hero-tagline {
-            font-size: 16px;
-            color: #ddd;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        /* Services Offered Grid inside Hero */
-        .services-offered {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .services-offered h4 {
-            color: var(--gold);
-            font-size: 15px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding-bottom: 5px;
-        }
-
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            list-style: none;
-        }
-
-        .services-list li {
-            font-size: 13px;
-            color: #eee;
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('images/hero-bg.jpg') center/cover no-repeat;
+            height: 50vh;
             display: flex;
             align-items: center;
-            gap: 8px;
+            padding: 0 8%;
+            color: #ffffff;
+            background-color: #222;
         }
-
-        .services-list li i {
+        .hero-content { max-width: 650px; }
+        .hero-content h4 {
             color: var(--gold);
-            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #eee;
+        }
+        .btn-gold {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-gold:hover { background-color: var(--dark-gold); }
+
+        /* MOVING MAGIC ANNOUNCEMENT BAR */
+        .magic-rental-bar {
+            background: linear-gradient(90deg, var(--burgundy), #7a1523, var(--burgundy));
+            color: #ffffff;
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+        .magic-rental-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 18s linear infinite;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .magic-rental-text i { color: var(--gold); margin: 0 8px; }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
-        /* Founder Showcase Right Side */
-        .founder-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--gold);
+        /* ABOUT FOUNDER & SERVICES SECTION */
+        .about-founder {
+            padding: 50px 8%;
+            background: #fff;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .founder-img-box {
+            flex: 1;
+            position: relative;
+            text-align: center;
+        }
+        .founder-img-box img {
+            width: 100%;
+            max-width: 360px;
+            height: 360px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 4px solid var(--gold);
+            object-fit: cover;
+        }
+        .upload-btn-wrapper { margin-top: 12px; }
+        .upload-btn-wrapper input[type=file] { display: none; }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 8px 16px;
+            cursor: pointer;
+            background: var(--burgundy);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .custom-file-upload:hover { background: #2d080e; }
+        
+        .founder-info { flex: 1.2; position: relative; }
+        .founder-info h3 {
+            color: var(--gold);
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .founder-info h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--burgundy);
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+        .founder-info p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* Service Checklist inside Founder Section */
+        .services-grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+            margin-bottom: 20px;
+            background: #fdfbf7;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .services-grid-list div {
+            font-size: 13px;
+            color: #333;
+            font-weight: 500;
+        }
+        .services-grid-list i { color: var(--gold); margin-right: 6px; }
+
+        /* GIFT BOX & OFFER ANIMATION STYLES */
+        .interactive-box-wrapper {
+            margin-top: 20px;
+            position: relative;
+        }
+        .gift-box-closed {
+            background: linear-gradient(135deg, #fffdfa 0%, #fff0d4 100%);
+            border: 2px dashed var(--gold);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-        }
-
-        .founder-img-wrapper {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 15px auto;
-            border-radius: 50%;
-            border: 3px solid var(--gold);
-            padding: 5px;
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .founder-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .founder-info h3 {
-            color: var(--gold);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .founder-info p.title {
-            font-size: 12px;
-            color: #aaa;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .founder-intro {
-            font-size: 13px;
-            color: #ddd;
-            line-height: 1.5;
-            text-align: justify;
-            text-align-last: center;
-            border-top: 1px dashed rgba(255,255,255,0.15);
-            padding-top: 10px;
-        }
-
-        /* SECTION HEADINGS */
-        .section-header {
-            max-width: 1200px;
-            margin: 30px auto 15px auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .section-header h3 {
-            font-size: 20px;
-            color: var(--burgundy);
-            font-weight: 700;
-            position: relative;
-        }
-
-        .section-header h3::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background: var(--gold);
-            margin-top: 4px;
-        }
-
-        /* CATEGORIES (MORE OPTIONS) SHOWCASE */
-        .categories-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px;
-        }
-
-        .cat-card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            border-radius: 8px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+        }
+        .gift-box-closed:hover { transform: scale(1.02); }
+        .gift-box-icon {
+            font-size: 40px;
+            color: var(--burgundy);
+            margin-bottom: 8px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .offer-card {
+            background: linear-gradient(135deg, #fffdfa 0%, #fff6e6 100%);
+            border: 2px dashed var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+        .offer-card h4 {
+            color: var(--burgundy);
+            font-size: 17px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
         }
-
-        .cat-card i {
-            color: var(--burgundy);
+        .offer-card p { font-size: 13px; color: #666; margin-bottom: 12px; }
+        .offer-input-group { display: flex; gap: 10px; }
+        .offer-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
         }
-
-        .cat-card.active-cat, .cat-card:hover {
-            background-color: var(--burgundy);
-            color: var(--white);
-            border-color: var(--burgundy);
-        }
-
-        .cat-card.active-cat i, .cat-card:hover i {
+        .offer-btn {
+            background: var(--burgundy);
             color: var(--gold);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .offer-result {
+            margin-top: 15px;
+            background: #ffffff;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        .offer-result h5 { color: #28a745; font-size: 17px; margin-bottom: 4px; }
+        .free-gift-box-info {
+            background: var(--burgundy);
+            color: var(--gold);
+            font-size: 12px;
+            padding: 6px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-weight: 600;
         }
 
         /* DISCLAIMER NOTE */
         .offer-disclaimer {
-            max-width: 1200px;
-            margin: 20px auto 0 auto;
-            background-color: var(--light-gold);
+            margin: 20px 8% 0;
+            background-color: var(--light-gold-bg);
             border-left: 4px solid var(--gold);
             padding: 12px 20px;
             border-radius: 4px;
@@ -324,287 +343,328 @@
             color: #444;
         }
 
-        /* MAGICAL GIFT BOX SECTION */
-        .magic-offer-container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .magic-offer-section {
-            background: linear-gradient(135deg, #2b0008, #520014);
-            border: 2px dashed var(--gold);
-            border-radius: 12px;
-            padding: 25px;
-            color: var(--white);
+        /* CATEGORIES SECTION */
+        .categories, .products { padding: 40px 8%; }
+        .section-title {
             text-align: center;
-            box-shadow: 0 5px 20px rgba(122, 0, 30, 0.3);
-        }
-
-        .magic-offer-section h3 {
-            color: var(--gold);
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .magic-offer-section input {
-            padding: 12px;
-            width: 80%;
-            max-width: 280px;
-            border-radius: 6px;
-            border: none;
-            outline: none;
-            margin-bottom: 12px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .magic-offer-section button {
-            background-color: var(--gold);
-            color: var(--primary-black);
-            border: none;
-            padding: 12px 25px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .magic-offer-section button:hover {
-            background-color: var(--gold-hover);
-        }
-
-        /* PRODUCTS SHOWCASE */
-        .products-section {
-            max-width: 1200px;
-            margin: 20px auto 40px auto;
-            padding: 0 20px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-        }
-
-        .product-img {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            color: var(--burgundy);
+            margin-bottom: 30px;
             position: relative;
-            width: 100%;
-            height: 200px;
-            background-color: #f9f9f9;
         }
-
-        .product-img img {
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            display: block;
+            margin: 8px auto 0;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .cat-card {
+            background: #fff;
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+        .cat-card:hover, .cat-card.active-cat {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+            background-color: #fffdf8;
+        }
+        .cat-img-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            background: #fdfdfd;
+        }
+        .cat-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        .cat-card h3 { font-size: 13px; color: var(--burgundy); font-weight: 600; }
 
-        .tag {
+        /* PRODUCTS GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            position: relative;
+            border: 1px solid #eeeeee;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-img {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .product-card:hover .product-img img { transform: scale(1.08); }
+        .product-img .tag {
             position: absolute;
             top: 10px;
             left: 10px;
-            background-color: var(--burgundy);
-            color: var(--white);
+            background: var(--burgundy);
+            color: #fff;
+            padding: 3px 8px;
             font-size: 10px;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .product-info {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .product-info h3 {
-            font-size: 14px;
             font-weight: 600;
+            border-radius: 3px;
+        }
+        .product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
+        .stars { color: var(--gold); font-size: 11px; margin-bottom: 4px; }
+        .product-info h3 {
+            font-size: 13px;
             margin-bottom: 8px;
-            height: 40px;
+            color: var(--dark-text);
+            height: 38px;
             overflow: hidden;
-            color: #333;
         }
-
-        .price {
-            margin-bottom: 12px;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #888;
-            font-size: 12px;
-            margin-right: 6px;
-        }
-
-        .new-price {
-            color: var(--burgundy);
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 6px;
-            margin-top: auto;
-        }
-
-        .btn-group button, .btn-group a {
-            flex: 1;
-            padding: 8px 0;
-            border-radius: 5px;
+        .price { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 12px; }
+        .new-price { color: var(--burgundy); font-weight: 700; font-size: 16px; }
+        .btn-group { display: flex; gap: 6px; margin-top: auto; }
+        .add-cart-icon-btn {
+            background: #f0f0f0;
+            color: var(--dark-text);
             border: none;
-            font-size: 12px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 8px 5px;
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
-            text-align: center;
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 4px;
+            font-size: 11px;
+            text-decoration: none;
         }
-
-        .add-cart-icon-btn { background-color: #edf2f7; color: #4a5568; }
-        .call-now-btn { background-color: #3182ce; color: white; }
-        .add-to-cart-btn { background-color: #25d366; color: white; }
+        .call-now-btn {
+            flex: 1;
+            padding: 8px 5px;
+            background-color: var(--call-blue);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 11px;
+            text-decoration: none;
+        }
 
         /* CART SIDEBAR */
         .cart-sidebar {
             position: fixed;
             top: 0;
-            right: -340px;
-            width: 320px;
+            right: -400px;
+            width: 340px;
             height: 100%;
-            background-color: var(--white);
-            box-shadow: -4px 0 15px rgba(0,0,0,0.2);
-            z-index: 2000;
-            transition: right 0.3s ease;
+            background: #fff;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+            z-index: 2001;
+            transition: 0.4s;
+            padding: 20px;
             display: flex;
             flex-direction: column;
         }
-
         .cart-sidebar.open { right: 0; }
-
-        .cart-header {
-            background-color: var(--primary-black);
-            color: var(--white);
-            padding: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px; }
+        .cart-items { flex: 1; overflow-y: auto; }
+        .close-btn { font-size: 20px; cursor: pointer; color: #666; }
+        .cart-footer { border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
+        .cart-coupon-section { display: flex; gap: 6px; margin-bottom: 15px; }
+        .cart-coupon-section input {
+            flex: 1;
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
-
-        .cart-body { padding: 15px; flex: 1; overflow-y: auto; }
-
-        .cart-footer {
-            padding: 18px;
-            border-top: 1px solid #eee;
-            background-color: #f9f9f9;
+        .cart-coupon-section button {
+            background: var(--burgundy);
+            color: var(--gold);
+            border: none;
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
         }
 
         /* FOOTER */
         footer {
-            background-color: var(--primary-black);
-            color: #aaa;
-            padding: 40px 5% 20px 5%;
-            font-size: 13px;
-            border-top: 3px solid var(--gold);
+            background-color: var(--burgundy);
+            color: #fff;
+            padding: 40px 8% 20px;
         }
-
         .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto 30px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            margin-bottom: 30px;
         }
+        .footer-col h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; margin-bottom: 12px; }
+        .footer-col p, .footer-col ul li a { font-size: 13px; color: #ccc; line-height: 1.6; text-decoration: none; cursor: pointer; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 12px; color: #aaa; }
 
-        .footer-col h3 { color: var(--gold); font-size: 16px; margin-bottom: 15px; }
-        .footer-col p { margin-bottom: 8px; }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            font-size: 12px;
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 12px; }
+            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .about-founder { flex-direction: column; text-align: center; }
+            .cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SCROLLING ANNOUNCEMENT BAR -->
-    <div class="scrolling-banner">
-        <marquee behavior="scroll" direction="left" scrollamount="6">
-            ✨ శుభవార్త! వివాహాది శుభకార్యములకు 1 Gram Gold ఆభరణాలు అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: +91 9876543210 ✨ 🎁 <strong>ప్రత్యేక ఆఫర్:</strong> మీ ఫోన్ నంబర్ ఎంటర్ చేసి మ్యాజికల్ డిస్కౌంట్ చెక్ చేయండి!
-        </marquee>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
     </div>
 
     <!-- MAIN HEADER -->
     <header>
-        <div class="brand-logo">
-            <img src="lucky.png" alt="Lucky Collections Logo" onerror="this.src='https://via.placeholder.com/48?text=LC'">
-            <div>
-                <h1>లక్కీ కలెక్షన్స్</h1>
-                <p>LUCKY COLLECTIONS</p>
+        <div class="logo" onclick="filterProducts('gold')">
+            <h1>Lucky Collection</h1>
+            <span>ROYAL ELEGANCE</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="filterProducts('gold')">1 Gram Gold</a></li>
+                <li><a onclick="filterProducts('haaram')">హారాలు</a></li>
+                <li><a onclick="filterProducts('bangles')">గాజులు</a></li>
+                <li><a onclick="filterProducts('maggam')">మగ్గం వర్క్స్</a></li>
+                <li><a onclick="filterProducts('beauty')">బ్యూటీ & పెర్ఫ్యూమ్స్</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="badge" id="cart-count">0</span>
             </div>
         </div>
-        <button class="cart-icon-btn" onclick="toggleCart()">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge" id="cart-count">0</span>
-        </button>
     </header>
 
-    <!-- PROFESSIONAL HERO & FOUNDER SECTION -->
-    <section class="hero-wrapper">
-        <div class="hero-container">
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
+            <h2>1 Gram Gold, మగ్గం వర్క్స్ & బ్యూటీ ప్రొడక్ట్స్</h2>
+            <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్ మరియు రాయల్ ఆభరణాలు.</p>
+            <button onclick="scrollToProducts()" class="btn-gold">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- MOVING MAGIC ANNOUNCEMENT BAR -->
+    <div class="magic-rental-bar">
+        <div class="magic-rental-text">
+            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
+        </div>
+    </div>
+
+    <!-- ABOUT FOUNDER & SERVICES SECTION -->
+    <section class="about-founder">
+        <div class="founder-img-box">
+            <img id="founderPreview" src="images/my-photo.jpg" alt="Lucky Collection Owner" onerror="this.onerror=null; this.src='https://via.placeholder.com/360x360?text=Owner+Photo';">
+            <div class="upload-btn-wrapper">
+                <label for="imageUploader" class="custom-file-upload">
+                    <i class="fa-solid fa-camera"></i> ఫోటో అప్‌లోడ్ చేయండి
+                </label>
+                <input type="file" id="imageUploader" accept="image/*" onchange="previewImage(event)">
+            </div>
+        </div>
+        
+        <div class="founder-info">
+            <h3>QUALITY & TRUST</h3>
+            <h2>లక్కీ కలెక్షన్ ప్రొప్రైటర్ & మేనేజ్‌మెంట్</h2>
+            <p>మా లక్కీ కలెక్షన్‌లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
             
-            <!-- LEFT SIDE: BRAND TITLE & SERVICES OFFERED -->
-            <div class="hero-left-content">
-                <h2>లక్కీ కలెక్షన్స్</h2>
-                <p class="hero-tagline">ప్రీమియం క్వాలిటీ & అధునాతన మోడల్స్ కు సరికొత్త చిరునామా</p>
-                
-                <div class="services-offered">
-                    <h4>మా వద్ద లభించే ప్రత్యేక సేవలు & ఉత్పత్తులు:</h4>
-                    <ul class="services-list">
-                        <li><i class="fa-solid fa-gem"></i> 1 Gram Gold ఆభరణాలు</li>
-                        <li><i class="fa-solid fa-ring"></i> పెళ్లి ఆభరణాలు అద్దెకు (Rent)</li>
-                        <li><i class="fa-solid fa-vest"></i> డిజైనర్ మగ్గం వర్క్ బ్లౌజులు</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> ఫ్యాన్సీ & మ్యాచింగ్ బ్యాంగిల్స్</li>
-                        <li><i class="fa-solid fa-spray-can"></i> లగ్జరీ పెర్ఫ్యూమ్స్ & బ్యూటీ కేర్</li>
-                        <li><i class="fa-solid fa-certificate"></i> గ్యారెంటీ క్వాలిటీ ఐటమ్స్</li>
-                    </ul>
-                </div>
+            <!-- SERVICES OFFERED CHECKLIST -->
+            <div class="services-grid-list">
+                <div><i class="fa-solid fa-square-check"></i> 1 Gram Gold ఆభరణాలు</div>
+                <div><i class="fa-solid fa-square-check"></i> పెళ్లి ఆభరణాలు అద్దెకు (Rent)</div>
+                <div><i class="fa-solid fa-square-check"></i> డిజైనర్ మగ్గం వర్క్ బ్లౌజులు</div>
+                <div><i class="fa-solid fa-square-check"></i> ఫ్యాన్సీ & మ్యాచింగ్ బ్యాంగిల్స్</div>
+                <div><i class="fa-solid fa-square-check"></i> లగ్జరీ పెర్ఫ్యూమ్స్ & బ్యూటీ కేర్</div>
+                <div><i class="fa-solid fa-square-check"></i> 100% గ్యారెంటీ క్వాలిటీ</div>
             </div>
 
-            <!-- RIGHT SIDE: FOUNDER / AMBASSADOR SHOWCASE -->
-            <div class="founder-card">
-                <div class="founder-img-wrapper">
-                    <img src="founder.png" alt="Founder / Brand Ambassador" onerror="this.src='lucky.png'">
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <button onclick="scrollToProducts()" class="btn-gold">కలెక్షన్స్ చూడండి</button>
+                <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
+            </div>
+
+            <!-- INTERACTIVE GIFT BOX SECTION -->
+            <div class="interactive-box-wrapper">
+                <div class="gift-box-closed" id="giftBoxClosed" onclick="openGiftBox()">
+                    <div class="gift-box-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <h4 style="color:var(--burgundy); font-weight:700;">🎁 మ్యాజికల్ ఆఫర్ & ఉచిత గిఫ్ట్ బాక్స్ పొందండి!</h4>
+                    <p style="font-size:12px; color:#666; margin-top:4px;">మీ ఫోన్ నంబర్ నమోదు చేసి డిస్కౌంట్ పొందడానికి క్లిక్ చేయండి.</p>
                 </div>
-                <div class="founder-info">
-                    <h3>లక్కీ కలెక్షన్స్ ప్రొప్రైటర్</h3>
-                    <p class="title">Founder & Management</p>
-                    <div class="founder-intro">
-                        "మా లక్కీ కలెక్షన్స్ ద్వారా మీకు అత్యంత నాణ్యమైన 1 Gram Gold నగల నుండి డిజైనర్ మగ్గం వర్క్స్ వరకు అన్నింటినీ బెస్ట్ ప్రైస్‌లో అందిస్తున్నాం. మీ నమ్మకమే మా ప్రాధాన్యత."
+
+                <div class="offer-card" id="offerBox" style="display: none;">
+                    <h4><i class="fa-solid fa-gift" style="color:var(--gold);"></i> ఈరోజు మ్యాజికల్ ఆఫర్ చెక్ చేయండి!</h4>
+                    <p>మీ ఫోన్ నంబర్ నమోదు చేసి డిస్కౌంట్ మరియు ₹2,000 కొనుగోలుపై ప్రత్యేక ఉచిత బహుమతిని పొందండి.</p>
+                    <div class="offer-input-group">
+                        <input type="tel" id="userPhone" placeholder="మీ ఫోన్ నంబర్ (10 Digits)" maxlength="10">
+                        <button class="offer-btn" onclick="checkDiscountOffer()">ఆఫర్ చూడండి</button>
+                    </div>
+                    
+                    <div class="offer-result" id="offerResult" style="display: none;">
+                        <h5 id="discountText">🎉 మీకు 15% డిస్కౌంట్ లభించింది!</h5>
+                        <p style="font-size:12px; color:#555; margin: 4px 0;">ఈ కోడ్ ఆటోమాటిక్‌గా మీ కార్ట్‌లో అప్లై అయింది!</p>
+                        
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 6px;">
+                            <span id="couponCode" style="font-weight: bold; background: #fff3cd; padding: 4px 10px; border: 1px dashed var(--gold); border-radius: 4px;">LUCKY15</span>
+                            <button onclick="copyCouponCode()" id="copyBtn" style="background: var(--gold); color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                        
+                        <div class="free-gift-box-info">
+                            🎁 ఆన్‌లైన్ ఆర్డర్ ఆఫర్: ₹2,000 కొనుగోలుపై ఉచిత 1 Gram Gold లక్ష్మీ దేవి కాయిన్!
+                        </div>
                     </div>
                 </div>
             </div>
@@ -617,71 +677,73 @@
         <strong>గమనిక:</strong> స్క్రాచ్ / కూపన్ డిస్కౌంట్ ఆఫర్లు కేవలం <strong>1-Gram Gold (గొలుసులు, హారాలు, ఇయర్ రింగ్స్) మరియు ఆల్ టైప్స్ ఆఫ్ బ్యాంగిల్స్</strong> పై మాత్రమే వర్తిస్తాయి.
     </div>
 
-    <!-- MAGICAL GIFT & OFFER BOX -->
-    <div class="magic-offer-container">
-        <div class="magic-offer-section" id="magicalOfferBox">
-            <h3><i class="fa-solid fa-gift"></i> మ్యాజికల్ ఆఫర్ & ఉచిత గిఫ్ట్ బాక్స్</h3>
-            <p style="font-size: 13px; margin-bottom: 12px;">మీ 10 అంకెల మొబైల్ నంబర్ ఎంటర్ చేసి డిస్కౌంట్ & ₹2000 కొనుగోలుపై ఉచిత గిఫ్ట్ పొందండి!</p>
-            <input type="tel" id="userPhone" placeholder="మొబైల్ నంబర్ (10 Digits)" maxlength="10">
-            <br>
-            <button onclick="checkDiscountOffer()">ఆఫర్ చెక్ చేయండి</button>
-            <div id="offerResult" style="display:none; margin-top:15px; background:rgba(0,0,0,0.5); padding:15px; border-radius:8px;">
-                <p id="discountText" style="color:var(--gold); font-weight:bold; font-size:15px;"></p>
-                <p style="font-size:13px; margin-top:4px;">కూపన్ కోడ్: <strong id="couponCode" style="color:#28a745; font-size:15px;">-</strong></p>
-                
-                <div style="margin-top:10px; padding-top:10px; border-top:1px dashed #777;">
-                    <p style="color:#ffeb3b; font-weight:bold; font-size:13px;">🎁 ఆన్‌లైన్ ఆర్డర్ ఆఫర్ (₹2,000 కొనుగోలుపై):</p>
-                    <p id="onlineGiftName" style="font-size:14px; font-weight:bold; color:white; margin:4px 0;"></p>
-                </div>
-                <button onclick="copyCouponCode()" style="margin-top:10px; background:var(--gold); color:black; font-size:12px; padding:6px 12px;">Auto Apply Code</button>
+    <!-- CATEGORIES SECTION -->
+    <section class="categories">
+        <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
+        <div class="category-grid">
+            <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
+                <div class="cat-img-box"><img src="images/gold-1.jpg" alt="Chains" onerror="this.src='https://via.placeholder.com/80?text=Chains'"></div>
+                <h3>గోల్డ్ గొలుసులు</h3>
+            </div>
+            <div class="cat-card" id="cat-haaram" onclick="filterProducts('haaram', this)">
+                <div class="cat-img-box"><img src="images/gold-2.jpg" alt="Haaram" onerror="this.src='https://via.placeholder.com/80?text=Haaram'"></div>
+                <h3>హారాలు</h3>
+            </div>
+            <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
+                <div class="cat-img-box"><img src="images/bangles-1.jpg" alt="Bangles" onerror="this.src='https://via.placeholder.com/80?text=Bangles'"></div>
+                <h3>బ్యాంగిల్స్</h3>
+            </div>
+            <div class="cat-card" id="cat-earrings" onclick="filterProducts('earrings', this)">
+                <div class="cat-img-box"><img src="images/gold-6.jpg" alt="Earrings" onerror="this.src='https://via.placeholder.com/80?text=Earrings'"></div>
+                <h3>ఇయర్ రింగ్స్</h3>
+            </div>
+            <div class="cat-card" id="cat-maggam" onclick="filterProducts('maggam', this)">
+                <div class="cat-img-box"><img src="images/maggam-1.jpg" alt="Maggam Work" onerror="this.src='https://via.placeholder.com/80?text=Maggam'"></div>
+                <h3>మగ్గం వర్క్స్</h3>
+            </div>
+            <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
+                <div class="cat-img-box"><img src="images/perfume-1.jpg" alt="Perfumes" onerror="this.src='https://via.placeholder.com/80?text=Perfumes'"></div>
+                <h3>పర్ఫ్యూమ్స్</h3>
+            </div>
+            <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
+                <div class="cat-img-box"><img src="images/beauty-1.jpg" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/80?text=Beauty'"></div>
+                <h3>బ్యూటీ కేర్</h3>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- MORE OPTIONS / CATEGORIES SHOWCASE -->
-    <div class="section-header">
-        <h3>మరిన్ని ఆప్షన్స్ (Categories)</h3>
-    </div>
-    <div class="categories-wrapper">
-        <div class="category-grid">
-            <div class="cat-card active-cat" id="cat-chains" onclick="filterProducts('chains', this)"><i class="fa-solid fa-link"></i> గోల్డ్ గొలుసులు</div>
-            <div class="cat-card" id="cat-haaram" onclick="filterProducts('haaram', this)"><i class="fa-solid fa-gem"></i> హారాలు</div>
-            <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)"><i class="fa-solid fa-circle-notch"></i> బ్యాంగిల్స్</div>
-            <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)"><i class="fa-solid fa-pump-soap"></i> బ్యూటీ & పెర్ఫ్యూమ్స్</div>
-            <div class="cat-card" id="cat-maggam" onclick="filterProducts('maggam', this)"><i class="fa-solid fa-shirt"></i> మగ్గం వర్క్స్</div>
-            <div class="cat-card" id="cat-earrings" onclick="filterProducts('earrings', this)"><i class="fa-solid fa-ear-listen"></i> ఇయర్ రింగ్స్</div>
-        </div>
-    </div>
-
-    <!-- PRODUCTS GRID SHOWCASE -->
-    <div class="products-section">
-        <div class="section-header" style="padding: 0; margin-bottom: 20px;">
-            <h3 id="product-title">వన్ గ్రామ్ గోల్డ్ గొలుసులు (10)</h3>
-        </div>
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <h2 class="section-title" id="product-title">1 Gram Gold గొలుసులు</h2>
         <div class="product-grid" id="product-list">
-            <!-- Dynamic Products -->
+            <!-- Dynamic JavaScript Products -->
         </div>
-    </div>
+    </section>
 
     <!-- CART SIDEBAR -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
-            <h3>మీ కార్ట్ (<span id="cart-item-count">0</span>)</h3>
-            <i class="fa-solid fa-xmark" style="cursor:pointer; font-size:20px;" onclick="toggleCart()"></i>
+            <h3>మీ షాపింగ్ కార్ట్</h3>
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
         </div>
-        <div class="cart-body" id="cart-items-container">
+        <div class="cart-items" id="cart-items-container">
             <p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>
         </div>
         <div class="cart-footer">
+            <div class="cart-coupon-section">
+                <input type="text" id="cartCouponInput" placeholder="కూపన్ కోడ్ ఎంటర్ చేయండి">
+                <button onclick="applyCartCoupon()">Apply</button>
+            </div>
+            <p id="couponApplyMsg" style="font-size:11px; margin-bottom:8px; display:none;"></p>
             <div style="display:flex; justify-content:space-between; font-size:13px; color:#555; margin-bottom:4px;">
                 <span>సబ్ టోటల్:</span>
                 <span id="cart-subtotal-price">₹0</span>
             </div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; color:#28a745; margin-bottom:6px;">
+            <div style="display:flex; justify-content:space-between; font-size:13px; color:#28a745; margin-bottom:8px;">
                 <span>డిస్కౌంట్:</span>
                 <span id="cart-discount-price">-₹0</span>
             </div>
-            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:16px; border-top:1px dashed #ccc; padding-top:6px; margin-bottom:12px;">
+            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:16px; border-top:1px dashed #ccc; padding-top:6px; margin-bottom:15px;">
                 <span>మొత్తం చెల్లించాల్సింది:</span>
                 <span id="cart-total-price" style="color:var(--burgundy);">₹0</span>
             </div>
@@ -693,24 +755,28 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3>Lucky Collections</h3>
-                <p>అత్యుత్తమ నాణ్యత కలిగిన 1 Gram Gold ఆభరణాలు, మగ్గం వర్క్స్ మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు ప్రామాణికమైన వేదిక.</p>
+                <h3>Lucky Collection</h3>
+                <p>అత్యుత్తమ నాణ్యత కలిగిన 1 Gram Gold ఆభరణాలు, మగ్గం వర్క్స్ మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు నమ్మకమైన వేదిక.</p>
             </div>
             <div class="footer-col">
                 <h3>త్వరిత లింకులు</h3>
-                <p><a onclick="filterProducts('chains')" style="color:#aaa; cursor:pointer;">గోల్డ్ గొలుసులు</a></p>
-                <p><a onclick="filterProducts('haaram')" style="color:#aaa; cursor:pointer;">హారాలు</a></p>
-                <p><a onclick="filterProducts('bangles')" style="color:#aaa; cursor:pointer;">గాజులు</a></p>
-                <p><a onclick="filterProducts('maggam')" style="color:#aaa; cursor:pointer;">మగ్గం వర్క్స్</a></p>
+                <ul>
+                    <li><a onclick="filterProducts('gold')">గోల్డ్ గొలుసులు</a></li>
+                    <li><a onclick="filterProducts('haaram')">హారాలు</a></li>
+                    <li><a onclick="filterProducts('bangles')">మ్యాచింగ్ గాజులు</a></li>
+                    <li><a onclick="filterProducts('maggam')">మగ్గం వర్క్స్</a></li>
+                    <li><a onclick="filterProducts('beauty')">బ్యూటీ ప్రొడక్ట్స్</a></li>
+                </ul>
             </div>
             <div class="footer-col">
                 <h3>సంప్రదించండి</h3>
                 <p><i class="fa-solid fa-location-dot"></i> చీరాల, ఆంధ్రప్రదేశ్</p>
                 <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@luckycollection.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Lucky Collections. All Rights Reserved.
+            &copy; 2026 Lucky Collection. All Rights Reserved.
         </div>
     </footer>
 
@@ -718,29 +784,57 @@
     <script>
         const phoneNo = "919876543210";
         const products = [
-            // CHAINS
-            { id: 1, category: 'chains', name: 'సింపుల్ డైలీవేర్ గోల్డ్ చెయిన్', oldPrice: 999, newPrice: 499, img: 'chain1.jpg', tag: 'BEST' },
-            { id: 2, category: 'chains', name: 'రాయల్ గుండ్లమాల చెయిన్', oldPrice: 2299, newPrice: 1099, img: 'chain2.jpg', tag: 'POPULAR' },
-            { id: 3, category: 'chains', name: 'రామ్‌పరివార్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'chain3.jpg', tag: 'HOT' },
+            // CHAINS (GOLD)
+            { id: 1, category: 'gold', name: 'సింపుల్ డైలీవేర్ గోల్డ్ చెయిన్', oldPrice: 999, newPrice: 499, img: 'images/gold-9.jpg', tag: 'BEST' },
+            { id: 2, category: 'gold', name: 'రాయల్ గుండ్లమాల చెయిన్', oldPrice: 2299, newPrice: 1099, img: 'images/gold-8.jpg', tag: 'POPULAR' },
+            { id: 3, category: 'gold', name: 'రామ్‌పరివార్ లాంగ్ నల్లపూసల గొలుసు', oldPrice: 2499, newPrice: 1299, img: 'images/gold-3.jpg', tag: 'HOT' },
+            { id: 4, category: 'gold', name: 'గోల్డ్ ప్లేటెడ్ చౌకర్ చెయిన్', oldPrice: 1999, newPrice: 999, img: 'images/gold-4.jpg', tag: 'BEST' },
+
             // HAARAM
-            { id: 11, category: 'haaram', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'haaram1.jpg', tag: 'HOT' },
-            { id: 12, category: 'haaram', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'haaram2.jpg', tag: 'ROYAL' },
+            { id: 5, category: 'haaram', name: 'రాయల్ లక్ష్మీ దేవి నెక్లెస్', oldPrice: 2999, newPrice: 1499, img: 'images/gold-1.jpg', tag: 'HOT' },
+            { id: 6, category: 'haaram', name: 'ట్రెడిషనల్ మామిడిపిందెల హారం', oldPrice: 3499, newPrice: 1899, img: 'images/gold-2.jpg', tag: 'ROYAL' },
+            { id: 7, category: 'haaram', name: 'ప్రీమియం మ్యాట్ ఫినిష్ హారం', oldPrice: 3999, newPrice: 2199, img: 'images/gold-5.jpg', tag: 'NEW' },
+            { id: 8, category: 'haaram', name: 'సీజెడ్ స్టోన్ వర్క్ పత్తల హారం', oldPrice: 2799, newPrice: 1399, img: 'images/gold-7.jpg', tag: 'SALE' },
+
             // BANGLES
-            { id: 21, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు (4 సెట్)', oldPrice: 1499, newPrice: 799, img: 'bangle1.jpg', tag: 'HOT' },
-            { id: 22, category: 'bangles', name: 'బ్రైడల్ రెడ్ & గోల్డ్ మ్యాచింగ్ గాజులు', oldPrice: 1999, newPrice: 999, img: 'bangle2.jpg', tag: 'ROYAL' },
-            // BEAUTY
-            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'beauty1.jpg', tag: 'HOT' },
-            { id: 34, category: 'beauty', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'beauty4.jpg', tag: 'ROYAL' },
-            // MAGGAM
-            { id: 41, category: 'maggam', name: 'హెవీ బ్రైడల్ పీకాక్ మగ్గం వర్క్ బ్లౌజ్', oldPrice: 3999, newPrice: 1999, img: 'maggam1.jpg', tag: 'ROYAL' },
+            { id: 11, category: 'bangles', name: 'గోల్డ్ ఫినిషింగ్ డిజైనర్ గాజులు (4 సెట్)', oldPrice: 1499, newPrice: 799, img: 'images/bangles-1.jpg', tag: 'HOT' },
+            { id: 12, category: 'bangles', name: 'బ్రైడల్ రెడ్ & గోల్డ్ మ్యాచింగ్ గాజులు', oldPrice: 1999, newPrice: 999, img: 'images/bangles-2.jpg', tag: 'ROYAL' },
+            { id: 13, category: 'bangles', name: 'లక్ష్మీ కాసుల డిజైన్ గోల్డ్ కడాలు', oldPrice: 1299, newPrice: 649, img: 'images/bangles-3.jpg', tag: 'POPULAR' },
+            { id: 14, category: 'bangles', name: 'మ్యాట్ ఫినిషింగ్ రాతి గాజులు', oldPrice: 1699, newPrice: 849, img: 'images/bangles-4.jpg', tag: 'NEW' },
+
             // EARRINGS
-            { id: 51, category: 'earrings', name: 'జూకీ టైప్ గోల్డ్ జుంకీలు', oldPrice: 1199, newPrice: 599, img: 'earring1.jpg', tag: 'HOT' }
+            { id: 15, category: 'earrings', name: 'జూకీ టైప్ గోల్డ్ జుంకీలు', oldPrice: 1199, newPrice: 599, img: 'images/gold-6.jpg', tag: 'HOT' },
+            { id: 16, category: 'earrings', name: 'కెంపుల రాతి పీకాక్ జుంకీలు', oldPrice: 1499, newPrice: 699, img: 'images/gold-7.jpg', tag: 'NEW' },
+
+            // MAGGAM WORKS
+            { id: 17, category: 'maggam', name: 'హెవీ బ్రైడల్ పీకాక్ మగ్గం వర్క్ బ్లౌజ్', oldPrice: 3999, newPrice: 1999, img: 'images/maggam-1.jpg', tag: 'ROYAL' },
+            { id: 18, category: 'maggam', name: 'సింపుల్ ఆరి వర్క్ డిజైనర్ బ్లౌజ్', oldPrice: 2499, newPrice: 1299, img: 'images/maggam-2.jpg', tag: 'POPULAR' },
+
+            // PERFUMES
+            { id: 21, category: 'perfumes', name: 'ప్రీమియం రాయల్ ఊద్ పర్ఫ్యూమ్ (100ml)', oldPrice: 2499, newPrice: 1199, img: 'images/perfume-1.jpg', tag: 'ROYAL' },
+            { id: 22, category: 'perfumes', name: 'లాంగ్ లాస్టింగ్ రోజ్ ఫ్రాగ్రెన్స్', oldPrice: 1499, newPrice: 699, img: 'images/perfume-2.jpg', tag: 'HOT' },
+
+            // BEAUTY CARE
+            { id: 31, category: 'beauty', name: 'ఆర్గానిక్ ఫేస్ గ్లో నైట్ క్రీమ్', oldPrice: 1299, newPrice: 649, img: 'images/beauty-1.jpg', tag: 'HOT' },
+            { id: 32, category: 'beauty', name: 'కుంకుమాది తైలం ఫేస్ సీరమ్', oldPrice: 1599, newPrice: 799, img: 'images/beauty-2.jpg', tag: 'BEST' }
         ];
 
         let cart = [];
         let activeDiscountPercent = 0;
+        let appliedCouponCode = "";
 
-        window.onload = () => { filterProducts('chains', document.getElementById('cat-chains')); };
+        window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('founderPreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
 
         function renderProducts(items) {
             const container = document.getElementById('product-list');
@@ -750,16 +844,17 @@
                     <div class="product-card">
                         <div class="product-img">
                             <span class="tag">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/250x200?text=Lucky+Collections'">
+                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/250x220?text=Product+Image'">
                         </div>
                         <div class="product-info">
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
                             <h3>${prod.name}</h3>
                             <div class="price">
                                 <span class="old-price">₹${prod.oldPrice}</span>
                                 <span class="new-price">₹${prod.newPrice}</span>
                             </div>
                             <div class="btn-group">
-                                <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})"><i class="fa-solid fa-cart-plus"></i></button>
+                                <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
                                 <a href="tel:${phoneNo}" class="call-now-btn"><i class="fa-solid fa-phone"></i> కాల్</a>
                                 <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${prod.name}', ${prod.newPrice})"><i class="fa-brands fa-whatsapp"></i> Chat</button>
                             </div>
@@ -773,21 +868,23 @@
             let filtered = products.filter(p => p.category === cat);
             renderProducts(filtered);
             document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
-            if(element) element.classList.add('active-cat');
-        }
-
-        function checkDiscountOffer() {
-            const userPhone = document.getElementById('userPhone').value.trim();
-            if (userPhone.length !== 10 || isNaN(userPhone)) {
-                alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
-                return;
+            
+            if(element) {
+                element.classList.add('active-cat');
+            } else {
+                const targetCard = document.getElementById('cat-' + cat);
+                if(targetCard) targetCard.classList.add('active-cat');
             }
-            document.getElementById('offerResult').style.display = "block";
-            document.getElementById('discountText').innerText = "🎉 మీకు 15% డిస్కౌంట్ లభించింది!";
-            document.getElementById('couponCode').innerText = "LUCKY15";
-            document.getElementById('onlineGiftName').innerText = "✨ 1 Gram Gold లక్ష్మీ దేవి కాయిన్ (Free Gift)";
-            activeDiscountPercent = 15;
-            updateCartUI();
+            const titleMap = {
+                'gold': '1 Gram Gold గొలుసులు',
+                'haaram': '1 Gram Gold హారాలు',
+                'bangles': 'డిజైనర్ గాజులు',
+                'earrings': 'ఇయర్ రింగ్స్ & జుంకీలు',
+                'maggam': 'డిజైనర్ మగ్గం వర్క్ బ్లౌజులు',
+                'perfumes': 'ప్రీమియం పర్ఫ్యూమ్స్',
+                'beauty': 'బ్యూటీ కేర్ ప్రొడక్ట్స్'
+            };
+            document.getElementById('product-title').innerText = titleMap[cat] || 'కలెక్షన్స్';
         }
 
         function addToCart(productId) {
@@ -799,32 +896,67 @@
 
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
-            document.getElementById('cart-item-count').innerText = cart.length;
             const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal-price');
+            const discountEl = document.getElementById('cart-discount-price');
+            const totalEl = document.getElementById('cart-total-price');
+
             if (cart.length === 0) {
                 container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
-                document.getElementById('cart-subtotal-price').innerText = '₹0';
-                document.getElementById('cart-total-price').innerText = '₹0';
+                subtotalEl.innerText = '₹0';
+                discountEl.innerText = '-₹0';
+                totalEl.innerText = '₹0';
                 return;
             }
+
             container.innerHTML = '';
             let subtotal = 0;
             cart.forEach((item, index) => {
                 subtotal += item.newPrice;
                 container.innerHTML += `
-                    <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #eee; padding-bottom:5px;">
-                        <div>
-                            <p style="font-size:12px; font-weight:600;">${item.name}</p>
-                            <p style="font-size:12px; color:var(--burgundy);">₹${item.newPrice}</p>
+                    <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
+                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/50'">
+                        <div style="flex:1;">
+                            <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
+                            <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
                         </div>
-                        <i class="fa-solid fa-trash" style="color:red; cursor:pointer;" onclick="removeFromCart(${index})"></i>
+                        <i class="fa-solid fa-trash" style="color: red; cursor: pointer; font-size:14px;" onclick="removeFromCart(${index})"></i>
                     </div>
                 `;
             });
-            let discount = Math.round((subtotal * activeDiscountPercent) / 100);
-            document.getElementById('cart-subtotal-price').innerText = `₹${subtotal}`;
-            document.getElementById('cart-discount-price').innerText = `-₹${discount}`;
-            document.getElementById('cart-total-price').innerText = `₹${subtotal - discount}`;
+
+            let discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
+            let finalTotal = subtotal - discountAmount;
+
+            subtotalEl.innerText = `₹${subtotal}`;
+            discountEl.innerText = `-₹${discountAmount} (${activeDiscountPercent}%)`;
+            totalEl.innerText = `₹${finalTotal}`;
+        }
+
+        function applyCartCoupon(codeOverride = null) {
+            const inputVal = codeOverride || document.getElementById('cartCouponInput').value.trim().toUpperCase();
+            const msgEl = document.getElementById('couponApplyMsg');
+            document.getElementById('cartCouponInput').value = inputVal;
+
+            if (inputVal === "LUCKY10") {
+                activeDiscountPercent = 10;
+                appliedCouponCode = "LUCKY10";
+            } else if (inputVal === "LUCKY15") {
+                activeDiscountPercent = 15;
+                appliedCouponCode = "LUCKY15";
+            } else if (inputVal === "LUCKY20") {
+                activeDiscountPercent = 20;
+                appliedCouponCode = "LUCKY20";
+            } else {
+                msgEl.style.display = "block";
+                msgEl.style.color = "red";
+                msgEl.innerText = "❌ సరైన కూపన్ కోడ్ ఎంటర్ చేయండి!";
+                return;
+            }
+            msgEl.style.display = "block";
+            msgEl.style.color = "#28a745";
+            msgEl.innerText = `✓ ${appliedCouponCode} (${activeDiscountPercent}% డిస్కౌంట్) అప్లై అయ్యింది!`;
+            updateCartUI();
         }
 
         function removeFromCart(index) {
@@ -834,20 +966,65 @@
 
         function toggleCart(forceOpen = false) {
             const sidebar = document.getElementById('cart-sidebar');
-            if (forceOpen) sidebar.classList.add('open');
-            else sidebar.classList.toggle('open');
+            if (forceOpen) {
+                sidebar.classList.add('open');
+            } else {
+                sidebar.classList.toggle('open');
+            }
         }
 
         function orderOnWhatsApp(productName, price) {
-            const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}`;
+            let discountAmount = Math.round((price * activeDiscountPercent) / 100);
+            let finalPrice = price - discountAmount;
+            let discountText = activeDiscountPercent > 0 ? `%0A*అసలు ధర:* ₹${price}%0A*ఆఫర్ డిస్కౌంట్ (${appliedCouponCode}):* -₹${discountAmount}%0A*చెల్లించాల్సిన నికర ధర:* ₹${finalPrice}` : `%0A*ధర:* ₹${price}`;
+            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}${discountText}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
         function checkoutCart() {
-            if (cart.length === 0) return alert('కార్ట్ ఖాళీగా ఉంది!');
+            if (cart.length === 0) {
+                alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
+                return;
+            }
             let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
-            const message = `నమస్కారం! నేను ఈ క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A${itemsList}`;
+            let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
+            let discountAmount = Math.round((subtotal * activeDiscountPercent) / 100);
+            let total = subtotal - discountAmount;
+            let couponText = activeDiscountPercent > 0 ? `%0A*అప్లై చేసిన కూపన్:* ${appliedCouponCode} (${activeDiscountPercent}% OFF)%0A*తగ్గిన డిస్కౌంట్:* -₹${discountAmount}` : "";
+            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి క్రింది ప్రొడక్ట్స్ ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*మొత్తం చెల్లించాల్సింది:* ₹${total}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
+        }
+
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openGiftBox() {
+            document.getElementById('giftBoxClosed').style.display = 'none';
+            document.getElementById('offerBox').style.display = 'block';
+        }
+
+        function checkDiscountOffer() {
+            const userPhone = document.getElementById('userPhone').value.trim();
+            if (userPhone.length !== 10 || isNaN(userPhone)) {
+                alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
+                return;
+            }
+            const selectedOffer = { percent: "15%", code: "LUCKY15" };
+            const resultBox = document.getElementById('offerResult');
+            document.getElementById('discountText').innerText = `🎉 మీకు ${selectedOffer.percent} డిస్కౌంట్ లభించింది!`;
+            document.getElementById('couponCode').innerText = selectedOffer.code;
+            resultBox.style.display = "block";
+            applyCartCoupon(selectedOffer.code);
+        }
+
+        function copyCouponCode() {
+            const codeText = document.getElementById('couponCode').innerText;
+            navigator.clipboard.writeText(codeText);
+            applyCartCoupon(codeText);
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            copyBtn.style.background = '#28a745';
         }
     </script>
 </body>
