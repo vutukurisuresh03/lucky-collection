@@ -109,11 +109,11 @@
             font-weight: 600;
         }
 
-        /* HERO BANNER WITH DEFAULT ONLINE NECKLACE IMAGE */
+        /* HERO BANNER WITH HIGHLIGHTED ROYAL NECKLACE */
         .hero {
-            background: linear-gradient(90deg, rgba(26,5,8,0.95) 45%, rgba(26,5,8,0.35) 100%), 
-                        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            height: 50vh;
+            background: linear-gradient(90deg, rgba(26, 5, 8, 0.85) 0%, rgba(26, 5, 8, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 55vh;
             display: flex;
             align-items: center;
             padding: 0 8%;
@@ -133,11 +133,13 @@
             font-size: 38px;
             margin-bottom: 12px;
             line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         }
         .hero-content p {
             font-size: 15px;
             margin-bottom: 20px;
             color: #eee;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
         .btn-gold {
             display: inline-block;
@@ -241,9 +243,9 @@
         }
         .services-grid-list i { color: var(--gold); margin-right: 6px; }
 
-        /* MAGICAL OFFER BUTTON & SPARKLES */
+        /* MAGICAL ANIMATED OFFER BUTTON */
         .magic-offer-btn {
-            background: linear-gradient(135deg, var(--burgundy), #7a1523);
+            background: linear-gradient(135deg, var(--burgundy), #801827);
             color: var(--gold);
             border: 2px solid var(--gold);
             padding: 14px 24px;
@@ -256,23 +258,30 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0 6px 20px rgba(74, 14, 23, 0.3);
-            transition: 0.3s;
             position: relative;
             overflow: hidden;
+            animation: pulseGlow 2s infinite alternate;
         }
-        .magic-offer-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 20px rgba(74, 14, 23, 0.6);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 22px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.5);
+                transform: scale(1.02);
+            }
         }
+
         .sparkle-icon {
             font-size: 18px;
-            animation: pulseSparkle 1.2s infinite alternate;
-            color: #fff;
+            animation: pulseSparkle 1s infinite alternate;
+            color: #FFF;
         }
         @keyframes pulseSparkle {
-            0% { transform: scale(1) rotate(0deg); opacity: 0.7; }
-            100% { transform: scale(1.3) rotate(15deg); opacity: 1; }
+            0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+            100% { transform: scale(1.4) rotate(20deg); opacity: 1; filter: drop-shadow(0 0 6px #fff); }
         }
 
         .offer-card {
@@ -590,14 +599,14 @@
     <!-- ABOUT FOUNDER & SERVICES SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- DEFAULT FOUNDER IMAGE FROM WEB -->
-            <img id="founderPreview" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lucky Collection Founder">
+            <!-- DIRECT FILE LINK SET TO suresh.png -->
+            <img id="founderPreview" src="suresh.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80';">
         </div>
         
         <div class="founder-info">
             <h3>QUALITY & TRUST</h3>
             <h2>లక్కీ కలెక్షన్ ప్రొప్రైటర్ & మేనేజ్‌మెంట్</h2>
-            <p>మా లక్కీ కలెక్షన్‌లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
+            <p>మా లక్కీ కలెక్షన్ లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
             
             <!-- SERVICES OFFERED CHECKLIST -->
             <div class="services-grid-list">
@@ -614,7 +623,7 @@
                 <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
             </div>
 
-            <!-- SPARKING MAGICAL OFFER BUTTON -->
+            <!-- SPARKING MAGICAL ANIMATED OFFER BUTTON -->
             <button class="magic-offer-btn" onclick="toggleOfferBox()">
                 <i class="fa-solid fa-sparkles sparkle-icon"></i> 
                 ✨ ప్రతీ ₹2000 కొనుగోలుపై ఉచిత గిఫ్ట్! మీ గిఫ్ట్ ఏంటో చూడండి ✨
@@ -752,7 +761,7 @@
     <script>
         const phoneNo = "919876543210";
         
-        // DEFAULT IMAGES URL LIST
+        // DEFAULT FALLBACK IMAGES URL LIST
         const defaultImages = {
             gold: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
             haaram: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
@@ -776,7 +785,7 @@
         let products = [];
         let idCounter = 1;
 
-        // 10 Products Generation with Default Images and GitHub Support
+        // Custom File Naming Structure (e.g. e1.png - e10.png, g1.png - g10.png etc.)
         categoriesConfig.forEach(cat => {
             for (let i = 1; i <= 10; i++) {
                 products.push({
@@ -785,7 +794,7 @@
                     name: `${cat.name} #${i}`,
                     oldPrice: cat.price * 2,
                     newPrice: cat.price + (i * 20),
-                    img: `images/${cat.prefix}${i}.png`,
+                    img: `${cat.prefix}${i}.png`,
                     defaultImg: cat.img,
                     tag: i % 2 === 0 ? 'HOT' : 'BEST'
                 });
