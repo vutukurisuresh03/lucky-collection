@@ -245,6 +245,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             border: 4px solid var(--gold);
             object-fit: cover;
+            cursor: pointer;
         }
 
         .founder-info { flex: 1.2; position: relative; }
@@ -516,6 +517,7 @@
             align-items: center;
             justify-content: center;
             border-bottom: 1px solid #f2f2f2;
+            cursor: pointer;
         }
         .product-img img {
             width: 100%;
@@ -612,6 +614,55 @@
         .cart-items { flex: 1; overflow-y: auto; }
         .close-btn { font-size: 20px; cursor: pointer; color: #666; }
         .cart-footer { border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
+
+        /* IMAGE POPUP MODAL (ZOOM VIEW) */
+        .img-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .img-modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.2);
+            object-fit: contain;
+            animation: zoomAnimation 0.3s ease;
+        }
+        @keyframes zoomAnimation {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .img-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .img-modal-close:hover { color: var(--gold); }
+        .img-modal-caption {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(0,0,0,0.6);
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
         
         /* FOOTER */
         footer {
@@ -636,6 +687,7 @@
             .about-founder { flex-direction: column; text-align: center; }
             .cart-sidebar { width: 100%; right: -100%; }
             .product-img { height: 230px; }
+            .img-modal-close { right: 20px; top: 15px; font-size: 30px; }
         }
     </style>
 </head>
@@ -654,7 +706,6 @@
         </div>
         <nav>
             <ul>
-                <!-- COMBOS BUTTON AT FIRST POSITION -->
                 <li><button class="combo-btn" onclick="filterAndScroll('combos')"><i class="fa-solid fa-fire"></i> కాంబో ఆఫర్స్</button></li>
                 <li><button class="nav-btn" onclick="filterAndScroll('gold')">1 Gram Gold</button></li>
                 <li><button class="nav-btn" onclick="filterAndScroll('haaram')">హారాలు</button></li>
@@ -692,7 +743,7 @@
     <!-- ABOUT FOUNDER & SERVICES SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <img id="founderPreview" src="suresh.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80';">
+            <img id="founderPreview" src="suresh.png" alt="Lucky Collection Founder" onclick="openImageModal(this.src, 'Lucky Collections Management')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80';">
         </div>
         
         <div class="founder-info">
@@ -714,7 +765,7 @@
                 <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
             </div>
 
-            <!-- SPARKING MAGICAL ANIMATED OFFER BUTTON (WHITE TEXT) -->
+            <!-- SPARKING MAGICAL ANIMATED OFFER BUTTON -->
             <button class="magic-offer-btn" onclick="toggleOfferBox()">
                 <i class="fa-solid fa-sparkles sparkle-icon"></i> 
                 <span>✨ ప్రతీ ₹2000 కొనుగోలుపై ఉచిత గిఫ్ట్! మీ గిఫ్ట్ ఏంటో చూడండి ✨</span>
@@ -826,6 +877,13 @@
         </div>
     </div>
 
+    <!-- IMAGE ZOOM MODAL (POPUP) -->
+    <div class="img-modal" id="imageModal" onclick="closeImageModal()">
+        <span class="img-modal-close" onclick="closeImageModal()">&times;</span>
+        <img class="img-modal-content" id="modalImageSrc">
+        <div class="img-modal-caption" id="modalCaption"></div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -920,7 +978,7 @@
             items.forEach(prod => {
                 container.innerHTML += `
                     <div class="product-card">
-                        <div class="product-img">
+                        <div class="product-img" onclick="openImageModal('${prod.img}', '${prod.name}', '${prod.defaultImg}')">
                             <span class="tag" style="${prod.category === 'combos' ? 'background:#ff0055;' : ''}">${prod.tag}</span>
                             <img src="${prod.img}" alt="${prod.name}" onerror="this.onerror=null; this.src='${prod.defaultImg}';">
                         </div>
@@ -941,6 +999,34 @@
                 `;
             });
         }
+
+        /* IMAGE POPUP FUNCTIONALITY */
+        function openImageModal(imgSrc, title, fallbackSrc = '') {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImageSrc');
+            const caption = document.getElementById('modalCaption');
+            
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            caption.innerText = title;
+
+            modalImg.onerror = function() {
+                if(fallbackSrc) {
+                    modalImg.src = fallbackSrc;
+                }
+            };
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when pressing ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeImageModal();
+            }
+        });
 
         function filterProducts(cat, element = null) {
             let filtered = products.filter(p => p.category === cat);
@@ -1010,7 +1096,7 @@
 
                 container.innerHTML += `
                     <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:contain; border-radius:4px; background:#fff;" onerror="this.src='${item.defaultImg}'">
+                        <img src="${item.img}" style="width:45px; height:45px; object-fit:contain; border-radius:4px; background:#fff; cursor:pointer;" onclick="openImageModal('${item.img}', '${item.name}', '${item.defaultImg}')" onerror="this.src='${item.defaultImg}'">
                         <div style="flex:1;">
                             <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
                             <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
