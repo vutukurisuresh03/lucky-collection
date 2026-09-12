@@ -758,7 +758,7 @@
         </div>
         <div class="cart-footer">
             <div id="cartDiscountNote" style="font-size:11px; color:#856404; background:#fff3cd; padding:6px; border-radius:4px; margin-bottom:8px; display:none;">
-                ⚠️ ఆఫర్ డిస్కౌంట్ కేవలం వన్ గ్రామ్ గోల్డ్ & బ్యాంగిల్స్‌కు మాత్రమే అప్లై అవుతుంది.
+                ⚠️ ఆఫర్ డిస్కౌంట్ కేవలం 1-Gram Gold & బ్యాంగిల్స్‌కు మాత్రమే అప్లై అవుతుంది.
             </div>
             
             <div style="display:flex; justify-content:space-between; font-size:13px; color:#555; margin-bottom:4px;">
@@ -782,17 +782,16 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>Lucky Collections</h3>
-                <p>అత్యుత్తమ నాణ్యత కలిగిన వన్ గ్రామ్ గోల్డ్ ఆభరణాలు, మగ్గం వర్క్స్ మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు నమ్మకమైన వేదిక.</p>
+                <p>అత్యుత్తమ నాణ్యత కలిగిన 1 Gram Gold ఆభరణాలు, మగ్గం వర్క్స్ మరియు ప్రీమియం బ్యూటీ కేర్ ఉత్పత్తులకు నమ్మకమైన వేదిక.</p>
             </div>
             <div class="footer-col">
                 <h3>త్వరిత లింకులు</h3>
                 <ul>
-                    <li><a onclick="filterAndScroll('combos')">కాంబో ఆఫర్స్</a></li>
                     <li><a onclick="filterAndScroll('gold')">గోల్డ్ గొలుసులు</a></li>
                     <li><a onclick="filterAndScroll('haaram')">హారాలు</a></li>
                     <li><a onclick="filterAndScroll('bangles')">మ్యాచింగ్ గాజులు</a></li>
                     <li><a onclick="filterAndScroll('maggam')">మగ్గం వర్క్స్</a></li>
-                    
+                    <li><a onclick="filterAndScroll('combos')">కాంబో ఆఫర్స్</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -809,7 +808,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const phoneNo = "919381710402";
+        const phoneNo = "919876543210";
         
         // DEFAULT FALLBACK IMAGES
         const defaultImages = {
@@ -907,14 +906,13 @@
                 if(targetCard) targetCard.classList.add('active-cat');
             }
             const titleMap = {
-                'combos': '🔥 స్పెషల్ కాంబో ఆఫర్స్'
                 'gold': '1 Gram Gold గొలుసులు',
                 'haaram': '1 Gram Gold హారాలు',
                 'bangles': 'డిజైనర్ గాజులు',
                 'earrings': 'ఇయర్ రింగ్స్ & జుంకీలు',
                 'maggam': 'డిజైనర్ మగ్గం వర్క్ బ్లౌజులు',
                 'beauty': 'బ్యూటీ & పర్ఫ్యూమ్స్',
-                
+                'combos': '🔥 స్పెషల్ కాంబో ఆఫర్స్'
             };
             document.getElementById('product-title').innerText = titleMap[cat] || 'కలెక్షన్స్';
         }
