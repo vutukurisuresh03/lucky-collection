@@ -475,12 +475,15 @@
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--gold);
-            background: #fdfdfd;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .cat-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
         .cat-card h3 { font-size: 13px; color: var(--burgundy); font-weight: 600; }
 
@@ -502,19 +505,26 @@
             flex-direction: column;
         }
         .product-card:hover { transform: translateY(-5px); }
+        
+        /* UPDATED PRODUCT IMAGE CSS (FULL IMAGE - NO CUTTING) */
         .product-img {
             position: relative;
-            height: 220px;
+            height: 270px;
             overflow: hidden;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f2f2f2;
         }
         .product-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
+            object-fit: contain;
+            transition: 0.3s ease;
+            padding: 6px;
         }
-        .product-card:hover .product-img img { transform: scale(1.08); }
+        .product-card:hover .product-img img { transform: scale(1.05); }
         .product-img .tag {
             position: absolute;
             top: 10px;
@@ -525,7 +535,9 @@
             font-size: 10px;
             font-weight: 600;
             border-radius: 3px;
+            z-index: 2;
         }
+        
         .product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
         .stars { color: var(--gold); font-size: 11px; margin-bottom: 4px; }
         .product-info h3 {
@@ -623,6 +635,7 @@
             .nav-btn { font-size: 11px; padding: 6px 10px; }
             .about-founder { flex-direction: column; text-align: center; }
             .cart-sidebar { width: 100%; right: -100%; }
+            .product-img { height: 230px; }
         }
     </style>
 </head>
@@ -846,7 +859,7 @@
     <script>
         const phoneNo = "919876543210";
         
-        // ONLINE BACKUP IMAGES (మీ ఫోల్డర్‌లో ఫోటో లేకపోతే ఇవి పనిచేస్తాయి)
+        // ONLINE BACKUP IMAGES
         const defaultImages = {
             combos: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
             gold: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
@@ -857,7 +870,6 @@
             beauty: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80"
         };
 
-        // కేటగిరీల వివరాలు (మీ కంప్యూటర్‌లోని ఇమేజ్ పేర్లు auto-set అవుతాయి)
         const categoriesConfig = [
             { key: 'combos', prefix: 'cb', name: 'రాయల్ జ్యూవెల్లరీ కాంబో సెట్', price: 2499, img: defaultImages.combos },
             { key: 'gold', prefix: 'g', name: '1 Gram Gold గొలుసు', price: 999, img: defaultImages.gold },
@@ -871,7 +883,6 @@
         let products = [];
         let idCounter = 1;
 
-        // మీ ఫోల్డర్‌లో ఉన్న ఫోటోలు (cb1.png, b1.png etc.) ఆటోమేటిక్‌గా ఇక్కడ సెట్ అవుతాయి
         categoriesConfig.forEach(cat => {
             for (let i = 1; i <= 10; i++) {
                 products.push({
@@ -880,7 +891,7 @@
                     name: `${cat.name} #${i}`,
                     oldPrice: cat.price * 2,
                     newPrice: cat.price + (i * 20),
-                    img: `${cat.prefix}${i}.png`, // మీ Local Image File Name
+                    img: `${cat.prefix}${i}.png`,
                     defaultImg: cat.img,
                     tag: cat.key === 'combos' ? 'COMBO OFFER' : (i % 2 === 0 ? 'HOT' : 'BEST')
                 });
@@ -901,7 +912,6 @@
         let activeDiscountPercent = 0;
         let activeGiftName = "";
 
-        // SHOW COMBOS FIRST ON PAGE LOAD
         window.onload = () => { filterProducts('combos', document.getElementById('cat-combos')); };
 
         function renderProducts(items) {
@@ -955,7 +965,6 @@
             document.getElementById('product-title').innerText = titleMap[cat] || 'కలెక్షన్స్';
         }
 
-        // DIRECT FILTER & SMOOTH SCROLL TO PRODUCTS SECTION
         function filterAndScroll(cat) {
             filterProducts(cat);
             scrollToProducts();
@@ -1001,7 +1010,7 @@
 
                 container.innerHTML += `
                     <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='${item.defaultImg}'">
+                        <img src="${item.img}" style="width:45px; height:45px; object-fit:contain; border-radius:4px; background:#fff;" onerror="this.src='${item.defaultImg}'">
                         <div style="flex:1;">
                             <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
                             <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
@@ -1082,7 +1091,7 @@
             }
 
             if (!activeUserPhone) {
-                alert('దయచేసి ముందుగా మీ 10 అంకెల నంబర్ ఎంటర్ చేసి ఉచిత గిఫ్ట్ చెక్ చేసుకోండి! ఏ నంబర్‌తో అయితే షాపింగ్ చేస్తారో ఆ నంబర్ పైనే గిఫ్ట్ వర్తిస్తుంది.');
+                alert('దయచేసి ముందుగా మీ 10 అంకెల నంబర్ ఎంటర్ చేసి ఉచిత గిఫ్ట్ చెక్ చేసుకోండి!');
                 toggleOfferBox();
                 document.getElementById('userPhone').focus();
                 return;
