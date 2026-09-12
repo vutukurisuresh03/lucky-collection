@@ -21,6 +21,7 @@
             --whatsapp-green: #25D366;
             --call-blue: #007bff;
             --light-gold-bg: #fffdf5;
+            --error-red: #d9534f;
         }
         * {
             margin: 0;
@@ -109,10 +110,10 @@
             font-weight: 600;
         }
 
-        /* HERO BANNER WITH HIGHLIGHTED ROYAL NECKLACE */
+        /* HERO BANNER WITH DIAMOND & PEARL NECKLACE */
         .hero {
-            background: linear-gradient(90deg, rgba(26, 5, 8, 0.85) 0%, rgba(26, 5, 8, 0.2) 100%), 
-                        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(90deg, rgba(26, 5, 8, 0.85) 0%, rgba(26, 5, 8, 0.3) 100%), 
+                        url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
             height: 55vh;
             display: flex;
             align-items: center;
@@ -225,7 +226,6 @@
             margin-bottom: 15px;
         }
 
-        /* Service Checklist inside Founder Section */
         .services-grid-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -315,6 +315,13 @@
             font-weight: 600;
             cursor: pointer;
         }
+        .error-msg {
+            color: var(--error-red);
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 6px;
+            display: none;
+        }
         .offer-result {
             margin-top: 15px;
             background: #ffffff;
@@ -324,6 +331,7 @@
             text-align: center;
         }
         .offer-result h5 { color: #28a745; font-size: 17px; margin-bottom: 4px; }
+        
         .free-gift-box-info {
             background: var(--burgundy);
             color: var(--gold);
@@ -331,6 +339,17 @@
             padding: 8px;
             border-radius: 4px;
             margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .item-restriction-note {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            font-size: 11px;
+            padding: 6px;
+            border-radius: 4px;
+            margin-top: 6px;
             font-weight: 600;
         }
 
@@ -490,7 +509,7 @@
             position: fixed;
             top: 0;
             right: -400px;
-            width: 340px;
+            width: 350px;
             height: 100%;
             background: #fff;
             box-shadow: -4px 0 15px rgba(0,0,0,0.1);
@@ -505,26 +524,7 @@
         .cart-items { flex: 1; overflow-y: auto; }
         .close-btn { font-size: 20px; cursor: pointer; color: #666; }
         .cart-footer { border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
-        .cart-coupon-section { display: flex; gap: 6px; margin-bottom: 10px; }
-        .cart-coupon-section input {
-            flex: 1;
-            padding: 6px 10px;
-            font-size: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-        .cart-coupon-section button {
-            background: var(--burgundy);
-            color: var(--gold);
-            border: none;
-            padding: 6px 12px;
-            font-size: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
+        
         /* FOOTER */
         footer {
             background-color: var(--burgundy);
@@ -583,7 +583,7 @@
     <section class="hero">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
-            <h2>1 Gram Gold, మగ్గం వర్క్స్ & బ్యూటీ ప్రొడక్ట్స్</h2>
+            <h2>1 Gram Gold, ముత్యాల-వజ్రాల హారాలు & మగ్గం వర్క్స్</h2>
             <p>మీ రూపాన్ని మరింత కాంతివంతంగా, రాయల్‌గా మార్చే అత్యుత్తమ ట్రెడిషనల్ డిజైన్స్ మరియు రాయల్ ఆభరణాలు.</p>
             <button onclick="scrollToProducts()" class="btn-gold">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
         </div>
@@ -599,7 +599,6 @@
     <!-- ABOUT FOUNDER & SERVICES SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <!-- DIRECT FILE LINK SET TO suresh.png -->
             <img id="founderPreview" src="suresh.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80';">
         </div>
         
@@ -608,7 +607,6 @@
             <h2>లక్కీ కలెక్షన్ ప్రొప్రైటర్ & మేనేజ్‌మెంట్</h2>
             <p>మా లక్కీ కలెక్షన్ లో ప్రతీ నగ అత్యంత నాణ్యమైన గోల్డ్ ప్లేటింగ్ మరియు ట్రెడిషనల్ డిజైన్స్‌తో రూపొందించబడింది. చీరాల ప్రాంతంలో విశేష ఆదరణ పొందిన మా బ్రాండ్, ఇప్పుడు ఆన్‌లైన్ ద్వారా దేశ వ్యాప్తంగా కస్టమర్లకు సేవలు అందిస్తోంది.</p>
             
-            <!-- SERVICES OFFERED CHECKLIST -->
             <div class="services-grid-list">
                 <div><i class="fa-solid fa-square-check"></i> 1 Gram Gold ఆభరణాలు</div>
                 <div><i class="fa-solid fa-square-check"></i> పెళ్లి ఆభరణాలు అద్దెకు (Rent)</div>
@@ -632,21 +630,29 @@
 
             <!-- OFFER BOX DISPLAY (GIFT CHECKER) -->
             <div class="offer-card" id="offerBox" style="display: none;">
-                <h4>🎁 మీ ఉచిత గిఫ్ట్ & ఆఫర్ కూపన్ తెలుసుకోండి!</h4>
-                <p style="font-size:12px; color:#555;">మీ 10-అంకెల ఫోన్ నంబర్ ఎంటర్ చేసి మీ గిఫ్ట్ మరియు ఆఫర్ డిస్కౌంట్ చెక్ చేసుకోండి.</p>
+                <h4>🎁 మీ ఉచిత గిఫ్ట్ & ఆఫర్ డిస్కౌంట్ చెక్ చేసుకోండి!</h4>
+                <p style="font-size:12px; color:#555;">మీ ఆఫర్ గిఫ్ట్ ఏంటో తెలుసుకోవడానికి మీ 10-అంకెల ఫోన్ నంబర్ ఎంటర్ చేయండి.</p>
                 <div class="offer-input-group">
-                    <input type="tel" id="userPhone" placeholder="ఫోన్ నంబర్ ఎంటర్ చేయండి" maxlength="10">
+                    <input type="tel" id="userPhone" placeholder="10 అంకెల మొబైల్ నంబర్" maxlength="10">
                     <button class="offer-btn" onclick="checkDiscountOffer()">చెక్ చేసుకోండి</button>
                 </div>
+                <div class="error-msg" id="phoneError">⚠️ దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్‌ను ఎంటర్ చేయండి!</div>
                 
                 <div class="offer-result" id="offerResult" style="display: none;">
-                    <h5 id="discountText">🎉 మీ ఉచిత గిఫ్ట్ కన్ఫర్మ్ అయ్యింది!</h5>
-                    <p style="font-size:13px; color:#333; margin: 6px 0;">
-                        మా **లక్కీ కలెక్షన్ స్టోర్‌ని విజిట్ చేసి** మీ ఫోన్ నంబర్ చెప్పి **ఉచిత గిఫ్ట్** సొంతం చేసుకోండి.
+                    <h5 id="giftTitle">🎉 మీ ఉచిత గిఫ్ట్ కన్ఫర్మ్ అయ్యింది!</h5>
+                    <p style="font-size:14px; color:#4A0E17; font-weight:700; margin: 8px 0;">
+                        మీకు లభించిన ఉచిత గిఫ్ట్: <span id="giftName" style="color:#d4af37; background:#4a0e17; padding:2px 8px; border-radius:4px;">-</span>
                     </p>
-                    <p style="font-size:12px; color:#555;">ఆన్‌లైన్ డిస్కౌంట్ కోడ్: <strong id="couponCode" style="color:var(--burgundy);">LUCKY15</strong> (15% OFF)</p>
+                    <p style="font-size:12px; color:#333; margin-bottom:6px;">
+                        మీ ప్రత్యేక డిస్కౌంట్: <strong id="discountValueText" style="color:#28a745;">-</strong>
+                    </p>
+                    
+                    <div class="item-restriction-note">
+                        💡 గమనిక: ఈ డిస్కౌంట్ ఆఫర్ కేవలం 1 Gram Gold జ్యువెలరీ మరియు బ్యాంగిల్స్ (Bangles) కు మాత్రమే వర్తిస్తుంది.
+                    </div>
+
                     <div class="free-gift-box-info">
-                        📢 గమనిక: ప్రతీ ₹2000 పైన కొనుగోలుపై ఉచిత గిఫ్ట్ వర్తిస్తుంది. స్టోర్‌ని సంప్రదించండి!
+                        📢 మీరు ఏ నంబర్‌తో అయితే షాపింగ్ చేస్తున్నారో, ఆ నంబర్‌పైనే ప్రతీ ₹2000 కొనుగోలుకు ఉచిత గిఫ్ట్ వర్తిస్తుంది.
                     </div>
                 </div>
             </div>
@@ -707,17 +713,16 @@
             <p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>
         </div>
         <div class="cart-footer">
-            <div class="cart-coupon-section">
-                <input type="text" id="cartCouponInput" placeholder="కూపన్ కోడ్ (ఎగ్జా: LUCKY15)">
-                <button onclick="applyCartCoupon()">Apply</button>
+            <div id="cartDiscountNote" style="font-size:11px; color:#856404; background:#fff3cd; padding:6px; border-radius:4px; margin-bottom:8px; display:none;">
+                ⚠️ ఆఫర్ డిస్కౌంట్ కేవలం 1-Gram Gold & బ్యాంగిల్స్‌కు మాత్రమే అప్లై అవుతుంది.
             </div>
-            <p id="couponApplyMsg" style="font-size:11px; margin-bottom:8px; display:none;"></p>
+            
             <div style="display:flex; justify-content:space-between; font-size:13px; color:#555; margin-bottom:4px;">
                 <span>సబ్ టోటల్:</span>
                 <span id="cart-subtotal-price">₹0</span>
             </div>
             <div style="display:flex; justify-content:space-between; font-size:13px; color:#28a745; margin-bottom:8px;">
-                <span>డిస్కౌంట్ (Gold/Bangles):</span>
+                <span>డిస్కౌంట్ (1 Gram Gold/Bangles):</span>
                 <span id="cart-discount-price">-₹0</span>
             </div>
             <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:16px; border-top:1px dashed #ccc; padding-top:6px; margin-bottom:15px;">
@@ -761,7 +766,7 @@
     <script>
         const phoneNo = "919876543210";
         
-        // DEFAULT FALLBACK IMAGES URL LIST
+        // DEFAULT FALLBACK IMAGES
         const defaultImages = {
             gold: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
             haaram: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
@@ -785,7 +790,7 @@
         let products = [];
         let idCounter = 1;
 
-        // Custom File Naming Structure (e.g. e1.png - e10.png, g1.png - g10.png etc.)
+        // Populate items with file pattern (g1.png to g10.png, e1.png to e10.png, etc.)
         categoriesConfig.forEach(cat => {
             for (let i = 1; i <= 10; i++) {
                 products.push({
@@ -801,9 +806,20 @@
             }
         });
 
+        // Default Telugu Free Gifts Array
+        const giftList = [
+            "గోల్డ్ ప్లేటెడ్ లక్ష్మీదేవి కాయిన్ 🪙",
+            "ముత్యాల ముక్కుపుడక & ఇయర్ రింగ్స్ 💎",
+            "డిజైనర్ హ్యాండ్ బ్యాగ్ 👜",
+            "రాయల్ కుందన్ రింగ్ 💍",
+            "గోల్డ్ కవరింగ్ గ్లాస్ బ్యాంగిల్స్ 2 జతలు 🛍️",
+            "ప్రీమియం రోజ్ గోల్డ్ బ్రాస్లేట్ ✨"
+        ];
+
         let cart = [];
+        let activeUserPhone = "";
         let activeDiscountPercent = 0;
-        let appliedCouponCode = "";
+        let activeGiftName = "";
 
         window.onload = () => { filterProducts('gold', document.getElementById('cat-gold')); };
 
@@ -871,23 +887,30 @@
             const subtotalEl = document.getElementById('cart-subtotal-price');
             const discountEl = document.getElementById('cart-discount-price');
             const totalEl = document.getElementById('cart-total-price');
+            const cartNote = document.getElementById('cartDiscountNote');
 
             if (cart.length === 0) {
                 container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
                 subtotalEl.innerText = '₹0';
                 discountEl.innerText = '-₹0';
                 totalEl.innerText = '₹0';
+                cartNote.style.display = 'none';
                 return;
             }
 
             container.innerHTML = '';
             let subtotal = 0;
             let discountableSubtotal = 0;
+            let hasNonDiscountable = false;
 
             cart.forEach((item, index) => {
                 subtotal += item.newPrice;
+                
+                // RESTRICTION: Discount ONLY for Gold & Bangles
                 if(['gold', 'haaram', 'earrings', 'bangles'].includes(item.category)) {
                     discountableSubtotal += item.newPrice;
+                } else {
+                    hasNonDiscountable = true;
                 }
 
                 container.innerHTML += `
@@ -902,38 +925,18 @@
                 `;
             });
 
+            if(hasNonDiscountable && activeDiscountPercent > 0) {
+                cartNote.style.display = 'block';
+            } else {
+                cartNote.style.display = 'none';
+            }
+
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let finalTotal = subtotal - discountAmount;
 
             subtotalEl.innerText = `₹${subtotal}`;
             discountEl.innerText = `-₹${discountAmount} (${activeDiscountPercent}%)`;
             totalEl.innerText = `₹${finalTotal}`;
-        }
-
-        function applyCartCoupon(codeOverride = null) {
-            const inputVal = codeOverride || document.getElementById('cartCouponInput').value.trim().toUpperCase();
-            const msgEl = document.getElementById('couponApplyMsg');
-            document.getElementById('cartCouponInput').value = inputVal;
-
-            if (inputVal === "LUCKY10") {
-                activeDiscountPercent = 10;
-                appliedCouponCode = "LUCKY10";
-            } else if (inputVal === "LUCKY15") {
-                activeDiscountPercent = 15;
-                appliedCouponCode = "LUCKY15";
-            } else if (inputVal === "LUCKY20") {
-                activeDiscountPercent = 20;
-                appliedCouponCode = "LUCKY20";
-            } else {
-                msgEl.style.display = "block";
-                msgEl.style.color = "red";
-                msgEl.innerText = "❌ ప్రొమో కోడ్ చెల్లదు!";
-                return;
-            }
-            msgEl.style.display = "block";
-            msgEl.style.color = "#28a745";
-            msgEl.innerText = `✓ ${appliedCouponCode} (${activeDiscountPercent}% OFF) అప్లై అయ్యింది!`;
-            updateCartUI();
         }
 
         function removeFromCart(index) {
@@ -950,6 +953,41 @@
             }
         }
 
+        // CONSISTENT DISCOUNT & GIFT PER PHONE NUMBER GENERATOR
+        function checkDiscountOffer() {
+            const inputEl = document.getElementById('userPhone');
+            const errorEl = document.getElementById('phoneError');
+            const phoneVal = inputEl.value.trim();
+
+            // Strict 10-Digit Phone Validation Requirement
+            const phoneRegex = /^[6-9]\d{9}$/;
+            if (!phoneRegex.test(phoneVal)) {
+                errorEl.style.display = 'block';
+                document.getElementById('offerResult').style.display = 'none';
+                return;
+            }
+            errorEl.style.display = 'none';
+
+            activeUserPhone = phoneVal;
+
+            // Generate deterministic percent (5%, 15%, 20%) based on phone number digits
+            let numSum = 0;
+            for(let i = 0; i < phoneVal.length; i++) {
+                numSum += parseInt(phoneVal.charAt(i));
+            }
+            
+            const percents = [5, 15, 20];
+            activeDiscountPercent = percents[numSum % percents.length];
+            activeGiftName = giftList[numSum % giftList.length];
+
+            // Display Results
+            document.getElementById('giftName').innerText = activeGiftName;
+            document.getElementById('discountValueText').innerText = `${activeDiscountPercent}% OFF (ఆన్‌లైన్ డిస్కౌంట్)`;
+            document.getElementById('offerResult').style.display = 'block';
+
+            updateCartUI();
+        }
+
         function orderOnWhatsApp(productName, price) {
             const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
@@ -960,6 +998,14 @@
                 alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
                 return;
             }
+
+            if (!activeUserPhone) {
+                alert('దయచేసి ముందుగా మీ 10 అంకెల నంబర్ ఎంటర్ చేసి ఉచిత గిఫ్ట్ చెక్ చేసుకోండి! ఏ నంబర్‌తో అయితే షాపింగ్ చేస్తారో ఆ నంబర్ పైనే గిఫ్ట్ వర్తిస్తుంది.');
+                toggleOfferBox();
+                document.getElementById('userPhone').focus();
+                return;
+            }
+
             let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
             let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
             
@@ -967,8 +1013,9 @@
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let total = subtotal - discountAmount;
             
-            let couponText = activeDiscountPercent > 0 ? `%0A*కూపన్:* ${appliedCouponCode} (${activeDiscountPercent}% OFF)%0A*డిస్కౌంట్ వర్తించిన సబ్-టోటల్:* ₹${discountableSubtotal}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
-            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*నెట్ అమౌంట్:* ₹${total}`;
+            let couponText = activeDiscountPercent > 0 ? `%0A*మొబైల్ నంబర్:* ${activeUserPhone}%0A*ఆఫర్ డిస్కౌంట్:* ${activeDiscountPercent}% OFF (1-Gram/Bangles కి మాత్రమే)%0A*ఉచిత గిఫ్ట్:* ${activeGiftName}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
+            
+            const message = `నమస్కారం! నేను Lucky Collection వెబ్‌సైట్ నుంచి ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*నెట్ చెల్లించాల్సింది:* ₹${total}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
@@ -983,17 +1030,6 @@
             } else {
                 box.style.display = 'none';
             }
-        }
-
-        // PHONE NUMBER FREE GIFT CHECKER LOGIC
-        function checkDiscountOffer() {
-            const userPhone = document.getElementById('userPhone').value.trim();
-            if (userPhone.length !== 10 || isNaN(userPhone)) {
-                alert("దయచేసి సరైన 10 అంకెల ఫోన్ నంబర్‌ను నమోదు చేయండి!");
-                return;
-            }
-            document.getElementById('offerResult').style.display = "block";
-            applyCartCoupon("LUCKY15");
         }
     </script>
 </body>
