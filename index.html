@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Collections | Royal Elegance & Luxury Fashion</title>
+    <title>Lucky Collection | Royal Elegance & Luxury Fashion</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
@@ -109,9 +109,10 @@
             font-weight: 600;
         }
 
-        /* Hero Banner with Faded Necklace Background */
+        /* HERO BANNER WITH DEFAULT ONLINE NECKLACE IMAGE */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/necklace-bg.png') center/cover no-repeat;
+            background: linear-gradient(90deg, rgba(26,5,8,0.95) 45%, rgba(26,5,8,0.35) 100%), 
+                        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             height: 50vh;
             display: flex;
             align-items: center;
@@ -589,7 +590,8 @@
     <!-- ABOUT FOUNDER & SERVICES SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
-            <img id="founderPreview" src="images/founder.png" alt="Lucky Collection Founder" onerror="this.onerror=null; this.src='https://via.placeholder.com/360x360?text=Founder+Photo';">
+            <!-- DEFAULT FOUNDER IMAGE FROM WEB -->
+            <img id="founderPreview" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Lucky Collection Founder">
         </div>
         
         <div class="founder-info">
@@ -615,24 +617,27 @@
             <!-- SPARKING MAGICAL OFFER BUTTON -->
             <button class="magic-offer-btn" onclick="toggleOfferBox()">
                 <i class="fa-solid fa-sparkles sparkle-icon"></i> 
-                ✨ ఈరోజు మ్యాజికల్ బాక్స్ చెక్ చేయండి! ✨
+                ✨ ప్రతీ ₹2000 కొనుగోలుపై ఉచిత గిఫ్ట్! మీ గిఫ్ట్ ఏంటో చూడండి ✨
                 <i class="fa-solid fa-sparkles sparkle-icon"></i>
             </button>
 
-            <!-- OFFER BOX DISPLAY -->
+            <!-- OFFER BOX DISPLAY (GIFT CHECKER) -->
             <div class="offer-card" id="offerBox" style="display: none;">
-                <h4>🎁 ఆఫర్ లక్కీ కూపన్ పొందండి!</h4>
-                <p style="font-size:12px; color:#555;">మీ 10-అంకెల ఫోన్ నంబర్ ఎంటర్ చేసి ఆఫర్ డిస్కౌంట్ కోడ్ పొందుతారు.</p>
+                <h4>🎁 మీ ఉచిత గిఫ్ట్ & ఆఫర్ కూపన్ తెలుసుకోండి!</h4>
+                <p style="font-size:12px; color:#555;">మీ 10-అంకెల ఫోన్ నంబర్ ఎంటర్ చేసి మీ గిఫ్ట్ మరియు ఆఫర్ డిస్కౌంట్ చెక్ చేసుకోండి.</p>
                 <div class="offer-input-group">
                     <input type="tel" id="userPhone" placeholder="ఫోన్ నంబర్ ఎంటర్ చేయండి" maxlength="10">
-                    <button class="offer-btn" onclick="checkDiscountOffer()">చెకింగ్</button>
+                    <button class="offer-btn" onclick="checkDiscountOffer()">చెక్ చేసుకోండి</button>
                 </div>
                 
                 <div class="offer-result" id="offerResult" style="display: none;">
-                    <h5 id="discountText">🎉 మీకు 15% డిస్కౌంట్ లభించింది!</h5>
-                    <p style="font-size:12px; color:#555; margin: 4px 0;">కూపన్ కోడ్: <strong id="couponCode" style="color:var(--burgundy);">LUCKY15</strong></p>
+                    <h5 id="discountText">🎉 మీ ఉచిత గిఫ్ట్ కన్ఫర్మ్ అయ్యింది!</h5>
+                    <p style="font-size:13px; color:#333; margin: 6px 0;">
+                        మా **లక్కీ కలెక్షన్ స్టోర్‌ని విజిట్ చేసి** మీ ఫోన్ నంబర్ చెప్పి **ఉచిత గిఫ్ట్** సొంతం చేసుకోండి.
+                    </p>
+                    <p style="font-size:12px; color:#555;">ఆన్‌లైన్ డిస్కౌంట్ కోడ్: <strong id="couponCode" style="color:var(--burgundy);">LUCKY15</strong> (15% OFF)</p>
                     <div class="free-gift-box-info">
-                        📢 గమనిక: ఈ డిస్కౌంట్ కేవలం 1-Gram Gold మరియు బ్యాంగిల్స్ పై మాత్రమే వర్తిస్తుంది!
+                        📢 గమనిక: ప్రతీ ₹2000 పైన కొనుగోలుపై ఉచిత గిఫ్ట్ వర్తిస్తుంది. స్టోర్‌ని సంప్రదించండి!
                     </div>
                 </div>
             </div>
@@ -645,31 +650,31 @@
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
             <div class="cat-card active-cat" id="cat-gold" onclick="filterProducts('gold', this)">
-                <div class="cat-img-box"><img src="images/g1.png" alt="Chains" onerror="this.src='https://via.placeholder.com/65?text=Chains'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=100&q=80" alt="Chains"></div>
                 <h3>గోల్డ్ గొలుసులు</h3>
             </div>
             <div class="cat-card" id="cat-haaram" onclick="filterProducts('haaram', this)">
-                <div class="cat-img-box"><img src="images/h1.png" alt="Haaram" onerror="this.src='https://via.placeholder.com/65?text=Haaram'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=100&q=80" alt="Haaram"></div>
                 <h3>హారాలు</h3>
             </div>
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
-                <div class="cat-img-box"><img src="images/b1.png" alt="Bangles" onerror="this.src='https://via.placeholder.com/65?text=Bangles'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=100&q=80" alt="Bangles"></div>
                 <h3>బ్యాంగిల్స్</h3>
             </div>
             <div class="cat-card" id="cat-earrings" onclick="filterProducts('earrings', this)">
-                <div class="cat-img-box"><img src="images/e1.png" alt="Earrings" onerror="this.src='https://via.placeholder.com/65?text=Earrings'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=100&q=80" alt="Earrings"></div>
                 <h3>ఇయర్ రింగ్స్</h3>
             </div>
             <div class="cat-card" id="cat-maggam" onclick="filterProducts('maggam', this)">
-                <div class="cat-img-box"><img src="images/m1.png" alt="Maggam Work" onerror="this.src='https://via.placeholder.com/65?text=Maggam'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=100&q=80" alt="Maggam Work"></div>
                 <h3>మగ్గం వర్క్స్</h3>
             </div>
             <div class="cat-card" id="cat-perfumes" onclick="filterProducts('perfumes', this)">
-                <div class="cat-img-box"><img src="images/p1.png" alt="Perfumes" onerror="this.src='https://via.placeholder.com/65?text=Perfumes'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=100&q=80" alt="Perfumes"></div>
                 <h3>పర్ఫ్యూమ్స్</h3>
             </div>
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
-                <div class="cat-img-box"><img src="images/bc1.png" alt="Beauty Care" onerror="this.src='https://via.placeholder.com/65?text=Beauty'"></div>
+                <div class="cat-img-box"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=100&q=80" alt="Beauty Care"></div>
                 <h3>బ్యూటీ కేర్</h3>
             </div>
         </div>
@@ -747,20 +752,31 @@
     <script>
         const phoneNo = "919876543210";
         
-        // Dynamic Product Generation with 10 Items Per Category as Requested
+        // DEFAULT IMAGES URL LIST
+        const defaultImages = {
+            gold: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
+            haaram: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
+            bangles: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
+            earrings: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=400&q=80",
+            maggam: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80",
+            perfumes: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80",
+            beauty: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80"
+        };
+
         const categoriesConfig = [
-            { key: 'gold', prefix: 'g', name: '1 Gram Gold గొలుసు', price: 999 },
-            { key: 'haaram', prefix: 'h', name: 'రాయల్ డిజైనర్ హారం', price: 1899 },
-            { key: 'bangles', prefix: 'b', name: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799 },
-            { key: 'earrings', prefix: 'e', name: '1 Gram Gold ఇయర్ రింగ్స్', price: 599 },
-            { key: 'maggam', prefix: 'm', name: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999 },
-            { key: 'perfumes', prefix: 'p', name: 'రాయల్ లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', price: 1199 },
-            { key: 'beauty', prefix: 'bc', name: 'ప్రీమియం బ్యూటీ ప్రొడక్ట్', price: 649 }
+            { key: 'gold', prefix: 'g', name: '1 Gram Gold గొలుసు', price: 999, img: defaultImages.gold },
+            { key: 'haaram', prefix: 'h', name: 'రాయల్ డిజైనర్ హారం', price: 1899, img: defaultImages.haaram },
+            { key: 'bangles', prefix: 'b', name: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799, img: defaultImages.bangles },
+            { key: 'earrings', prefix: 'e', name: '1 Gram Gold ఇయర్ రింగ్స్', price: 599, img: defaultImages.earrings },
+            { key: 'maggam', prefix: 'm', name: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999, img: defaultImages.maggam },
+            { key: 'perfumes', prefix: 'p', name: 'రాయల్ లాంగ్ లాస్టింగ్ పర్ఫ్యూమ్', price: 1199, img: defaultImages.perfumes },
+            { key: 'beauty', prefix: 'bc', name: 'ప్రీమియం బ్యూటీ ప్రొడక్ట్', price: 649, img: defaultImages.beauty }
         ];
 
         let products = [];
         let idCounter = 1;
 
+        // 10 Products Generation with Default Images and GitHub Support
         categoriesConfig.forEach(cat => {
             for (let i = 1; i <= 10; i++) {
                 products.push({
@@ -770,6 +786,7 @@
                     oldPrice: cat.price * 2,
                     newPrice: cat.price + (i * 20),
                     img: `images/${cat.prefix}${i}.png`,
+                    defaultImg: cat.img,
                     tag: i % 2 === 0 ? 'HOT' : 'BEST'
                 });
             }
@@ -789,7 +806,7 @@
                     <div class="product-card">
                         <div class="product-img">
                             <span class="tag">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/250x220?text=${prod.name}'">
+                            <img src="${prod.img}" alt="${prod.name}" onerror="this.onerror=null; this.src='${prod.defaultImg}';">
                         </div>
                         <div class="product-info">
                             <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
@@ -860,14 +877,13 @@
 
             cart.forEach((item, index) => {
                 subtotal += item.newPrice;
-                // DISCOUNT APPLIES ONLY TO GOLD, HAARAM, EARRINGS AND BANGLES
                 if(['gold', 'haaram', 'earrings', 'bangles'].includes(item.category)) {
                     discountableSubtotal += item.newPrice;
                 }
 
                 container.innerHTML += `
                     <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='https://via.placeholder.com/50'">
+                        <img src="${item.img}" style="width:45px; height:45px; object-fit:cover; border-radius:4px;" onerror="this.src='${item.defaultImg}'">
                         <div style="flex:1;">
                             <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
                             <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
@@ -877,7 +893,6 @@
                 `;
             });
 
-            // Discount calculated only on eligible items!
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let finalTotal = subtotal - discountAmount;
 
@@ -956,12 +971,12 @@
             const box = document.getElementById('offerBox');
             if (box.style.display === 'none') {
                 box.style.display = 'block';
-                alert("✨ గమనిక: ఈ ఆఫర్ డిస్కౌంట్ కేవలం 1-Gram Gold (గొలుసులు, హారాలు, ఇయర్ రింగ్స్) మరియు బ్యాంగిల్స్ పై మాత్రమే వర్తిస్తుంది!");
             } else {
                 box.style.display = 'none';
             }
         }
 
+        // PHONE NUMBER FREE GIFT CHECKER LOGIC
         function checkDiscountOffer() {
             const userPhone = document.getElementById('userPhone').value.trim();
             if (userPhone.length !== 10 || isNaN(userPhone)) {
