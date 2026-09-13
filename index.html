@@ -736,6 +736,53 @@
             .product-img { height: 230px; }
             .img-modal-close { right: 20px; top: 15px; font-size: 30px; }
         }
+
+        /* OWNER SETTINGS */
+        .owner-settings-btn {
+            position: fixed; left: 18px; bottom: 18px; z-index: 3000;
+            width: 48px; height: 48px; border-radius: 50%; border: none;
+            background: var(--burgundy); color: #fff; font-size: 20px;
+            cursor: pointer; box-shadow: 0 5px 18px rgba(0,0,0,.25);
+        }
+        .owner-settings-btn:hover { transform: rotate(25deg); }
+        .owner-overlay {
+            display:none; position:fixed; inset:0; z-index: 4000;
+            background:rgba(0,0,0,.65); padding:20px; overflow-y:auto;
+        }
+        .owner-modal {
+            max-width:1100px; margin:20px auto; background:#fff; border-radius:16px;
+            box-shadow:0 20px 60px rgba(0,0,0,.35); overflow:hidden;
+        }
+        .owner-head {
+            background:linear-gradient(135deg,var(--burgundy),#741b2b); color:#fff;
+            padding:18px 22px; display:flex; align-items:center; justify-content:space-between; gap:10px;
+        }
+        .owner-head h2 { margin:0; font-size:20px; }
+        .owner-close { font-size:30px; cursor:pointer; line-height:1; }
+        .owner-body { padding:20px; }
+        .owner-note { background:#fff7df; border:1px solid #ead38a; color:#6d5712; padding:12px; border-radius:10px; margin-bottom:18px; font-size:13px; line-height:1.55; }
+        .owner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+        .owner-field label { display:block; font-weight:700; font-size:13px; margin-bottom:5px; }
+        .owner-field input { width:100%; padding:10px 11px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box; font-family:inherit; }
+        .owner-cat-box { border:1px solid #e5e5e5; border-radius:12px; margin-bottom:15px; overflow:hidden; }
+        .owner-cat-title { background:#f8f5ed; padding:12px 14px; font-weight:700; color:var(--burgundy); }
+        .owner-cat-title input { width:100%; margin-top:7px; padding:9px; border:1px solid #ccc; border-radius:7px; box-sizing:border-box; font-family:inherit; }
+        .owner-product-row { display:grid; grid-template-columns:1.7fr .8fr .8fr; gap:8px; padding:9px 12px; border-top:1px solid #eee; align-items:center; }
+        .owner-product-row span { font-size:12px; color:#555; }
+        .owner-product-row input { width:100%; padding:8px; border:1px solid #ccc; border-radius:7px; box-sizing:border-box; font-family:inherit; }
+        .owner-actions { display:flex; justify-content:flex-end; gap:10px; padding-top:15px; border-top:1px solid #eee; position:sticky; bottom:0; background:#fff; }
+        .owner-actions button { border:none; border-radius:8px; padding:11px 16px; font-family:inherit; font-weight:700; cursor:pointer; }
+        .owner-save { background:#198754; color:#fff; } .owner-cancel { background:#eee; } .owner-reset { background:#dc3545; color:#fff; margin-right:auto; }
+        .owner-password-box { max-width:420px; margin:12vh auto; background:#fff; border-radius:15px; padding:25px; box-shadow:0 20px 60px rgba(0,0,0,.35); text-align:center; }
+        .owner-password-box h3 { margin-top:0; color:var(--burgundy); }
+        .owner-password-box input { width:100%; box-sizing:border-box; padding:12px; border:1px solid #ccc; border-radius:8px; margin:12px 0; font-size:16px; }
+        .owner-password-box button { width:100%; padding:12px; border:0; border-radius:8px; background:var(--burgundy); color:#fff; font-weight:700; cursor:pointer; }
+        .owner-error { color:#c62828; font-size:13px; display:none; margin-top:8px; }
+        .rental-actions { display:inline-flex; gap:7px; align-items:center; margin-left:8px; flex-wrap:wrap; }
+        .rental-actions a { text-decoration:none; font-weight:700; padding:4px 9px; border-radius:6px; }
+        .rental-call { color:#fff; background:#198754; } .rental-wa { color:#fff; background:#25D366; }
+        @media(max-width:800px){ .owner-grid{grid-template-columns:1fr;} .owner-product-row{grid-template-columns:1fr 1fr;} .owner-product-row span{grid-column:1/-1;} .owner-actions{flex-wrap:wrap;} .owner-reset{margin-right:0;} }
+
     </style>
 </head>
 <body>
@@ -783,7 +830,7 @@
     <!-- MOVING MAGIC ANNOUNCEMENT BAR -->
     <div class="magic-rental-bar">
         <div class="magic-rental-text">
-            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
+            <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <span class="rental-actions"><a id="rentalPhoneLink" class="rental-call" href="tel:919876543210"><i class="fa-solid fa-phone"></i> +91 9876543210</a><a id="rentalWhatsAppLink" class="rental-wa" href="https://api.whatsapp.com/send?phone=919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></span> <i class="fa-solid fa-gem"></i>
         </div>
     </div>
 
@@ -857,31 +904,31 @@
         <div class="category-grid">
             <div class="cat-card combo-cat-card active-cat" id="cat-combos" onclick="filterProducts('combos', this)">
                 <div class="cat-img-box"><img src="cb1.png" alt="Combos" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>🔥 కాంబో ఆఫర్స్</h3>
+                <h3 id="cat-name-combos">🔥 కాంబో ఆఫర్స్</h3>
             </div>
             <div class="cat-card" id="cat-gold" onclick="filterProducts('gold', this)">
                 <div class="cat-img-box"><img src="g1.png" alt="Chains" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>గోల్డ్ గొలుసులు</h3>
+                <h3 id="cat-name-gold">గోల్డ్ గొలుసులు</h3>
             </div>
             <div class="cat-card" id="cat-haaram" onclick="filterProducts('haaram', this)">
                 <div class="cat-img-box"><img src="h1.png" alt="Haaram" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>హారాలు</h3>
+                <h3 id="cat-name-haaram">హారాలు</h3>
             </div>
             <div class="cat-card" id="cat-bangles" onclick="filterProducts('bangles', this)">
                 <div class="cat-img-box"><img src="b1.png" alt="Bangles" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>బ్యాంగిల్స్</h3>
+                <h3 id="cat-name-bangles">బ్యాంగిల్స్</h3>
             </div>
             <div class="cat-card" id="cat-earrings" onclick="filterProducts('earrings', this)">
                 <div class="cat-img-box"><img src="e1.png" alt="Earrings" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>ఇయర్ రింగ్స్</h3>
+                <h3 id="cat-name-earrings">ఇయర్ రింగ్స్</h3>
             </div>
             <div class="cat-card" id="cat-maggam" onclick="filterProducts('maggam', this)">
                 <div class="cat-img-box"><img src="m1.png" alt="Maggam Work" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>మగ్గం వర్క్స్</h3>
+                <h3 id="cat-name-maggam">మగ్గం వర్క్స్</h3>
             </div>
             <div class="cat-card" id="cat-beauty" onclick="filterProducts('beauty', this)">
                 <div class="cat-img-box"><img src="p1.png" alt="Beauty" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=100&q=80';"></div>
-                <h3>బ్యూటీ & పెర్ఫ్యూమ్స్</h3>
+                <h3 id="cat-name-beauty">బ్యూటీ & పెర్ఫ్యూమ్స్</h3>
             </div>
         </div>
     </section>
@@ -924,6 +971,46 @@
         </div>
     </div>
 
+
+    <!-- OWNER SETTINGS / PASSWORD PROTECTED -->
+    <button class="owner-settings-btn" onclick="openOwnerSettings()" title="Owner Settings"><i class="fa-solid fa-gear"></i></button>
+
+    <div class="owner-overlay" id="ownerPasswordOverlay">
+        <div class="owner-password-box">
+            <h3><i class="fa-solid fa-lock"></i> Owner Settings</h3>
+            <p style="font-size:13px;color:#666;">ధరలు, పేర్లు, ఫోన్ నంబర్, అడ్రస్ మార్చడానికి Owner Password ఇవ్వండి.</p>
+            <input type="password" id="ownerPasswordInput" placeholder="Owner Password" autocomplete="off" onkeydown="if(event.key==='Enter') verifyOwnerPassword()">
+            <button onclick="verifyOwnerPassword()">Unlock Settings</button>
+            <div class="owner-error" id="ownerPasswordError">Password తప్పుగా ఉంది.</div>
+        </div>
+    </div>
+
+    <div class="owner-overlay" id="ownerSettingsOverlay" onclick="closeOwnerSettings(event)">
+        <div class="owner-modal" onclick="event.stopPropagation()">
+            <div class="owner-head">
+                <h2><i class="fa-solid fa-user-shield"></i> Lucky Collections – Owner Settings</h2>
+                <span class="owner-close" onclick="closeOwnerSettings()">&times;</span>
+            </div>
+            <div class="owner-body">
+                <div class="owner-note">
+                    <b>ఇక్కడ మీరు మార్చగలవి:</b> Call Number, WhatsApp Number, Footer Address, ప్రతి Category పేరు, ప్రతి Categoryలోని 10 Product పేర్లు, Old Price మరియు New Price.
+                    <br><b>Save Changes</b> నొక్కిన తర్వాత ఈ browserలో settings save అవుతాయి. GitHub Pages static HTMLలో ఇది server database కాదు.
+                </div>
+                <div class="owner-grid">
+                    <div class="owner-field"><label>Call Number</label><input id="ownerPhone" placeholder="9876543210" inputmode="numeric"></div>
+                    <div class="owner-field"><label>WhatsApp Number</label><input id="ownerWhatsApp" placeholder="9876543210" inputmode="numeric"></div>
+                    <div class="owner-field"><label>Footer Address</label><input id="ownerAddress" placeholder="మీ అడ్రస్"></div>
+                </div>
+                <div id="ownerProductsEditor"></div>
+                <div class="owner-actions">
+                    <button class="owner-reset" onclick="resetOwnerSettings()">Reset All</button>
+                    <button class="owner-cancel" onclick="closeOwnerSettings()">Cancel</button>
+                    <button class="owner-save" onclick="saveOwnerSettings()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- IMAGE ZOOM MODAL (POPUP) -->
     <div class="img-modal" id="imageModal" onclick="closeImageModal()">
         <span class="img-modal-close" onclick="closeImageModal()">&times;</span>
@@ -950,8 +1037,8 @@
             </div>
             <div class="footer-col">
                 <h3>సంప్రదించండి</h3>
-                <p><i class="fa-solid fa-location-dot"></i> చీరాల, ఆంధ్రప్రదేశ్</p>
-                <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+                <p><i class="fa-solid fa-location-dot"></i> <span id="footerAddress">చీరాల, ఆంధ్రప్రదేశ్</span></p>
+                <p><i class="fa-solid fa-phone"></i> <a id="footerPhoneLink" href="tel:919876543210">+91 9876543210</a></p>
                 <p><i class="fa-solid fa-envelope"></i> contact@luckycollection.com</p>
             </div>
         </div>
@@ -962,8 +1049,21 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const phoneNo = "919876543210";
-        
+        // ============================================================
+        // LUCKY COLLECTIONS - OWNER SETTINGS
+        // Password supplied by owner: lucky@suresh
+        // NOTE: GitHub Pages is static. Client-side password protection
+        // is a UI lock, NOT bank-level/server-side security.
+        // ============================================================
+        const DEFAULT_PHONE = "919876543210";
+        const DEFAULT_WHATSAPP = "919876543210";
+        const DEFAULT_ADDRESS = "చీరాల, ఆంధ్రప్రదేశ్";
+        const OWNER_PASSWORD_HASH = "f2053092beba07262e9833b3c17ce0d1b40049c430641d73080666d5e21bf090";
+        const SETTINGS_KEY = "luckyCollectionsOwnerSettingsV2";
+
+        let ownerUnlocked = false;
+        let phoneNo = DEFAULT_WHATSAPP;
+
         // ONLINE BACKUP IMAGES
         const defaultImages = {
             combos: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
@@ -976,13 +1076,13 @@
         };
 
         const categoriesConfig = [
-            { key: 'combos', prefix: 'cb', name: 'రాయల్ జ్యూవెల్లరీ కాంబో సెట్', price: 2499, img: defaultImages.combos },
-            { key: 'gold', prefix: 'g', name: '1 Gram Gold గొలుసు', price: 999, img: defaultImages.gold },
-            { key: 'haaram', prefix: 'h', name: 'రాయల్ డిజైనర్ హారం', price: 1899, img: defaultImages.haaram },
-            { key: 'bangles', prefix: 'b', name: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799, img: defaultImages.bangles },
-            { key: 'earrings', prefix: 'e', name: '1 Gram Gold ఇయర్ రింగ్స్', price: 599, img: defaultImages.earrings },
-            { key: 'maggam', prefix: 'm', name: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999, img: defaultImages.maggam },
-            { key: 'beauty', prefix: 'p', name: 'బ్యూటీ & పర్ఫ్యూమ్స్', price: 1199, img: defaultImages.beauty }
+            { key: 'combos', prefix: 'cb', name: 'కాంబో ఆఫర్స్', productPrefix: 'రాయల్ జ్యూవెల్లరీ కాంబో సెట్', price: 2499, img: defaultImages.combos },
+            { key: 'gold', prefix: 'g', name: 'గోల్డ్ గొలుసులు', productPrefix: '1 Gram Gold గొలుసు', price: 999, img: defaultImages.gold },
+            { key: 'haaram', prefix: 'h', name: 'హారాలు', productPrefix: 'రాయల్ డిజైనర్ హారం', price: 1899, img: defaultImages.haaram },
+            { key: 'bangles', prefix: 'b', name: 'బ్యాంగిల్స్', productPrefix: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799, img: defaultImages.bangles },
+            { key: 'earrings', prefix: 'e', name: 'ఇయర్ రింగ్స్', productPrefix: '1 Gram Gold ఇయర్ రింగ్స్', price: 599, img: defaultImages.earrings },
+            { key: 'maggam', prefix: 'm', name: 'మగ్గం వర్క్స్', productPrefix: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999, img: defaultImages.maggam },
+            { key: 'beauty', prefix: 'p', name: 'బ్యూటీ & పెర్ఫ్యూమ్స్', productPrefix: 'బ్యూటీ & పర్ఫ్యూమ్స్', price: 1199, img: defaultImages.beauty }
         ];
 
         let products = [];
@@ -993,7 +1093,7 @@
                 products.push({
                     id: idCounter++,
                     category: cat.key,
-                    name: `${cat.name} #${i}`,
+                    name: `${cat.productPrefix} #${i}`,
                     oldPrice: cat.price * 2,
                     newPrice: cat.price + (i * 20),
                     img: `${cat.prefix}${i}.png`,
@@ -1003,13 +1103,24 @@
             }
         });
 
+        const originalProducts = products.map(p => ({ ...p }));
+        const originalCategoryNames = {};
+        categoriesConfig.forEach(c => originalCategoryNames[c.key] = c.name);
+
+        let ownerSettings = {
+            phone: DEFAULT_PHONE,
+            whatsapp: DEFAULT_WHATSAPP,
+            address: DEFAULT_ADDRESS,
+            categoryNames: { ...originalCategoryNames }
+        };
+
         const giftList = [
             "గోల్డ్ ప్లేటెడ్ లక్ష్మీదేవి కాయిన్ 🪙",
             "ముత్యాల ముక్కుపుడక & ఇయర్ రింగ్స్ 💎",
             "డిజైనర్ హ్యాండ్ బ్యాగ్ 👜",
             "రాయల్ కుందన్ రింగ్ 💍",
             "గోల్డ్ కవరింగ్ గ్లాస్ బ్యాంగిల్స్ 2 జతలు 🛍️",
-            "ప్రీమియం రోజ్ గోల్డ్ బ్రాస్లేట్ ✨"
+            "ప్రీమియం రోజ్ గోల్డ్ బ్రాస్లెట్ ✨"
         ];
 
         let cart = [];
@@ -1017,29 +1128,229 @@
         let activeDiscountPercent = 0;
         let activeGiftName = "";
 
-        window.onload = () => { filterProducts('combos', document.getElementById('cat-combos')); };
+        function cleanPhone(value) {
+            return String(value || '').replace(/\D/g, '');
+        }
+
+        function toInternationalPhone(value) {
+            let n = cleanPhone(value);
+            if (n.length === 10) n = '91' + n;
+            return n;
+        }
+
+        async function sha256(text) {
+            const data = new TextEncoder().encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function loadOwnerSettings() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(SETTINGS_KEY) || 'null');
+                if (saved) {
+                    ownerSettings = {
+                        phone: saved.phone || DEFAULT_PHONE,
+                        whatsapp: saved.whatsapp || DEFAULT_WHATSAPP,
+                        address: saved.address || DEFAULT_ADDRESS,
+                        categoryNames: { ...originalCategoryNames, ...(saved.categoryNames || {}) }
+                    };
+                    if (Array.isArray(saved.products)) {
+                        saved.products.forEach(savedProduct => {
+                            const p = products.find(x => x.id === savedProduct.id);
+                            if (!p) return;
+                            if (typeof savedProduct.name === 'string' && savedProduct.name.trim()) p.name = savedProduct.name.trim();
+                            if (Number.isFinite(Number(savedProduct.oldPrice))) p.oldPrice = Number(savedProduct.oldPrice);
+                            if (Number.isFinite(Number(savedProduct.newPrice))) p.newPrice = Number(savedProduct.newPrice);
+                        });
+                    }
+                }
+            } catch (e) {
+                console.warn('Owner settings could not be loaded:', e);
+            }
+            applyOwnerDetails();
+        }
+
+        function applyOwnerDetails() {
+            phoneNo = toInternationalPhone(ownerSettings.whatsapp || DEFAULT_WHATSAPP);
+            const callNo = toInternationalPhone(ownerSettings.phone || DEFAULT_PHONE);
+            const waNo = phoneNo;
+            const displayCall = callNo.startsWith('91') ? '+91 ' + callNo.slice(2) : callNo;
+
+            const footerAddress = document.getElementById('footerAddress');
+            if (footerAddress) footerAddress.textContent = ownerSettings.address || DEFAULT_ADDRESS;
+
+            const footerPhoneLink = document.getElementById('footerPhoneLink');
+            if (footerPhoneLink) { footerPhoneLink.href = 'tel:' + callNo; footerPhoneLink.textContent = displayCall; }
+
+            const rentalPhoneLink = document.getElementById('rentalPhoneLink');
+            if (rentalPhoneLink) { rentalPhoneLink.href = 'tel:' + callNo; rentalPhoneLink.innerHTML = '<i class="fa-solid fa-phone"></i> ' + displayCall; }
+
+            const rentalWhatsAppLink = document.getElementById('rentalWhatsAppLink');
+            if (rentalWhatsAppLink) rentalWhatsAppLink.href = 'https://api.whatsapp.com/send?phone=' + waNo;
+
+            Object.keys(ownerSettings.categoryNames).forEach(key => {
+                const el = document.getElementById('cat-name-' + key);
+                if (el) el.textContent = ownerSettings.categoryNames[key];
+            });
+        }
+
+        async function openOwnerSettings() {
+            if (!ownerUnlocked) {
+                document.getElementById('ownerPasswordOverlay').style.display = 'block';
+                const input = document.getElementById('ownerPasswordInput');
+                input.value = '';
+                document.getElementById('ownerPasswordError').style.display = 'none';
+                setTimeout(() => input.focus(), 50);
+                return;
+            }
+            showOwnerEditor();
+        }
+
+        async function verifyOwnerPassword() {
+            const input = document.getElementById('ownerPasswordInput');
+            const entered = input.value;
+            if (!entered) return;
+            const hash = await sha256(entered);
+            if (hash === OWNER_PASSWORD_HASH) {
+                ownerUnlocked = true;
+                document.getElementById('ownerPasswordOverlay').style.display = 'none';
+                showOwnerEditor();
+            } else {
+                document.getElementById('ownerPasswordError').style.display = 'block';
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        function showOwnerEditor() {
+            document.getElementById('ownerPhone').value = ownerSettings.phone || '';
+            document.getElementById('ownerWhatsApp').value = ownerSettings.whatsapp || '';
+            document.getElementById('ownerAddress').value = ownerSettings.address || '';
+            renderOwnerProductsEditor();
+            document.getElementById('ownerSettingsOverlay').style.display = 'block';
+        }
+
+        function closeOwnerSettings(event = null) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('ownerSettingsOverlay').style.display = 'none';
+        }
+
+        function renderOwnerProductsEditor() {
+            const container = document.getElementById('ownerProductsEditor');
+            container.innerHTML = '';
+            categoriesConfig.forEach(cat => {
+                const catBox = document.createElement('div');
+                catBox.className = 'owner-cat-box';
+                catBox.innerHTML = `<div class="owner-cat-title">Category: ${cat.key.toUpperCase()}<input id="cat-edit-${cat.key}" value="${escapeHtmlAttr(ownerSettings.categoryNames[cat.key] || cat.name)}" placeholder="Category Name"></div>`;
+                products.filter(p => p.category === cat.key).forEach(p => {
+                    const row = document.createElement('div');
+                    row.className = 'owner-product-row';
+                    row.innerHTML = `
+                        <span>#${p.id} Product Name</span>
+                        <input id="name-${p.id}" value="${escapeHtmlAttr(p.name)}" placeholder="Product Name">
+                        <input id="old-${p.id}" type="number" min="0" step="1" value="${p.oldPrice}" placeholder="Old Price">
+                        <input id="new-${p.id}" type="number" min="0" step="1" value="${p.newPrice}" placeholder="New Price">
+                    `;
+                    catBox.appendChild(row);
+                });
+                container.appendChild(catBox);
+            });
+        }
+
+        function escapeHtmlAttr(value) {
+            return String(value ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function saveOwnerSettings() {
+            if (!ownerUnlocked) return;
+            const phone = cleanPhone(document.getElementById('ownerPhone').value);
+            const whatsapp = cleanPhone(document.getElementById('ownerWhatsApp').value);
+            const address = document.getElementById('ownerAddress').value.trim();
+
+            if (phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+                alert('Call Number సరైన 10 అంకెల Indian mobile number ఇవ్వండి.'); return;
+            }
+            if (whatsapp.length !== 10 || !/^[6-9]\d{9}$/.test(whatsapp)) {
+                alert('WhatsApp Number సరైన 10 అంకెల Indian mobile number ఇవ్వండి.'); return;
+            }
+            if (!address) { alert('Footer Address ఖాళీగా ఉండకూడదు.'); return; }
+
+            const categoryNames = {};
+            categoriesConfig.forEach(cat => {
+                const el = document.getElementById('cat-edit-' + cat.key);
+                categoryNames[cat.key] = (el.value.trim() || cat.name);
+            });
+
+            products.forEach(p => {
+                const nameEl = document.getElementById('name-' + p.id);
+                const oldEl = document.getElementById('old-' + p.id);
+                const newEl = document.getElementById('new-' + p.id);
+                const newName = nameEl.value.trim();
+                const oldPrice = Number(oldEl.value);
+                const newPrice = Number(newEl.value);
+                if (!newName) { alert('Product #' + p.id + ' పేరు ఖాళీగా ఉంది.'); throw new Error('Invalid product name'); }
+                if (!Number.isFinite(oldPrice) || oldPrice < 0 || !Number.isFinite(newPrice) || newPrice < 0) {
+                    alert('Product #' + p.id + ' ధరలు సరైనవి ఇవ్వండి.'); throw new Error('Invalid price');
+                }
+                p.name = newName;
+                p.oldPrice = oldPrice;
+                p.newPrice = newPrice;
+            });
+
+            ownerSettings = { phone, whatsapp, address, categoryNames };
+            const data = {
+                phone, whatsapp, address, categoryNames,
+                products: products.map(p => ({ id:p.id, category:p.category, name:p.name, oldPrice:p.oldPrice, newPrice:p.newPrice }))
+            };
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(data));
+            applyOwnerDetails();
+            const activeCard = document.querySelector('.cat-card.active-cat');
+            const activeKey = activeCard ? activeCard.id.replace('cat-','') : 'combos';
+            filterProducts(activeKey);
+            closeOwnerSettings();
+            alert('Owner Settings successfully saved.');
+        }
+
+        function resetOwnerSettings() {
+            if (!ownerUnlocked) return;
+            if (!confirm('అన్ని custom names, prices, phone numbers, address ను defaultకి reset చేయాలా?')) return;
+            products = originalProducts.map(p => ({ ...p }));
+            ownerSettings = { phone: DEFAULT_PHONE, whatsapp: DEFAULT_WHATSAPP, address: DEFAULT_ADDRESS, categoryNames: { ...originalCategoryNames } };
+            localStorage.removeItem(SETTINGS_KEY);
+            applyOwnerDetails();
+            renderOwnerProductsEditor();
+            filterProducts('combos');
+            alert('Settings reset అయ్యాయి.');
+        }
+
+        window.addEventListener('load', () => {
+            loadOwnerSettings();
+            filterProducts('combos', document.getElementById('cat-combos'));
+        });
 
         function renderProducts(items) {
             const container = document.getElementById('product-list');
             container.innerHTML = '';
             items.forEach(prod => {
+                const safeName = escapeHtmlAttr(prod.name);
+                const callNo = toInternationalPhone(ownerSettings.phone || DEFAULT_PHONE);
                 container.innerHTML += `
                     <div class="product-card">
-                        <div class="product-img" onclick="openImageModal('${prod.img}', '${prod.name}', '${prod.defaultImg}')">
+                        <div class="product-img" onclick="openImageModal('${escapeJsString(prod.img)}', '${escapeJsString(prod.name)}', '${escapeJsString(prod.defaultImg)}')">
                             <span class="tag" style="${prod.category === 'combos' ? 'background:#ff0055;' : ''}">${prod.tag}</span>
-                            <img src="${prod.img}" alt="${prod.name}" onerror="this.onerror=null; this.src='${prod.defaultImg}';">
+                            <img src="${prod.img}" alt="${safeName}" onerror="this.onerror=null; this.src='${prod.defaultImg}';">
                         </div>
                         <div class="product-info">
                             <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (4.9)</div>
-                            <h3>${prod.name}</h3>
+                            <h3>${safeName}</h3>
                             <div class="price">
                                 <span class="old-price">₹${prod.oldPrice}</span>
                                 <span class="new-price">₹${prod.newPrice}</span>
                             </div>
                             <div class="btn-group">
                                 <button class="add-cart-icon-btn" onclick="addToCart(${prod.id})" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
-                                <a href="tel:${phoneNo}" class="call-now-btn"><i class="fa-solid fa-phone"></i> కాల్</a>
-                                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${prod.name}', ${prod.newPrice})"><i class="fa-brands fa-whatsapp"></i> Chat</button>
+                                <a href="tel:${callNo}" class="call-now-btn"><i class="fa-solid fa-phone"></i> కాల్</a>
+                                <button class="add-to-cart-btn" onclick="orderOnWhatsApp('${escapeJsString(prod.name)}', ${prod.newPrice})"><i class="fa-brands fa-whatsapp"></i> Chat</button>
                             </div>
                         </div>
                     </div>
@@ -1047,31 +1358,28 @@
             });
         }
 
+        function escapeJsString(value) {
+            return String(value ?? '').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+        }
+
         /* IMAGE POPUP FUNCTIONALITY */
         function openImageModal(imgSrc, title, fallbackSrc = '') {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImageSrc');
             const caption = document.getElementById('modalCaption');
-            
             modal.style.display = "flex";
             modalImg.src = imgSrc;
             caption.innerText = title;
-
-            modalImg.onerror = function() {
-                if(fallbackSrc) {
-                    modalImg.src = fallbackSrc;
-                }
-            };
+            modalImg.onerror = function() { if(fallbackSrc) modalImg.src = fallbackSrc; };
         }
 
-        function closeImageModal() {
-            document.getElementById('imageModal').style.display = "none";
-        }
+        function closeImageModal() { document.getElementById('imageModal').style.display = "none"; }
 
-        // Close modal when pressing ESC key
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeImageModal();
+                if (document.getElementById('ownerPasswordOverlay').style.display === 'block') document.getElementById('ownerPasswordOverlay').style.display = 'none';
+                if (document.getElementById('ownerSettingsOverlay').style.display === 'block') closeOwnerSettings();
             }
         });
 
@@ -1079,32 +1387,20 @@
             let filtered = products.filter(p => p.category === cat);
             renderProducts(filtered);
             document.querySelectorAll('.cat-card').forEach(el => el.classList.remove('active-cat'));
-            
-            if(element) {
-                element.classList.add('active-cat');
-            } else {
+            if(element) element.classList.add('active-cat');
+            else {
                 const targetCard = document.getElementById('cat-' + cat);
                 if(targetCard) targetCard.classList.add('active-cat');
             }
-            const titleMap = {
-                'combos': '🔥 స్పెషల్ కాంబో ఆఫర్స్',
-                'gold': '1 Gram Gold గొలుసులు',
-                'haaram': '1 Gram Gold హారాలు',
-                'bangles': 'డిజైనర్ గాజులు',
-                'earrings': 'ఇయర్ రింగ్స్ & జుంకీలు',
-                'maggam': 'డిజైనర్ మగ్గం వర్క్ బ్లౌజులు',
-                'beauty': 'బ్యూటీ & పర్ఫ్యూమ్స్'
-            };
-            document.getElementById('product-title').innerText = titleMap[cat] || 'కలెక్షన్స్';
+            const title = ownerSettings.categoryNames[cat] || 'కలెక్షన్స్';
+            document.getElementById('product-title').innerText = title;
         }
 
-        function filterAndScroll(cat) {
-            filterProducts(cat);
-            scrollToProducts();
-        }
+        function filterAndScroll(cat) { filterProducts(cat); scrollToProducts(); }
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
+            if (!product) return;
             cart.push(product);
             updateCartUI();
             toggleCart(true);
@@ -1117,128 +1413,62 @@
             const discountEl = document.getElementById('cart-discount-price');
             const totalEl = document.getElementById('cart-total-price');
             const cartNote = document.getElementById('cartDiscountNote');
-
             if (cart.length === 0) {
                 container.innerHTML = `<p style="text-align: center; color: #777; margin-top: 30px;">కార్ట్ ఖాళీగా ఉంది.</p>`;
-                subtotalEl.innerText = '₹0';
-                discountEl.innerText = '-₹0';
-                totalEl.innerText = '₹0';
-                cartNote.style.display = 'none';
-                return;
+                subtotalEl.innerText = '₹0'; discountEl.innerText = '-₹0'; totalEl.innerText = '₹0'; cartNote.style.display = 'none'; return;
             }
-
             container.innerHTML = '';
-            let subtotal = 0;
-            let discountableSubtotal = 0;
-            let hasNonDiscountable = false;
-
+            let subtotal = 0, discountableSubtotal = 0, hasNonDiscountable = false;
             cart.forEach((item, index) => {
                 subtotal += item.newPrice;
-                
-                if(['gold', 'haaram', 'earrings', 'bangles', 'combos'].includes(item.category)) {
-                    discountableSubtotal += item.newPrice;
-                } else {
-                    hasNonDiscountable = true;
-                }
-
+                if(['gold', 'haaram', 'earrings', 'bangles', 'combos'].includes(item.category)) discountableSubtotal += item.newPrice;
+                else hasNonDiscountable = true;
                 container.innerHTML += `
                     <div style="display:flex; gap:10px; margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px; align-items:center;">
-                        <img src="${item.img}" style="width:45px; height:45px; object-fit:contain; border-radius:4px; background:#fff; cursor:pointer;" onclick="openImageModal('${item.img}', '${item.name}', '${item.defaultImg}')" onerror="this.src='${item.defaultImg}'">
-                        <div style="flex:1;">
-                            <h4 style="font-size:12px; font-weight:600;">${item.name}</h4>
-                            <p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p>
-                        </div>
+                        <img src="${item.img}" style="width:45px; height:45px; object-fit:contain; border-radius:4px; background:#fff; cursor:pointer;" onclick="openImageModal('${escapeJsString(item.img)}', '${escapeJsString(item.name)}', '${escapeJsString(item.defaultImg)}')" onerror="this.src='${item.defaultImg}'">
+                        <div style="flex:1;"><h4 style="font-size:12px; font-weight:600;">${escapeHtmlAttr(item.name)}</h4><p style="font-size:12px; color:var(--burgundy); font-weight:bold;">₹${item.newPrice}</p></div>
                         <i class="fa-solid fa-trash" style="color: red; cursor: pointer; font-size:14px;" onclick="removeFromCart(${index})"></i>
-                    </div>
-                `;
+                    </div>`;
             });
-
-            if(hasNonDiscountable && activeDiscountPercent > 0) {
-                cartNote.style.display = 'block';
-            } else {
-                cartNote.style.display = 'none';
-            }
-
+            cartNote.style.display = hasNonDiscountable && activeDiscountPercent > 0 ? 'block' : 'none';
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let finalTotal = subtotal - discountAmount;
-
             subtotalEl.innerText = `₹${subtotal}`;
             discountEl.innerText = `-₹${discountAmount} (${activeDiscountPercent}%)`;
             totalEl.innerText = `₹${finalTotal}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCart(forceOpen = false) {
-            const sidebar = document.getElementById('cart-sidebar');
-            if (forceOpen) {
-                sidebar.classList.add('open');
-            } else {
-                sidebar.classList.toggle('open');
-            }
-        }
+        function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
+        function toggleCart(forceOpen = false) { const sidebar = document.getElementById('cart-sidebar'); if (forceOpen) sidebar.classList.add('open'); else sidebar.classList.toggle('open'); }
 
         function checkDiscountOffer() {
             const inputEl = document.getElementById('userPhone');
             const errorEl = document.getElementById('phoneError');
             const phoneVal = inputEl.value.trim();
-
             const phoneRegex = /^[6-9]\d{9}$/;
-            if (!phoneRegex.test(phoneVal)) {
-                errorEl.style.display = 'block';
-                document.getElementById('offerResult').style.display = 'none';
-                return;
-            }
-            errorEl.style.display = 'none';
-
-            activeUserPhone = phoneVal;
-
-            let numSum = 0;
-            for(let i = 0; i < phoneVal.length; i++) {
-                numSum += parseInt(phoneVal.charAt(i));
-            }
-            
-            const percents = [5, 15, 20];
-            activeDiscountPercent = percents[numSum % percents.length];
-            activeGiftName = giftList[numSum % giftList.length];
-
+            if (!phoneRegex.test(phoneVal)) { errorEl.style.display = 'block'; document.getElementById('offerResult').style.display = 'none'; return; }
+            errorEl.style.display = 'none'; activeUserPhone = phoneVal;
+            let numSum = 0; for(let i = 0; i < phoneVal.length; i++) numSum += parseInt(phoneVal.charAt(i));
+            const percents = [5, 15, 20]; activeDiscountPercent = percents[numSum % percents.length]; activeGiftName = giftList[numSum % giftList.length];
             document.getElementById('giftName').innerText = activeGiftName;
             document.getElementById('discountValueText').innerText = `${activeDiscountPercent}% OFF (ఆన్‌లైన్ డిస్కౌంట్)`;
-            document.getElementById('offerResult').style.display = 'block';
-
-            updateCartUI();
+            document.getElementById('offerResult').style.display = 'block'; updateCartUI();
         }
 
         function orderOnWhatsApp(productName, price) {
-            const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${productName}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
+            const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్‌లో ఈ ప్రొడక్ట్ చూశాను:%0A%0A*ప్రొడక్ట్:* ${encodeURIComponent(productName)}%0A*ధర:* ₹${price}%0A%0Aనేను దీని గురించి సమాచారం / ఆర్డర్ పొందాలనుకుంటున్నాను.`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
 
         function checkoutCart() {
-            if (cart.length === 0) {
-                alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!');
-                return;
-            }
-
-            if (!activeUserPhone) {
-                alert('దయచేసి ముందుగా మీ 10 అంకెల నంబర్ ఎంటర్ చేసి ఉచిత గిఫ్ట్ చెక్ చేసుకోండి!');
-                toggleOfferBox();
-                document.getElementById('userPhone').focus();
-                return;
-            }
-
-            let itemsList = cart.map(item => `- ${item.name} (₹${item.newPrice})`).join('%0A');
+            if (cart.length === 0) { alert('మీ కార్ట్‌లో ప్రొడక్ట్స్ ఏవీ లేవు!'); return; }
+            if (!activeUserPhone) { alert('దయచేసి ముందుగా మీ 10 అంకెల నంబర్ ఎంటర్ చేసి ఉచిత గిఫ్ట్ చెక్ చేసుకోండి!'); toggleOfferBox(); document.getElementById('userPhone').focus(); return; }
+            let itemsList = cart.map(item => `- ${encodeURIComponent(item.name)} (₹${item.newPrice})`).join('%0A');
             let subtotal = cart.reduce((sum, item) => sum + item.newPrice, 0);
-            
             let discountableSubtotal = cart.filter(item => ['gold', 'haaram', 'earrings', 'bangles', 'combos'].includes(item.category)).reduce((sum, item) => sum + item.newPrice, 0);
             let discountAmount = Math.round((discountableSubtotal * activeDiscountPercent) / 100);
             let total = subtotal - discountAmount;
-            
-            let couponText = activeDiscountPercent > 0 ? `%0A*మొబైల్ నంబర్:* ${activeUserPhone}%0A*ఆఫర్ డిస్కౌంట్:* ${activeDiscountPercent}% OFF (Gold/Combos/Bangles కి మాత్రమే)%0A*ఉచిత గిఫ్ట్:* ${activeGiftName}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
-            
+            let couponText = activeDiscountPercent > 0 ? `%0A*మొబైల్ నంబర్:* ${activeUserPhone}%0A*ఆఫర్ డిస్కౌంట్:* ${activeDiscountPercent}% OFF (Gold/Combos/Bangles కి మాత్రమే)%0A*ఉచిత గిఫ్ట్:* ${encodeURIComponent(activeGiftName)}%0A*తగ్గిన మొత్తం:* -₹${discountAmount}` : "";
             const message = `నమస్కారం! నేను Lucky Collections వెబ్‌సైట్ నుంచి ఆర్డర్ చేయాలనుకుంటున్నాను:%0A%0A${itemsList}%0A%0A*సబ్ టోటల్:* ₹${subtotal}${couponText}%0A*నెట్ చెల్లించాల్సింది:* ₹${total}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNo}&text=${message}`, '_blank');
         }
