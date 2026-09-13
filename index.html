@@ -34,6 +34,7 @@
             background-color: var(--light-bg);
             color: var(--dark-text);
         }
+        /* Top Announcement Bar */
         .top-bar {
             background-color: var(--burgundy);
             color: var(--gold);
@@ -43,6 +44,7 @@
             letter-spacing: 1px;
             font-weight: 500;
         }
+        /* Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -77,6 +79,8 @@
             gap: 8px;
             align-items: center;
         }
+        
+        /* GENERAL BLINKING BUTTON BASE STYLE */
         .nav-btn {
             padding: 8px 14px;
             border-radius: 20px;
@@ -87,6 +91,8 @@
             white-space: nowrap;
             transition: all 0.3s ease;
         }
+
+        /* 1. FAST BLINKING COMBO OFFER BUTTON (RED) */
         .combo-btn {
             background: linear-gradient(135deg, #ff0055, #ff5500);
             color: #ffffff !important;
@@ -104,6 +110,8 @@
             0% { transform: scale(1); box-shadow: 0 0 5px #ff0055, 0 0 10px #ff5500; filter: brightness(1); }
             100% { transform: scale(1.08); box-shadow: 0 0 18px #ff0055, 0 0 28px #ffff00; filter: brightness(1.3); }
         }
+
+        /* 2. 1-GRAM GOLD BUTTON (GOLD/YELLOW GLOW) */
         .btn-gold-blink {
             background: linear-gradient(135deg, #d4af37, #ff8c00);
             color: #ffffff !important;
@@ -113,6 +121,8 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #d4af37; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #ffea00; filter: brightness(1.3); }
         }
+
+        /* 3. HAARAM BUTTON (ROYAL PURPLE GLOW) */
         .btn-haaram-blink {
             background: linear-gradient(135deg, #8e44ad, #9b59b6);
             color: #ffffff !important;
@@ -122,6 +132,8 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #8e44ad; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #e0aaff; filter: brightness(1.3); }
         }
+
+        /* 4. BANGLES BUTTON (MAGENTA PINK GLOW) */
         .btn-bangles-blink {
             background: linear-gradient(135deg, #e91e63, #ff4081);
             color: #ffffff !important;
@@ -131,6 +143,8 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #e91e63; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #ff80ab; filter: brightness(1.3); }
         }
+
+        /* 5. EARRINGS BUTTON (SKY BLUE GLOW) */
         .btn-earrings-blink {
             background: linear-gradient(135deg, #00c6ff, #0072ff);
             color: #ffffff !important;
@@ -140,6 +154,8 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #00c6ff; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #80d4ff; filter: brightness(1.3); }
         }
+
+        /* 6. MAGGAM WORKS BUTTON (EMERALD GREEN GLOW) */
         .btn-maggam-blink {
             background: linear-gradient(135deg, #11998e, #38ef7d);
             color: #ffffff !important;
@@ -149,6 +165,8 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #11998e; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #a8ff78; filter: brightness(1.3); }
         }
+
+        /* 7. BEAUTY & PERFUMES BUTTON (ORANGE GLOW) */
         .btn-beauty-blink {
             background: linear-gradient(135deg, #ff512f, #f09819);
             color: #ffffff !important;
@@ -158,6 +176,7 @@
             0% { transform: scale(1); box-shadow: 0 0 4px #ff512f; }
             100% { transform: scale(1.06); box-shadow: 0 0 16px #ffd000; filter: brightness(1.3); }
         }
+
         .header-icons {
             display: flex;
             gap: 20px;
@@ -180,6 +199,8 @@
             justify-content: center;
             font-weight: 600;
         }
+
+        /* HERO BANNER */
         .hero {
             background: linear-gradient(90deg, rgba(26, 5, 8, 0.85) 0%, rgba(26, 5, 8, 0.3) 100%), 
                         url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
@@ -224,6 +245,8 @@
             cursor: pointer;
         }
         .btn-gold:hover { background-color: var(--dark-gold); }
+
+        /* MOVING ANNOUNCEMENT BAR */
         .magic-rental-bar {
             background: linear-gradient(90deg, var(--burgundy), #7a1523, var(--burgundy));
             color: #ffffff;
@@ -247,6 +270,8 @@
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
+
+        /* ABOUT FOUNDER & SERVICES SECTION */
         .about-founder {
             padding: 50px 8%;
             background: #fff;
@@ -270,6 +295,7 @@
             object-fit: cover;
             cursor: pointer;
         }
+
         .founder-info { flex: 1.2; position: relative; }
         .founder-info h3 {
             color: var(--gold);
@@ -290,6 +316,7 @@
             line-height: 1.8;
             margin-bottom: 15px;
         }
+
         .services-grid-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -306,6 +333,8 @@
             font-weight: 500;
         }
         .services-grid-list i { color: var(--gold); margin-right: 6px; }
+
+        /* OFFER BUTTON WITH WHITE TEXT */
         .magic-offer-btn {
             background: linear-gradient(135deg, var(--burgundy), #801827);
             color: #ffffff !important;
@@ -324,11 +353,21 @@
             overflow: hidden;
             animation: pulseGlow 2s infinite alternate;
         }
-        .magic-offer-btn span { color: #ffffff !important; }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 20px rgba(74, 14, 23, 0.6); transform: scale(1); }
-            100% { box-shadow: 0 0 22px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.5); transform: scale(1.02); }
+        .magic-offer-btn span {
+            color: #ffffff !important;
         }
+        
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 20px rgba(74, 14, 23, 0.6);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 22px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.5);
+                transform: scale(1.02);
+            }
+        }
+
         .sparkle-icon {
             font-size: 18px;
             animation: pulseSparkle 1s infinite alternate;
@@ -338,6 +377,7 @@
             0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
             100% { transform: scale(1.4) rotate(20deg); opacity: 1; filter: drop-shadow(0 0 6px #fff); }
         }
+
         .offer-card {
             background: linear-gradient(135deg, #fffdfa 0%, #fff6e6 100%);
             border: 2px dashed var(--gold);
@@ -346,7 +386,11 @@
             margin-top: 15px;
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
         }
-        .offer-card h4 { color: var(--burgundy); font-size: 16px; margin-bottom: 6px; }
+        .offer-card h4 {
+            color: var(--burgundy);
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
         .offer-input-group { display: flex; gap: 10px; margin-top: 10px; }
         .offer-input-group input {
             flex: 1;
@@ -381,6 +425,7 @@
             text-align: center;
         }
         .offer-result h5 { color: #28a745; font-size: 17px; margin-bottom: 4px; }
+        
         .free-gift-box-info {
             background: var(--burgundy);
             color: var(--gold);
@@ -390,6 +435,7 @@
             margin-top: 8px;
             font-weight: 600;
         }
+
         .item-restriction-note {
             background: #fff3cd;
             color: #856404;
@@ -400,6 +446,8 @@
             margin-top: 6px;
             font-weight: 600;
         }
+
+        /* CATEGORIES SECTION */
         .categories, .products { padding: 40px 8%; }
         .section-title {
             text-align: center;
@@ -438,6 +486,8 @@
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
             background-color: #fffdf8;
         }
+
+        /* HIGHLY HIGHLIGHTED FAST BLINKING COMBO CARD IN CATEGORY MENU */
         .combo-cat-card {
             background: linear-gradient(135deg, #ff0044, #ff5500) !important;
             border: 2px solid #ffffff !important;
@@ -453,10 +503,20 @@
             border: 2px solid #ffffff !important;
             box-shadow: 0 0 8px #ffff00;
         }
+
         @keyframes fastBlinkComboCard {
-            0% { transform: scale(1); box-shadow: 0 0 8px #ff0044, 0 0 14px #ff5500; filter: brightness(1); }
-            100% { transform: scale(1.06); box-shadow: 0 0 20px #ff0044, 0 0 30px #ffff00; filter: brightness(1.35); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 8px #ff0044, 0 0 14px #ff5500;
+                filter: brightness(1);
+            }
+            100% {
+                transform: scale(1.06);
+                box-shadow: 0 0 20px #ff0044, 0 0 30px #ffff00;
+                filter: brightness(1.35);
+            }
         }
+
         .cat-img-box {
             width: 65px;
             height: 65px;
@@ -469,8 +529,14 @@
             align-items: center;
             justify-content: center;
         }
-        .cat-img-box img { width: 100%; height: 100%; object-fit: contain; }
+        .cat-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
         .cat-card h3 { font-size: 13px; color: var(--burgundy); font-weight: 600; }
+
+        /* PRODUCTS GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -488,6 +554,7 @@
             flex-direction: column;
         }
         .product-card:hover { transform: translateY(-5px); }
+        
         .product-img {
             position: relative;
             height: 270px;
@@ -519,6 +586,7 @@
             border-radius: 3px;
             z-index: 2;
         }
+        
         .product-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
         .stars { color: var(--gold); font-size: 11px; margin-bottom: 4px; }
         .product-info h3 {
@@ -572,6 +640,8 @@
             font-size: 11px;
             text-decoration: none;
         }
+
+        /* CART SIDEBAR */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -591,6 +661,8 @@
         .cart-items { flex: 1; overflow-y: auto; }
         .close-btn { font-size: 20px; cursor: pointer; color: #666; }
         .cart-footer { border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; }
+
+        /* IMAGE POPUP MODAL (ZOOM VIEW) */
         .img-modal {
             display: none;
             position: fixed;
@@ -638,6 +710,8 @@
             padding: 6px 16px;
             border-radius: 20px;
         }
+        
+        /* FOOTER */
         footer {
             background-color: var(--burgundy);
             color: #fff;
@@ -666,10 +740,12 @@
 </head>
 <body>
 
+    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-bar">
         ✨ ప్రత్యేక ఆఫర్: చీరాల & ఆన్లైన్ కస్టమర్లందరికీ ఉచిత డెలివరీ! ✨
     </div>
 
+    <!-- MAIN HEADER WITH MULTI-COLOR BLINKING BUTTONS -->
     <header>
         <div class="logo" onclick="filterAndScroll('combos')">
             <h1>Lucky Collections</h1>
@@ -694,6 +770,7 @@
         </div>
     </header>
 
+    <!-- HERO BANNER -->
     <section class="hero">
         <div class="hero-content">
             <h4>లగ్జరీ & రాయల్ కలెక్షన్</h4>
@@ -703,12 +780,14 @@
         </div>
     </section>
 
+    <!-- MOVING MAGIC ANNOUNCEMENT BAR -->
     <div class="magic-rental-bar">
         <div class="magic-rental-text">
             <i class="fa-solid fa-crown"></i> వివాహాది శుభకార్యాలకి 1-Gram Gold నగలను అద్దెకు (Rent) ఇవ్వబడును. సంప్రదించండి: <strong>+91 9876543210</strong> <i class="fa-solid fa-gem"></i>
         </div>
     </div>
 
+    <!-- ABOUT FOUNDER & SERVICES SECTION -->
     <section class="about-founder">
         <div class="founder-img-box">
             <img id="founderPreview" src="suresh.png" alt="Lucky Collection Founder" onclick="openImageModal(this.src, 'Lucky Collections Management')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80';">
@@ -733,12 +812,14 @@
                 <a href="tel:919876543210" class="btn-gold" style="background:#007bff;"><i class="fa-solid fa-phone"></i> కాల్ చేయండి</a>
             </div>
 
+            <!-- SPARKING MAGICAL ANIMATED OFFER BUTTON -->
             <button class="magic-offer-btn" onclick="toggleOfferBox()">
                 <i class="fa-solid fa-sparkles sparkle-icon"></i> 
                 <span>✨ ప్రతీ ₹2000 కొనుగోలుపై ఉచిత గిఫ్ట్! మీ గిఫ్ట్ ఏంటో చూడండి ✨</span>
                 <i class="fa-solid fa-sparkles sparkle-icon"></i>
             </button>
 
+            <!-- OFFER BOX DISPLAY -->
             <div class="offer-card" id="offerBox" style="display: none;">
                 <h4>🎁 మీ ఉచిత గిఫ్ట్ & ఆఫర్ డిస్కౌంట్ చెక్ చేసుకోండి!</h4>
                 <p style="font-size:12px; color:#555;">మీ ఆఫర్ గిఫ్ట్ ఏంటో తెలుసుకోవడానికి మీ 10-అంకెల ఫోన్ నంబర్ ఎంటర్ చేయండి.</p>
@@ -766,9 +847,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- CATEGORIES SECTION -->
     <section class="categories">
         <h2 class="section-title">షాప్ బై క్యాటగిరీ</h2>
         <div class="category-grid">
@@ -803,12 +886,15 @@
         </div>
     </section>
 
+    <!-- PRODUCTS SECTION -->
     <section class="products" id="products">
         <h2 class="section-title" id="product-title">🔥 స్పెషల్ కాంబో ఆఫర్స్</h2>
         <div class="product-grid" id="product-list">
+            <!-- Dynamic JavaScript Products -->
         </div>
     </section>
 
+    <!-- CART SIDEBAR -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h3>మీ షాపింగ్ కార్ట్</h3>
@@ -838,12 +924,14 @@
         </div>
     </div>
 
+    <!-- IMAGE ZOOM MODAL (POPUP) -->
     <div class="img-modal" id="imageModal" onclick="closeImageModal()">
         <span class="img-modal-close" onclick="closeImageModal()">&times;</span>
         <img class="img-modal-content" id="modalImageSrc">
         <div class="img-modal-caption" id="modalCaption"></div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -872,10 +960,11 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT WITH SEPARATE PRICES FOR ALL PRODUCTS -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         const phoneNo = "919876543210";
         
+        // ONLINE BACKUP IMAGES
         const defaultImages = {
             combos: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80",
             gold: "https://images.unsplash.com/photo-1611591475824-28770913cd08?auto=format&fit=crop&w=400&q=80",
@@ -886,94 +975,36 @@
             beauty: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80"
         };
 
-        /* 
-           👉 ఇక్కడ ప్రతీ ప్రొడక్ట్‌కి విడివిడిగా ఓల్డ్ ప్రైస్ (oldPrice) మరియు ఆఫర్ ధర (newPrice) మార్చుకోవచ్చు!
-        */
-let products = [
-    // ================= 1. కాంబో ఆఫర్స్ (COMBOS - 10 Items) =================
-    { id: 1, category: 'combos', name: 'రాయల్ గ్రాండ్ బ్రిడల్ కాంబో సెట్ #1', oldPrice: 9000, newPrice: 7000, img: 'cb1.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 2, category: 'combos', name: 'ప్రీమియం 1 Gram Gold కాంబో సెట్ #2', oldPrice: 8500, newPrice: 6500, img: 'cb2.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 3, category: 'combos', name: 'లగ్జరీ జూవెల్లరీ కాంబో #3', oldPrice: 7500, newPrice: 5500, img: 'cb3.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 4, category: 'combos', name: 'ట్రెడిషనల్ మ్యారేజ్ కాంబో #4', oldPrice: 10000, newPrice: 8000, img: 'cb4.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 5, category: 'combos', name: 'రాయల్ కుందన్ సెట్ కాంబో #5', oldPrice: 6000, newPrice: 4500, img: 'cb5.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 6, category: 'combos', name: 'గోల్డ్ కవరింగ్ కాంబో సెట్ #6', oldPrice: 5000, newPrice: 3800, img: 'cb6.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 7, category: 'combos', name: 'వివాహ డిజైనర్ కాంబో సెట్ #7', oldPrice: 12000, newPrice: 9500, img: 'cb7.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 8, category: 'combos', name: 'మహారాణి హారం కాంబో #8', oldPrice: 11000, newPrice: 8800, img: 'cb8.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 9, category: 'combos', name: 'లక్కీ స్పెషల్ ఆభరణాల కాంబో #9', oldPrice: 9500, newPrice: 7200, img: 'cb9.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-    { id: 10, category: 'combos', name: 'రాయల్ చౌకర్ కాంబో సెట్ #10', oldPrice: 8000, newPrice: 6000, img: 'cb10.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+        const categoriesConfig = [
+            { key: 'combos', prefix: 'cb', name: 'రాయల్ జ్యూవెల్లరీ కాంబో సెట్', price: 2499, img: defaultImages.combos },
+            { key: 'gold', prefix: 'g', name: '1 Gram Gold గొలుసు', price: 999, img: defaultImages.gold },
+            { key: 'haaram', prefix: 'h', name: 'రాయల్ డిజైనర్ హారం', price: 1899, img: defaultImages.haaram },
+            { key: 'bangles', prefix: 'b', name: 'ఫ్యాన్సీ డిజైనర్ బ్యాంగిల్స్', price: 799, img: defaultImages.bangles },
+            { key: 'earrings', prefix: 'e', name: '1 Gram Gold ఇయర్ రింగ్స్', price: 599, img: defaultImages.earrings },
+            { key: 'maggam', prefix: 'm', name: 'హెవీ మగ్గం వర్క్ బ్లౌజ్', price: 1999, img: defaultImages.maggam },
+            { key: 'beauty', prefix: 'p', name: 'బ్యూటీ & పర్ఫ్యూమ్స్', price: 1199, img: defaultImages.beauty }
+        ];
 
-    // ================= 2. 1-GRAM GOLD గొలుసులు (GOLD - 10 Items) =================
-    { id: 11, category: 'gold', name: '24k గోల్డ్ ప్లేటెడ్ మైక్రో గొలుసు #1', oldPrice: 3000, newPrice: 1500, img: 'g1.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-    { id: 12, category: 'gold', name: '1 Gram Gold తాలి తాడు గొలుసు #2', oldPrice: 2500, newPrice: 1200, img: 'g2.png', defaultImg: defaultImages.gold, tag: 'BEST' },
-    { id: 13, category: 'gold', name: 'డిజైనర్ డోలీ గొలుసు #3', oldPrice: 2800, newPrice: 1400, img: 'g3.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-    { id: 14, category: 'gold', name: 'రాయల్ లుక్ గోల్డ్ గొలుసు #4', oldPrice: 3500, newPrice: 1800, img: 'g4.png', defaultImg: defaultImages.gold, tag: 'NEW' },
-    { id: 15, category: 'gold', name: 'ట్రెడిషనల్ మోనాలిసా గొలుసు #5', oldPrice: 3200, newPrice: 1600, img: 'g5.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-    { id: 16, category: 'gold', name: 'ఫ్యాన్సీ ప్లేటెడ్ చైన్ #6', oldPrice: 2200, newPrice: 1100, img: 'g6.png', defaultImg: defaultImages.gold, tag: 'BEST' },
-    { id: 17, category: 'gold', name: 'డైలీ వేర్ గోల్డ్ గొలుసు #7', oldPrice: 1800, newPrice: 950, img: 'g7.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-    { id: 18, category: 'gold', name: 'హెవీ డిజైన్ గోల్డ్ గొలుసు #8', oldPrice: 4000, newPrice: 2100, img: 'g8.png', defaultImg: defaultImages.gold, tag: 'NEW' },
-    { id: 19, category: 'gold', name: 'క్లాసిక్ షైనింగ్ గొలుసు #9', oldPrice: 2600, newPrice: 1300, img: 'g9.png', defaultImg: defaultImages.gold, tag: 'BEST' },
-    { id: 20, category: 'gold', name: 'ప్రీమియం మైక్రో గోల్డ్ గొలుసు #10', oldPrice: 3800, newPrice: 1900, img: 'g10.png', defaultImg: defaultImages.gold, tag: 'HOT' },
+        let products = [];
+        let idCounter = 1;
 
-    // ================= 3. హారాలు (HAARAM - 10 Items) =================
-    { id: 21, category: 'haaram', name: 'రాయల్ గుండ్ల హారం #1', oldPrice: 6000, newPrice: 4200, img: 'h1.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
-    { id: 22, category: 'haaram', name: 'లక్ష్మీదేవి కాసుల హారం #2', oldPrice: 7000, newPrice: 4900, img: 'h2.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
-    { id: 23, category: 'haaram', name: 'ముత్యాల డిజైన్ రాయల్ హారం #3', oldPrice: 5500, newPrice: 3800, img: 'h3.png', defaultImg: defaultImages.haaram, tag: 'NEW' },
-    { id: 24, category: 'haaram', name: 'నవరత్న డిజైనర్ హారం #4', oldPrice: 8000, newPrice: 5600, img: 'h4.png', defaultImg: defaultImages.haaram, tag: 'EXCLUSIVE' },
-    { id: 25, category: 'haaram', name: 'మామిడి పిందెల హారం #5', oldPrice: 6500, newPrice: 4500, img: 'h5.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
-    { id: 26, category: 'haaram', name: 'కుందన్ వర్క్ లాంగ్ హారం #6', oldPrice: 9000, newPrice: 6200, img: 'h6.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
-    { id: 27, category: 'haaram', name: 'ట్రెడిషనల్ రామపరివార్ హారం #7', oldPrice: 7500, newPrice: 5100, img: 'h7.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
-    { id: 28, category: 'haaram', name: 'టెంపుల్ జ్యూవెల్లరీ హారం #8', oldPrice: 8500, newPrice: 5800, img: 'h8.png', defaultImg: defaultImages.haaram, tag: 'NEW' },
-    { id: 29, category: 'haaram', name: 'మహారాణి రూబీ హారం #9', oldPrice: 9500, newPrice: 6700, img: 'h9.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
-    { id: 30, category: 'haaram', name: 'ఎమరాల్డ్ గ్రీన్ హారం #10', oldPrice: 6800, newPrice: 4700, img: 'h10.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
+        categoriesConfig.forEach(cat => {
+            for (let i = 1; i <= 10; i++) {
+                products.push({
+                    id: idCounter++,
+                    category: cat.key,
+                    name: `${cat.name} #${i}`,
+                    oldPrice: cat.price * 2,
+                    newPrice: cat.price + (i * 20),
+                    img: `${cat.prefix}${i}.png`,
+                    defaultImg: cat.img,
+                    tag: cat.key === 'combos' ? 'COMBO OFFER' : (i % 2 === 0 ? 'HOT' : 'BEST')
+                });
+            }
+        });
 
-    // ================= 4. బ్యాంగిల్స్ (BANGLES - 10 Items) =================
-    { id: 31, category: 'bangles', name: 'ఫ్యాన్సీ డిజైనర్ గాజుల సెట్ #1', oldPrice: 2000, newPrice: 1200, img: 'b1.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
-    { id: 32, category: 'bangles', name: '1 Gram Gold కడా గాజులు #2', oldPrice: 2400, newPrice: 1500, img: 'b2.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
-    { id: 33, category: 'bangles', name: 'కుందన్ ప్యాచ్ వర్క్ బ్యాంగిల్స్ #3', oldPrice: 1800, newPrice: 1100, img: 'b3.png', defaultImg: defaultImages.bangles, tag: 'NEW' },
-    { id: 34, category: 'bangles', name: 'మ్యాచింగ్ గ్లాస్ బ్యాంగిల్స్ కాంబో #4', oldPrice: 1500, newPrice: 900, img: 'b4.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
-    { id: 35, category: 'bangles', name: 'బ్రైడల్ హెవీ గాజుల సెట్ #5', oldPrice: 3000, newPrice: 1900, img: 'b5.png', defaultImg: defaultImages.bangles, tag: 'EXCLUSIVE' },
-    { id: 36, category: 'bangles', name: 'మైక్రో ప్లేటెడ్ డోలీ బ్యాంగిల్స్ #6', oldPrice: 2200, newPrice: 1350, img: 'b6.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
-    { id: 37, category: 'bangles', name: 'రోజ్ గోల్డ్ కడా బ్యాంగిల్స్ #7', oldPrice: 2600, newPrice: 1600, img: 'b7.png', defaultImg: defaultImages.bangles, tag: 'NEW' },
-    { id: 38, category: 'bangles', name: 'స్టోన్ ఎంబెడెడ్ డిజైన్ గాజులు #8', oldPrice: 2100, newPrice: 1250, img: 'b8.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
-    { id: 39, category: 'bangles', name: 'ట్రెడిషనల్ రెడ్ & గోల్డ్ గాజులు #9', oldPrice: 1700, newPrice: 999, img: 'b9.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
-    { id: 40, category: 'bangles', name: 'వల్వెట్ ఫినిషింగ్ గాజుల సెట్ #10', oldPrice: 1900, newPrice: 1150, img: 'b10.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
-
-    // ================= 5. ఇయర్ రింగ్స్ (EARRINGS - 10 Items) =================
-    { id: 41, category: 'earrings', name: '1 Gram Gold జుంకీలు #1', oldPrice: 1500, newPrice: 800, img: 'e1.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
-    { id: 42, category: 'earrings', name: 'చాంద్ బాలి ఇయర్ రింగ్స్ #2', oldPrice: 1800, newPrice: 950, img: 'e2.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
-    { id: 43, category: 'earrings', name: 'లక్ష్మీదేవి మోడల్ కమ్మలు #3', oldPrice: 1600, newPrice: 899, img: 'e3.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
-    { id: 44, category: 'earrings', name: 'కుందన్ డ్రాప్ ఇయర్ రింగ్స్ #4', oldPrice: 2000, newPrice: 1100, img: 'e4.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
-    { id: 45, category: 'earrings', name: 'పర్ల్ హ్యాంగింగ్స్ #5', oldPrice: 1400, newPrice: 750, img: 'e5.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
-    { id: 46, category: 'earrings', name: 'ట్రెండింగ్ స్టడ్స్ సెట్ #6', oldPrice: 1200, newPrice: 650, img: 'e6.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
-    { id: 47, category: 'earrings', name: 'హెవీ బ్రైడల్ జుంకాలు #7', oldPrice: 2500, newPrice: 1400, img: 'e7.png', defaultImg: defaultImages.earrings, tag: 'EXCLUSIVE' },
-    { id: 48, category: 'earrings', name: 'అమెరికన్ డైమండ్ కమ్మలు #8', oldPrice: 2200, newPrice: 1200, img: 'e8.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
-    { id: 49, category: 'earrings', name: 'మోనాలిసా బీడ్స్ ఇయర్ రింగ్స్ #9', oldPrice: 1700, newPrice: 900, img: 'e9.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
-    { id: 50, category: 'earrings', name: 'టెంపుల్ డిజైన్ జుంకీలు #10', oldPrice: 1900, newPrice: 1050, img: 'e10.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
-
-    // ================= 6. మగ్గం వర్క్స్ (MAGGAM - 10 Items) =================
-    { id: 51, category: 'maggam', name: 'హెవీ బ్రైడల్ మగ్గం వర్క్ బ్లౌజ్ #1', oldPrice: 5000, newPrice: 3500, img: 'm1.png', defaultImg: defaultImages.maggam, tag: 'EXCLUSIVE' },
-    { id: 52, category: 'maggam', name: 'సింపుల్ గ్రాండ్ మగ్గం వర్క్ #2', oldPrice: 4000, newPrice: 2600, img: 'm2.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
-    { id: 53, category: 'maggam', name: 'పీకాక్ డిజైన్ మగ్గం వర్క్ #3', oldPrice: 4500, newPrice: 3000, img: 'm3.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
-    { id: 54, category: 'maggam', name: 'జర్దోసీ వర్క్ బ్రైడల్ బ్లౌజ్ #4', oldPrice: 5500, newPrice: 3800, img: 'm4.png', defaultImg: defaultImages.maggam, tag: 'NEW' },
-    { id: 55, category: 'maggam', name: 'థ్రెడ్ & బీడ్స్ మగ్గం వర్క్ #5', oldPrice: 3800, newPrice: 2400, img: 'm5.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
-    { id: 56, category: 'maggam', name: 'కుందన్ ఎంబ్రాయిడరీ వర్క్ #6', oldPrice: 4200, newPrice: 2800, img: 'm6.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
-    { id: 57, category: 'maggam', name: 'ఎలిఫెంట్ మోటిఫ్ మగ్గం వర్క్ #7', oldPrice: 4800, newPrice: 3200, img: 'm7.png', defaultImg: defaultImages.maggam, tag: 'NEW' },
-    { id: 58, category: 'maggam', name: 'రాయల్ సిల్క్ మగ్గం వర్క్ #8', oldPrice: 5200, newPrice: 3600, img: 'm8.png', defaultImg: defaultImages.maggam, tag: 'EXCLUSIVE' },
-    { id: 59, category: 'maggam', name: 'బోట్ నెక్ మగ్గం వర్క్ బ్లౌజ్ #9', oldPrice: 4600, newPrice: 3100, img: 'm9.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
-    { id: 60, category: 'maggam', name: 'హ్యాండ్ వర్క్ డిజైనర్ బ్లౌజ్ #10', oldPrice: 3900, newPrice: 2500, img: 'm10.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
-
-    // ================= 7. బ్యూటీ & పెర్ఫ్యూమ్స్ (BEAUTY - 10 Items) =================
-    { id: 61, category: 'beauty', name: 'లగ్జరీ పెర్ఫ్యూమ్ & రోజ్ వాటర్ కాంబో #1', oldPrice: 2400, newPrice: 1200, img: 'p1.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
-    { id: 62, category: 'beauty', name: 'ఫ్రెంచ్ సుగంధ పరిమళ పెర్ఫ్యూమ్ #2', oldPrice: 1800, newPrice: 999, img: 'p2.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
-    { id: 63, category: 'beauty', name: 'ప్రీమియం బాడీ మిస్ట్ & స్ప్రే #3', oldPrice: 1500, newPrice: 799, img: 'p3.png', defaultImg: defaultImages.beauty, tag: 'NEW' },
-    { id: 64, category: 'beauty', name: 'అత్తర్ పరిమళ నూనె కాంబో #4', oldPrice: 1600, newPrice: 850, img: 'p4.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
-    { id: 65, category: 'beauty', name: 'రాయల్ ఆగార్ వుడ్ పెర్ఫ్యూమ్ #5', oldPrice: 2800, newPrice: 1499, img: 'p5.png', defaultImg: defaultImages.beauty, tag: 'EXCLUSIVE' },
-    { id: 66, category: 'beauty', name: 'జాస్మిన్ & రోజ్ ఫ్రాగ్రన్స్ సెట్ #6', oldPrice: 2000, newPrice: 1050, img: 'p6.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
-    { id: 67, category: 'beauty', name: 'నేచురల్ హెర్బల్ ఫేస్ ప్యాక్ కాంబో #7', oldPrice: 1400, newPrice: 699, img: 'p7.png', defaultImg: defaultImages.beauty, tag: 'NEW' },
-    { id: 68, category: 'beauty', name: 'లాంగ్ లాస్టింగ్ పాకెట్ పెర్ఫ్యూమ్స్ #8', oldPrice: 1200, newPrice: 599, img: 'p8.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
-    { id: 69, category: 'beauty', name: 'లగ్జరీ ఆరోమా ఆయిల్స్ సెట్ #9', oldPrice: 2200, newPrice: 1150, img: 'p9.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
-    { id: 70, category: 'beauty', name: 'బ్రైడల్ బ్యూటీ కేర్ బాక్స్ #10', oldPrice: 3200, newPrice: 1799, img: 'p10.png', defaultImg: defaultImages.beauty, tag: 'EXCLUSIVE' }
-];
+        const giftList = [
+            "గోల్డ్ ప్లేటెడ్ లక్ష్మీదేవి కాయిన్ 🪙",
             "ముత్యాల ముక్కుపుడక & ఇయర్ రింగ్స్ 💎",
             "డిజైనర్ హ్యాండ్ బ్యాగ్ 👜",
             "రాయల్ కుందన్ రింగ్ 💍",
@@ -1016,6 +1047,7 @@ let products = [
             });
         }
 
+        /* IMAGE POPUP FUNCTIONALITY */
         function openImageModal(imgSrc, title, fallbackSrc = '') {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImageSrc');
@@ -1036,6 +1068,7 @@ let products = [
             document.getElementById('imageModal').style.display = "none";
         }
 
+        // Close modal when pressing ESC key
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeImageModal();
