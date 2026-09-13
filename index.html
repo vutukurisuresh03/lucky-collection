@@ -889,49 +889,92 @@
         /* 
            👉 ఇక్కడ ప్రతీ ప్రొడక్ట్‌కి విడివిడిగా ఓల్డ్ ప్రైస్ (oldPrice) మరియు ఆఫర్ ధర (newPrice) మార్చుకోవచ్చు!
         */
-        let products = [
-            // ================= 1. కాంబో ఆఫర్స్ (COMBOS) =================
-            { id: 1, category: 'combos', name: 'రాయల్ గ్రాండ్ బ్రిడల్ కాంబో సెట్ #1', oldPrice: 9000, newPrice: 7000, img: 'cb1.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 2, category: 'combos', name: 'ప్రీమియం 1 Gram Gold కాంబో సెట్ #2', oldPrice: 8500, newPrice: 6500, img: 'cb2.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 3, category: 'combos', name: 'లగ్జరీ జూవెల్లరీ కాంబో #3', oldPrice: 7500, newPrice: 5500, img: 'cb3.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 4, category: 'combos', name: 'ట్రెడిషనల్ మ్యారేజ్ కాంబో #4', oldPrice: 10000, newPrice: 8000, img: 'cb4.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 5, category: 'combos', name: 'రాయల్ కుందన్ సెట్ కాంబో #5', oldPrice: 6000, newPrice: 4500, img: 'cb5.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 6, category: 'combos', name: 'గోల్డ్ కవరింగ్ కాంబో సెట్ #6', oldPrice: 5000, newPrice: 3800, img: 'cb6.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 7, category: 'combos', name: 'వివాహ డిజైనర్ కాంబో సెట్ #7', oldPrice: 12000, newPrice: 9500, img: 'cb7.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 8, category: 'combos', name: 'మహారాణి హారం కాంబో #8', oldPrice: 11000, newPrice: 8800, img: 'cb8.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 9, category: 'combos', name: 'లక్కీ స్పెషల్ ఆభరణాల కాంబో #9', oldPrice: 9500, newPrice: 7200, img: 'cb9.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
-            { id: 10, category: 'combos', name: 'రాయల్ చౌకర్ కాంబో సెట్ #10', oldPrice: 8000, newPrice: 6000, img: 'cb10.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+       /* ✅ ప్రతీ క్యాటగిరీలో 10 ప్రొడక్ట్స్ చొప్పున ఉన్న పూర్తి ప్రొడక్ట్స్ లిస్ట్ */
+let products = [
+    // ================= 1. కాంబో ఆఫర్స్ (COMBOS - 10 Items) =================
+    { id: 1, category: 'combos', name: 'రాయల్ గ్రాండ్ బ్రిడల్ కాంబో సెట్ #1', oldPrice: 9000, newPrice: 7000, img: 'cb1.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 2, category: 'combos', name: 'ప్రీమియం 1 Gram Gold కాంబో సెట్ #2', oldPrice: 8500, newPrice: 6500, img: 'cb2.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 3, category: 'combos', name: 'లగ్జరీ జూవెల్లరీ కాంబో #3', oldPrice: 7500, newPrice: 5500, img: 'cb3.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 4, category: 'combos', name: 'ట్రెడిషనల్ మ్యారేజ్ కాంబో #4', oldPrice: 10000, newPrice: 8000, img: 'cb4.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 5, category: 'combos', name: 'రాయల్ కుందన్ సెట్ కాంబో #5', oldPrice: 6000, newPrice: 4500, img: 'cb5.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 6, category: 'combos', name: 'గోల్డ్ కవరింగ్ కాంబో సెట్ #6', oldPrice: 5000, newPrice: 3800, img: 'cb6.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 7, category: 'combos', name: 'వివాహ డిజైనర్ కాంబో సెట్ #7', oldPrice: 12000, newPrice: 9500, img: 'cb7.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 8, category: 'combos', name: 'మహారాణి హారం కాంబో #8', oldPrice: 11000, newPrice: 8800, img: 'cb8.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 9, category: 'combos', name: 'లక్కీ స్పెషల్ ఆభరణాల కాంబో #9', oldPrice: 9500, newPrice: 7200, img: 'cb9.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
+    { id: 10, category: 'combos', name: 'రాయల్ చౌకర్ కాంబో సెట్ #10', oldPrice: 8000, newPrice: 6000, img: 'cb10.png', defaultImg: defaultImages.combos, tag: 'COMBO OFFER' },
 
-            // ================= 2. 1-GRAM GOLD గొలుసులు (GOLD) =================
-            { id: 11, category: 'gold', name: '24k గోల్డ్ ప్లేటెడ్ మైక్రో గొలుసు #1', oldPrice: 3000, newPrice: 1500, img: 'g1.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-            { id: 12, category: 'gold', name: '1 Gram Gold తాలి తాడు గొలుసు #2', oldPrice: 2500, newPrice: 1200, img: 'g2.png', defaultImg: defaultImages.gold, tag: 'BEST' },
-            { id: 13, category: 'gold', name: 'డిజైనర్ డోలీ గొలుసు #3', oldPrice: 2800, newPrice: 1400, img: 'g3.png', defaultImg: defaultImages.gold, tag: 'HOT' },
-            { id: 14, category: 'gold', name: 'రాయల్ లుక్ గోల్డ్ గొలుసు #4', oldPrice: 3500, newPrice: 1800, img: 'g4.png', defaultImg: defaultImages.gold, tag: 'NEW' },
+    // ================= 2. 1-GRAM GOLD గొలుసులు (GOLD - 10 Items) =================
+    { id: 11, category: 'gold', name: '24k గోల్డ్ ప్లేటెడ్ మైక్రో గొలుసు #1', oldPrice: 3000, newPrice: 1500, img: 'g1.png', defaultImg: defaultImages.gold, tag: 'HOT' },
+    { id: 12, category: 'gold', name: '1 Gram Gold తాలి తాడు గొలుసు #2', oldPrice: 2500, newPrice: 1200, img: 'g2.png', defaultImg: defaultImages.gold, tag: 'BEST' },
+    { id: 13, category: 'gold', name: 'డిజైనర్ డోలీ గొలుసు #3', oldPrice: 2800, newPrice: 1400, img: 'g3.png', defaultImg: defaultImages.gold, tag: 'HOT' },
+    { id: 14, category: 'gold', name: 'రాయల్ లుక్ గోల్డ్ గొలుసు #4', oldPrice: 3500, newPrice: 1800, img: 'g4.png', defaultImg: defaultImages.gold, tag: 'NEW' },
+    { id: 15, category: 'gold', name: 'ట్రెడిషనల్ మోనాలిసా గొలుసు #5', oldPrice: 3200, newPrice: 1600, img: 'g5.png', defaultImg: defaultImages.gold, tag: 'HOT' },
+    { id: 16, category: 'gold', name: 'ఫ్యాన్సీ ప్లేటెడ్ చైన్ #6', oldPrice: 2200, newPrice: 1100, img: 'g6.png', defaultImg: defaultImages.gold, tag: 'BEST' },
+    { id: 17, category: 'gold', name: 'డైలీ వేర్ గోల్డ్ గొలుసు #7', oldPrice: 1800, newPrice: 950, img: 'g7.png', defaultImg: defaultImages.gold, tag: 'HOT' },
+    { id: 18, category: 'gold', name: 'హెవీ డిజైన్ గోల్డ్ గొలుసు #8', oldPrice: 4000, newPrice: 2100, img: 'g8.png', defaultImg: defaultImages.gold, tag: 'NEW' },
+    { id: 19, category: 'gold', name: 'క్లాసిక్ షైనింగ్ గొలుసు #9', oldPrice: 2600, newPrice: 1300, img: 'g9.png', defaultImg: defaultImages.gold, tag: 'BEST' },
+    { id: 20, category: 'gold', name: 'ప్రీమియం మైక్రో గోల్డ్ గొలుసు #10', oldPrice: 3800, newPrice: 1900, img: 'g10.png', defaultImg: defaultImages.gold, tag: 'HOT' },
 
-            // ================= 3. హారాలు (HAARAM) =================
-            { id: 15, category: 'haaram', name: 'రాయల్ గుండ్ల హారం #1', oldPrice: 6000, newPrice: 4200, img: 'h1.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
-            { id: 16, category: 'haaram', name: 'లక్ష్మీదేవి కాసుల హారం #2', oldPrice: 7000, newPrice: 4900, img: 'h2.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
-            { id: 17, category: 'haaram', name: 'ముత్యాల డిజైన్ రాయల్ హారం #3', oldPrice: 5500, newPrice: 3800, img: 'h3.png', defaultImg: defaultImages.haaram, tag: 'NEW' },
+    // ================= 3. హారాలు (HAARAM - 10 Items) =================
+    { id: 21, category: 'haaram', name: 'రాయల్ గుండ్ల హారం #1', oldPrice: 6000, newPrice: 4200, img: 'h1.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
+    { id: 22, category: 'haaram', name: 'లక్ష్మీదేవి కాసుల హారం #2', oldPrice: 7000, newPrice: 4900, img: 'h2.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
+    { id: 23, category: 'haaram', name: 'ముత్యాల డిజైన్ రాయల్ హారం #3', oldPrice: 5500, newPrice: 3800, img: 'h3.png', defaultImg: defaultImages.haaram, tag: 'NEW' },
+    { id: 24, category: 'haaram', name: 'నవరత్న డిజైనర్ హారం #4', oldPrice: 8000, newPrice: 5600, img: 'h4.png', defaultImg: defaultImages.haaram, tag: 'EXCLUSIVE' },
+    { id: 25, category: 'haaram', name: 'మామిడి పిందెల హారం #5', oldPrice: 6500, newPrice: 4500, img: 'h5.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
+    { id: 26, category: 'haaram', name: 'కుందన్ వర్క్ లాంగ్ హారం #6', oldPrice: 9000, newPrice: 6200, img: 'h6.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
+    { id: 27, category: 'haaram', name: 'ట్రెడిషనల్ రామపరివార్ హారం #7', oldPrice: 7500, newPrice: 5100, img: 'h7.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
+    { id: 28, category: 'haaram', name: 'టెంపుల్ జ్యూవెల్లరీ హారం #8', oldPrice: 8500, newPrice: 5800, img: 'h8.png', defaultImg: defaultImages.haaram, tag: 'NEW' },
+    { id: 29, category: 'haaram', name: 'మహారాణి రూబీ హారం #9', oldPrice: 9500, newPrice: 6700, img: 'h9.png', defaultImg: defaultImages.haaram, tag: 'BEST' },
+    { id: 30, category: 'haaram', name: 'ఎమరాల్డ్ గ్రీన్ హారం #10', oldPrice: 6800, newPrice: 4700, img: 'h10.png', defaultImg: defaultImages.haaram, tag: 'HOT' },
 
-            // ================= 4. బ్యాంగిల్స్ (BANGLES) =================
-            { id: 18, category: 'bangles', name: 'ఫ్యాన్సీ డిజైనర్ గాజుల సెట్ #1', oldPrice: 2000, newPrice: 1200, img: 'b1.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
-            { id: 19, category: 'bangles', name: '1 Gram Gold కడా గాజులు #2', oldPrice: 2400, newPrice: 1500, img: 'b2.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
+    // ================= 4. బ్యాంగిల్స్ (BANGLES - 10 Items) =================
+    { id: 31, category: 'bangles', name: 'ఫ్యాన్సీ డిజైనర్ గాజుల సెట్ #1', oldPrice: 2000, newPrice: 1200, img: 'b1.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
+    { id: 32, category: 'bangles', name: '1 Gram Gold కడా గాజులు #2', oldPrice: 2400, newPrice: 1500, img: 'b2.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
+    { id: 33, category: 'bangles', name: 'కుందన్ ప్యాచ్ వర్క్ బ్యాంగిల్స్ #3', oldPrice: 1800, newPrice: 1100, img: 'b3.png', defaultImg: defaultImages.bangles, tag: 'NEW' },
+    { id: 34, category: 'bangles', name: 'మ్యాచింగ్ గ్లాస్ బ్యాంగిల్స్ కాంబో #4', oldPrice: 1500, newPrice: 900, img: 'b4.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
+    { id: 35, category: 'bangles', name: 'బ్రైడల్ హెవీ గాజుల సెట్ #5', oldPrice: 3000, newPrice: 1900, img: 'b5.png', defaultImg: defaultImages.bangles, tag: 'EXCLUSIVE' },
+    { id: 36, category: 'bangles', name: 'మైక్రో ప్లేటెడ్ డోలీ బ్యాంగిల్స్ #6', oldPrice: 2200, newPrice: 1350, img: 'b6.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
+    { id: 37, category: 'bangles', name: 'రోజ్ గోల్డ్ కడా బ్యాంగిల్స్ #7', oldPrice: 2600, newPrice: 1600, img: 'b7.png', defaultImg: defaultImages.bangles, tag: 'NEW' },
+    { id: 38, category: 'bangles', name: 'స్టోన్ ఎంబెడెడ్ డిజైన్ గాజులు #8', oldPrice: 2100, newPrice: 1250, img: 'b8.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
+    { id: 39, category: 'bangles', name: 'ట్రెడిషనల్ రెడ్ & గోల్డ్ గాజులు #9', oldPrice: 1700, newPrice: 999, img: 'b9.png', defaultImg: defaultImages.bangles, tag: 'BEST' },
+    { id: 40, category: 'bangles', name: 'వల్వెట్ ఫినిషింగ్ గాజుల సెట్ #10', oldPrice: 1900, newPrice: 1150, img: 'b10.png', defaultImg: defaultImages.bangles, tag: 'HOT' },
 
-            // ================= 5. ఇయర్ రింగ్స్ (EARRINGS) =================
-            { id: 20, category: 'earrings', name: '1 Gram Gold జుంకీలు #1', oldPrice: 1500, newPrice: 800, img: 'e1.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
-            { id: 21, category: 'earrings', name: 'చాంద్ బాలి ఇయర్ రింగ్స్ #2', oldPrice: 1800, newPrice: 950, img: 'e2.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
+    // ================= 5. ఇయర్ రింగ్స్ (EARRINGS - 10 Items) =================
+    { id: 41, category: 'earrings', name: '1 Gram Gold జుంకీలు #1', oldPrice: 1500, newPrice: 800, img: 'e1.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
+    { id: 42, category: 'earrings', name: 'చాంద్ బాలి ఇయర్ రింగ్స్ #2', oldPrice: 1800, newPrice: 950, img: 'e2.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
+    { id: 43, category: 'earrings', name: 'లక్ష్మీదేవి మోడల్ కమ్మలు #3', oldPrice: 1600, newPrice: 899, img: 'e3.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
+    { id: 44, category: 'earrings', name: 'కుందన్ డ్రాప్ ఇయర్ రింగ్స్ #4', oldPrice: 2000, newPrice: 1100, img: 'e4.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
+    { id: 45, category: 'earrings', name: 'పర్ల్ హ్యాంగింగ్స్ #5', oldPrice: 1400, newPrice: 750, img: 'e5.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
+    { id: 46, category: 'earrings', name: 'ట్రెండింగ్ స్టడ్స్ సెట్ #6', oldPrice: 1200, newPrice: 650, img: 'e6.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
+    { id: 47, category: 'earrings', name: 'హెవీ బ్రైడల్ జుంకాలు #7', oldPrice: 2500, newPrice: 1400, img: 'e7.png', defaultImg: defaultImages.earrings, tag: 'EXCLUSIVE' },
+    { id: 48, category: 'earrings', name: 'అమెరికన్ డైమండ్ కమ్మలు #8', oldPrice: 2200, newPrice: 1200, img: 'e8.png', defaultImg: defaultImages.earrings, tag: 'HOT' },
+    { id: 49, category: 'earrings', name: 'మోనాలిసా బీడ్స్ ఇయర్ రింగ్స్ #9', oldPrice: 1700, newPrice: 900, img: 'e9.png', defaultImg: defaultImages.earrings, tag: 'BEST' },
+    { id: 50, category: 'earrings', name: 'టెంపుల్ డిజైన్ జుంకీలు #10', oldPrice: 1900, newPrice: 1050, img: 'e10.png', defaultImg: defaultImages.earrings, tag: 'NEW' },
 
-            // ================= 6. మగ్గం వర్క్స్ (MAGGAM) =================
-            { id: 22, category: 'maggam', name: 'హెవీ బ్రైడల్ మగ్గం వర్క్ బ్లౌజ్ #1', oldPrice: 5000, newPrice: 3500, img: 'm1.png', defaultImg: defaultImages.maggam, tag: 'EXCLUSIVE' },
-            { id: 23, category: 'maggam', name: 'సింపుల్ గ్రాండ్ మగ్గం వర్క్ #2', oldPrice: 4000, newPrice: 2600, img: 'm2.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
+    // ================= 6. మగ్గం వర్క్స్ (MAGGAM - 10 Items) =================
+    { id: 51, category: 'maggam', name: 'హెవీ బ్రైడల్ మగ్గం వర్క్ బ్లౌజ్ #1', oldPrice: 5000, newPrice: 3500, img: 'm1.png', defaultImg: defaultImages.maggam, tag: 'EXCLUSIVE' },
+    { id: 52, category: 'maggam', name: 'సింపుల్ గ్రాండ్ మగ్గం వర్క్ #2', oldPrice: 4000, newPrice: 2600, img: 'm2.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
+    { id: 53, category: 'maggam', name: 'పీకాక్ డిజైన్ మగ్గం వర్క్ #3', oldPrice: 4500, newPrice: 3000, img: 'm3.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
+    { id: 54, category: 'maggam', name: 'జర్దోసీ వర్క్ బ్రైడల్ బ్లౌజ్ #4', oldPrice: 5500, newPrice: 3800, img: 'm4.png', defaultImg: defaultImages.maggam, tag: 'NEW' },
+    { id: 55, category: 'maggam', name: 'థ్రెడ్ & బీడ్స్ మగ్గం వర్క్ #5', oldPrice: 3800, newPrice: 2400, img: 'm5.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
+    { id: 56, category: 'maggam', name: 'కుందన్ ఎంబ్రాయిడరీ వర్క్ #6', oldPrice: 4200, newPrice: 2800, img: 'm6.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
+    { id: 57, category: 'maggam', name: 'ఎలిఫెంట్ మోటిఫ్ మగ్గం వర్క్ #7', oldPrice: 4800, newPrice: 3200, img: 'm7.png', defaultImg: defaultImages.maggam, tag: 'NEW' },
+    { id: 58, category: 'maggam', name: 'రాయల్ సిల్క్ మగ్గం వర్క్ #8', oldPrice: 5200, newPrice: 3600, img: 'm8.png', defaultImg: defaultImages.maggam, tag: 'EXCLUSIVE' },
+    { id: 59, category: 'maggam', name: 'బోట్ నెక్ మగ్గం వర్క్ బ్లౌజ్ #9', oldPrice: 4600, newPrice: 3100, img: 'm9.png', defaultImg: defaultImages.maggam, tag: 'BEST' },
+    { id: 60, category: 'maggam', name: 'హ్యాండ్ వర్క్ డిజైనర్ బ్లౌజ్ #10', oldPrice: 3900, newPrice: 2500, img: 'm10.png', defaultImg: defaultImages.maggam, tag: 'HOT' },
 
-            // ================= 7. బ్యూటీ & పెర్ఫ్యూమ్స్ (BEAUTY) =================
-            { id: 24, category: 'beauty', name: 'లగ్జరీ పెర్ఫ్యూమ్ & రోజ్ వాటర్ కాంబో #1', oldPrice: 2400, newPrice: 1200, img: 'p1.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
-            { id: 25, category: 'beauty', name: 'ఫ్రెంచ్ సుగంధ పరిమళ పెర్ఫ్యూమ్ #2', oldPrice: 1800, newPrice: 999, img: 'p2.png', defaultImg: defaultImages.beauty, tag: 'HOT' }
-        ];
-
-        const giftList = [
-            "గోల్డ్ ప్లేటెడ్ లక్ష్మీదేవి కాయిన్ 🪙",
+    // ================= 7. బ్యూటీ & పెర్ఫ్యూమ్స్ (BEAUTY - 10 Items) =================
+    { id: 61, category: 'beauty', name: 'లగ్జరీ పెర్ఫ్యూమ్ & రోజ్ వాటర్ కాంబో #1', oldPrice: 2400, newPrice: 1200, img: 'p1.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
+    { id: 62, category: 'beauty', name: 'ఫ్రెంచ్ సుగంధ పరిమళ పెర్ఫ్యూమ్ #2', oldPrice: 1800, newPrice: 999, img: 'p2.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
+    { id: 63, category: 'beauty', name: 'ప్రీమియం బాడీ మిస్ట్ & స్ప్రే #3', oldPrice: 1500, newPrice: 799, img: 'p3.png', defaultImg: defaultImages.beauty, tag: 'NEW' },
+    { id: 64, category: 'beauty', name: 'అత్తర్ పరిమళ నూనె కాంబో #4', oldPrice: 1600, newPrice: 850, img: 'p4.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
+    { id: 65, category: 'beauty', name: 'రాయల్ ఆగార్ వుడ్ పెర్ఫ్యూమ్ #5', oldPrice: 2800, newPrice: 1499, img: 'p5.png', defaultImg: defaultImages.beauty, tag: 'EXCLUSIVE' },
+    { id: 66, category: 'beauty', name: 'జాస్మిన్ & రోజ్ ఫ్రాగ్రన్స్ సెట్ #6', oldPrice: 2000, newPrice: 1050, img: 'p6.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
+    { id: 67, category: 'beauty', name: 'నేచురల్ హెర్బల్ ఫేస్ ప్యాక్ కాంబో #7', oldPrice: 1400, newPrice: 699, img: 'p7.png', defaultImg: defaultImages.beauty, tag: 'NEW' },
+    { id: 68, category: 'beauty', name: 'లాంగ్ లాస్టింగ్ పాకెట్ పెర్ఫ్యూమ్స్ #8', oldPrice: 1200, newPrice: 599, img: 'p8.png', defaultImg: defaultImages.beauty, tag: 'BEST' },
+    { id: 69, category: 'beauty', name: 'లగ్జరీ ఆరోమా ఆయిల్స్ సెట్ #9', oldPrice: 2200, newPrice: 1150, img: 'p9.png', defaultImg: defaultImages.beauty, tag: 'HOT' },
+    { id: 70, category: 'beauty', name: 'బ్రైడల్ బ్యూటీ కేర్ బాక్స్ #10', oldPrice: 3200, newPrice: 1799, img: 'p10.png', defaultImg: defaultImages.beauty, tag: 'EXCLUSIVE' }
+];
             "ముత్యాల ముక్కుపుడక & ఇయర్ రింగ్స్ 💎",
             "డిజైనర్ హ్యాండ్ బ్యాగ్ 👜",
             "రాయల్ కుందన్ రింగ్ 💍",
